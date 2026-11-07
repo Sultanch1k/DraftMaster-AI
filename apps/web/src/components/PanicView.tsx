@@ -1,0 +1,175 @@
+'use client';
+
+import { Ban, Flame, Target, Zap } from 'lucide-react';
+import type { PanicResult } from '@/lib/types';
+import { cn } from '@/lib/format';
+import { HeroPortrait } from './HeroPortrait';
+import { WinProbabilityBar } from './WinProbability';
+import { OneSentencePlan } from './ReportCards';
+import { StatRow } from './Bar';
+
+/**
+ * "I'M LAST PICK" result — engineered to be scannable in one screen during a
+ * real draft. Everything above the fold is the decision; the reasoning lives in
+ * hover/tap detail and in the full report.
+ */
+export function PanicView({ result, onFullReport }: { result: PanicResult; onFullReport?: () => void }) {
+  const b = result.full_build;
+  const coreItems = [...b.mid, ...b.late].slice(0, 6);
+  const counters = b.key_counters ?? [];
+
+  return (
+    <div className="flex flex-col gap-3">
+      <OneSentencePlan sentence={result.one_sentence_win_plan} />
+
+      <div className="grid gap-3 lg:grid-cols-[1.15fr_1fr]">
+        {/* Decision column */}
+        <div className="card card-pad flex flex-col gap-3">
+          <div className="flex items-center gap-3">
+            <HeroPortrait icon={result.best_hero.icon} name={result.best_hero.localized_name} size={72} priority />
+            <div className="min-w-0 flex-1">
+              <p className="label text-radiant">#1 Best Pick</p>
+              <h2 className="truncate text-2xl font-black leading-tight text-white">
+                {result.best_hero.localized_name}
+              </h2>
+              <p className="truncate text-xs text-slate-400">{result.best_hero.roles.join(' · ')}</p>
+            </div>
+            <div className="text-right">
+              <p className="label">Pick score</p>
+              <p className="text-2xl font-black tabular-nums text-radiant">{result.best_hero.final_score.toFixed(1)}</p>
+            </div>
+          </div>
+
+          {result.why_this_hero[0] && (
+            <p className="rounded-lg border border-base-700 bg-base-900/60 p-2.5 text-sm leading-relaxed text-slate-200">
+              {result.why_this_hero[0]}
+            </p>
+          )}
+
+          <WinProbabilityBar wp={result.win_probability} compact />
+
+          {result.backups.length > 0 && (
+            <div>
+              <p className="label mb-1.5">Backups</p>
+              <div className="flex flex-wrap gap-2">
+                {result.backups.slice(0, 4).map((p, i) => (
+                  <div key={p.hero_id} className="flex items-center gap-2 rounded-lg border border-base-700 bg-base-850/70 px-2 py-1">
+                    <span className="text-[10px] font-bold text-slate-500">#{i + 2}</span>
+                    <HeroPortrait icon={p.icon} name={p.localized_name} size={26} />
+                    <span className="text-xs text-slate-300">{p.localized_name}</span>
+                    <span className="text-[10px] tabular-nums text-slate-500">{p.final_score.toFixed(0)}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Intel column */}
+        <div className="card card-pad flex flex-col gap-3">
+          <div>
+            <p className="label mb-1.5 flex items-center gap-1.5 text-gold">
+              <Zap className="h-3.5 w-3.5" /> Full build
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {coreItems.map((i) => (
+                <span key={i.key} className="group relative rounded-md border border-base-700 bg-base-850/70 px-2 py-1 text-[11px] text-slate-200">
+                  {i.name}
+                  <span className="pointer-events-none absolute left-0 top-full z-20 mt-1 hidden w-56 rounded-lg border border-base-600 bg-base-900 p-2 text-[11px] text-slate-300 shadow-xl group-hover:block">
+                    {i.reason}
+                  </span>
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {counters.length > 0 && (
+            <div>
+              <p className="label mb-1.5 text-gold">Key counters</p>
+              <div className="flex flex-wrap gap-1.5">
+                {counters.map((i) => (
+                  <span key={i.key} className="rounded-md border border-gold/50 bg-gold/10 px-2 py-1 text-[11px] font-semibold text-gold">
+                    {i.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <p className="label mb-1.5 flex items-center gap-1.5 text-dire">
+                <Target className="h-3.5 w-3.5" /> Kill order
+              </p>
+              <ol className="flex flex-col gap-1">
+                {result.kill_priority.map((t) => (
+                  <li key={t.hero_id} className="flex items-center gap-1.5 text-xs text-slate-300">
+                    <span className="flex h-4 w-4 items-center justify-center rounded-full bg-dire/20 text-[9px] font-bold text-dire">
+                      {t.rank}
+                    </span>
+                    <span className="truncate">{t.name}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div>
+              <p className="label mb-1.5 flex items-center gap-1.5 text-gold">
+                <Flame className="h-3.5 w-3.5" /> Danger heroes
+              </p>
+              <ol className="flex flex-col gap-1">
+                {result.danger_heroes.slice(0, 4).map((t) => (
+                  <li key={t.hero_id} className="flex items-center gap-1.5 text-xs text-slate-300">
+                    <span className="truncate">{t.name}</span>
+                    <span className="ml-auto text-[10px] tabular-nums text-dire">{t.priority_score.toFixed(0)}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+
+          {result.items_to_avoid.length > 0 && (
+            <div>
+              <p className="label mb-1.5 flex items-center gap-1.5 text-dire">
+                <Ban className="h-3.5 w-3.5" /> Do not build
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {result.items_to_avoid.slice(0, 6).map((i) => (
+                  <span key={i.key} className="rounded-md border border-dire/50 bg-dire/10 px-2 py-1 text-[11px] text-dire">
+                    {i.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="grid gap-3 sm:grid-cols-3">
+        {(
+          [
+            ['Primary', result.win_conditions.primary, 'border-radiant/40 text-radiant'],
+            ['Secondary', result.win_conditions.secondary, 'border-gold/40 text-gold'],
+            ['Emergency', result.win_conditions.emergency, 'border-dire/40 text-dire'],
+          ] as const
+        ).map(([label, text, cls]) => (
+          <div key={label} className={cn('card card-pad border', cls)}>
+            <p className="label mb-1">{label} win condition</p>
+            <p className="text-xs leading-relaxed text-slate-200">{text}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+        <span>
+          Generated in {result.generated_in_ms} ms · {result.usage?.plan === 'premium' ? 'Premium' : 'Free'} plan
+          {result.usage?.remaining != null && ` · ${result.usage.remaining} analyses left today`}
+        </span>
+        {onFullReport && (
+          <button type="button" onClick={onFullReport} className="btn-ghost !py-1.5 text-xs">
+            Open the full 11-section report →
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
