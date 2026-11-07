@@ -50,7 +50,7 @@ RU_EXACT: dict[str, str] = {
         "⚠ Проигрывает вероятный мап-ап на линии — планируйте раннюю ротацию или возьмите партнёра на лейн."
     ),
     "High comfort pick for you, so you will execute the plan reliably.": (
-        "Комфортный для вас пик, поэтому план вы выполните надёжно."
+        "Комфортный для вас пик — план вы отыграете уверенно."
     ),
     "Pairs well with your allied draft.": "Хорошо сочетается с драфтом союзников.",
     "⚠ Mechanically demanding in a fight-heavy game — only pick if you are comfortable.": (
@@ -125,7 +125,7 @@ RU_EXACT: dict[str, str] = {
     ),
     "0-25m": "0–25 мин",
     "You fall off late — win before the clock turns.": (
-        "Вы проседаете в поздней игре — побеждайте, пока не пошло время."
+        "Вы проседаете в поздней игре — заканчивайте матч раньше."
     ),
     "Teamfight": "Замес",
     "First BKB / ultimate item": "Первый BKB / ультимейт-предмет",
@@ -138,7 +138,7 @@ RU_EXACT: dict[str, str] = {
         "Превращайте выигранный бой в башню и Рошана, а не в заход на базу."
     ),
     "Avoid fighting them around this window unless you are ahead.": (
-        "Не ввязывайтесь в бой в это окно, если вы не впереди."
+        "Не ввязывайтесь в драку в это окно, если вы не впереди."
     ),
     # --- plan: match phases ---------------------------------------------
     "Laning": "Лейнинг",
@@ -315,10 +315,10 @@ RU_EXACT: dict[str, str] = {
         "Иллюзии и призывы зачищаются уроном по площади, а не одиночными атаками."
     ),
     "Enemy out-sustains you; anti-heal converts their main strength into a weakness.": (
-        "Враг переживает вас за счёт лечения; анти-хил превращает их силу в слабость."
+        "Враг переигрывает вас на отхиле; анти-хил превращает их силу в слабость."
     ),
     "Invisible threats are neutralised by detection and a disable that reveals.": (
-        "Невидимые угрозы нейтрализуются детекцией и контролем, который их раскрывает."
+        "Невидимых врагов нейтрализует детекция плюс контроль, который их раскрывает."
     ),
     "Enemy wants one clean teamfight combo; BKB plus a save item breaks the chain.": (
         "Враг хочет одну чистую комбинацию в замесе; BKB плюс сейв-предмет разрывают её."
@@ -327,7 +327,7 @@ RU_EXACT: dict[str, str] = {
         "Враг кайтит вас из боев; предметы на мобильность возвращают вам время в бою."
     ),
     "Silence locks your kit; a dispel restores your ability to fight.": (
-        "Сайленс блокирует ваши способности; диспел возвращает возможность драться."
+        "Сайленс отключает ваши способности; диспел возвращает вас в игру."
     ),
     "Pure/burst damage ignores your resistances; raw HP plus BKB is the answer.": (
         "Чистый и бурст-урон игнорируют сопротивление; ответ — запас здоровья и BKB."
@@ -339,13 +339,13 @@ RU_EXACT: dict[str, str] = {
         "Чистая броня почти бесполезна против драфта с магическим бурстом."
     ),
     "Stacking more evasion does not answer an enemy that already ignores yours.": (
-        "Больше уклонения не отвечает врагу, который его уже игнорирует."
+        "Ещё больше уклонения не поможет против врага, который и так его игнорирует."
     ),
     "Long-cooldown sustain items lose the attrition war to a healing draft.": (
-        "Предметы на восстановление с долгим откатом проигрывают войну на истощение драфту с лечением."
+        "Предметы на восстановление с большим откатом проигрывают войну на истощение драфту с лечением."
     ),
     "Single-target items cannot clear a board of illusions or summons.": (
-        "Одиночные предметы не зачищают поле иллюзий или призывов."
+        "Одиночные предметы не зачищают иллюзии и призывы."
     ),
     "Spell amplification does nothing when the enemy kills you with right clicks.": (
         "Усиление заклинаний не поможет, когда враг убивает вас обычными атаками."
@@ -425,6 +425,17 @@ RU_EXACT: dict[str, str] = {
     ),
     # --- meta panel: data-source attribution -----------------------------
     "OpenDota public match data": "публичным матчам OpenDota",
+    # --- screenshot analyzer ---------------------------------------------
+    "Detected heroes were auto-fed into the report engine.": (
+        "Распознанные герои автоматически переданы в движок отчёта."
+    ),
+    "No heroes detected — try a clearer, larger screenshot of the draft screen.": (
+        "Герои не распознаны — попробуйте более чёткий и крупный скриншот экрана драфта."
+    ),
+    # --- API error details ------------------------------------------------
+    "empty upload": "Пустой файл.",
+    "image too large (max 8 MB)": "Изображение слишком большое (максимум 8 МБ).",
+    "match not available": "матч недоступен",
 }
 
 
@@ -762,12 +773,22 @@ def localize_report(report: dict, locale: str) -> dict:
     out = localize(report, locale)
     if locale != "ru":
         return out
-    ta = out.get("threat_analysis")
+    _localize_dimensions(out)
+    picks = out.get("pick_reports")
+    if isinstance(picks, dict):
+        for sub in picks.values():
+            if isinstance(sub, dict):
+                _localize_dimensions(sub)
+    return out
+
+
+def _localize_dimensions(report: dict) -> None:
+    """Remap the engine's English threat-dimension labels to Russian in place."""
+    ta = report.get("threat_analysis")
     if isinstance(ta, dict) and isinstance(ta.get("labels"), dict):
         ta["labels"] = {k: RU_DIMENSIONS.get(v, v) for k, v in ta["labels"].items()}
-    ds = out.get("draft_summary")
+    ds = report.get("draft_summary")
     if isinstance(ds, dict) and isinstance(ds.get("headline_threats"), list):
         for item in ds["headline_threats"]:
             if isinstance(item, dict):
                 item["dimension"] = RU_DIMENSIONS.get(item.get("dimension", ""), item.get("dimension"))
-    return out

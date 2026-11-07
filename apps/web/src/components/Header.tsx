@@ -47,12 +47,13 @@ export function Header({
           </div>
         </div>
 
-        <nav className="ml-auto flex items-center gap-1 overflow-x-auto">
+        <nav className="ml-auto flex items-center gap-1 overflow-x-auto" aria-label="Sections">
           {TABS.map((tab_) => (
             <button
               key={tab_.key}
               type="button"
               onClick={() => onTab(tab_.key)}
+              aria-current={tab === tab_.key ? 'page' : undefined}
               className={cn(
                 'shrink-0 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition',
                 tab === tab_.key
@@ -62,7 +63,9 @@ export function Header({
                   : 'text-slate-400 hover:bg-base-800 hover:text-slate-200',
               )}
             >
-              <span className="mr-1">{tab_.icon}</span>
+              <span className="mr-1" aria-hidden>
+                {tab_.icon}
+              </span>
               <span className="hidden sm:inline">{tTabs(tab_.key)}</span>
             </button>
           ))}

@@ -47,12 +47,23 @@ export function ReportView({ report: incoming }: { report: Report }) {
   const selectHero = useCallback(
     async (heroId: number) => {
       if (heroId === activeHeroId || switching !== null) return;
-      setSwitching(heroId);
       setError(null);
+
+      // Every Top-5 candidate ships with its own precomputed report, so switching
+      // is instant and costs no extra quota. Fall back to a fresh request only for
+      // heroes that were not precomputed (manual picks, screenshot detections).
+      const precomputed = report.pick_reports?.[String(heroId)];
+      if (precomputed) {
+        setReport({ ...precomputed, best_picks: report.best_picks, pick_reports: report.pick_reports });
+        setActiveHeroId(heroId);
+        return;
+      }
+
+      setSwitching(heroId);
       try {
         const res = await api.analyse(enemyIds, heroId, report.role ?? undefined, rankLabelToTier(report.rank));
         // Keep the original Top 5 ordering so cards do not jump around.
-        setReport({ ...res.report, best_picks: report.best_picks });
+        setReport({ ...res.report, best_picks: report.best_picks, pick_reports: report.pick_reports });
         setActiveHeroId(heroId);
       } catch (e) {
         setError((e as ApiError).message ?? t('loading'));
@@ -60,7 +71,7 @@ export function ReportView({ report: incoming }: { report: Report }) {
         setSwitching(null);
       }
     },
-    [activeHeroId, enemyIds, report.best_picks, report.rank, report.role, switching, t],
+    [activeHeroId, enemyIds, report.best_picks, report.pick_reports, report.rank, report.role, switching, t],
   );
 
   const activePick = report.best_picks.find((p) => p.hero_id === activeHeroId) ?? report.best_picks[0];

@@ -5,6 +5,9 @@ const API_TARGET = process.env.API_PROXY_TARGET || 'http://127.0.0.1:12001';
 
 const nextConfig = {
   reactStrictMode: true,
+  // Standalone output produces a self-contained server bundle for the Docker
+  // image; Vercel ignores it and builds normally.
+  output: 'standalone',
   // Proxy the API through the Next server so the browser only ever talks to a
   // single origin (no CORS, no exposed backend port, works behind any tunnel).
   async rewrites() {

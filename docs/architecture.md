@@ -47,8 +47,10 @@ never imports React; the pipeline never imports the engine.
 
 1. **FastAPI** validates the body against `PanicRequest` (1–5 hero ids, role, rank).
 2. `_validate_ids` rejects unknown hero ids with `422`.
-3. `_enforce_quota` increments the user's daily counter in `Store`; free users over
-   the limit receive `402` with an explicit upgrade message.
+3. `_enforce_quota` charges the user's daily counter in `Store` once per distinct
+   draft (locale-independent signature); re-requests of the same draft are free and
+   free users over the limit receive a localized `402` with an explicit upgrade
+   message.
 4. `ReportEngine` computes the draft summary, best hero, win probability, item
    build, target priority, power spikes and win conditions — all pure functions over
    the in-memory dataset.

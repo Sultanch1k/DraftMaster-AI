@@ -4,14 +4,17 @@ from __future__ import annotations
 import logging
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.exception_handlers import http_exception_handler
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from draftmaster_engine import MatchCoach, ReportEngine, ScreenshotAnalyzer, get_dataset
+from draftmaster_engine.i18n import localize
 
 from .config import get_settings
 from .infra import Cache, Store
+from .locale import resolve_locale
 from .routers import analysis, coach, reference, screenshot
 from .schemas import HealthOut
 
@@ -72,6 +75,26 @@ def create_app() -> FastAPI:
     @app.exception_handler(KeyError)
     async def key_error_handler(request: Request, exc: KeyError):
         return JSONResponse(status_code=422, content={"detail": str(exc), "code": "invalid_hero"})
+
+    @app.exception_handler(HTTPException)
+    async def localized_http_error(request: Request, exc: HTTPException):
+        """Return HTTP error details in the caller's locale.
+
+        Detail strings are English at their source; this translates the ones we
+        control (quota, validation, not-found) so Russian users never see a mixed
+        language response. Untranslatable details pass through unchanged.
+        """
+        locale = resolve_locale(request)
+        if locale != "en" and isinstance(exc.detail, str):
+            translated = localize(exc.detail, locale)
+            if translated != exc.detail:
+                headers = getattr(exc, "headers", None)
+                return JSONResponse(
+                    status_code=exc.status_code,
+                    content={"detail": translated},
+                    headers=headers,
+                )
+        return await http_exception_handler(request, exc)
 
     @app.get("/health", response_model=HealthOut, tags=["system"])
     def health(request: Request) -> dict:

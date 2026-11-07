@@ -13,10 +13,17 @@ const BASE = '';
 
 export class ApiError extends Error {
   status: number;
-  constructor(message: string, status: number) {
+  code?: string;
+  constructor(message: string, status: number, code?: string) {
     super(message);
     this.status = status;
+    this.code = code;
   }
+}
+
+/** True when the failure was a network/transport error rather than an HTTP response. */
+export function isNetworkError(e: unknown): boolean {
+  return e instanceof ApiError && e.status === 0;
 }
 
 export function userId(): string {
@@ -51,25 +58,34 @@ function localeHeader(): Record<string, string> {
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(`${BASE}${path}`, {
-    ...init,
-    headers: {
-      'Content-Type': 'application/json',
-      'x-user-id': userId(),
-      ...premiumHeaders(),
-      ...localeHeader(),
-      ...(init?.headers || {}),
-    },
-  });
+  let res: Response;
+  try {
+    res = await fetch(`${BASE}${path}`, {
+      ...init,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-user-id': userId(),
+        ...premiumHeaders(),
+        ...localeHeader(),
+        ...(init?.headers || {}),
+      },
+    });
+  } catch {
+    // fetch only rejects on transport failure — surface it as a typed error so
+    // the UI can show a connection message instead of a raw exception.
+    throw new ApiError('Network request failed', 0, 'network');
+  }
   if (!res.ok) {
     let detail = `Request failed (${res.status})`;
+    let code: string | undefined;
     try {
       const body = await res.json();
       detail = body.detail || detail;
+      code = body.code;
     } catch {
       /* non-JSON error body */
     }
-    throw new ApiError(detail, res.status);
+    throw new ApiError(detail, res.status, code);
   }
   return res.json() as Promise<T>;
 }

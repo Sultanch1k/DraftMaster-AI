@@ -1,9 +1,9 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AlertCircle, Loader2, Swords } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { api, ApiError } from '@/lib/api';
+import { useLocale, useTranslations } from 'next-intl';
+import { api, ApiError, isNetworkError } from '@/lib/api';
 import type { Hero, Meta, PanicResult, Report } from '@/lib/types';
 import { cn } from '@/lib/format';
 import { Header, type TabKey } from '@/components/Header';
@@ -12,13 +12,18 @@ import { DraftControls } from '@/components/DraftControls';
 import { PanicView } from '@/components/PanicView';
 import { ReportView } from '@/components/ReportView';
 import { HeroPortrait } from '@/components/HeroPortrait';
+import { ReportSkeleton } from '@/components/ReportSkeleton';
+import { PremiumModal } from '@/components/PremiumModal';
 import { ScreenshotPanel } from '@/components/panels/ScreenshotPanel';
 import { CoachPanel } from '@/components/panels/CoachPanel';
 import { MetaPanel } from '@/components/panels/MetaPanel';
 import { UsageBar } from '@/components/panels/UsageBar';
 
+type RunError = { message: string; quota: boolean };
+
 export default function Home() {
   const t = useTranslations();
+  const locale = useLocale();
   const [heroes, setHeroes] = useState<Hero[]>([]);
   const [meta, setMeta] = useState<Meta | null>(null);
   const [selected, setSelected] = useState<number[]>([]);
@@ -26,18 +31,48 @@ export default function Home() {
   const [rank, setRank] = useState(55);
   const [tab, setTab] = useState<TabKey>('lastpick');
   const [premium, setPremium] = useState(false);
+  const [showPlans, setShowPlans] = useState(false);
 
   const [panic, setPanic] = useState<PanicResult | null>(null);
   const [report, setReport] = useState<Report | null>(null);
   const [loading, setLoading] = useState<'panic' | 'report' | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<RunError | null>(null);
   const [elapsed, setElapsed] = useState<number | null>(null);
+  const [lastRun, setLastRun] = useState<'panic' | 'report' | null>(null);
+  // Remembers the last analysis so a language switch can refresh the same draft
+  // in the new locale (the backend does not charge quota for a repeat request).
+  const lastRunRef = useRef<{ kind: 'panic' | 'report'; heroIds: number[]; role: string; rank: number } | null>(null);
+  const localeRef = useRef(locale);
 
   useEffect(() => {
-    api.heroes().then(setHeroes).catch((e) => setError(String(e.message ?? e)));
+    api.heroes()
+      .then(setHeroes)
+      .catch((e) => setError(describeError(e, t)));
     api.meta().then(setMeta).catch(() => undefined);
     setPremium(window.localStorage.getItem('draftmaster_premium') === '1');
-  }, []);
+  }, [t]);
+
+  useEffect(() => {
+    if (localeRef.current === locale) return;
+    localeRef.current = locale;
+    const prev = lastRunRef.current;
+    if (!prev) return;
+    setLoading(prev.kind);
+    setError(null);
+    (async () => {
+      try {
+        if (prev.kind === 'panic') {
+          setPanic(await api.panic(prev.heroIds, prev.role, prev.rank));
+        } else {
+          setReport((await api.analyse(prev.heroIds, undefined, prev.role, prev.rank)).report);
+        }
+      } catch (e) {
+        setError(describeError(e, t));
+      } finally {
+        setLoading(null);
+      }
+    })();
+  }, [locale, t]);
 
   const togglePremium = () => {
     const next = !premium;
@@ -61,15 +96,18 @@ export default function Home() {
     setReport(null);
     setError(null);
     setElapsed(null);
+    setLastRun(null);
   };
 
   const run = async (kind: 'panic' | 'report') => {
     if (selected.length === 0) {
-      setError(t('errors.selectAtLeastOne'));
+      setError({ message: t('errors.selectAtLeastOne'), quota: false });
       return;
     }
     setError(null);
     setLoading(kind);
+    setLastRun(kind);
+    lastRunRef.current = { kind, heroIds: selected, role, rank };
     const t0 = performance.now();
     try {
       if (kind === 'panic') {
@@ -83,8 +121,7 @@ export default function Home() {
       }
       setElapsed(Math.round(performance.now() - t0));
     } catch (e) {
-      const err = e as ApiError;
-      setError(err.message ?? t('errors.generic'));
+      setError(describeError(e, t));
     } finally {
       setLoading(null);
     }
@@ -97,7 +134,7 @@ export default function Home() {
 
   return (
     <div className="min-h-dvh">
-      <Header tab={tab} onTab={setTab} patch={meta?.patch} premium={premium} onPremium={togglePremium} />
+      <Header tab={tab} onTab={setTab} patch={meta?.patch} premium={premium} onPremium={() => setShowPlans(true)} />
 
       <main className="mx-auto flex w-full max-w-[1600px] flex-col gap-4 px-3 py-4 sm:px-6 sm:py-6">
         {/* Hero: value prop + instant action */}
@@ -176,17 +213,29 @@ export default function Home() {
 
             <section className="flex flex-col gap-3">
               {error && (
-                <div className="flex items-start gap-2 rounded-xl border border-dire/50 bg-dire/10 p-3 text-sm text-dire">
+                <div
+                  className={cn(
+                    'flex items-start gap-2 rounded-xl border p-3 text-sm',
+                    error.quota ? 'border-gold/50 bg-gold/10 text-gold' : 'border-dire/50 bg-dire/10 text-dire',
+                  )}
+                >
                   <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
-                  <span>{error}</span>
+                  <div className="flex flex-1 flex-col gap-1.5">
+                    {error.quota && <span className="font-semibold">{t('errors.quotaTitle')}</span>}
+                    <span>{error.message}</span>
+                    {lastRun && selected.length > 0 && (
+                      <button
+                        type="button"
+                        onClick={() => run(lastRun)}
+                        className="self-start text-xs font-semibold underline underline-offset-2"
+                      >
+                        {t('errors.retry')}
+                      </button>
+                    )}
+                  </div>
                 </div>
               )}
-              {loading && (
-                <div className="card card-pad flex items-center gap-3 text-sm text-slate-300">
-                  <Loader2 className="h-4 w-4 animate-spin text-radiant" />
-                  {t('loading.reading', { count: selected.length })}
-                </div>
-              )}
+              {loading && <ReportSkeleton label={t('loading.reading', { count: selected.length })} />}
               {!loading && tab === 'lastpick' && panic && <PanicView result={panic} onFullReport={() => run('report')} />}
               {!loading && tab === 'draft' && report && <ReportView report={report} />}
               {!loading && !panic && !report && (
@@ -197,16 +246,42 @@ export default function Home() {
         )}
 
         {tab === 'screenshot' && <ScreenshotPanel />}
-        {tab === 'coach' && <CoachPanel premium={premium} onPremium={togglePremium} />}
+        {tab === 'coach' && <CoachPanel premium={premium} onPremium={() => setShowPlans(true)} />}
         {tab === 'meta' && <MetaPanel meta={meta} />}
       </main>
 
+      <PremiumModal
+        open={showPlans}
+        premium={premium}
+        onClose={() => setShowPlans(false)}
+        onToggle={() => {
+          togglePremium();
+          setShowPlans(false);
+        }}
+      />
+
       <footer className="border-t border-base-800 py-6 text-center text-[11px] text-slate-600">
         {t('footer.disclaimer')}{' '}
+        <a
+          href="https://www.opendota.com"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="underline underline-offset-2 hover:text-slate-400"
+        >
+          {t('footer.data')}
+        </a>
+        {' · '}
         {t('footer.plan', { tier: premium ? t('footer.premium') : t('footer.free') })}
       </footer>
     </div>
   );
+}
+
+function describeError(e: unknown, t: (key: string) => string): RunError {
+  const err = e as ApiError;
+  if (isNetworkError(err)) return { message: t('errors.network'), quota: false };
+  if (err?.status === 402) return { message: err.message || t('errors.generic'), quota: true };
+  return { message: err?.message || t('errors.generic'), quota: false };
 }
 
 function EmptyState({ onScreenshot }: { onScreenshot: () => void }) {

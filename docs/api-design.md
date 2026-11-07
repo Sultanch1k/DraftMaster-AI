@@ -203,9 +203,11 @@ item_notes[], timing_notes[], practice_plan[] }, "cached": false }`
 | Free | 3 | preview | — |
 | Premium | unlimited | unlimited | yes |
 
-Quota is incremented before work is done and enforced atomically in `Store`, so the
-limit cannot be exceeded by concurrent requests. Exceeding it returns `402` with an
-explicit upgrade message rather than a generic error.
+Quota is charged once per **distinct analysis**, keyed by a hash of the draft and
+options (locale excluded), so re-fetching the same draft — for example after the
+user switches language — is free. The counter is incremented atomically in `Store`,
+so the limit cannot be exceeded by concurrent requests. Exceeding it returns `402`
+with an explicit, localized upgrade message rather than a generic error.
 
 ## 9. Versioning
 

@@ -10,15 +10,39 @@ export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('meta');
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://draftmaster.ai';
   return {
-    title: t('title'),
+    metadataBase: new URL(siteUrl),
+    title: {
+      default: t('title'),
+      template: '%s · DraftMaster AI',
+    },
     description: t('description'),
     applicationName: 'DraftMaster AI',
+    keywords: [
+      'Dota 2',
+      'draft',
+      'counter pick',
+      'Dota 2 coach',
+      'item build',
+      'win probability',
+      'last pick',
+      'Dota 2 AI',
+    ],
+    alternates: { canonical: '/' },
     openGraph: {
       title: 'DraftMaster AI',
       description: t('description'),
       type: 'website',
+      siteName: 'DraftMaster AI',
+      url: siteUrl,
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'DraftMaster AI',
+      description: t('description'),
+    },
+    robots: { index: true, follow: true },
   };
 }
 

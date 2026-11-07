@@ -4,7 +4,7 @@
     "patch": "Patch {patch}",
     "premium": "★ Premium",
     "free": "Free plan",
-    "premiumTitle": "Toggle Premium (demo): unlimited analyses + AI coach",
+    "premiumTitle": "Plans & limits",
     "language": "Language",
     "switchTo": "Switch language to {locale}"
   },
@@ -36,7 +36,10 @@
   },
   "errors": {
     "selectAtLeastOne": "Select at least one enemy hero.",
-    "generic": "Something went wrong."
+    "generic": "Something went wrong. Please try again.",
+    "network": "Couldn't reach the server. Check your connection and try again.",
+    "quotaTitle": "Daily limit reached",
+    "retry": "Retry"
   },
   "loading": {
     "reading": "Reading {count, plural, one {# enemy hero} other {# enemy heroes}} against the live meta…"
@@ -48,7 +51,7 @@
     "searchPlaceholder": "Search hero…",
     "clearSearch": "Clear search",
     "enemies": "{count}/{max} enemies",
-    "heroes": "{count} heroes",
+    "heroes": "{count, plural, one {# hero} other {# heroes}}",
     "all": "All",
     "noMatch": "No hero matches “{query}”."
   },
@@ -85,7 +88,7 @@
     "generatedIn": "Generated in {ms} ms",
     "freePlan": "Free plan",
     "premiumPlan": "Premium",
-    "analysesLeft": "{count} analyses left today",
+    "analysesLeft": "{count, plural, one {# analysis left today} other {# analyses left today}}",
     "openFull": "Open the full 11-section report →"
   },
   "report": {
@@ -236,7 +239,8 @@
     "disclaimer": "DraftMaster AI · data © OpenDota / Valve · not affiliated with Valve Corporation ·",
     "premium": "Premium",
     "free": "Free",
-    "plan": "{tier} plan"
+    "plan": "{tier} plan",
+    "data": "Data from OpenDota"
   },
   "metaPanel": {
     "title": "Meta Intelligence",
@@ -251,5 +255,25 @@
   "meta": {
     "title": "DraftMaster AI — Here is exactly how to win this specific game",
     "description": "DraftMaster AI is the Dota 2 AI coach that turns the enemy draft into a complete win plan: best picks, dynamic item build, threat analysis, win conditions, kill priority and a WIN PROBABILITY ENGINE."
+  },
+  "premium": {
+    "title": "Plans",
+    "subtitle": "DraftMaster AI is free to use. Premium removes the daily limit and unlocks the full coach.",
+    "free": "Free",
+    "pro": "Premium",
+    "freePrice": "3 analyses per day",
+    "proPrice": "Unlimited (early access)",
+    "free1": "3 analyses per day",
+    "free2": "Full 11-section reports",
+    "free3": "Panic Mode + Screenshot Analyzer",
+    "pro1": "Unlimited analyses",
+    "pro2": "Unlimited match coaching",
+    "pro3": "Patch meta intelligence",
+    "pro4": "Priority strategy updates",
+    "current": "Current",
+    "activate": "Activate Premium (early access)",
+    "downgrade": "Switch back to Free",
+    "close": "Close",
+    "note": "Early access: Premium is unlocked in-app for free while we finish billing."
   }
 }

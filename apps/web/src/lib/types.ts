@@ -161,6 +161,8 @@ export type Report = {
     hero?: string;
     verdict: string;
   };
+  /** Full 11-section report for every Top-5 candidate, keyed by hero id. */
+  pick_reports?: Record<string, Report>;
 };
 
 export type PanicResult = {

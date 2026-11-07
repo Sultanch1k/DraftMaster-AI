@@ -125,6 +125,73 @@ def test_analyse_returns_full_report(client):
     assert set(report["win_conditions"]) == {"primary", "secondary", "emergency"}
 
 
+def test_analyse_includes_full_report_for_every_top_pick(client):
+    """Every Top-5 candidate must ship a complete 11-section report.
+
+    This is the highest-priority product requirement: clicking any recommended
+    hero shows its full report immediately, and a single analysis never spends
+    more than one quota unit on hero switching.
+    """
+    ids = _ids(client)
+    report = client.post(
+        "/api/analyse",
+        json={
+            "enemy_hero_ids": [ids["Lion"], ids["Axe"], ids["Shadow Shaman"]],
+            "role": "carry",
+        },
+    ).json()["report"]
+
+    picks = report["pick_reports"]
+    assert set(picks) == {str(p["hero_id"]) for p in report["best_picks"]}
+    required = {
+        "why_this_hero",
+        "threat_analysis",
+        "item_build",
+        "skill_build",
+        "talents",
+        "match_plan",
+        "win_conditions",
+        "target_priority",
+        "power_spikes",
+        "one_sentence_win_plan",
+        "win_probability",
+    }
+    for hero_id, sub in picks.items():
+        assert required <= set(sub), f"hero {hero_id} missing sections"
+        assert len(sub["skill_build"]["levels"]) == 30
+        assert len(sub["match_plan"]) == 5
+        assert sub["item_build"]["hero"] == sub["draft_summary"]["hero"]
+    # Each pick's report is hero-specific, not a copy of #1.
+    item_heroes = {sub["item_build"]["hero"] for sub in picks.values()}
+    assert len(item_heroes) == len(picks)
+
+
+def test_pick_reports_are_localized_for_russian(client):
+    ids = _ids(client)
+    report = client.post(
+        "/api/analyse",
+        json={"enemy_hero_ids": [ids["Lion"], ids["Axe"]], "locale": "ru"},
+        headers={"x-locale": "ru"},
+    ).json()["report"]
+    for sub in report["pick_reports"].values():
+        assert sub["threat_analysis"]["labels"]["crowd_control"] == "Контроль"
+        assert any("Выигрывает" in s or "лейн" in s or "контрол" in s for s in sub["why_this_hero"])
+
+
+def test_quota_error_detail_is_localized(client):
+    ids = _ids(client)
+    headers = {"x-user-id": "ru-quota-user", "x-locale": "ru"}
+    codes = [
+        client.post("/api/panic", json={"enemy_hero_ids": [hid]}, headers=headers).status_code
+        for hid in (ids["Lion"], ids["Axe"], ids["Shadow Shaman"], ids["Sniper"])
+    ]
+    assert codes[3] == 402
+    detail = client.post(
+        "/api/panic", json={"enemy_hero_ids": [ids["Sniper"]]}, headers=headers
+    ).json()["detail"]
+    assert "Бесплатный тариф" in detail
+
+
 def test_analyse_why_this_hero_describes_the_requested_hero(client):
     """The `why_this_hero` prose must describe the picked hero, not always #1.
 
@@ -264,11 +331,33 @@ def test_threat_analysis_endpoint(client):
 
 def test_free_quota_enforced(client):
     ids = _ids(client)
-    payload = {"enemy_hero_ids": [ids["Lion"]]}
     headers = {"x-user-id": "quota-test-user"}
-    codes = [client.post("/api/panic", json=payload, headers=headers).status_code for _ in range(4)]
+    # Distinct drafts consume quota; three are allowed and the fourth is blocked.
+    codes = [
+        client.post("/api/panic", json={"enemy_hero_ids": [hid]}, headers=headers).status_code
+        for hid in (ids["Lion"], ids["Axe"], ids["Shadow Shaman"], ids["Sniper"])
+    ]
     assert codes[:3] == [200, 200, 200]
     assert codes[3] == 402
+
+
+def test_repeating_the_same_draft_does_not_spend_quota(client):
+    """Re-requesting one draft (e.g. after a language switch) is free.
+
+    The product promise is "3 analyses per day", meaning three drafts — not
+    three HTTP calls. The language switch re-fetches the same draft in another
+    locale and must not burn a unit.
+    """
+    ids = _ids(client)
+    headers = {"x-user-id": "idempotent-quota-user"}
+    payload = {"enemy_hero_ids": [ids["Lion"], ids["Axe"]]}
+    first = client.post("/api/panic", json=payload, headers=headers)
+    assert first.status_code == 200
+    assert first.json()["usage"]["used_today"] == 1
+    for _ in range(5):
+        again = client.post("/api/panic", json=payload, headers={**headers, "x-locale": "ru"})
+        assert again.status_code == 200
+        assert again.json()["usage"]["used_today"] == 1
 
 
 def test_premium_token_bypasses_quota(client):

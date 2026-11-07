@@ -46,9 +46,15 @@ class DraftReport:
     power_spikes: dict
     one_sentence_win_plan: str
     draft_summary: dict
+    # Full report for every Top-5 candidate, keyed by hero id (as a string for
+    # JSON). Lets the UI switch heroes instantly without another API call, which
+    # also keeps a single analysis from consuming more than one quota unit.
+    pick_reports: dict[str, dict] = field(default_factory=dict)
 
     def to_dict(self) -> dict:
-        return self.__dict__
+        # Shallow copy: callers store the dict inside pick_reports, and returning
+        # the live __dict__ would create a self-reference when we then assign it.
+        return dict(self.__dict__)
 
 
 class ReportEngine:
@@ -104,12 +110,56 @@ class ReportEngine:
         allies = [int(a) for a in (allies or [])]
 
         candidates = score_candidates(
-            self.ds, enemy_ids, role=role, comfort=comfort, allies=allies, limit=5 if panic else 5
+            self.ds, enemy_ids, role=role, comfort=comfort, allies=allies, limit=5
         )
         if hero_id is None:
             hero_id = candidates[0].hero_id if candidates else (enemy_ids[0] if enemy_ids else 1)
         hero = self.ds.hero_or_raise(hero_id)
 
+        sections = self._hero_sections(hero_id, enemy_ids, role, rank_tier, candidates, allies)
+        why = self._why_this_hero(hero_id, candidates, hero, enemy_ids, allies)
+
+        report = DraftReport(
+            generated_in_ms=int((time.perf_counter() - started) * 1000),
+            patch=(self.ds.patch or {}).get("name"),
+            enemy_draft=[self._hero_brief(i) for i in enemy_ids],
+            role=role,
+            rank=sections["win_probability"]["rank_label"],
+            best_picks=[c.to_dict() for c in candidates],
+            why_this_hero=why,
+            **{k: sections[k] for k in (
+                "win_probability", "threat_analysis", "item_build", "skill_build",
+                "talents", "match_plan", "win_conditions", "target_priority",
+                "power_spikes", "one_sentence_win_plan", "draft_summary",
+            )},
+        )
+        # A manual pick (screenshot detection, or a hero outside the Top 5) is the
+        # only report we need; otherwise precompute every candidate so the UI can
+        # switch heroes with no extra request.
+        picks = [c.hero_id for c in candidates]
+        if hero_id not in picks:
+            report.pick_reports = {str(hero_id): report.to_dict()}
+        else:
+            report.pick_reports = {str(c.hero_id): self._report_for_pick(
+                c.hero_id, enemy_ids, role, rank_tier, candidates, allies
+            ) for c in candidates}
+        return report
+
+    def _hero_sections(
+        self,
+        hero_id: int,
+        enemy_ids: list[int],
+        role: str | None,
+        rank_tier: int | None,
+        candidates: list[Candidate],
+        allies: list[int],
+    ) -> dict:
+        """Every hero-specific section of the report, for one hero.
+
+        Extracted so the same code produces both the requested hero's report and
+        the precomputed reports for the other Top-5 candidates.
+        """
+        hero = self.ds.hero_or_raise(hero_id)
         threats = analyse_threats(self.ds, enemy_ids, hero_id)
         build = build_items(self.ds, hero_id, threats.problems)
         targets = generate_target_priority(self.ds, hero_id, enemy_ids)
@@ -120,31 +170,51 @@ class ReportEngine:
         winprob = win_probability(self.ds, hero_id, enemy_ids, role, rank_tier)
         win_conditions = generate_win_conditions(self.ds, hero, threats, targets, winprob)
         sentence = one_sentence_plan(self.ds, hero, threats, build, targets, winprob)
+        return {
+            "win_probability": winprob.to_dict(),
+            "threat_analysis": threats.to_dict(),
+            "item_build": build.to_dict(),
+            "skill_build": skill,
+            "talents": talents,
+            "match_plan": timeline,
+            "win_conditions": win_conditions,
+            "target_priority": targets,
+            "power_spikes": spikes,
+            "one_sentence_win_plan": sentence,
+            "draft_summary": self._draft_summary(threats, targets, winprob, hero),
+        }
 
-        top = candidates[0] if candidates else None
-        why = self._why_this_hero(hero_id, candidates, hero, enemy_ids, allies)
-
+    def _report_for_pick(
+        self,
+        hero_id: int,
+        enemy_ids: list[int],
+        role: str | None,
+        rank_tier: int | None,
+        candidates: list[Candidate],
+        allies: list[int],
+    ) -> dict:
+        """A full 11-section report for one candidate hero (no pick_reports)."""
+        hero = self.ds.hero_or_raise(hero_id)
+        sections = self._hero_sections(hero_id, enemy_ids, role, rank_tier, candidates, allies)
+        why = next(
+            (c.reasons for c in candidates if c.hero_id == hero_id),
+            score_one(self.ds, hero, enemy_ids, None, None, allies).reasons,
+        )
         report = DraftReport(
-            generated_in_ms=int((time.perf_counter() - started) * 1000),
+            generated_in_ms=0,
             patch=(self.ds.patch or {}).get("name"),
             enemy_draft=[self._hero_brief(i) for i in enemy_ids],
             role=role,
-            rank=winprob.rank_label,
-            win_probability=winprob.to_dict(),
+            rank=sections["win_probability"]["rank_label"],
             best_picks=[c.to_dict() for c in candidates],
             why_this_hero=why,
-            threat_analysis=threats.to_dict(),
-            item_build=build.to_dict(),
-            skill_build=skill,
-            talents=talents,
-            match_plan=timeline,
-            win_conditions=win_conditions,
-            target_priority=targets,
-            power_spikes=spikes,
-            one_sentence_win_plan=sentence,
-            draft_summary=self._draft_summary(threats, targets, winprob, hero),
+            **{k: sections[k] for k in (
+                "win_probability", "threat_analysis", "item_build", "skill_build",
+                "talents", "match_plan", "win_conditions", "target_priority",
+                "power_spikes", "one_sentence_win_plan", "draft_summary",
+            )},
         )
-        return report
+        return report.to_dict()
 
     # -- helpers ---------------------------------------------------------
     def _why_this_hero(

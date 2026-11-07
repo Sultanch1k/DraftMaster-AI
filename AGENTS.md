@@ -96,6 +96,18 @@ cd apps/web && npx tsc --noEmit && npm run build
   id equals a placeholder index (e.g. Axe is id `2`), which React reports as a duplicate
   key. This only appears in the dev overlay — the production build stays silent — so
   always check the browser console, not just `npm run build`, after touching such lists.
+- **Quota is per distinct draft, not per HTTP call.** `_enforce_quota` hashes the draft
+  and options (locale excluded) and charges each signature once per day, cached under a
+  `quota:<user>:<day>:<signature>` marker. Re-requesting the same draft — the language
+  switch re-fetches the report in the new locale — is free. Tests must therefore use
+  *distinct* drafts to exercise the limit, and the frontend refreshes the last analysis
+  on a locale change via `lastRunRef`.
+- **`DraftReport.to_dict()` returns a shallow copy**, not the live `__dict__`. The
+  manual-pick branch stores a pick's dict inside `pick_reports`; returning `__dict__`
+  made that dict contain itself and broke JSON serialization ("Circular reference").
+- **`pick_reports` ships a full 11-section report for every Top-5 pick** so clicking a
+  recommended hero is instant and never spends quota. Keep the key set in sync with
+  `best_picks` (keys are `str(hero_id)`).
 
 ## Definition of done
 

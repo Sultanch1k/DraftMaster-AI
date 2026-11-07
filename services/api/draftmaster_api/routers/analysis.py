@@ -33,15 +33,38 @@ def _usage_out(request: Request, used: int, plan: str) -> UsageOut:
     return UsageOut(plan=plan, used_today=used, daily_limit=limit, remaining=remaining)
 
 
-def _enforce_quota(request: Request) -> UsageOut:
-    """Increment and enforce the daily analysis quota."""
+def _quota_signature(*parts: object) -> str:
+    """A stable identity for one analysis, independent of locale.
+
+    Re-requesting the same draft (for example after switching language, which
+    only changes the prose language) must not spend another quota unit, so the
+    signature deliberately excludes the locale.
+    """
+    return hashlib.sha256(json.dumps(parts, sort_keys=True, default=str).encode()).hexdigest()
+
+
+def _enforce_quota(request: Request, signature: str | None = None) -> UsageOut:
+    """Enforce the daily quota, charging each distinct analysis once per day.
+
+    A signature identifies the analysis; when the same signature has already
+    been charged today the request is free. This keeps "3 analyses per day"
+    meaning three drafts, not three HTTP calls, and makes the language switch
+    (which re-fetches the same draft in another locale) cost nothing.
+    """
     store = request.app.state.store
     settings = request.app.state.settings
+    cache = request.app.state.cache
     plan = _plan_for(request)
     user = request.headers.get("x-user-id", "anonymous")
     day = _today()
-    used = store.increment_usage(user, day)
-    if plan == FREE_PLAN and used > settings.free_daily_analyses:
+
+    if plan == PREMIUM_PLAN:
+        return _usage_out(request, store.get_usage(user, day), plan)
+
+    marker = f"quota:{user}:{day}:{signature or 'default'}"
+    already_charged = bool(cache.get(marker))
+    used = store.get_usage(user, day) if already_charged else store.increment_usage(user, day)
+    if used > settings.free_daily_analyses:
         limit = settings.free_daily_analyses
         if resolve_locale(request) == "ru":
             detail = (
@@ -54,6 +77,8 @@ def _enforce_quota(request: Request) -> UsageOut:
                 "Upgrade to Premium for unlimited analyses and the AI coach."
             )
         raise HTTPException(status_code=402, detail=detail)
+    if not already_charged:
+        cache.set(marker, 1, 86400)
     return _usage_out(request, used, plan)
 
 
@@ -67,7 +92,10 @@ def _validate_ids(request: Request, ids: list[int]) -> None:
 @router.post("/analyse")
 def analyse(payload: AnalyseRequest, request: Request) -> dict:
     _validate_ids(request, payload.enemy_hero_ids + payload.allies + ([payload.hero_id] if payload.hero_id else []))
-    usage = _enforce_quota(request)
+    usage = _enforce_quota(
+        request,
+        _quota_signature("analyse", payload.enemy_hero_ids, payload.allies, payload.hero_id, payload.role, payload.rank_tier),
+    )
     locale = resolve_locale(request, payload.locale)
 
     cache = request.app.state.cache
@@ -101,7 +129,9 @@ def analyse(payload: AnalyseRequest, request: Request) -> dict:
 def panic(payload: PanicRequest, request: Request) -> dict:
     """The 'I'M LAST PICK' flow — tuned for sub-second, one-screen output."""
     _validate_ids(request, payload.enemy_hero_ids)
-    usage = _enforce_quota(request)
+    usage = _enforce_quota(
+        request, _quota_signature("panic", payload.enemy_hero_ids, payload.role, payload.rank_tier)
+    )
     locale = resolve_locale(request, payload.locale)
     result = request.app.state.engine.panic(
         enemy_ids=payload.enemy_hero_ids,
