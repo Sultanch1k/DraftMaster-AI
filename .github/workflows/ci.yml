@@ -29,9 +29,9 @@ jobs:
           import json, pathlib
           data = json.loads(pathlib.Path("data/artifacts/draftmaster-data.json").read_text())
           assert len(data["heroes"]) >= 120, len(data["heroes"])
-          assert data["counter_matrix"], "counter matrix empty"
+          assert data["counters"]["matrix"], "counter matrix empty"
           hashes = json.loads(pathlib.Path("data/artifacts/hero-hashes.json").read_text())
-          assert len(hashes) >= 120, len(hashes)
+          assert len(hashes["heroes"]) >= 120, len(hashes["heroes"])
           print(f"artifacts ok: {len(data['heroes'])} heroes, patch {data['patch']['name']}")
           PY
       - name: Tests
