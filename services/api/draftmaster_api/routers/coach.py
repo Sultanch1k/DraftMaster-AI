@@ -1,12 +1,35 @@
 """Match ID coach + personal AI coach endpoints."""
 from __future__ import annotations
 
+import httpx
 from fastapi import APIRouter, HTTPException, Request
 
 from ..locale import localize_coach, resolve_locale
 from ..schemas import MatchCoachRequest, ProfileUpsert
 
 router = APIRouter(tags=["coach"])
+
+
+def _coach_error(exc: Exception) -> HTTPException:
+    """Map upstream/OpenDota failures onto clean, user-facing HTTP errors.
+
+    OpenDota returns 404 for an unknown match and 429 when we exceed its public
+    rate limit; everything else is an upstream outage. We never surface the raw
+    httpx message (it contains the full request URL) to the client.
+    """
+    if isinstance(exc, httpx.HTTPStatusError):
+        status = exc.response.status_code
+        if status == 404:
+            return HTTPException(status_code=404, detail="match not available")
+        if status == 429:
+            return HTTPException(
+                status_code=429,
+                detail="OpenDota rate limit reached — please try again in a moment.",
+            )
+    return HTTPException(
+        status_code=502,
+        detail="Could not reach OpenDota — please try again in a moment.",
+    )
 
 
 @router.post("/match/coach")
@@ -21,10 +44,10 @@ def match_coach(payload: MatchCoachRequest, request: Request) -> dict:
         return localize_coach(cached, locale)
     try:
         report = request.app.state.coach.coach(payload.match_id, payload.account_id)
-    except ValueError as exc:
-        raise HTTPException(status_code=404, detail=str(exc))
+    except ValueError:
+        raise HTTPException(status_code=404, detail="match not available")
     except Exception as exc:  # network / upstream
-        raise HTTPException(status_code=502, detail=f"OpenDota request failed: {exc}")
+        raise _coach_error(exc)
     body = {"coach_report": report.to_dict(), "cached": False}
     cache.set(key, body, settings.match_cache_ttl_seconds)
     return localize_coach(body, locale)
@@ -35,7 +58,7 @@ def match_summary(match_id: int, request: Request) -> dict:
     try:
         match = request.app.state.coach.client.match(match_id)
     except Exception as exc:
-        raise HTTPException(status_code=502, detail=f"OpenDota request failed: {exc}")
+        raise _coach_error(exc)
     if "players" not in match:
         raise HTTPException(status_code=404, detail="match not available")
     ds = request.app.state.engine.ds

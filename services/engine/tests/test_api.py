@@ -272,7 +272,7 @@ def test_reference_and_winprob_endpoints_are_locale_aware(client):
     wp_en = client.post("/api/win-probability", json=body).json()
     wp_ru = client.post("/api/win-probability", json=body, headers={"x-locale": "ru"}).json()
     assert wp_en["verdict"] != wp_ru["verdict"]
-    assert wp_ru["factors"][0]["name"] == "Мап-ап героев"
+    assert wp_ru["factors"][0]["name"] == "Матчапы героев"
     # Numbers are identical across locales.
     assert wp_en["player_win_probability"] == wp_ru["player_win_probability"]
 
@@ -393,3 +393,68 @@ def test_match_summary_live(client):
     r = client.get(f"/api/match/{mid}")
     assert r.status_code == 200
     assert len(r.json()["players"]) == 10
+
+
+def test_match_coach_maps_upstream_errors_cleanly(client, monkeypatch):
+    """A missing match must not leak the raw httpx/OpenDota message to the client."""
+    import httpx
+
+    request = httpx.Request("GET", "https://api.opendota.com/api/matches/1")
+    response = httpx.Response(404, request=request)
+
+    def fake_coach(match_id, account_id=None):
+        raise httpx.HTTPStatusError("boom", request=request, response=response)
+
+    monkeypatch.setattr(client.app.state.coach, "coach", fake_coach)
+    r = client.post("/api/match/coach", json={"match_id": 1})
+    assert r.status_code == 404
+    assert r.json()["detail"] == "match not available"
+    # The raw upstream URL must never reach the user.
+    assert "opendota" not in r.json()["detail"].lower()
+    assert "404" not in r.json()["detail"]
+
+
+def test_match_coach_upstream_outage_is_502(client, monkeypatch):
+    import httpx
+
+    def fake_coach(match_id, account_id=None):
+        raise httpx.ConnectError("connection refused")
+
+    monkeypatch.setattr(client.app.state.coach, "coach", fake_coach)
+    r = client.post("/api/match/coach", json={"match_id": 1})
+    assert r.status_code == 502
+    assert "Could not reach OpenDota" in r.json()["detail"]
+
+
+def test_match_coach_unknown_match_is_localized(client, monkeypatch):
+    import httpx
+
+    request = httpx.Request("GET", "https://api.opendota.com/api/matches/1")
+    response = httpx.Response(404, request=request)
+
+    def fake_coach(match_id, account_id=None):
+        raise httpx.HTTPStatusError("boom", request=request, response=response)
+
+    monkeypatch.setattr(client.app.state.coach, "coach", fake_coach)
+    r = client.post("/api/match/coach", json={"match_id": 1}, headers={"x-locale": "ru"})
+    assert r.status_code == 404
+    assert r.json()["detail"] == "матч недоступен"
+
+
+def test_screenshot_bad_file_is_localized(client):
+    """An unreadable upload returns a clean, translated message — never a Pillow traceback."""
+    r = client.post(
+        "/api/screenshot/analyse",
+        files={"file": ("bad.png", b"not an image", "image/png")},
+    )
+    assert r.status_code == 422
+    assert "could not read image" in r.json()["detail"].lower()
+    assert "BytesIO" not in r.json()["detail"]
+
+    r_ru = client.post(
+        "/api/screenshot/analyse",
+        files={"file": ("bad.png", b"not an image", "image/png")},
+        headers={"x-locale": "ru"},
+    )
+    assert r_ru.status_code == 422
+    assert r_ru.json()["detail"].startswith("Не удалось прочитать")

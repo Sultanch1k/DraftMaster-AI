@@ -80,7 +80,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     let code: string | undefined;
     try {
       const body = await res.json();
-      detail = body.detail || detail;
+      detail = extractDetail(body.detail) || detail;
       code = body.code;
     } catch {
       /* non-JSON error body */
@@ -88,6 +88,23 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     throw new ApiError(detail, res.status, code);
   }
   return res.json() as Promise<T>;
+}
+
+/**
+ * FastAPI returns a string for handled errors but a list of validation objects
+ * for 422s. Normalise both to a single readable line so the UI never renders
+ * "[object Object]" or a raw schema dump.
+ */
+function extractDetail(detail: unknown): string | null {
+  if (typeof detail === 'string') return detail;
+  if (Array.isArray(detail)) {
+    const first = detail[0];
+    if (first && typeof first === 'object' && 'msg' in first) {
+      return String((first as { msg: unknown }).msg);
+    }
+    return null;
+  }
+  return null;
 }
 
 export const api = {
@@ -116,15 +133,20 @@ export const api = {
   screenshot: async (file: File): Promise<ScreenshotResult> => {
     const form = new FormData();
     form.append('file', file);
-    const res = await fetch(`${BASE}/api/screenshot/analyse`, {
-      method: 'POST',
-      headers: { 'x-user-id': userId(), ...premiumHeaders(), ...localeHeader() },
-      body: form,
-    });
+    let res: Response;
+    try {
+      res = await fetch(`${BASE}/api/screenshot/analyse`, {
+        method: 'POST',
+        headers: { 'x-user-id': userId(), ...premiumHeaders(), ...localeHeader() },
+        body: form,
+      });
+    } catch {
+      throw new ApiError('Network request failed', 0, 'network');
+    }
     if (!res.ok) {
       let detail = `Upload failed (${res.status})`;
       try {
-        detail = (await res.json()).detail || detail;
+        detail = extractDetail((await res.json()).detail) || detail;
       } catch {
         /* ignore */
       }

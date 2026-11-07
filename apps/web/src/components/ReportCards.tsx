@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { AlertTriangle, Ban, Loader2, ShieldAlert, Sparkles, Swords, Target } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import type { ItemBuild, ItemPick, PickCandidate, PowerSpike, TargetRow } from '@/lib/types';
@@ -94,10 +95,22 @@ const PHASE_KEYS: { key: keyof ItemBuild; label: string; hint: string }[] = [
 ];
 
 function ItemChip({ item, tone = 'default' }: { item: ItemPick; tone?: 'default' | 'danger' | 'gold' }) {
+  const [open, setOpen] = useState(false);
   return (
     <div
+      role="button"
+      tabIndex={0}
+      aria-expanded={open}
+      onClick={() => setOpen((v) => !v)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setOpen((v) => !v);
+        }
+      }}
+      onBlur={() => setOpen(false)}
       className={cn(
-        'group relative flex items-center gap-2 rounded-lg border px-2 py-1.5',
+        'group relative flex cursor-pointer items-center gap-2 rounded-lg border px-2 py-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-radiant/60',
         tone === 'danger'
           ? 'border-dire/50 bg-dire/10'
           : tone === 'gold'
@@ -115,7 +128,13 @@ function ItemChip({ item, tone = 'default' }: { item: ItemPick; tone?: 'default'
       {typeof item.cost === 'number' && item.cost > 0 && (
         <span className="shrink-0 text-[10px] tabular-nums text-gold">{item.cost}</span>
       )}
-      <span className="pointer-events-none absolute left-0 top-full z-20 mt-1 hidden w-64 rounded-lg border border-base-600 bg-base-900 p-2 text-[11px] leading-relaxed text-slate-300 shadow-xl group-hover:block">
+      {/* Reasoning is reachable by hover (desktop) and by tap/click (mobile + keyboard). */}
+      <span
+        className={cn(
+          'pointer-events-none absolute left-0 top-full z-20 mt-1 w-64 rounded-lg border border-base-600 bg-base-900 p-2 text-[11px] leading-relaxed text-slate-300 shadow-xl group-hover:block',
+          open ? 'block' : 'hidden',
+        )}
+      >
         {item.reason}
       </span>
     </div>

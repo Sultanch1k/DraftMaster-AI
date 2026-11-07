@@ -44,10 +44,10 @@ def normalize_locale(value: str | None) -> str:
 RU_EXACT: dict[str, str] = {
     # --- scoring: pick reasons ------------------------------------------
     "Should win or go even in the lane against this lineup.": (
-        "Должен выиграть или отыграть лейн вровень против этого состава."
+        "Должен выиграть лейн или уйти вровень против этого состава."
     ),
     "⚠ Loses the likely lane matchup — plan to rotate early or bring a lane partner.": (
-        "⚠ Проигрывает вероятный мап-ап на линии — планируйте раннюю ротацию или возьмите партнёра на лейн."
+        "⚠ Проигрывает вероятный матчап на линии — планируйте раннюю ротацию или возьмите партнёра на лейн."
     ),
     "High comfort pick for you, so you will execute the plan reliably.": (
         "Комфортный для вас пик — план вы отыграете уверенно."
@@ -103,7 +103,7 @@ RU_EXACT: dict[str, str] = {
     ),
     # --- plan: target priority fragments --------------------------------
     "directly counters your hero": "напрямую контрит вашего героя",
-    "chains disables onto you": "складывает контроль на вас",
+    "chains disables onto you": "накидывает на вас цепочку контроля",
     "is an enemy core who wins the late game": "керри врага, который выигрывает позднюю игру",
     "kill this one first in every fight": "убивайте первым в каждом замесе",
     "lowest priority — ignore unless free": "низший приоритет — игнорируйте, если не по пути",
@@ -367,9 +367,9 @@ RU_EXACT: dict[str, str] = {
         "Драфт против вас — побеждайте темпом, сплитпушем и пикоффами, а не в 5 на 5."
     ),
     # --- win probability: factors ---------------------------------------
-    "Hero matchups": "Мап-ап героев",
+    "Hero matchups": "Матчапы героев",
     "Shrunk head-to-head advantage across the enemy draft.": (
-        "Усреднённое преимущество в личных мап-апах против драфта врага."
+        "Усреднённое преимущество в личных матчапах против драфта врага."
     ),
     "Meta strength": "Сила в мете",
     "Threat mismatch": "Несоответствие угроз",
@@ -435,7 +435,14 @@ RU_EXACT: dict[str, str] = {
     # --- API error details ------------------------------------------------
     "empty upload": "Пустой файл.",
     "image too large (max 8 MB)": "Изображение слишком большое (максимум 8 МБ).",
+    "could not read image": "Не удалось прочитать изображение. Загрузите PNG или JPG.",
     "match not available": "матч недоступен",
+    "OpenDota rate limit reached — please try again in a moment.": (
+        "Достигнут лимит запросов к OpenDota — попробуйте ещё раз через минуту."
+    ),
+    "Could not reach OpenDota — please try again in a moment.": (
+        "Не удалось связаться с OpenDota — попробуйте ещё раз через минуту."
+    ),
 }
 
 
@@ -484,7 +491,7 @@ def _patterns() -> list[tuple[re.Pattern[str], str]]:
     # scoring -----------------------------------------------------------------
     add(
         r"^Wins the matchup maths against (.+?) \(shrunk counter advantage from real match data\)\.$",
-        r"Выигрывает мап-ап против \1 (усреднённое преимущество из реальных матчей).",
+        r"Выигрывает матчап против \1 (усреднённое преимущество из реальных матчей).",
     )
     add(
         r"^Above-average current win rate \(([\d.]+%)\), so you are not fighting the meta\.$",

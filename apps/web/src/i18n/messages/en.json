@@ -193,7 +193,12 @@
     "draft": "Draft Win Probability",
     "enemy": "Enemy",
     "confidence": "{level} confidence",
-    "note": "Contributions are percentage points from a 50% baseline, then compressed toward 50% by rank ({rank}) — higher ranks convert draft edges into wins more reliably."
+    "note": "Contributions are percentage points from a 50% baseline, then compressed toward 50% by rank ({rank}) — higher ranks convert draft edges into wins more reliably.",
+    "levels": {
+      "low": "low",
+      "medium": "medium",
+      "high": "high"
+    }
   },
   "screenshot": {
     "title": "Screenshot Analyzer",
@@ -250,7 +255,8 @@
     "winners": "Patch winners",
     "losers": "Patch losers",
     "picks": "picks",
-    "cmWinrate": "CM win rate"
+    "cmWinrate": "CM win rate",
+    "patch": "Patch {patch}"
   },
   "meta": {
     "title": "DraftMaster AI — Here is exactly how to win this specific game",

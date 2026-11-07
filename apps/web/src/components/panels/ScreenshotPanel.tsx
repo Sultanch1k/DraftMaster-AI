@@ -4,13 +4,13 @@ import { useRef, useState } from 'react';
 import { ImageUp, Loader2, ScanLine, Upload } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { api, ApiError } from '@/lib/api';
-import type { ScreenshotResult } from '@/lib/types';
+import type { ScreenshotResult, Usage } from '@/lib/types';
 import { cn } from '@/lib/format';
 import { Card } from '@/components/Card';
 import { HeroPortrait } from '@/components/HeroPortrait';
 import { ReportView } from '@/components/ReportView';
 
-export function ScreenshotPanel() {
+export function ScreenshotPanel({ onUsage }: { onUsage?: (usage: Usage) => void }) {
   const t = useTranslations('screenshot');
   const [result, setResult] = useState<ScreenshotResult | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
@@ -27,6 +27,7 @@ export function ScreenshotPanel() {
     try {
       const res = await api.screenshot(file);
       setResult(res);
+      if (res.usage) onUsage?.(res.usage);
     } catch (e) {
       setError((e as ApiError).message ?? t('uploadFailed'));
     } finally {

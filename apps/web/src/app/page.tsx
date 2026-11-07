@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AlertCircle, Loader2, Swords } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import { api, ApiError, isNetworkError } from '@/lib/api';
-import type { Hero, Meta, PanicResult, Report } from '@/lib/types';
+import type { Hero, Meta, PanicResult, Report, Usage } from '@/lib/types';
 import { cn } from '@/lib/format';
 import { Header, type TabKey } from '@/components/Header';
 import { HeroGrid } from '@/components/HeroGrid';
@@ -35,6 +35,10 @@ export default function Home() {
 
   const [panic, setPanic] = useState<PanicResult | null>(null);
   const [report, setReport] = useState<Report | null>(null);
+  // Single source of truth for the header quota bar: every paid action (panic,
+  // full report, screenshot) reports the usage it consumed, so the count stays
+  // correct no matter which feature the user touched.
+  const [usage, setUsage] = useState<Usage | undefined>(undefined);
   const [loading, setLoading] = useState<'panic' | 'report' | null>(null);
   const [error, setError] = useState<RunError | null>(null);
   const [elapsed, setElapsed] = useState<number | null>(null);
@@ -62,9 +66,13 @@ export default function Home() {
     (async () => {
       try {
         if (prev.kind === 'panic') {
-          setPanic(await api.panic(prev.heroIds, prev.role, prev.rank));
+          const res = await api.panic(prev.heroIds, prev.role, prev.rank);
+          setPanic(res);
+          setUsage(res.usage);
         } else {
-          setReport((await api.analyse(prev.heroIds, undefined, prev.role, prev.rank)).report);
+          const res = await api.analyse(prev.heroIds, undefined, prev.role, prev.rank);
+          setReport(res.report);
+          setUsage(res.usage);
         }
       } catch (e) {
         setError(describeError(e, t));
@@ -113,10 +121,12 @@ export default function Home() {
       if (kind === 'panic') {
         const res = await api.panic(selected, role, rank);
         setPanic(res);
+        setUsage(res.usage);
         setTab('lastpick');
       } else {
         const res = await api.analyse(selected, undefined, role, rank);
         setReport(res.report);
+        setUsage(res.usage);
         setTab('draft');
       }
       setElapsed(Math.round(performance.now() - t0));
@@ -198,7 +208,7 @@ export default function Home() {
                 })}
               </div>
               <DraftControls role={role} onRole={setRole} rank={rank} onRank={setRank} compact />
-              <UsageBar premium={premium} usage={panic?.usage ?? undefined} />
+              <UsageBar premium={premium} usage={usage} />
             </div>
           </div>
         </section>
@@ -245,7 +255,7 @@ export default function Home() {
           </div>
         )}
 
-        {tab === 'screenshot' && <ScreenshotPanel />}
+        {tab === 'screenshot' && <ScreenshotPanel onUsage={setUsage} />}
         {tab === 'coach' && <CoachPanel premium={premium} onPremium={() => setShowPlans(true)} />}
         {tab === 'meta' && <MetaPanel meta={meta} />}
       </main>

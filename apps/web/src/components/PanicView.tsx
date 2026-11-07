@@ -1,8 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import { Ban, Flame, Target, Zap } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import type { PanicResult } from '@/lib/types';
+import type { ItemPick, PanicResult } from '@/lib/types';
 import { cn } from '@/lib/format';
 import { HeroPortrait } from './HeroPortrait';
 import { WinProbabilityBar } from './WinProbability';
@@ -17,7 +18,9 @@ import { StatRow } from './Bar';
 export function PanicView({ result, onFullReport }: { result: PanicResult; onFullReport?: () => void }) {
   const t = useTranslations('panic');
   const b = result.full_build;
-  const coreItems = [...b.mid, ...b.late].slice(0, 6);
+  // "Full build" = the ordered progression, deduped, so a one-screen glance still
+  // shows the real sequence (lane -> early -> mid -> late) rather than a subset.
+  const coreItems = dedupeItems([...b.lane, ...b.early, ...b.mid, ...b.late]).slice(0, 8);
   const counters = b.key_counters ?? [];
 
   return (
@@ -75,12 +78,7 @@ export function PanicView({ result, onFullReport }: { result: PanicResult; onFul
             </p>
             <div className="flex flex-wrap gap-1.5">
               {coreItems.map((i) => (
-                <span key={i.key} className="group relative rounded-md border border-base-700 bg-base-850/70 px-2 py-1 text-[11px] text-slate-200">
-                  {i.name}
-                  <span className="pointer-events-none absolute left-0 top-full z-20 mt-1 hidden w-56 rounded-lg border border-base-600 bg-base-900 p-2 text-[11px] text-slate-300 shadow-xl group-hover:block">
-                    {i.reason}
-                  </span>
-                </span>
+                <PanicItem key={i.key} item={i} />
               ))}
             </div>
           </div>
@@ -175,4 +173,47 @@ export function PanicView({ result, onFullReport }: { result: PanicResult; onFul
       </div>
     </div>
   );
+}
+
+/** Build chip whose reasoning is reachable on hover (desktop) and tap (mobile). */
+function PanicItem({ item }: { item: ItemPick }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <span
+      role="button"
+      tabIndex={0}
+      aria-expanded={open}
+      onClick={() => setOpen((v) => !v)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setOpen((v) => !v);
+        }
+      }}
+      onBlur={() => setOpen(false)}
+      className="group relative cursor-pointer rounded-md border border-base-700 bg-base-850/70 px-2 py-1 text-[11px] text-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-radiant/60"
+    >
+      {item.name}
+      <span
+        className={cn(
+          'pointer-events-none absolute left-0 top-full z-20 mt-1 w-56 rounded-lg border border-base-600 bg-base-900 p-2 text-[11px] text-slate-300 shadow-xl group-hover:block',
+          open ? 'block' : 'hidden',
+        )}
+      >
+        {item.reason}
+      </span>
+    </span>
+  );
+}
+
+/** Keep the first occurrence of each item so the progression reads without repeats. */
+function dedupeItems(items: ItemPick[]): ItemPick[] {
+  const seen = new Set<string>();
+  const out: ItemPick[] = [];
+  for (const item of items) {
+    if (seen.has(item.key)) continue;
+    seen.add(item.key);
+    out.push(item);
+  }
+  return out;
 }

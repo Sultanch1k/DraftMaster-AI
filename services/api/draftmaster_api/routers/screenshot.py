@@ -26,8 +26,10 @@ async def analyse_screenshot(request: Request, file: UploadFile = File(...)) -> 
     analyzer = request.app.state.screenshot
     try:
         detection = analyzer.analyse(data)
-    except Exception as exc:
-        raise HTTPException(status_code=422, detail=f"could not read image: {exc}")
+    except Exception:
+        # Pillow raises a wide range of internal errors; never leak them — the
+        # user only needs to know the file could not be read as an image.
+        raise HTTPException(status_code=422, detail="could not read image")
 
     hero_ids = detection["hero_ids"][:5]
     usage = _enforce_quota(request, _quota_signature("screenshot", hero_ids))

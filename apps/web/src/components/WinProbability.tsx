@@ -6,9 +6,11 @@ import type { WinProbability } from '@/lib/types';
 
 export function WinProbabilityBar({ wp, compact = false }: { wp: WinProbability; compact?: boolean }) {
   const t = useTranslations('winprob');
+  const tLevels = useTranslations('winprob.levels');
   const you = wp.player_win_probability;
   const them = wp.enemy_win_probability;
   const edge = you >= them;
+  const confidence = wp.confidence === 'low' || wp.confidence === 'medium' || wp.confidence === 'high' ? wp.confidence : 'medium';
 
   return (
     <div className={cn('flex flex-col gap-2', compact && 'gap-1.5')}>
@@ -36,7 +38,7 @@ export function WinProbabilityBar({ wp, compact = false }: { wp: WinProbability;
 
       <div className="flex items-center justify-between gap-2 text-xs">
         <span className={cn('font-semibold', edge ? 'text-radiant' : 'text-dire')}>{wp.verdict}</span>
-        <span className="chip capitalize">{t('confidence', { level: wp.confidence })}</span>
+        <span className="chip">{t('confidence', { level: tLevels(confidence) })}</span>
       </div>
     </div>
   );

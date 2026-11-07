@@ -18,7 +18,7 @@ export function MetaPanel({ meta }: { meta: Meta | null }) {
 
   return (
     <div className="flex flex-col gap-4">
-      <Card title={t('title')} icon={<Flame className="h-4 w-4 text-gold" />} action={<span className="chip">Patch {meta.patch ?? '—'}</span>}>
+      <Card title={t('title')} icon={<Flame className="h-4 w-4 text-gold" />} action={<span className="chip">{t('patch', { patch: meta.patch ?? '—' })}</span>}>
         <p className="text-sm text-slate-400">{t('description', { source: meta.source })}</p>
       </Card>
 
