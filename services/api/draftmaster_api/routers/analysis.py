@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 
 from fastapi import APIRouter, HTTPException, Request
 
+from ..locale import localize_analysis, localize_panic, resolve_locale
 from ..schemas import AnalyseRequest, PanicRequest, WinProbRequest, UsageOut
 
 router = APIRouter(tags=["analysis"])
@@ -41,13 +42,18 @@ def _enforce_quota(request: Request) -> UsageOut:
     day = _today()
     used = store.increment_usage(user, day)
     if plan == FREE_PLAN and used > settings.free_daily_analyses:
-        raise HTTPException(
-            status_code=402,
-            detail=(
-                f"Free plan allows {settings.free_daily_analyses} analyses per day. "
+        limit = settings.free_daily_analyses
+        if resolve_locale(request) == "ru":
+            detail = (
+                f"Бесплатный тариф допускает {limit} анализа в день. "
+                "Оформите Premium для безлимитных анализов и ИИ-тренера."
+            )
+        else:
+            detail = (
+                f"Free plan allows {limit} analyses per day. "
                 "Upgrade to Premium for unlimited analyses and the AI coach."
-            ),
-        )
+            )
+        raise HTTPException(status_code=402, detail=detail)
     return _usage_out(request, used, plan)
 
 
@@ -62,10 +68,13 @@ def _validate_ids(request: Request, ids: list[int]) -> None:
 def analyse(payload: AnalyseRequest, request: Request) -> dict:
     _validate_ids(request, payload.enemy_hero_ids + payload.allies + ([payload.hero_id] if payload.hero_id else []))
     usage = _enforce_quota(request)
+    locale = resolve_locale(request, payload.locale)
 
     cache = request.app.state.cache
     settings = request.app.state.settings
-    key = "analyse:" + hashlib.sha256(
+    # The locale is part of the key: an English and a Russian report for the
+    # same draft are different documents and must not share a cache entry.
+    key = "analyse:" + locale + ":" + hashlib.sha256(
         json.dumps(payload.model_dump(), sort_keys=True).encode()
     ).hexdigest()
     cached = cache.get(key)
@@ -83,6 +92,7 @@ def analyse(payload: AnalyseRequest, request: Request) -> dict:
         allies=payload.allies,
     )
     body = {"report": report.to_dict(), "usage": usage.model_dump(), "cached": False}
+    body = localize_analysis(body, locale)
     cache.set(key, body, settings.cache_ttl_seconds)
     return body
 
@@ -92,6 +102,7 @@ def panic(payload: PanicRequest, request: Request) -> dict:
     """The 'I'M LAST PICK' flow — tuned for sub-second, one-screen output."""
     _validate_ids(request, payload.enemy_hero_ids)
     usage = _enforce_quota(request)
+    locale = resolve_locale(request, payload.locale)
     result = request.app.state.engine.panic(
         enemy_ids=payload.enemy_hero_ids,
         role=payload.role,
@@ -99,7 +110,7 @@ def panic(payload: PanicRequest, request: Request) -> dict:
         comfort=payload.comfort,
     )
     result["usage"] = usage.model_dump()
-    return result
+    return localize_panic(result, locale)
 
 
 @router.post("/win-probability")
@@ -111,7 +122,7 @@ def win_prob(payload: WinProbRequest, request: Request) -> dict:
     result = win_probability(
         ds, payload.hero_id, payload.enemy_hero_ids, payload.role, payload.rank_tier
     )
-    return result.to_dict()
+    return localize_panic(result.to_dict(), resolve_locale(request))
 
 
 @router.post("/threat-analysis")
@@ -121,4 +132,4 @@ def threat_analysis(payload: WinProbRequest, request: Request) -> dict:
     from draftmaster_engine.threats import analyse_threats
 
     profile = analyse_threats(ds, payload.enemy_hero_ids, payload.hero_id)
-    return profile.to_dict()
+    return localize_panic(profile.to_dict(), resolve_locale(request))

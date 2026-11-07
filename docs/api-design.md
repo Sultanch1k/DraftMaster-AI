@@ -88,11 +88,13 @@ Request:
   "role": "carry",
   "rank_tier": 70,
   "allies": [],
-  "comfort": { "8": 90 }
+  "comfort": { "8": 90 },
+  "locale": "en"
 }
 ```
 `enemy_hero_ids` is required (1–5). `hero_id` is optional: when omitted the engine
-selects the best pick.
+selects the best pick. `locale` (`en` | `ru`) selects the language of the generated
+prose; it is also read from the `x-locale` header, and it participates in the cache key.
 
 Response (abridged):
 ```json

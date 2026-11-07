@@ -10,6 +10,7 @@ from .dataset import Dataset, get_dataset
 from .report import ReportEngine
 from .coach import MatchCoach, OpenDotaClient
 from .screenshot import ScreenshotAnalyzer
+from . import i18n
 
 __all__ = [
     "Dataset",
@@ -18,5 +19,6 @@ __all__ = [
     "MatchCoach",
     "OpenDotaClient",
     "ScreenshotAnalyzer",
+    "i18n",
 ]
 __version__ = "1.0.0"

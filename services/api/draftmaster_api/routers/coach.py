@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException, Request
 
+from ..locale import localize_coach, resolve_locale
 from ..schemas import MatchCoachRequest, ProfileUpsert
 
 router = APIRouter(tags=["coach"])
@@ -10,13 +11,14 @@ router = APIRouter(tags=["coach"])
 
 @router.post("/match/coach")
 def match_coach(payload: MatchCoachRequest, request: Request) -> dict:
+    locale = resolve_locale(request)
     cache = request.app.state.cache
     settings = request.app.state.settings
     key = f"match:{payload.match_id}:{payload.account_id}"
     cached = cache.get(key)
     if cached:
         cached["cached"] = True
-        return cached
+        return localize_coach(cached, locale)
     try:
         report = request.app.state.coach.coach(payload.match_id, payload.account_id)
     except ValueError as exc:
@@ -25,7 +27,7 @@ def match_coach(payload: MatchCoachRequest, request: Request) -> dict:
         raise HTTPException(status_code=502, detail=f"OpenDota request failed: {exc}")
     body = {"coach_report": report.to_dict(), "cached": False}
     cache.set(key, body, settings.match_cache_ttl_seconds)
-    return body
+    return localize_coach(body, locale)
 
 
 @router.get("/match/{match_id}")

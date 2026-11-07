@@ -52,6 +52,11 @@ export function pct(n: number, digits = 1): string {
   return `${n.toFixed(digits)}%`;
 }
 
+/** Group thousands with a fixed separator so server and client HTML match. */
+export function groupThousands(n: number): string {
+  return n.toLocaleString('en-US');
+}
+
 export function clamp(n: number, min = 0, max = 100): number {
   return Math.max(min, Math.min(max, n));
 }
@@ -76,3 +81,10 @@ export const RANKS = [
 ] as const;
 
 export const ROLE_FILTERS = ['Carry', 'Support', 'Nuker', 'Initiator', 'Disabler', 'Durable', 'Escape', 'Pusher', 'Jungler'] as const;
+
+/** Reverse-map a rank label ('Divine') back to the rank_tier the API expects. */
+export function rankLabelToTier(label?: string | null): number | undefined {
+  if (!label) return undefined;
+  const hit = RANKS.find((r) => r.label.toLowerCase() === label.toLowerCase());
+  return hit?.value;
+}

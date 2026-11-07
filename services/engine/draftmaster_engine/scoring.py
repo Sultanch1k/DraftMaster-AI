@@ -99,6 +99,72 @@ def _lane_score(ds: Dataset, hero: dict, enemies: list[dict]) -> float:
     return round(100.0 / (1.0 + math.exp(-mean / 0.15)), 2)
 
 
+def score_one(
+    ds: Dataset,
+    hero: dict,
+    enemy_ids: list[int],
+    role: str | None = None,
+    comfort: dict[int, float] | None = None,
+    allies: list[int] | None = None,
+) -> Candidate:
+    """Score a single hero against an enemy draft.
+
+    Shared by the Top 5 ranking and by the per-hero report path, so a hero that
+    is not in the Top 5 still gets identical, honest numbers.
+    """
+    comfort = comfort or {}
+    allies = allies or []
+    enemies = [ds.by_id[i] for i in enemy_ids if i in ds.by_id]
+    hid = hero["id"]
+
+    adv = ds.matchup_advantage(hid, enemy_ids)
+    counter = round(100.0 / (1.0 + math.exp(-adv / 0.18)), 2)
+    meta = _winrate_to_meta(ds.hero_winrate(hid))
+    cmf = comfort.get(hid, 0.5)
+    comfort_score = round(cmf * 100.0, 2)
+    synergy = _synergy_score(ds, hero, allies)
+    difficulty = _difficulty_score(hero)
+    lane = _lane_score(ds, hero, enemies)
+    role_score = round(ds.role_affinity(hid, role) * 100.0, 2) if role else 50.0
+
+    final = (
+        WEIGHTS["counter"] * counter
+        + WEIGHTS["meta"] * meta
+        + WEIGHTS["comfort"] * comfort_score
+        + WEIGHTS["synergy"] * synergy
+        + WEIGHTS["role"] * role_score
+    )
+    # Difficulty is a confidence modifier, not a headline weight: a hero you
+    # cannot execute is worth less than its raw numbers suggest.
+    final *= 0.85 + 0.15 * (difficulty / 100.0)
+
+    scores = {
+        "counter": counter,
+        "meta": meta,
+        "comfort": comfort_score,
+        "synergy": synergy,
+        "difficulty": difficulty,
+        "lane": lane,
+        "role": role_score,
+        "final": round(final, 2),
+    }
+    strong, weak = _matchup_highlights(ds, hid, enemy_ids)
+    reasons = explain_pick(ds, hero, enemy_ids, scores, strong, weak)
+    return Candidate(
+        hero_id=hid,
+        name=hero["name"],
+        localized_name=hero["localized_name"],
+        icon=hero.get("icon"),
+        img=hero.get("img"),
+        roles=hero.get("roles", []),
+        scores=scores,
+        final_score=scores["final"],
+        reasons=reasons,
+        strong_against=strong,
+        countered_by=weak,
+    )
+
+
 def score_candidates(
     ds: Dataset,
     enemy_ids: list[int],
@@ -108,65 +174,13 @@ def score_candidates(
     exclude: Iterable[int] | None = None,
     limit: int = 5,
 ) -> list[Candidate]:
-    comfort = comfort or {}
-    allies = allies or []
-    excluded = set(enemy_ids) | set(allies) | set(exclude or [])
-    enemies = [ds.by_id[i] for i in enemy_ids if i in ds.by_id]
+    excluded = set(enemy_ids) | set(allies or []) | set(exclude or [])
 
     results: list[Candidate] = []
     for hero in ds.heroes:
-        hid = hero["id"]
-        if hid in excluded:
+        if hero["id"] in excluded:
             continue
-
-        adv = ds.matchup_advantage(hid, enemy_ids)
-        counter = round(100.0 / (1.0 + math.exp(-adv / 0.18)), 2)
-        meta = _winrate_to_meta(ds.hero_winrate(hid))
-        cmf = comfort.get(hid, 0.5)
-        comfort_score = round(cmf * 100.0, 2)
-        synergy = _synergy_score(ds, hero, allies)
-        difficulty = _difficulty_score(hero)
-        lane = _lane_score(ds, hero, enemies)
-        role_score = round(ds.role_affinity(hid, role) * 100.0, 2) if role else 50.0
-
-        final = (
-            WEIGHTS["counter"] * counter
-            + WEIGHTS["meta"] * meta
-            + WEIGHTS["comfort"] * comfort_score
-            + WEIGHTS["synergy"] * synergy
-            + WEIGHTS["role"] * role_score
-        )
-        # Difficulty is a confidence modifier, not a headline weight: a hero you
-        # cannot execute is worth less than its raw numbers suggest.
-        final *= 0.85 + 0.15 * (difficulty / 100.0)
-
-        scores = {
-            "counter": counter,
-            "meta": meta,
-            "comfort": comfort_score,
-            "synergy": synergy,
-            "difficulty": difficulty,
-            "lane": lane,
-            "role": role_score,
-            "final": round(final, 2),
-        }
-        strong, weak = _matchup_highlights(ds, hid, enemy_ids)
-        reasons = explain_pick(ds, hero, enemy_ids, scores, strong, weak)
-        results.append(
-            Candidate(
-                hero_id=hid,
-                name=hero["name"],
-                localized_name=hero["localized_name"],
-                icon=hero.get("icon"),
-                img=hero.get("img"),
-                roles=hero.get("roles", []),
-                scores=scores,
-                final_score=scores["final"],
-                reasons=reasons,
-                strong_against=strong,
-                countered_by=weak,
-            )
-        )
+        results.append(score_one(ds, hero, enemy_ids, role, comfort, allies))
 
     results.sort(key=lambda c: -c.final_score)
     return results[:limit]
@@ -214,8 +228,8 @@ def explain_pick(
     if weak:
         reasons.append(f"Careful: {', '.join(weak)} counter you on paper.")
     caps = hero.get("capabilities", {})
-    if caps.get("cc", 0) >= 2 and "heavy_cc_teamfight" in str(scores):
-        reasons.append("Brings crowd control, which this enemy draft lacks an answer to.")
+    if caps.get("disable_count", 0) >= 2:
+        reasons.append("Brings crowd control this enemy draft has to respect in every fight.")
     if not reasons:
         reasons.append("Solid all-round pick with no glaring weakness into this draft.")
     return reasons

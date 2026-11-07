@@ -1,15 +1,17 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/format';
+import { LocaleSwitcher } from './LocaleSwitcher';
 
 export type TabKey = 'lastpick' | 'draft' | 'screenshot' | 'coach' | 'meta';
 
-const TABS: { key: TabKey; label: string; icon: string; accent?: string }[] = [
-  { key: 'lastpick', label: "I'M LAST PICK", icon: '🚨', accent: 'dire' },
-  { key: 'draft', label: 'Full Report', icon: '📊' },
-  { key: 'screenshot', label: 'Screenshot', icon: '🖼️' },
-  { key: 'coach', label: 'Match Coach', icon: '🎯' },
-  { key: 'meta', label: 'Meta Intel', icon: '📈' },
+const TABS: { key: TabKey; icon: string; accent?: string }[] = [
+  { key: 'lastpick', icon: '🚨', accent: 'dire' },
+  { key: 'draft', icon: '📊' },
+  { key: 'screenshot', icon: '🖼️' },
+  { key: 'coach', icon: '🎯' },
+  { key: 'meta', icon: '📈' },
 ];
 
 export function Header({
@@ -25,9 +27,12 @@ export function Header({
   premium: boolean;
   onPremium: () => void;
 }) {
+  const t = useTranslations('header');
+  const tTabs = useTranslations('tabs');
+
   return (
     <header className="sticky top-0 z-30 border-b border-base-700 bg-base-950/85 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center gap-3 px-3 py-2.5 sm:px-5">
+      <div className="mx-auto flex max-w-[1600px] items-center gap-3 px-3 py-2.5 sm:px-6">
         <div className="flex items-center gap-2">
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-radiant to-radiant-dim text-base-950">
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden>
@@ -38,43 +43,42 @@ export function Header({
             <p className="text-sm font-black tracking-tight text-white">
               DraftMaster<span className="text-radiant"> AI</span>
             </p>
-            <p className="hidden text-[10px] text-slate-500 sm:block">
-              Here is exactly how to win this specific game
-            </p>
+            <p className="hidden text-[10px] text-slate-500 sm:block">{t('tagline')}</p>
           </div>
         </div>
 
         <nav className="ml-auto flex items-center gap-1 overflow-x-auto">
-          {TABS.map((t) => (
+          {TABS.map((tab_) => (
             <button
-              key={t.key}
+              key={tab_.key}
               type="button"
-              onClick={() => onTab(t.key)}
+              onClick={() => onTab(tab_.key)}
               className={cn(
                 'shrink-0 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition',
-                tab === t.key
-                  ? t.accent === 'dire'
+                tab === tab_.key
+                  ? tab_.accent === 'dire'
                     ? 'bg-dire text-white'
                     : 'bg-base-700 text-white'
                   : 'text-slate-400 hover:bg-base-800 hover:text-slate-200',
               )}
             >
-              <span className="mr-1">{t.icon}</span>
-              <span className="hidden sm:inline">{t.label}</span>
+              <span className="mr-1">{tab_.icon}</span>
+              <span className="hidden sm:inline">{tTabs(tab_.key)}</span>
             </button>
           ))}
         </nav>
 
-        <div className="ml-1 hidden items-center gap-2 md:flex">
-          {patch && <span className="chip">Patch {patch}</span>}
+        <div className="ml-1 flex items-center gap-2">
+          {patch && <span className="chip hidden lg:inline-flex">{t('patch', { patch })}</span>}
           <button
             type="button"
             onClick={onPremium}
-            className={cn('chip', premium ? 'border-gold/60 text-gold' : 'border-base-600')}
-            title="Toggle Premium (demo): unlimited analyses + AI coach"
+            className={cn('chip hidden md:inline-flex', premium ? 'border-gold/60 text-gold' : 'border-base-600')}
+            title={t('premiumTitle')}
           >
-            {premium ? '★ Premium' : 'Free plan'}
+            {premium ? t('premium') : t('free')}
           </button>
+          <LocaleSwitcher />
         </div>
       </div>
     </header>

@@ -13,6 +13,7 @@ class AnalyseRequest(BaseModel):
     rank_tier: int | None = Field(default=None, ge=0, le=85)
     allies: list[int] = Field(default_factory=list, max_length=4)
     comfort: dict[int, float] = Field(default_factory=dict)
+    locale: str | None = None
 
 
 class PanicRequest(BaseModel):
@@ -20,6 +21,7 @@ class PanicRequest(BaseModel):
     role: str | None = None
     rank_tier: int | None = Field(default=None, ge=0, le=85)
     comfort: dict[int, float] = Field(default_factory=dict)
+    locale: str | None = None
 
 
 class WinProbRequest(BaseModel):

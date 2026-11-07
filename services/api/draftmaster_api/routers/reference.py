@@ -3,6 +3,9 @@ from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException, Request
 
+from draftmaster_engine.i18n import localize
+
+from ..locale import resolve_locale
 from ..schemas import HeroOut
 
 router = APIRouter(tags=["reference"])
@@ -57,7 +60,7 @@ def meta(request: Request) -> dict:
     trending = sorted(heroes, key=lambda h: -(h.get("pub_pick") or 0))[:15]
     winners = sorted(heroes, key=lambda h: -(h.get("cm_winrate") or 0))[:15]
     losers = sorted(heroes, key=lambda h: (h.get("cm_winrate") or 1))[:15]
-    return {
+    payload = {
         "patch": (ds.patch or {}).get("name"),
         "generated_at": ds.generated_at,
         "source": "OpenDota public match data",
@@ -74,3 +77,4 @@ def meta(request: Request) -> dict:
             for h in losers
         ],
     }
+    return localize(payload, resolve_locale(request))

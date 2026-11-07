@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { cn, RANKS, ROLES } from '@/lib/format';
 
 type Props = {
@@ -11,10 +12,13 @@ type Props = {
 };
 
 export function DraftControls({ role, onRole, rank, onRank, compact }: Props) {
+  const t = useTranslations('draft');
+  const tRoles = useTranslations('roles');
+  const tRanks = useTranslations('ranks');
   return (
     <div className={cn('grid gap-3', compact ? 'grid-cols-2' : 'sm:grid-cols-2')}>
       <div>
-        <label className="label mb-1 block">Your role</label>
+        <label className="label mb-1 block">{t('yourRole')}</label>
         <div className="flex flex-wrap gap-1.5">
           {ROLES.map((r) => (
             <button
@@ -23,13 +27,13 @@ export function DraftControls({ role, onRole, rank, onRank, compact }: Props) {
               onClick={() => onRole(r.value)}
               className={cn('chip', role === r.value && 'border-radiant/60 bg-radiant/10 text-radiant')}
             >
-              {r.label}
+              {tRoles(r.value)}
             </button>
           ))}
         </div>
       </div>
       <div>
-        <label className="label mb-1 block">Your rank</label>
+        <label className="label mb-1 block">{t('yourRank')}</label>
         <div className="flex flex-wrap gap-1.5">
           {RANKS.map((r) => (
             <button
@@ -38,7 +42,7 @@ export function DraftControls({ role, onRole, rank, onRank, compact }: Props) {
               onClick={() => onRank(r.value)}
               className={cn('chip', rank === r.value && 'border-radiant/60 bg-radiant/10 text-radiant')}
             >
-              {r.label}
+              {tRanks(String(r.value))}
             </button>
           ))}
         </div>

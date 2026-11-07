@@ -16,7 +16,7 @@ narrate numbers the engine produced; they must never invent them.
 | --- | --- |
 | `services/engine/draftmaster_engine/` | Pure-Python strategy engine. No web framework imports, ever. |
 | `services/api/draftmaster_api/` | FastAPI surface: routers, schemas, config, infra adapters. |
-| `apps/web/src/` | Next.js 15 App Router frontend. |
+| `apps/web/src/` | Next.js 15 App Router frontend (next-intl, cookie-based locale). |
 | `tools/pipeline/` | Builds the data artifacts from OpenDota + Valve's CDN. |
 | `data/artifacts/` | Committed build outputs — the engine's only data dependency. |
 | `docs/` | Product, architecture, roadmap and risk documentation. |
@@ -74,6 +74,28 @@ cd apps/web && npx tsc --noEmit && npm run build
   rewrite to the backend.
 - Docker image runs as a non-root user, so `chmod -R a+rX` runs over the copied code;
   the engine is on `PYTHONPATH` at `/app/services/engine`.
+- **`why_this_hero` follows the *requested* hero, not the top pick.** `best_picks`
+  always stays the ranked Top-5; an explicit `hero_id` drives sections 2–11 (why, item
+  build, skill build, talents, match plan, win conditions, kill priority, spikes). When
+  `hero_id` is omitted the #1 pick is used.
+- **Localization is a boundary concern.** `draftmaster_engine/i18n.py` maps the engine's
+  deterministic English prose to Russian by pattern; the engine core stays locale-free.
+  The API translates response bodies (`locale.py`) and the locale is part of the Redis
+  cache key — EN and RU reports for one draft must never share an entry. Hero names,
+  item names and all numbers are never translated. **Every** prose-bearing endpoint is
+  locale-aware: `/analyse`, `/panic`, `/win-probability`, `/threat-analysis`, `/meta`
+  and `/match/coach`. Adding a new endpoint that returns prose means wiring
+  `resolve_locale(request)` + `localize(...)`, or the Russian UI will leak English.
+- **next-intl:** the locale lives in the `draftmaster_locale` cookie (no `[locale]`
+  route segment). `useTranslations('<namespace>')` is required per namespace — calling
+  `t('fields.x')` inside the `report` namespace throws `MISSING_MESSAGE` at render time,
+  which Next.js only surfaces as an error overlay, not a build failure.
+- **React keys must not mix id spaces.** The five enemy-draft slots render either a hero
+  (`key={`hero-${id}`}`) or an empty placeholder (`key={`slot-${i}`}`). Using the raw
+  hero id and the raw slot index in the same list collides whenever a selected hero's
+  id equals a placeholder index (e.g. Axe is id `2`), which React reports as a duplicate
+  key. This only appears in the dev overlay — the production build stays silent — so
+  always check the browser console, not just `npm run build`, after touching such lists.
 
 ## Definition of done
 

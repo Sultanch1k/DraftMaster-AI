@@ -1,31 +1,31 @@
 'use client';
 
 import { TrendingDown, TrendingUp, Flame } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import type { Meta } from '@/lib/types';
+import { groupThousands } from '@/lib/format';
 import { Card } from '@/components/Card';
 
 export function MetaPanel({ meta }: { meta: Meta | null }) {
+  const t = useTranslations('metaPanel');
   if (!meta) {
     return (
       <Card>
-        <p className="text-sm text-slate-400">Loading live meta intelligence from OpenDota…</p>
+        <p className="text-sm text-slate-400">{t('loading')}</p>
       </Card>
     );
   }
 
   return (
     <div className="flex flex-col gap-4">
-      <Card title="Meta Intelligence" icon={<Flame className="h-4 w-4 text-gold" />} action={<span className="chip">Patch {meta.patch ?? '—'}</span>}>
-        <p className="text-sm text-slate-400">
-          Computed from {meta.source}. Patch winners and losers are ranked by Captain&apos;s Mode win rate,
-          trending heroes by public pick rate.
-        </p>
+      <Card title={t('title')} icon={<Flame className="h-4 w-4 text-gold" />} action={<span className="chip">Patch {meta.patch ?? '—'}</span>}>
+        <p className="text-sm text-slate-400">{t('description', { source: meta.source })}</p>
       </Card>
 
       <div className="grid gap-4 lg:grid-cols-3">
-        <MetaList title="Trending heroes" rows={meta.trending.map((t) => ({ name: t.hero, value: t.picks.toLocaleString(), sub: 'picks' }))} tone="neutral" icon={<Flame className="h-4 w-4 text-gold" />} />
-        <MetaList title="Patch winners" rows={meta.patch_winners.map((t) => ({ name: t.hero, value: `${(t.cm_winrate * 100).toFixed(1)}%`, sub: 'CM win rate' }))} tone="radiant" icon={<TrendingUp className="h-4 w-4 text-radiant" />} />
-        <MetaList title="Patch losers" rows={meta.patch_losers.map((t) => ({ name: t.hero, value: `${(t.cm_winrate * 100).toFixed(1)}%`, sub: 'CM win rate' }))} tone="dire" icon={<TrendingDown className="h-4 w-4 text-dire" />} />
+        <MetaList title={t('trending')} rows={meta.trending.map((row) => ({ name: row.hero, value: groupThousands(row.picks), sub: t('picks') }))} tone="neutral" icon={<Flame className="h-4 w-4 text-gold" />} />
+        <MetaList title={t('winners')} rows={meta.patch_winners.map((row) => ({ name: row.hero, value: `${(row.cm_winrate * 100).toFixed(1)}%`, sub: t('cmWinrate') }))} tone="radiant" icon={<TrendingUp className="h-4 w-4 text-radiant" />} />
+        <MetaList title={t('losers')} rows={meta.patch_losers.map((row) => ({ name: row.hero, value: `${(row.cm_winrate * 100).toFixed(1)}%`, sub: t('cmWinrate') }))} tone="dire" icon={<TrendingDown className="h-4 w-4 text-dire" />} />
       </div>
     </div>
   );

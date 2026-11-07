@@ -21,7 +21,7 @@ from .plan import (
     generate_win_conditions,
     one_sentence_plan,
 )
-from .scoring import score_candidates, Candidate
+from .scoring import score_candidates, score_one, Candidate
 from .threats import analyse_threats, ThreatProfile, DIMENSION_LABELS
 from .winprob import win_probability, WinProbability
 
@@ -122,7 +122,7 @@ class ReportEngine:
         sentence = one_sentence_plan(self.ds, hero, threats, build, targets, winprob)
 
         top = candidates[0] if candidates else None
-        why = top.reasons if top else []
+        why = self._why_this_hero(hero_id, candidates, hero, enemy_ids, allies)
 
         report = DraftReport(
             generated_in_ms=int((time.perf_counter() - started) * 1000),
@@ -147,6 +147,26 @@ class ReportEngine:
         return report
 
     # -- helpers ---------------------------------------------------------
+    def _why_this_hero(
+        self,
+        hero_id: int,
+        candidates: list[Candidate],
+        hero: dict,
+        enemy_ids: list[int],
+        allies: list[int],
+    ) -> list[str]:
+        """Explanations for the hero the user actually asked about.
+
+        The Top 5 list only holds five scored candidates, so when the requested
+        hero falls outside it (a manual pick, a screenshot detection, or a hero
+        outside the top five) the reasons are recomputed for that exact hero
+        rather than silently describing the #1 recommendation.
+        """
+        match = next((c for c in candidates if c.hero_id == hero_id), None)
+        if match is not None:
+            return match.reasons
+        return score_one(self.ds, hero, enemy_ids, None, None, allies).reasons
+
     def _hero_brief(self, hid: int) -> dict:
         h = self.ds.hero(hid)
         if not h:

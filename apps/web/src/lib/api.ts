@@ -36,6 +36,20 @@ function premiumHeaders(): Record<string, string> {
     : {};
 }
 
+/**
+ * The active locale lives in a cookie so server and client agree on one value.
+ * Sending it explicitly lets the API return prose in the right language.
+ */
+export function currentLocale(): string {
+  if (typeof document === 'undefined') return 'en';
+  const match = document.cookie.match(/(?:^|;\s*)draftmaster_locale=([^;]+)/);
+  return match?.[1] === 'ru' ? 'ru' : 'en';
+}
+
+function localeHeader(): Record<string, string> {
+  return { 'x-locale': currentLocale() };
+}
+
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${BASE}${path}`, {
     ...init,
@@ -43,6 +57,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
       'Content-Type': 'application/json',
       'x-user-id': userId(),
       ...premiumHeaders(),
+      ...localeHeader(),
       ...(init?.headers || {}),
     },
   });
@@ -87,7 +102,7 @@ export const api = {
     form.append('file', file);
     const res = await fetch(`${BASE}/api/screenshot/analyse`, {
       method: 'POST',
-      headers: { 'x-user-id': userId(), ...premiumHeaders() },
+      headers: { 'x-user-id': userId(), ...premiumHeaders(), ...localeHeader() },
       body: form,
     });
     if (!res.ok) {

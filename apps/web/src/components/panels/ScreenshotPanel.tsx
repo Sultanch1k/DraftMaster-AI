@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { ImageUp, Loader2, ScanLine, Upload } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { api, ApiError } from '@/lib/api';
 import type { ScreenshotResult } from '@/lib/types';
 import { cn } from '@/lib/format';
@@ -10,6 +11,7 @@ import { HeroPortrait } from '@/components/HeroPortrait';
 import { ReportView } from '@/components/ReportView';
 
 export function ScreenshotPanel() {
+  const t = useTranslations('screenshot');
   const [result, setResult] = useState<ScreenshotResult | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -26,7 +28,7 @@ export function ScreenshotPanel() {
       const res = await api.screenshot(file);
       setResult(res);
     } catch (e) {
-      setError((e as ApiError).message ?? 'Upload failed.');
+      setError((e as ApiError).message ?? t('uploadFailed'));
     } finally {
       setLoading(false);
     }
@@ -34,11 +36,8 @@ export function ScreenshotPanel() {
 
   return (
     <div className="flex flex-col gap-4">
-      <Card title="Screenshot Analyzer" icon={<ScanLine className="h-4 w-4 text-radiant" />} action={<span className="chip">hero detection → full report</span>}>
-        <p className="mb-3 text-sm text-slate-400">
-          Drop a draft or pick-screen screenshot. DraftMaster detects the hero portraits and runs the
-          complete analysis automatically — no manual selection.
-        </p>
+      <Card title={t('title')} icon={<ScanLine className="h-4 w-4 text-radiant" />} action={<span className="chip">{t('chip')}</span>}>
+        <p className="mb-3 text-sm text-slate-400">{t('description')}</p>
 
         <div
           onDragOver={(e) => {
@@ -58,10 +57,10 @@ export function ScreenshotPanel() {
           )}
         >
           <ImageUp className="h-8 w-8 text-slate-500" />
-          <p className="text-sm text-slate-300">Drag &amp; drop a PNG or JPG here</p>
+          <p className="text-sm text-slate-300">{t('drop')}</p>
           <button type="button" onClick={() => inputRef.current?.click()} className="btn-ghost" disabled={loading}>
             {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}
-            Choose file
+            {t('choose')}
           </button>
           <input
             ref={inputRef}
@@ -73,7 +72,7 @@ export function ScreenshotPanel() {
               if (f) upload(f);
             }}
           />
-          <p className="text-[11px] text-slate-500">Max 8 MB. Detection works best on the in-game draft bar.</p>
+          <p className="text-[11px] text-slate-500">{t('maxSize')}</p>
         </div>
 
         {error && <p className="mt-3 rounded-lg border border-dire/50 bg-dire/10 p-2.5 text-sm text-dire">{error}</p>}
@@ -82,12 +81,12 @@ export function ScreenshotPanel() {
           <div className="mt-4 grid gap-4 lg:grid-cols-[300px_1fr]">
             {preview && (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={preview} alt="Uploaded draft" className="max-h-72 w-full rounded-lg border border-base-700 object-contain" />
+              <img src={preview} alt={t('alt')} className="max-h-72 w-full rounded-lg border border-base-700 object-contain" />
             )}
             <div className="flex flex-col gap-3">
               {loading && (
                 <p className="flex items-center gap-2 text-sm text-slate-300">
-                  <Loader2 className="h-4 w-4 animate-spin text-radiant" /> Detecting heroes…
+                  <Loader2 className="h-4 w-4 animate-spin text-radiant" /> {t('detecting')}
                 </p>
               )}
               {result && (
@@ -101,7 +100,7 @@ export function ScreenshotPanel() {
                           <div className="leading-tight">
                             <p className="text-xs font-semibold text-white">{d.localized_name}</p>
                             <p className="text-[10px] text-slate-400">
-                              {Math.round(d.confidence * 100)}% match
+                              {t('match', { pct: Math.round(d.confidence * 100) })}
                             </p>
                           </div>
                         </div>
@@ -117,7 +116,7 @@ export function ScreenshotPanel() {
 
       {result?.report && (
         <div className="flex flex-col gap-3">
-          <h2 className="section-title px-1">Auto-generated report from screenshot</h2>
+          <h2 className="section-title px-1">{t('autoReport')}</h2>
           <ReportView report={result.report} />
         </div>
       )}

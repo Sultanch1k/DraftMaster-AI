@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { AlertCircle, Loader2, Swords } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { api, ApiError } from '@/lib/api';
 import type { Hero, Meta, PanicResult, Report } from '@/lib/types';
 import { cn } from '@/lib/format';
@@ -17,6 +18,7 @@ import { MetaPanel } from '@/components/panels/MetaPanel';
 import { UsageBar } from '@/components/panels/UsageBar';
 
 export default function Home() {
+  const t = useTranslations();
   const [heroes, setHeroes] = useState<Hero[]>([]);
   const [meta, setMeta] = useState<Meta | null>(null);
   const [selected, setSelected] = useState<number[]>([]);
@@ -63,7 +65,7 @@ export default function Home() {
 
   const run = async (kind: 'panic' | 'report') => {
     if (selected.length === 0) {
-      setError('Select at least one enemy hero.');
+      setError(t('errors.selectAtLeastOne'));
       return;
     }
     setError(null);
@@ -82,7 +84,7 @@ export default function Home() {
       setElapsed(Math.round(performance.now() - t0));
     } catch (e) {
       const err = e as ApiError;
-      setError(err.message ?? 'Something went wrong.');
+      setError(err.message ?? t('errors.generic'));
     } finally {
       setLoading(null);
     }
@@ -97,20 +99,19 @@ export default function Home() {
     <div className="min-h-dvh">
       <Header tab={tab} onTab={setTab} patch={meta?.patch} premium={premium} onPremium={togglePremium} />
 
-      <main className="mx-auto flex max-w-6xl flex-col gap-4 px-3 py-4 sm:px-5 sm:py-6">
+      <main className="mx-auto flex w-full max-w-[1600px] flex-col gap-4 px-3 py-4 sm:px-6 sm:py-6">
         {/* Hero: value prop + instant action */}
         <section className="card card-pad">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-xl">
-              <h1 className="text-2xl font-black leading-tight text-white sm:text-3xl">
-                Your enemy draft is already decided.
-                <span className="block text-radiant">Now win the game.</span>
+              <h1 className="text-2xl font-black leading-tight text-white sm:text-3xl xl:text-4xl">
+                {t('hero.headline1')}
+                <span className="block text-radiant">{t('hero.headline2')}</span>
               </h1>
-              <p className="mt-2 text-sm leading-relaxed text-slate-400">
-                DraftMaster AI turns the enemy lineup into one actionable plan: the best hero, the exact
-                build, the items to avoid, kill priority, power spikes and win conditions — computed from{' '}
-                <span className="text-slate-200">{heroes.length || 127} heroes</span> of real OpenDota match
-                data, not a static guide.
+              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-400 xl:text-base">
+                {t('hero.sub1')}{' '}
+                <span className="text-slate-200">{t('hero.sub2', { count: heroes.length || 127 })}</span>{' '}
+                {t('hero.sub3')}
               </p>
               <div className="mt-3 flex flex-wrap items-center gap-2">
                 <button
@@ -120,7 +121,7 @@ export default function Home() {
                   className="btn-danger"
                 >
                   {loading === 'panic' ? <Loader2 className="h-4 w-4 animate-spin" /> : <span>🚨</span>}
-                  I&apos;M LAST PICK
+                  {t('hero.panic')}
                 </button>
                 <button
                   type="button"
@@ -129,29 +130,29 @@ export default function Home() {
                   className="btn-primary"
                 >
                   {loading === 'report' ? <Loader2 className="h-4 w-4 animate-spin" /> : <Swords className="h-4 w-4" />}
-                  One Click Win Plan™
+                  {t('hero.oneClick')}
                 </button>
                 {selected.length > 0 && (
                   <button type="button" onClick={clear} className="btn-ghost">
-                    Clear
+                    {t('hero.clear')}
                   </button>
                 )}
                 {elapsed !== null && (
-                  <span className="chip border-radiant/40 text-radiant">answered in {elapsed} ms</span>
+                  <span className="chip border-radiant/40 text-radiant">{t('hero.answeredIn', { ms: elapsed })}</span>
                 )}
               </div>
             </div>
 
             <div className="flex w-full max-w-xs flex-col gap-2 rounded-xl border border-base-700 bg-base-900/60 p-3">
-              <p className="label">Enemy draft</p>
+              <p className="label">{t('hero.enemyDraft')}</p>
               <div className="flex gap-2">
                 {Array.from({ length: 5 }).map((_, i) => {
                   const h = selectedHeroes[i];
                   return h ? (
-                    <HeroPortrait key={h.id} icon={h.icon} name={h.localized_name} size={40} />
+                    <HeroPortrait key={`hero-${h.id}`} icon={h.icon} name={h.localized_name} size={40} />
                   ) : (
                     <span
-                      key={i}
+                      key={`slot-${i}`}
                       className="flex h-10 w-10 items-center justify-center rounded-md border border-dashed border-base-600 text-xs text-slate-600"
                     >
                       {i + 1}
@@ -167,9 +168,9 @@ export default function Home() {
 
         {/* Draft input + result */}
         {(tab === 'lastpick' || tab === 'draft') && (
-          <div className="grid gap-4 lg:grid-cols-[380px_1fr]">
+          <div className="grid gap-4 lg:grid-cols-[360px_1fr] xl:grid-cols-[420px_1fr]">
             <section className="card card-pad">
-              <h2 className="section-title mb-3">Enemy draft input</h2>
+              <h2 className="section-title mb-3">{t('draft.input')}</h2>
               <HeroGrid heroes={heroes} selected={selected} onToggle={toggleHero} max={5} />
             </section>
 
@@ -183,7 +184,7 @@ export default function Home() {
               {loading && (
                 <div className="card card-pad flex items-center gap-3 text-sm text-slate-300">
                   <Loader2 className="h-4 w-4 animate-spin text-radiant" />
-                  Reading {selected.length} enemy heroes against the live meta…
+                  {t('loading.reading', { count: selected.length })}
                 </div>
               )}
               {!loading && tab === 'lastpick' && panic && <PanicView result={panic} onFullReport={() => run('report')} />}
@@ -201,25 +202,26 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-base-800 py-6 text-center text-[11px] text-slate-600">
-        DraftMaster AI · data © OpenDota / Valve · not affiliated with Valve Corporation ·{' '}
-        {premium ? 'Premium' : 'Free'} plan
+        {t('footer.disclaimer')}{' '}
+        {t('footer.plan', { tier: premium ? t('footer.premium') : t('footer.free') })}
       </footer>
     </div>
   );
 }
 
 function EmptyState({ onScreenshot }: { onScreenshot: () => void }) {
+  const t = useTranslations('empty');
+  const tHero = useTranslations('hero');
   return (
     <div className="card card-pad flex flex-col items-center gap-3 py-12 text-center">
       <span className="flex h-12 w-12 items-center justify-center rounded-full bg-base-800 text-2xl">🧠</span>
-      <h3 className="text-lg font-bold text-white">Select the enemy draft</h3>
+      <h3 className="text-lg font-bold text-white">{t('title')}</h3>
       <p className="max-w-md text-sm text-slate-400">
-        Pick up to five enemy heroes, then hit <span className="text-dire">I&apos;M LAST PICK</span> for a
-        one-screen win plan or <span className="text-radiant">One Click Win Plan</span> for the full
-        11-section report.
+        {t('body1')} <span className="text-dire">{tHero('panic')}</span> {t('body2')}{' '}
+        <span className="text-radiant">{tHero('oneClick')}</span> {t('body3')}
       </p>
       <button type="button" onClick={onScreenshot} className={cn('btn-ghost mt-1')}>
-        …or upload a draft screenshot
+        {t('screenshot')}
       </button>
     </div>
   );

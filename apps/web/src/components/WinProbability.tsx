@@ -1,9 +1,11 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/format';
 import type { WinProbability } from '@/lib/types';
 
 export function WinProbabilityBar({ wp, compact = false }: { wp: WinProbability; compact?: boolean }) {
+  const t = useTranslations('winprob');
   const you = wp.player_win_probability;
   const them = wp.enemy_win_probability;
   const edge = you >= them;
@@ -12,14 +14,14 @@ export function WinProbabilityBar({ wp, compact = false }: { wp: WinProbability;
     <div className={cn('flex flex-col gap-2', compact && 'gap-1.5')}>
       <div className="flex items-end justify-between gap-3">
         <div>
-          <p className="label">Draft Win Probability</p>
+          <p className="label">{t('draft')}</p>
           <p className={cn('text-3xl font-black tabular-nums leading-none', edge ? 'text-radiant' : 'text-dire')}>
             {you.toFixed(1)}
             <span className="text-lg">%</span>
           </p>
         </div>
         <div className="text-right">
-          <p className="label">Enemy</p>
+          <p className="label">{t('enemy')}</p>
           <p className="text-xl font-bold tabular-nums leading-none text-slate-300">{them.toFixed(1)}%</p>
         </div>
       </div>
@@ -34,13 +36,14 @@ export function WinProbabilityBar({ wp, compact = false }: { wp: WinProbability;
 
       <div className="flex items-center justify-between gap-2 text-xs">
         <span className={cn('font-semibold', edge ? 'text-radiant' : 'text-dire')}>{wp.verdict}</span>
-        <span className="chip capitalize">{wp.confidence} confidence</span>
+        <span className="chip capitalize">{t('confidence', { level: wp.confidence })}</span>
       </div>
     </div>
   );
 }
 
 export function WinProbFactors({ wp }: { wp: WinProbability }) {
+  const t = useTranslations('winprob');
   return (
     <ul className="flex flex-col gap-2">
       {wp.factors.map((f) => {
@@ -63,10 +66,7 @@ export function WinProbFactors({ wp }: { wp: WinProbability }) {
           </li>
         );
       })}
-      <li className="pt-1 text-[11px] text-slate-500">
-        Contributions are percentage points from a 50% baseline, then compressed toward 50% by rank
-        ({wp.rank_label}) — higher ranks convert draft edges into wins more reliably.
-      </li>
+      <li className="pt-1 text-[11px] text-slate-500">{t('note', { rank: wp.rank_label })}</li>
     </ul>
   );
 }

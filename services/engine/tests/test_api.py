@@ -125,6 +125,91 @@ def test_analyse_returns_full_report(client):
     assert set(report["win_conditions"]) == {"primary", "secondary", "emergency"}
 
 
+def test_analyse_why_this_hero_describes_the_requested_hero(client):
+    """The `why_this_hero` prose must describe the picked hero, not always #1.
+
+    Regression guard: the report used to reuse the top pick's reasoning even
+    when the caller asked about a different hero. `best_picks` stays the ranked
+    Top-5; the explicit `hero_id` drives the hero-specific sections.
+    """
+    ids = _ids(client)
+    enemies = [ids["Lion"], ids["Axe"], ids["Shadow Shaman"]]
+    top = client.post(
+        "/api/analyse", json={"enemy_hero_ids": enemies, "role": "carry"}
+    ).json()["report"]
+    top_why = top["why_this_hero"]
+    top_skill = top["skill_build"]
+
+    # Pick the #2 recommendation explicitly and confirm the prose tracks it.
+    second = top["best_picks"][1]
+    explicit = client.post(
+        "/api/analyse",
+        json={"enemy_hero_ids": enemies, "hero_id": second["hero_id"], "role": "carry"},
+    ).json()["report"]
+    # Ranking is unchanged, but sections 2-11 now describe the requested hero.
+    assert [p["hero_id"] for p in explicit["best_picks"]] == [
+        p["hero_id"] for p in top["best_picks"]
+    ]
+    assert explicit["why_this_hero"] != top_why
+    assert isinstance(explicit["why_this_hero"], list) and explicit["why_this_hero"]
+    assert explicit["skill_build"] != top_skill
+    assert explicit["item_build"]["hero"] == second["localized_name"]
+
+
+def test_analyse_locale_russian_translates_prose_not_names(client):
+    ids = _ids(client)
+    payload = {
+        "enemy_hero_ids": [ids["Lion"], ids["Axe"], ids["Shadow Shaman"]],
+        "hero_id": ids["Juggernaut"],
+        "role": "carry",
+    }
+    en = client.post("/api/analyse", json=payload).json()["report"]
+    ru = client.post(
+        "/api/analyse", json={**payload, "locale": "ru"}, headers={"x-locale": "ru"}
+    ).json()["report"]
+
+    # Prose is translated...
+    assert ru["why_this_hero"] != en["why_this_hero"]
+    assert any("Выигрывает" in s or "лейн" in s or "контрол" in s for s in ru["why_this_hero"])
+    # ...but hero names and the numeric scores are untouched.
+    assert [p["localized_name"] for p in ru["best_picks"]] == [
+        p["localized_name"] for p in en["best_picks"]
+    ]
+    assert [p["final_score"] for p in ru["best_picks"]] == [
+        p["final_score"] for p in en["best_picks"]
+    ]
+    assert ru["threat_analysis"]["labels"]["crowd_control"] == "Контроль"
+
+
+def test_locale_is_part_of_cache_key(client):
+    """EN and RU reports for the same draft must not share a cache entry."""
+    ids = _ids(client)
+    payload = {
+        "enemy_hero_ids": [ids["Lion"], ids["Axe"]],
+        "hero_id": ids["Juggernaut"],
+        "role": "carry",
+    }
+    en = client.post("/api/analyse", json=payload).json()
+    ru = client.post("/api/analyse", json={**payload, "locale": "ru"}).json()
+    assert en["cached"] is False and ru["cached"] is False
+    assert en["report"]["why_this_hero"] != ru["report"]["why_this_hero"]
+
+
+def test_reference_and_winprob_endpoints_are_locale_aware(client):
+    """Every prose-bearing endpoint honours `x-locale`, not just /analyse."""
+    ids = _ids(client)
+    meta_ru = client.get("/api/meta", headers={"x-locale": "ru"}).json()
+    assert meta_ru["source"] == "публичным матчам OpenDota"
+
+    body = {"enemy_hero_ids": [ids["Lion"], ids["Axe"]], "hero_id": ids["Juggernaut"]}
+    wp_en = client.post("/api/win-probability", json=body).json()
+    wp_ru = client.post("/api/win-probability", json=body, headers={"x-locale": "ru"}).json()
+    assert wp_en["verdict"] != wp_ru["verdict"]
+    assert wp_ru["factors"][0]["name"] == "Мап-ап героев"
+    # Numbers are identical across locales.
+    assert wp_en["player_win_probability"] == wp_ru["player_win_probability"]
+
+
 def test_analyse_is_cached_on_second_call(client):
     ids = _ids(client)
     payload = {

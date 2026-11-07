@@ -3,6 +3,7 @@
 import { memo, useMemo, useState } from 'react';
 import { Search, X } from 'lucide-react';
 import type { Hero } from '@/lib/types';
+import { useTranslations } from 'next-intl';
 import { cn, ROLE_FILTERS } from '@/lib/format';
 import { HeroPortrait } from './HeroPortrait';
 
@@ -18,6 +19,7 @@ type Props = {
  * Selection is capped and never re-orders, so muscle memory keeps working.
  */
 export const HeroGrid = memo(function HeroGrid({ heroes, selected, onToggle, max = 5 }: Props) {
+  const t = useTranslations('draft');
   const [query, setQuery] = useState('');
   const [role, setRole] = useState<string | null>(null);
 
@@ -43,7 +45,7 @@ export const HeroGrid = memo(function HeroGrid({ heroes, selected, onToggle, max
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search hero…"
+            placeholder={t('searchPlaceholder')}
             autoComplete="off"
             spellCheck={false}
             className="w-full rounded-lg border border-base-600 bg-base-900/80 py-2.5 pl-9 pr-9 text-sm text-slate-100 outline-none placeholder:text-slate-500 focus:border-radiant/60 focus:ring-1 focus:ring-radiant/40"
@@ -52,7 +54,7 @@ export const HeroGrid = memo(function HeroGrid({ heroes, selected, onToggle, max
             <button
               type="button"
               onClick={() => setQuery('')}
-              aria-label="Clear search"
+              aria-label={t('clearSearch')}
               className="absolute right-2 top-1/2 -translate-y-1/2 rounded p-1 text-slate-500 hover:text-slate-200"
             >
               <X className="h-4 w-4" />
@@ -61,9 +63,9 @@ export const HeroGrid = memo(function HeroGrid({ heroes, selected, onToggle, max
         </div>
         <div className="flex items-center gap-2 text-xs text-slate-400">
           <span className={cn('chip', atCap && 'border-dire/60 text-dire')}>
-            {selected.length}/{max} enemies
+            {t('enemies', { count: selected.length, max })}
           </span>
-          <span className="hidden sm:inline">{filtered.length} heroes</span>
+          <span className="hidden sm:inline">{t('heroes', { count: filtered.length })}</span>
         </div>
       </div>
 
@@ -73,7 +75,7 @@ export const HeroGrid = memo(function HeroGrid({ heroes, selected, onToggle, max
           onClick={() => setRole(null)}
           className={cn('chip shrink-0', !role && 'border-radiant/60 bg-radiant/10 text-radiant')}
         >
-          All
+          {t('all')}
         </button>
         {ROLE_FILTERS.map((r) => (
           <button
@@ -120,7 +122,7 @@ export const HeroGrid = memo(function HeroGrid({ heroes, selected, onToggle, max
           );
         })}
         {filtered.length === 0 && (
-          <p className="col-span-full py-8 text-center text-sm text-slate-500">No hero matches “{query}”.</p>
+          <p className="col-span-full py-8 text-center text-sm text-slate-500">{t('noMatch', { query })}</p>
         )}
       </div>
     </div>
