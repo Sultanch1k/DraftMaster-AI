@@ -102,6 +102,11 @@ cd apps/web && npx tsc --noEmit && npm run build
   switch re-fetches the report in the new locale — is free. Tests must therefore use
   *distinct* drafts to exercise the limit, and the frontend refreshes the last analysis
   on a locale change via `lastRunRef`.
+- **The header quota bar reads one `usage` state.** Every paid action (Panic, full
+  report, screenshot) returns `usage` and the page stores it in a single `setUsage`
+  call, so the counter stays correct regardless of which feature was used. Do not
+  read usage off a single result object (e.g. `panic?.usage`) — that silently misses
+  the full-report and screenshot paths.
 - **`DraftReport.to_dict()` returns a shallow copy**, not the live `__dict__`. The
   manual-pick branch stores a pick's dict inside `pick_reports`; returning `__dict__`
   made that dict contain itself and broke JSON serialization ("Circular reference").
