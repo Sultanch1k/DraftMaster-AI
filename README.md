@@ -112,7 +112,7 @@ only the decision plus its reasoning: `#1 hero`, `full build`, `danger heroes`,
 
 ```
                        ┌───────────────────────────────────────────┐
-   Browser (mobile      │  Next.js 15 · React 19 · TypeScript        │
+   Browser (mobile      │  Next.js 16 · React 19 · TypeScript        │
    first, dark theme)   │  Tailwind · Shadcn-style primitives        │
                        │  /api/* proxied through the Next server    │
                        └───────────────────────┬───────────────────┘
@@ -150,7 +150,7 @@ services and scales by setting two environment variables.
 ```
 .
 ├── apps/
-│   └── web/                         # Next.js 15 frontend
+│   └── web/                         # Next.js 16 frontend
 │       └── src/
 │           ├── app/                 # layout, page, global styles, icon
 │           ├── components/          # UI components (see docs/ui-component-map.md)
@@ -191,7 +191,7 @@ services and scales by setting two environment variables.
 
 ## Quickstart
 
-Requirements: Python 3.11+ and Node 20+.
+Requirements: Python 3.11+ and Node 20.9+.
 
 ```bash
 # 1. Backend

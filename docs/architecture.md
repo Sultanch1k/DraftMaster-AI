@@ -6,7 +6,7 @@ DraftMaster AI is a monorepo with three deployable units and one build-time tool
 
 | Unit | Technology | Responsibility |
 | --- | --- | --- |
-| `apps/web` | Next.js 15 / React 19 / TypeScript / Tailwind | All user-facing UI; proxies `/api/*` to the backend |
+| `apps/web` | Next.js 16 / React 19 / TypeScript / Tailwind | All user-facing UI; proxies `/api/*` to the backend |
 | `services/api` | FastAPI / Pydantic v2 / SQLAlchemy | HTTP surface, auth, quota, caching, persistence |
 | `services/engine` | Pure Python (numpy, Pillow, httpx) | All strategy computation and image detection |
 | `tools/pipeline` | Python | Builds the data artifacts from OpenDota + Valve's CDN |

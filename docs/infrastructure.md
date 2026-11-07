@@ -5,7 +5,7 @@
 ```
                     ┌──────────────────────────────────────┐
    Users ─────────► │  Vercel Edge / CDN                    │
-                    │  apps/web (Next.js 15)                │
+                    │  apps/web (Next.js 16)                │
                     │  · static assets cached at the edge   │
                     │  · /api/* rewritten to the backend    │
                     └────────────────┬─────────────────────┘

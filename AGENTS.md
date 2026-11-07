@@ -16,7 +16,7 @@ narrate numbers the engine produced; they must never invent them.
 | --- | --- |
 | `services/engine/draftmaster_engine/` | Pure-Python strategy engine. No web framework imports, ever. |
 | `services/api/draftmaster_api/` | FastAPI surface: routers, schemas, config, infra adapters. |
-| `apps/web/src/` | Next.js 15 App Router frontend (next-intl, cookie-based locale). |
+| `apps/web/src/` | Next.js 16 App Router frontend (next-intl, cookie-based locale). |
 | `tools/pipeline/` | Builds the data artifacts from OpenDota + Valve's CDN. |
 | `data/artifacts/` | Committed build outputs — the engine's only data dependency. |
 | `docs/` | Product, architecture, roadmap and risk documentation. |
@@ -70,6 +70,11 @@ cd apps/web && npx tsc --noEmit && npm run build
   margin. Loosening the floor alone causes false positives.
 - Postgres needs `psycopg[binary]` in `services/api/requirements.txt`. Without it the
   store silently falls back to memory in production — it now logs a warning instead.
+- **Next.js must stay on the latest patched release.** Vercel refuses to deploy a
+  build whose Next.js version has an open advisory ("Vulnerable version of Next.js
+  detected"). Bump `apps/web/package.json` (`next`, `react`, `react-dom`, `next-intl`)
+  and re-run `npm audit` before pushing; keep the Docker/CI Node version at ≥20.9
+  (Next 16 requires it).
 - `DRAFTMASTER_` prefixes every setting; `API_PROXY_TARGET` configures the Next.js
   rewrite to the backend.
 - Docker image runs as a non-root user, so `chmod -R a+rX` runs over the copied code;

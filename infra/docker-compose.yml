@@ -40,7 +40,7 @@ services:
       redis: { condition: service_healthy }
 
   web:
-    image: node:20-alpine
+    image: node:22-alpine
     working_dir: /app
     environment:
       API_PROXY_TARGET: http://api:8000
