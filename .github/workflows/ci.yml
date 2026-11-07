@@ -23,6 +23,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements-dev.txt
+          pip install -e services/engine
       - name: Validate committed artifacts
         run: |
           python - <<'PY'

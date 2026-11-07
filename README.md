@@ -197,6 +197,7 @@ Requirements: Python 3.11+ and Node 20+.
 # 1. Backend
 python -m venv .venv && . .venv/bin/activate
 pip install -r requirements-dev.txt
+pip install -e services/engine
 cd services/api && uvicorn draftmaster_api.main:app --reload --port 12001
 
 # 2. Frontend (new terminal)
