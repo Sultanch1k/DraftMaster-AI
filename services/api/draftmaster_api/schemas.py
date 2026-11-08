@@ -107,6 +107,7 @@ class HealthOut(BaseModel):
     # Exposed so a deploy can be verified as durable from outside: "memory"
     # here in production means entitlements will not survive a restart.
     store_backend: str | None = None
+    store_detail: str | None = None
     cache_backend: str | None = None
 
 

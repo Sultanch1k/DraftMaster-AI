@@ -195,6 +195,18 @@ class Store:
             log.warning("store falling back to memory (url=%s): %s", url, exc)
             self.engine = None
 
+    @property
+    def backend_detail(self) -> str:
+        """Engine dialect + driver (e.g. ``postgresql+psycopg``), or the fallback.
+
+        Reported by /health so durability is verifiable remotely without a secret.
+        A ``sqlite`` here in production means the disk is ephemeral and every
+        entitlement, quota counter and subscriber dies on the next restart.
+        """
+        if self.engine is None:
+            return "memory"
+        return self.engine.dialect.name + "+" + (self.engine.dialect.driver or "?")
+
     # -- profiles --------------------------------------------------------
     def upsert_profile(self, payload: dict) -> dict:
         uid = payload["user_id"]
