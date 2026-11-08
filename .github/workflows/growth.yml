@@ -1,0 +1,82 @@
+name: Growth agent
+
+# The autonomous growth loop. It runs on a schedule, plans content from the
+# committed strategy dataset, publishes to whatever channels are credentialed,
+# ingests outcome data, and commits its state back so the next run is smarter.
+#
+# Safe by default: with no secrets configured every channel is a dry run and the
+# job still produces reviewable content plus a cycle report. Turn on real
+# publishing by setting repository variables/secrets and ALLOW_PUBLISH=true.
+on:
+  schedule:
+    # 09:00 UTC daily — morning in EU, evening in NA.
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+    inputs:
+      live:
+        description: "Publish to credentialed channels (otherwise dry run)"
+        type: boolean
+        default: false
+      posts:
+        description: "Posts to generate this run"
+        type: string
+        default: "3"
+
+concurrency:
+  group: growth-agent
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  cycle:
+    name: Run a growth cycle
+    runs-on: ubuntu-latest
+    env:
+      # Channel credentials. Absent => dry run for that channel.
+      DRAFTMASTER_GROWTH_TWITTER_TOKEN: ${{ secrets.GROWTH_TWITTER_TOKEN }}
+      DRAFTMASTER_GROWTH_DISCORD_TOKEN: ${{ secrets.GROWTH_DISCORD_WEBHOOK }}
+      DRAFTMASTER_GROWTH_TELEGRAM_TOKEN: ${{ secrets.GROWTH_TELEGRAM_BOT_TOKEN }}
+      DRAFTMASTER_GROWTH_REDDIT_TOKEN: ${{ secrets.GROWTH_REDDIT_TOKEN }}
+      DRAFTMASTER_GROWTH_METRICS_URL: ${{ vars.GROWTH_METRICS_URL }}
+      DRAFTMASTER_GROWTH_METRICS_TOKEN: ${{ secrets.GROWTH_METRICS_TOKEN }}
+      DRAFTMASTER_GROWTH_ALLOW_PUBLISH: ${{ github.event.inputs.live || 'false' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+          pip install -e services/engine
+          pip install -e services/growth
+      - name: Run cycle
+        run: |
+          python -m draftmaster_growth run --posts "${{ github.event.inputs.posts || '3' }}" \
+            | tee /tmp/growth-report.json
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: growth-output
+          path: |
+            data/growth/out
+            data/growth/growth-state.json
+            /tmp/growth-report.json
+          if-no-files-found: warn
+      - name: Commit state and content
+        run: |
+          git config user.name "draftmaster-growth[bot]"
+          git config user.email "growth-bot@users.noreply.github.com"
+          git add data/growth || true
+          if git diff --cached --quiet; then
+            echo "no changes to commit"
+          else
+            git commit -m "chore(growth): cycle $(date -u +%Y-%m-%d) [skip ci]"
+            git push
+          fi

@@ -16,9 +16,11 @@ narrate numbers the engine produced; they must never invent them.
 | --- | --- |
 | `services/engine/draftmaster_engine/` | Pure-Python strategy engine. No web framework imports, ever. |
 | `services/api/draftmaster_api/` | FastAPI surface: routers, schemas, config, infra adapters. |
+| `services/growth/draftmaster_growth/` | Autonomous growth agent: content, outreach, publishing, self-improvement. |
 | `apps/web/src/` | Next.js 16 App Router frontend (next-intl, cookie-based locale). |
 | `tools/pipeline/` | Builds the data artifacts from OpenDota + Valve's CDN. |
 | `data/artifacts/` | Committed build outputs — the engine's only data dependency. |
+| `data/growth/` | Growth-agent state (tracked) + generated output (gitignored). |
 | `docs/` | Product, architecture, roadmap and risk documentation. |
 
 ## Commands
@@ -32,6 +34,11 @@ cd apps/web && API_PROXY_TARGET=http://127.0.0.1:12001 npm run dev -- --port 120
 
 # Tests (always run before claiming a change works)
 .venv/bin/python -m pytest services/engine/tests -q
+.venv/bin/python -m pytest services/growth/tests -q
+
+# Growth agent (dry run by default; --live required to publish)
+.venv/bin/python -m draftmaster_growth plan
+.venv/bin/python -m draftmaster_growth run
 
 # Typecheck + production build
 cd apps/web && npx tsc --noEmit && npm run build
@@ -148,6 +155,16 @@ cd apps/web && npx tsc --noEmit && npm run build
 - **`pick_reports` ships a full 11-section report for every Top-5 pick** so clicking a
   recommended hero is instant and never spends quota. Keep the key set in sync with
   `best_picks` (keys are `str(hero_id)`).
+- **The growth agent is deterministic and dry by default.** `draftmaster_growth` never
+  calls `random`; the bandit explores on a rotation keyed to observation count, and the
+  topic ring advances by a counter — so `plan` twice and diff to check a change. A channel
+  is live only when it is enabled *and* credentialed *and* `DRAFTMASTER_GROWTH_ALLOW_PUBLISH`
+  is set; otherwise every adapter records a dry run. It reuses `draftmaster_engine`'s
+  `Dataset`, so a growth post can never contain a number the product would not produce.
+  Dedupe keys off `ContentItem.signature` (topic + data + locale), **not** `topic` — using
+  the key alone made English and Russian collide and re-published the same subject. Tests
+  live in `services/growth/tests/`; `data/growth/out/` is gitignored while the state file is
+  tracked so the scheduled workflow can persist it. See `docs/growth-agent.md`.
 
 ## Definition of done
 
