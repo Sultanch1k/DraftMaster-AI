@@ -2,7 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    # import-implementation is the repo default and the Vercel production
+    # branch, so it must be gated too — main is only where releases land.
+    branches: [main, import-implementation]
   pull_request:
 
 concurrency:
