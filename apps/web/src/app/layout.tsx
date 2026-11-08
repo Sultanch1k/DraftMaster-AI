@@ -10,7 +10,7 @@ export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('meta');
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://draftmaster.ai';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.draftmaster.wiki';
   return {
     metadataBase: new URL(siteUrl),
     title: {
