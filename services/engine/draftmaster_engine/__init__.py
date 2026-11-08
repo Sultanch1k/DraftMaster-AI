@@ -8,6 +8,7 @@ from __future__ import annotations
 
 from .dataset import Dataset, get_dataset
 from .report import ReportEngine
+from .hero_strategy import HeroStrategyEngine
 from .coach import MatchCoach, OpenDotaClient
 from .screenshot import ScreenshotAnalyzer
 from . import i18n
@@ -16,6 +17,7 @@ __all__ = [
     "Dataset",
     "get_dataset",
     "ReportEngine",
+    "HeroStrategyEngine",
     "MatchCoach",
     "OpenDotaClient",
     "ScreenshotAnalyzer",

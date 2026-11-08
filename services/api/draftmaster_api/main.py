@@ -9,7 +9,13 @@ from fastapi.exception_handlers import http_exception_handler
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from draftmaster_engine import MatchCoach, ReportEngine, ScreenshotAnalyzer, get_dataset
+from draftmaster_engine import (
+    HeroStrategyEngine,
+    MatchCoach,
+    ReportEngine,
+    ScreenshotAnalyzer,
+    get_dataset,
+)
 from draftmaster_engine.i18n import localize
 
 from .config import get_settings
@@ -29,6 +35,7 @@ async def lifespan(app: FastAPI):
     dataset = get_dataset(settings.artifact_path)
     app.state.settings = settings
     app.state.engine = ReportEngine(dataset)
+    app.state.hero_strategy = HeroStrategyEngine(dataset)
     app.state.cache = Cache(settings)
     app.state.store = Store(settings)
     app.state.coach = MatchCoach(dataset)
@@ -134,7 +141,12 @@ def create_app() -> FastAPI:
             "name": settings.app_name,
             "tagline": "Here is exactly how to win this specific game.",
             "docs": "/docs",
-            "flagship": ["POST /api/panic", "POST /api/analyse", "POST /api/win-probability"],
+            "flagship": [
+                "POST /api/panic",
+                "POST /api/analyse",
+                "POST /api/hero-strategy",
+                "POST /api/win-probability",
+            ],
         }
 
     app.include_router(reference.router, prefix="/api")
