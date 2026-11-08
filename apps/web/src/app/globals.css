@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+html,
+body {
+  background: #07090d;
+  color: #e6ebf2;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-image:
+    radial-gradient(1000px 500px at 15% -10%, rgba(56, 224, 123, 0.09), transparent 60%),
+    radial-gradient(900px 500px at 90% 0%, rgba(255, 77, 77, 0.07), transparent 55%);
+  background-attachment: fixed;
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-base-700 bg-base-850/70 backdrop-blur;
+  }
+  .card-pad {
+    @apply p-4 sm:p-5;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full border border-base-600 bg-base-800/70 px-2.5 py-0.5 text-xs text-slate-300;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition
+      focus:outline-none focus-visible:ring-2 focus-visible:ring-radiant/60 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-radiant text-base-950 hover:bg-radiant/90;
+  }
+  .btn-danger {
+    @apply btn bg-dire text-white hover:bg-dire/90;
+  }
+  .btn-ghost {
+    @apply btn border border-base-600 bg-base-800/60 text-slate-200 hover:bg-base-700;
+  }
+  .section-title {
+    @apply flex items-center gap-2 text-base font-bold tracking-tight text-white sm:text-lg;
+  }
+  .label {
+    @apply text-[11px] font-semibold uppercase tracking-wider text-slate-400;
+  }
+  .bar {
+    @apply h-1.5 w-full overflow-hidden rounded-full bg-base-700;
+  }
+}
+
+/* Slim scrollbars keep the dense analytical UI from feeling heavy. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #27313f transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #27313f;
+  border-radius: 999px;
+}

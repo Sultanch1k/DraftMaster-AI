@@ -1,0 +1,285 @@
+{
+  "header": {
+    "tagline": "Here is exactly how to win this specific game",
+    "patch": "Patch {patch}",
+    "premium": "★ Premium",
+    "free": "Free plan",
+    "premiumTitle": "Plans & limits",
+    "language": "Language",
+    "switchTo": "Switch language to {locale}"
+  },
+  "tabs": {
+    "lastpick": "I'M LAST PICK",
+    "draft": "Full Report",
+    "screenshot": "Screenshot",
+    "coach": "Match Coach",
+    "meta": "Meta Intel"
+  },
+  "hero": {
+    "headline1": "Your enemy draft is already decided.",
+    "headline2": "Now win the game.",
+    "sub1": "DraftMaster AI turns the enemy lineup into one actionable plan: the best hero, the exact build, the items to avoid, kill priority, power spikes and win conditions — computed from",
+    "sub2": "heroes",
+    "sub3": "of real OpenDota match data, not a static guide.",
+    "panic": "I'M LAST PICK",
+    "oneClick": "One Click Win Plan™",
+    "clear": "Clear",
+    "answeredIn": "answered in {ms} ms",
+    "enemyDraft": "Enemy draft"
+  },
+  "empty": {
+    "title": "Select the enemy draft",
+    "body1": "Pick up to five enemy heroes, then hit",
+    "body2": "for a one-screen win plan or",
+    "body3": "for the full 11-section report.",
+    "screenshot": "…or upload a draft screenshot"
+  },
+  "errors": {
+    "selectAtLeastOne": "Select at least one enemy hero.",
+    "generic": "Something went wrong. Please try again.",
+    "network": "Couldn't reach the server. Check your connection and try again.",
+    "quotaTitle": "Daily limit reached",
+    "retry": "Retry"
+  },
+  "loading": {
+    "reading": "Reading {count, plural, one {# enemy hero} other {# enemy heroes}} against the live meta…"
+  },
+  "draft": {
+    "input": "Enemy draft input",
+    "yourRole": "Your role",
+    "yourRank": "Your rank",
+    "searchPlaceholder": "Search hero…",
+    "clearSearch": "Clear search",
+    "enemies": "{count}/{max} enemies",
+    "heroes": "{count, plural, one {# hero} other {# heroes}}",
+    "all": "All",
+    "noMatch": "No hero matches “{query}”."
+  },
+  "roles": {
+    "carry": "Carry (1)",
+    "mid": "Mid (2)",
+    "offlane": "Offlane (3)",
+    "support": "Support (4)",
+    "hard_support": "Hard Support (5)"
+  },
+  "ranks": {
+    "11": "Herald",
+    "22": "Guardian",
+    "33": "Crusader",
+    "44": "Archon",
+    "55": "Legend",
+    "66": "Ancient",
+    "77": "Divine",
+    "80": "Immortal"
+  },
+  "panic": {
+    "bestPick": "#1 Best Pick",
+    "pickScore": "Pick score",
+    "backups": "Backups",
+    "fullBuild": "Full build",
+    "keyCounters": "Key counters",
+    "killOrder": "Kill order",
+    "dangerHeroes": "Danger heroes",
+    "doNotBuild": "Do not build",
+    "primary": "Primary",
+    "secondary": "Secondary",
+    "emergency": "Emergency",
+    "winCondition": "{tier} win condition",
+    "generatedIn": "Generated in {ms} ms",
+    "freePlan": "Free plan",
+    "premiumPlan": "Premium",
+    "analysesLeft": "{count, plural, one {# analysis left today} other {# analyses left today}}",
+    "openFull": "Open the full 11-section report →"
+  },
+  "report": {
+    "analysedPick": "Analysed pick",
+    "vs": "vs {heroes}",
+    "s1": "Best Picks",
+    "s1Chip": "Counter · Meta · Comfort · Synergy · Role",
+    "s2": "Why This Hero Works",
+    "strongInto": "Strong into",
+    "s3": "Complete Threat Analysis",
+    "s4": "Dynamic Item Builder",
+    "s5": "Skill Build (1-30)",
+    "s6": "Talent Tree",
+    "s7": "Match Plan",
+    "s8": "Win Conditions",
+    "s9": "Target Priority",
+    "s10": "Power Spike Engine",
+    "s11": "One-Sentence Win Plan",
+    "finalTakeaway": "Your final take-away",
+    "footer": "Patch {patch} · computed in {ms} ms · built on real OpenDota match statistics, not static guides.",
+    "noTalentData": "No talent data for this hero.",
+    "level": "Level {level}",
+    "alternative": "Alternative: {options}",
+    "maxedFirst": "{primary} maxed first",
+    "second": "{secondary} second",
+    "ultimateAt": "{ultimate} at 6/12/18",
+    "min": "{window} min",
+    "loading": "Loading…",
+    "maxedFirstSuffix": "maxed first ·",
+    "secondSuffix": "second ·",
+    "ultimateSuffix": "at 6/12/18"
+  },
+  "fields": {
+    "objectives": "Objectives",
+    "farmFocus": "Farm focus",
+    "fightFocus": "Fight focus",
+    "mapMovement": "Map movement",
+    "towerPriority": "Tower priority",
+    "roshanPriority": "Roshan priority",
+    "dangerZones": "Danger zones"
+  },
+  "picks": {
+    "title": "Best Picks",
+    "counter": "Counter",
+    "lane": "Lane",
+    "meta": "Meta",
+    "comfort": "Comfort",
+    "synergy": "Synergy",
+    "difficulty": "Difficulty",
+    "role": "Role",
+    "viewReport": "Open the full report for {hero}",
+    "selected": "Selected",
+    "selectedHint": "Showing the full report for {hero}"
+  },
+  "items": {
+    "title": "Dynamic Item Build",
+    "generatedFromDraft": "generated from your enemy draft",
+    "keyCounters": "Key counter items — buy these or lose",
+    "avoid": "Items to avoid",
+    "starting": "Starting",
+    "lane": "Lane",
+    "early": "Early Game",
+    "mid": "Mid Game",
+    "late": "Late Game",
+    "luxury": "Luxury",
+    "situational": "Situational",
+    "emergency": "Emergency",
+    "hintStarting": "Leaving base",
+    "hintLane": "Laning stage",
+    "hintEarly": "First items",
+    "hintMid": "Core timing",
+    "hintLate": "Scaling",
+    "hintLuxury": "6-slot",
+    "hintSituational": "If needed",
+    "hintEmergency": "Losing hard"
+  },
+  "threats": {
+    "title": "Threat Analysis",
+    "low": "low 0-39",
+    "medium": "medium 40-64",
+    "high": "high 65+"
+  },
+  "targets": {
+    "title": "Kill Priority"
+  },
+  "spikes": {
+    "title": "Power Spikes",
+    "yours": "Your spikes",
+    "enemies": "Enemy spikes",
+    "peak": "peak ~{minutes}m"
+  },
+  "winConditions": {
+    "title": "Win Conditions",
+    "primary": "Primary Win Condition",
+    "secondary": "Secondary Win Condition",
+    "emergency": "Emergency Win Condition"
+  },
+  "oneSentence": {
+    "title": "One-Sentence Win Plan"
+  },
+  "winprob": {
+    "draft": "Draft Win Probability",
+    "enemy": "Enemy",
+    "confidence": "{level} confidence",
+    "note": "Contributions are percentage points from a 50% baseline, then compressed toward 50% by rank ({rank}) — higher ranks convert draft edges into wins more reliably.",
+    "levels": {
+      "low": "low",
+      "medium": "medium",
+      "high": "high"
+    }
+  },
+  "screenshot": {
+    "title": "Screenshot Analyzer",
+    "chip": "hero detection → full report",
+    "description": "Drop a draft or pick-screen screenshot. DraftMaster detects the hero portraits and runs the complete analysis automatically — no manual selection.",
+    "drop": "Drag & drop a PNG or JPG here",
+    "choose": "Choose file",
+    "maxSize": "Max 8 MB. Detection works best on the in-game draft bar.",
+    "detecting": "Detecting heroes…",
+    "match": "{pct}% match",
+    "autoReport": "Auto-generated report from screenshot",
+    "uploadFailed": "Upload failed.",
+    "alt": "Uploaded draft"
+  },
+  "coach": {
+    "title": "Match ID Coach",
+    "chip": "live OpenDota data",
+    "description": "Paste any public match ID. DraftMaster pulls the real match from OpenDota and grades your farm, XP, last hits, fighting and survival against benchmarks for your bracket, then gives you a practice plan.",
+    "placeholder": "e.g. 9080108550",
+    "button": "Coach my game",
+    "freeNote": "Free plan includes match coaching previews.",
+    "switchPremium": "Switch to Premium",
+    "freeNote2": "for unlimited coaching.",
+    "matchLabel": "Match {id}",
+    "radiant": "Radiant victory",
+    "dire": "Dire victory",
+    "min": "{min} min",
+    "strengths": "Strengths",
+    "mistakes": "Mistakes",
+    "itemNotes": "Item notes",
+    "timingNotes": "Timing notes",
+    "practicePlan": "Practice plan",
+    "nothingNotable": "Nothing notable.",
+    "enterNumeric": "Enter a numeric Dota 2 match ID.",
+    "couldNotFetch": "Could not fetch that match."
+  },
+  "usage": {
+    "premiumUnlimited": "Premium · unlimited",
+    "free": "Free plan",
+    "left": "{remaining} of {limit} left today"
+  },
+  "footer": {
+    "disclaimer": "DraftMaster AI · data © OpenDota / Valve · not affiliated with Valve Corporation ·",
+    "premium": "Premium",
+    "free": "Free",
+    "plan": "{tier} plan",
+    "data": "Data from OpenDota"
+  },
+  "metaPanel": {
+    "title": "Meta Intelligence",
+    "loading": "Loading live meta intelligence from OpenDota…",
+    "description": "Computed from {source}. Patch winners and losers are ranked by Captain's Mode win rate, trending heroes by public pick rate.",
+    "trending": "Trending heroes",
+    "winners": "Patch winners",
+    "losers": "Patch losers",
+    "picks": "picks",
+    "cmWinrate": "CM win rate",
+    "patch": "Patch {patch}"
+  },
+  "meta": {
+    "title": "DraftMaster AI — Here is exactly how to win this specific game",
+    "description": "DraftMaster AI is the Dota 2 AI coach that turns the enemy draft into a complete win plan: best picks, dynamic item build, threat analysis, win conditions, kill priority and a WIN PROBABILITY ENGINE."
+  },
+  "premium": {
+    "title": "Plans",
+    "subtitle": "DraftMaster AI is free to use. Premium removes the daily limit and unlocks the full coach.",
+    "free": "Free",
+    "pro": "Premium",
+    "freePrice": "3 analyses per day",
+    "proPrice": "Unlimited (early access)",
+    "free1": "3 analyses per day",
+    "free2": "Full 11-section reports",
+    "free3": "Panic Mode + Screenshot Analyzer",
+    "pro1": "Unlimited analyses",
+    "pro2": "Unlimited match coaching",
+    "pro3": "Patch meta intelligence",
+    "pro4": "Priority strategy updates",
+    "current": "Current",
+    "activate": "Activate Premium (early access)",
+    "downgrade": "Switch back to Free",
+    "close": "Close",
+    "note": "Early access: Premium is unlocked in-app for free while we finish billing."
+  }
+}

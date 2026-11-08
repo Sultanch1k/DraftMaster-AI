@@ -1,0 +1,96 @@
+"""Match ID coach + personal AI coach endpoints."""
+from __future__ import annotations
+
+import httpx
+from fastapi import APIRouter, HTTPException, Request
+
+from ..locale import localize_coach, resolve_locale
+from ..schemas import MatchCoachRequest, ProfileUpsert
+
+router = APIRouter(tags=["coach"])
+
+
+def _coach_error(exc: Exception) -> HTTPException:
+    """Map upstream/OpenDota failures onto clean, user-facing HTTP errors.
+
+    OpenDota returns 404 for an unknown match and 429 when we exceed its public
+    rate limit; everything else is an upstream outage. We never surface the raw
+    httpx message (it contains the full request URL) to the client.
+    """
+    if isinstance(exc, httpx.HTTPStatusError):
+        status = exc.response.status_code
+        if status == 404:
+            return HTTPException(status_code=404, detail="match not available")
+        if status == 429:
+            return HTTPException(
+                status_code=429,
+                detail="OpenDota rate limit reached — please try again in a moment.",
+            )
+    return HTTPException(
+        status_code=502,
+        detail="Could not reach OpenDota — please try again in a moment.",
+    )
+
+
+@router.post("/match/coach")
+def match_coach(payload: MatchCoachRequest, request: Request) -> dict:
+    locale = resolve_locale(request)
+    cache = request.app.state.cache
+    settings = request.app.state.settings
+    key = f"match:{payload.match_id}:{payload.account_id}"
+    cached = cache.get(key)
+    if cached:
+        cached["cached"] = True
+        return localize_coach(cached, locale)
+    try:
+        report = request.app.state.coach.coach(payload.match_id, payload.account_id)
+    except ValueError:
+        raise HTTPException(status_code=404, detail="match not available")
+    except Exception as exc:  # network / upstream
+        raise _coach_error(exc)
+    body = {"coach_report": report.to_dict(), "cached": False}
+    cache.set(key, body, settings.match_cache_ttl_seconds)
+    return localize_coach(body, locale)
+
+
+@router.get("/match/{match_id}")
+def match_summary(match_id: int, request: Request) -> dict:
+    try:
+        match = request.app.state.coach.client.match(match_id)
+    except Exception as exc:
+        raise _coach_error(exc)
+    if "players" not in match:
+        raise HTTPException(status_code=404, detail="match not available")
+    ds = request.app.state.engine.ds
+    return {
+        "match_id": match_id,
+        "duration_min": round((match.get("duration") or 0) / 60.0, 1),
+        "radiant_win": match.get("radiant_win"),
+        "players": [
+            {
+                "hero_id": p.get("hero_id"),
+                "hero": (ds.by_id.get(p.get("hero_id")) or {}).get("localized_name"),
+                "isRadiant": p.get("isRadiant"),
+                "kills": p.get("kills"),
+                "deaths": p.get("deaths"),
+                "assists": p.get("assists"),
+                "gpm": p.get("gold_per_min"),
+                "xpm": p.get("xp_per_min"),
+                "net_worth": p.get("net_worth"),
+            }
+            for p in match["players"]
+        ],
+    }
+
+
+@router.put("/profile")
+def upsert_profile(payload: ProfileUpsert, request: Request) -> dict:
+    return request.app.state.store.upsert_profile(payload.model_dump())
+
+
+@router.get("/profile/{user_id}")
+def get_profile(user_id: str, request: Request) -> dict:
+    profile = request.app.state.store.get_profile(user_id)
+    if not profile:
+        raise HTTPException(status_code=404, detail="profile not found")
+    return profile

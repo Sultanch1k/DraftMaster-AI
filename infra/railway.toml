@@ -1,0 +1,20 @@
+# Railway service definition for the DraftMaster AI API.
+# Deploy: `railway up` from the repository root, or point Railway at this file.
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "infra/Dockerfile"
+
+[deploy]
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5
+numReplicas = 1
+
+[deploy.envs]
+DRAFTMASTER_ENVIRONMENT = "production"
+DRAFTMASTER_CORS_ORIGINS = "*"
+
+# Attach managed plugins and Railway injects these automatically:
+#   DATABASE_URL -> set DRAFTMASTER_DATABASE_URL from it
+#   REDIS_URL    -> set DRAFTMASTER_REDIS_URL from it
