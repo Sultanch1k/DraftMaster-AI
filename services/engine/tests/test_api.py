@@ -22,6 +22,7 @@ def test_health(client):
     # Durability must be visible remotely: a "memory" store in production means
     # paying users lose premium on restart, so it is reported, not hidden.
     assert body["store_backend"] in {"sqlalchemy", "memory"}
+    assert body["store_detail"] and "+" in body["store_detail"]
     assert body["cache_backend"] in {"redis", "memory"}
 
 

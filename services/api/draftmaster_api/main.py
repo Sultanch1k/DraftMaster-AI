@@ -107,6 +107,7 @@ def create_app() -> FastAPI:
             "patch": (ds.patch or {}).get("name"),
             "dataset_generated_at": ds.generated_at,
             "store_backend": getattr(request.app.state.store, "backend", None),
+            "store_detail": getattr(request.app.state.store, "backend_detail", None),
             "cache_backend": getattr(request.app.state.cache, "backend", None),
         }
 
