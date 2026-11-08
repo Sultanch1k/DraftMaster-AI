@@ -40,6 +40,23 @@ async def lifespan(app: FastAPI):
         log.warning("screenshot analyzer unavailable: %s", exc)
         app.state.screenshot = None
     log.info("cache backend=%s store backend=%s", app.state.cache.backend, app.state.store.backend)
+    # A non-durable store in production loses every entitlement, quota counter and
+    # subscriber on the next restart — i.e. paying customers silently lose premium.
+    # Render/Heroku ephemeral disks make this easy to miss, so shout about it.
+    if settings.environment == "production" and app.state.store.backend != "sqlalchemy":
+        log.error(
+            "store is NOT durable in production (backend=%s); set "
+            "DRAFTMASTER_DATABASE_URL to a managed Postgres or entitlements will "
+            "be lost on every restart",
+            app.state.store.backend,
+        )
+    elif settings.environment == "production" and app.state.store.backend_detail.startswith("sqlite"):
+        log.error(
+            "store is SQLite in production (%s); the container filesystem is "
+            "ephemeral, so entitlements, quotas and subscribers are lost on every "
+            "redeploy. Set DRAFTMASTER_DATABASE_URL to a managed Postgres.",
+            app.state.store.backend_detail,
+        )
     yield
 
 
