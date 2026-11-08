@@ -185,7 +185,7 @@ services and scales by setting two environment variables.
 │   ├── artifacts/                   # committed build outputs
 │   └── raw/                         # raw OpenDota cache (gitignored)
 ├── docs/                            # product, architecture, roadmaps, risks
-├── infra/                           # Docker, Railway, CI
+├── infra/                           # Docker, Render blueprint, CI
 └── requirements.txt
 ```
 
@@ -321,12 +321,17 @@ python -m pytest services/engine/tests -q
 ## Deployment
 
 - **Frontend** → Vercel (`apps/web`). Set `API_PROXY_TARGET` to the backend URL.
-- **Backend** → Railway / Fly / any container host (`infra/Dockerfile`). Set
+- **Backend** → Render / any container host (`infra/render.yaml`, `infra/Dockerfile`). Set
   `DRAFTMASTER_DATABASE_URL` and `DRAFTMASTER_REDIS_URL` for production.
 - **Postgres + Redis** → managed instances; the app auto-creates its tables on boot.
+  Use a **paid** Postgres: Render's free one expires 30 days after creation, and an
+  ephemeral SQLite file silently loses every entitlement on redeploy.
 
-See `docs/infrastructure.md` for the full topology and `infra/` for ready-to-use
-configs.
+Verify a deploy from outside with `curl <api>/health` — `store_detail` must be
+`postgresql+psycopg`, not `sqlite+pysqlite` or `memory`.
+
+See `docs/deployment-runbook.md` for the release, verification and rollback steps,
+`docs/infrastructure.md` for the full topology, and `infra/` for ready-to-use configs.
 
 ## Documentation
 

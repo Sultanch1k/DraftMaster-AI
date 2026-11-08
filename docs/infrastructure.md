@@ -11,7 +11,7 @@
                     └────────────────┬─────────────────────┘
                                      │ HTTPS
                     ┌────────────────▼─────────────────────┐
-                    │  API host (Railway / Fly / container) │
+                    │  API host (Render / any container)    │
                     │  FastAPI + uvicorn (2+ workers)       │
                     │  · dataset loaded once per worker     │
                     │  · engine runs in-process             │
@@ -97,7 +97,7 @@ secondary to that.
 1. **Python** — install, run the full test suite (engine, API, screenshot).
 2. **Web** — install, `tsc --noEmit`, `next build`.
 3. **Artifacts** — validate that the committed artifacts load and contain 127 heroes.
-4. **Deploy** — on `main`: web to Vercel, API to Railway.
+4. **Deploy** — on `main`: web to Vercel, API to Render (`infra/render.yaml`).
 
 Preview deploys are created per pull request. Because the dataset is committed, a
 preview is fully functional without any pipeline run.
@@ -107,8 +107,8 @@ preview is fully functional without any pipeline run.
 | Component | Provider | Rough monthly cost |
 | --- | --- | --- |
 | Web | Vercel Pro | $20 |
-| API | Railway (1 GB) | $5–20 |
-| Postgres | Railway / Neon | $0–15 |
+| API | Render Starter | $7 |
+| Postgres | Render Basic (paid) | $6 |
 | Redis | Upstash (serverless) | $0–10 |
 | Domain + email | — | ~$15 |
 | **Total** | | **~$40–80/month** |
