@@ -8,8 +8,8 @@ from datetime import datetime, timezone
 from fastapi import APIRouter, HTTPException, Request
 
 from ..billing import verify_session
-from ..locale import localize_analysis, localize_panic, resolve_locale
-from ..schemas import AnalyseRequest, PanicRequest, WinProbRequest, UsageOut
+from ..locale import localize_analysis, localize_hero_strategy, localize_panic, resolve_locale
+from ..schemas import AnalyseRequest, HeroStrategyRequest, PanicRequest, WinProbRequest, UsageOut
 
 router = APIRouter(tags=["analysis"])
 
@@ -157,6 +157,51 @@ def analyse(payload: AnalyseRequest, request: Request) -> dict:
     )
     body = {"report": report.to_dict(), "usage": usage.model_dump(), "cached": False}
     body = localize_analysis(body, locale)
+    cache.set(key, body, settings.cache_ttl_seconds)
+    return body
+
+
+@router.post("/hero-strategy")
+def hero_strategy(payload: HeroStrategyRequest, request: Request) -> dict:
+    """My Hero Strategy — how to win with a hero the user has already picked.
+
+    Distinct from /analyse: the hero is fixed, the enemy draft is exactly five,
+    and the report is a matchup-specific game plan rather than a pick ranking.
+    """
+    _validate_ids(request, payload.enemy_hero_ids + [payload.hero_id])
+    if payload.hero_id in payload.enemy_hero_ids:
+        raise HTTPException(
+            status_code=422,
+            detail="The hero you are playing cannot also be one of the five enemy heroes.",
+        )
+    if len(set(payload.enemy_hero_ids)) != len(payload.enemy_hero_ids):
+        raise HTTPException(status_code=422, detail="Duplicate enemy heroes are not allowed.")
+
+    usage = _enforce_quota(
+        request,
+        _quota_signature("hero_strategy", payload.hero_id, payload.enemy_hero_ids, payload.role, payload.rank_tier),
+    )
+    locale = resolve_locale(request, payload.locale)
+    cache = request.app.state.cache
+    settings = request.app.state.settings
+
+    key = "hero_strategy:" + locale + ":" + hashlib.sha256(
+        json.dumps(payload.model_dump(), sort_keys=True).encode()
+    ).hexdigest()
+    cached = cache.get(key)
+    if cached:
+        cached["usage"] = usage.model_dump()
+        cached["cached"] = True
+        return cached
+
+    strategy = request.app.state.hero_strategy.build(
+        hero_id=payload.hero_id,
+        enemy_ids=payload.enemy_hero_ids,
+        role=payload.role,
+        rank_tier=payload.rank_tier,
+    )
+    body = {"strategy": strategy.to_dict(), "usage": usage.model_dump(), "cached": False}
+    body = localize_hero_strategy(body, locale)
     cache.set(key, body, settings.cache_ttl_seconds)
     return body
 

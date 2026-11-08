@@ -24,6 +24,21 @@ class PanicRequest(BaseModel):
     locale: str | None = None
 
 
+class HeroStrategyRequest(BaseModel):
+    """My Hero Strategy: one hero the user already picked vs exactly five enemies.
+
+    The enemy list is pinned to exactly five because the feature promises a
+    complete five-man matchup; a shorter list would silently produce a partial
+    report that looks complete.
+    """
+
+    hero_id: int
+    enemy_hero_ids: list[int] = Field(..., min_length=5, max_length=5)
+    role: str | None = None
+    rank_tier: int | None = Field(default=None, ge=0, le=85)
+    locale: str | None = None
+
+
 class WinProbRequest(BaseModel):
     enemy_hero_ids: list[int] = Field(..., min_length=1, max_length=5)
     hero_id: int

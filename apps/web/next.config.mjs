@@ -8,6 +8,10 @@ const nextConfig = {
   // Standalone output produces a self-contained server bundle for the Docker
   // image; Vercel ignores it and builds normally.
   output: 'standalone',
+  // When the dev server is reached through a tunnel or a different hostname,
+  // Next blocks its HMR/dev resources by default. Origins are opt-in via env so
+  // no hostname is baked into the repository.
+  allowedDevOrigins: (process.env.DRAFTMASTER_DEV_ORIGINS ?? '').split(',').filter(Boolean),
   // Proxy the API through the Next server so the browser only ever talks to a
   // single origin (no CORS, no exposed backend port, works behind any tunnel).
   async rewrites() {

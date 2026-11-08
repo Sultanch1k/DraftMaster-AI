@@ -4,11 +4,12 @@ import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/format';
 import { LocaleSwitcher } from './LocaleSwitcher';
 
-export type TabKey = 'lastpick' | 'draft' | 'screenshot' | 'coach' | 'meta';
+export type TabKey = 'lastpick' | 'draft' | 'mystrategy' | 'screenshot' | 'coach' | 'meta';
 
 const TABS: { key: TabKey; icon: string; accent?: string }[] = [
   { key: 'lastpick', icon: '🚨', accent: 'dire' },
   { key: 'draft', icon: '📊' },
+  { key: 'mystrategy', icon: '🛡️', accent: 'radiant' },
   { key: 'screenshot', icon: '🖼️' },
   { key: 'coach', icon: '🎯' },
   { key: 'meta', icon: '📈' },
@@ -59,7 +60,9 @@ export function Header({
                 tab === tab_.key
                   ? tab_.accent === 'dire'
                     ? 'bg-dire text-white'
-                    : 'bg-base-700 text-white'
+                    : tab_.accent === 'radiant'
+                      ? 'bg-radiant text-base-950'
+                      : 'bg-base-700 text-white'
                   : 'text-slate-400 hover:bg-base-800 hover:text-slate-200',
               )}
             >

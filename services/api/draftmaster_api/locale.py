@@ -34,6 +34,24 @@ def localize_panic(payload: dict, locale: str) -> dict:
     return localize(payload, locale)
 
 
+def localize_hero_strategy(payload: dict, locale: str) -> dict:
+    """Translate a /hero-strategy response body.
+
+    Uses the dimension-aware path so the threat labels the UI renders are
+    translated too, exactly as they are for the draft report.
+    """
+    if locale == DEFAULT:
+        return payload
+    from draftmaster_engine.i18n import localize_report
+
+    # The strategy body is nested under "strategy", and localize_report expects
+    # the report at the top level (it remaps the threat-dimension labels in
+    # place), so translate the inner dict rather than the envelope.
+    if isinstance(payload.get("strategy"), dict):
+        payload["strategy"] = localize_report(payload["strategy"], locale)
+    return payload
+
+
 def localize_coach(payload: dict, locale: str) -> dict:
     """Translate a match-coach response body."""
     if locale == DEFAULT:

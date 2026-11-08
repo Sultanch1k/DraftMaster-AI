@@ -136,6 +136,12 @@ export const api = {
       body: JSON.stringify({ enemy_hero_ids, hero_id, role, rank_tier, comfort }),
     }),
 
+  heroStrategy: (hero_id: number, enemy_hero_ids: number[], role?: string, rank_tier?: number) =>
+    request<import('./types').HeroStrategyResponse>('/api/hero-strategy', {
+      method: 'POST',
+      body: JSON.stringify({ hero_id, enemy_hero_ids, role, rank_tier }),
+    }),
+
   winProbability: (enemy_hero_ids: number[], hero_id: number, role?: string, rank_tier?: number) =>
     request<import('./types').WinProbability>('/api/win-probability', {
       method: 'POST',
