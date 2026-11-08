@@ -17,6 +17,24 @@ from .config import Settings
 log = logging.getLogger("draftmaster.infra")
 
 
+def normalize_database_url(url: str) -> str:
+    """Point a managed-host Postgres URL at the installed psycopg 3 driver.
+
+    Render and Heroku inject ``postgres://…``, which SQLAlchemy does not
+    recognise at all (``NoSuchModuleError``), and a bare ``postgresql://…`` is
+    resolved to psycopg2 on SQLAlchemy 2.0 — a driver we do not ship. Either way
+    the store falls back to in-memory and every entitlement, quota counter and
+    subscriber is lost on the next restart. Rewriting to the explicit
+    ``postgresql+psycopg://`` driver removes the ambiguity. URLs that already
+    name a driver, or that are not Postgres, are returned unchanged.
+    """
+    if url.startswith("postgres://"):
+        return "postgresql+psycopg://" + url[len("postgres://") :]
+    if url.startswith("postgresql://"):
+        return "postgresql+psycopg://" + url[len("postgresql://") :]
+    return url
+
+
 class Cache:
     """Minimal cache interface with an in-memory default and Redis backend."""
 
@@ -91,8 +109,10 @@ class Store:
         self._subscribers: dict[str, dict] = {}
         self._lock = threading.Lock()
         self.backend = "memory"
-        url = settings.database_url or "sqlite:///" + str(
-            (__import__("pathlib").Path(settings.artifact_path).parent.parent / "draftmaster.db")
+        url = normalize_database_url(
+            settings.database_url
+            or "sqlite:///"
+            + str((__import__("pathlib").Path(settings.artifact_path).parent.parent / "draftmaster.db"))
         )
         try:  # pragma: no cover - depends on driver availability
             from sqlalchemy import create_engine, text

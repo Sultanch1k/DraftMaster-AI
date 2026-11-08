@@ -161,3 +161,15 @@ def test_webhook_revokes_entitlement_on_refund(billing_client, monkeypatch):
 
     session = billing_client.get("/api/billing/session", headers={"authorization": f"Bearer {token}"}).json()
     assert session["plan"] == "free"
+
+
+def test_managed_postgres_url_uses_installed_driver():
+    """Render/Heroku inject `postgresql://`; we ship psycopg 3, not psycopg2."""
+    sys.path.insert(0, str(ROOT / "services" / "api"))
+    from draftmaster_api.infra import normalize_database_url
+
+    assert normalize_database_url("postgres://u:p@h:5432/db") == "postgresql+psycopg://u:p@h:5432/db"
+    assert normalize_database_url("postgresql://u:p@h:5432/db") == "postgresql+psycopg://u:p@h:5432/db"
+    # Explicit driver and non-Postgres URLs must be left alone.
+    assert normalize_database_url("postgresql+psycopg://u:p@h/db") == "postgresql+psycopg://u:p@h/db"
+    assert normalize_database_url("sqlite:///x.db") == "sqlite:///x.db"

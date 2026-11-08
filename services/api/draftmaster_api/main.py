@@ -106,6 +106,8 @@ def create_app() -> FastAPI:
             "hero_count": len(ds.heroes),
             "patch": (ds.patch or {}).get("name"),
             "dataset_generated_at": ds.generated_at,
+            "store_backend": getattr(request.app.state.store, "backend", None),
+            "cache_backend": getattr(request.app.state.cache, "backend", None),
         }
 
     @app.get("/", tags=["system"])

@@ -76,14 +76,25 @@ cd apps/web && npx tsc --noEmit && npm run build
   and re-run `npm audit` before pushing; keep the Docker/CI Node version at ≥20.9
   (Next 16 requires it). CI now runs `npm audit --audit-level=high` in the web job, so
   a vulnerable bump fails the pipeline before it reaches Vercel.
-- **Vercel's production branch is the repo's default branch (`import-implementation`).**
-  The custom domain `draftmaster.wiki` (→ `www.draftmaster.wiki`) is attached to the
-  `draft-master-ai` project with root directory `apps/web`. If the domain ever returns
-  `x-vercel-error: DEPLOYMENT_NOT_FOUND`, it means the aliased deployment is missing or
-  failed — not a DNS problem. `main` is not the deploy branch and only holds a README;
-  pushing there does not publish the site. Deployments are preview-protected (SSO);
-  automation can reach a preview with the `x-vercel-protection-bypass` header, but that
-  secret is header/query-only and does not apply to client-side XHRs.
+- **Vercel's production branch is `main`.** The custom domain `draftmaster.wiki`
+  (→ `www.draftmaster.wiki`) is attached to the `draft-master-ai` project with root
+  directory `apps/web`. `import-implementation` is the repo default branch, and a push
+  to it does trigger a Vercel deployment, but that deployment is **not** promoted to the
+  production alias: the site only changes after the commit reaches `main` (observed
+  2026-11-08 — pushing the monetization commit to `import-implementation` left
+  `/counter/*` at 404 until it was merged into `main`). Release by merging into `main`.
+  If the domain ever returns `x-vercel-error: DEPLOYMENT_NOT_FOUND`, it means the
+  aliased deployment is missing or failed — not a DNS problem. Deployments are
+  preview-protected (SSO); automation can reach a preview with the
+  `x-vercel-protection-bypass` header, but that secret is header/query-only and does
+  not apply to client-side XHRs.
+- **The API is hosted on Render, not Railway.** The Next.js rewrite forwards `/api/*`
+  to it (responses carry `x-render-origin-server: uvicorn`). Render injects its
+  Postgres connection string as `postgres://…`, which SQLAlchemy cannot load; without
+  `normalize_database_url` (in `infra.py`) the store falls back to in-memory and every
+  entitlement, quota counter and subscriber is lost on the next restart. Verify
+  durability from outside with `/health` → `store_backend`; `"memory"` in production is
+  a data-loss bug, not a benign fallback.
 - `DRAFTMASTER_` prefixes every setting; `API_PROXY_TARGET` configures the Next.js
   rewrite to the backend.
 - Docker image runs as a non-root user, so `chmod -R a+rX` runs over the copied code;
