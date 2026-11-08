@@ -94,7 +94,9 @@ cd apps/web && npx tsc --noEmit && npm run build
   `normalize_database_url` (in `infra.py`) the store falls back to in-memory and every
   entitlement, quota counter and subscriber is lost on the next restart. Verify
   durability from outside with `/health` → `store_backend`; `"memory"` in production is
-  a data-loss bug, not a benign fallback.
+  a data-loss bug, not a benign fallback. `store_detail` narrows it further: only
+  `postgresql+psycopg` is durable — `sqlite+pysqlite` survives a restart but not a
+  redeploy. `docs/deployment-runbook.md` has the release, verify and rollback steps.
 - `DRAFTMASTER_` prefixes every setting; `API_PROXY_TARGET` configures the Next.js
   rewrite to the backend.
 - Docker image runs as a non-root user, so `chmod -R a+rX` runs over the copied code;
@@ -115,6 +117,14 @@ cd apps/web && npx tsc --noEmit && npm run build
   route segment). `useTranslations('<namespace>')` is required per namespace — calling
   `t('fields.x')` inside the `report` namespace throws `MISSING_MESSAGE` at render time,
   which Next.js only surfaces as an error overlay, not a build failure.
+- **A missing placeholder is not an error in next-intl — it renders `{hero}` to the
+  user.** That shipped on all 127 `/counter/*` pages (`t('itemsSub')` with no values
+  against a string containing `{hero}`) and nobody saw it for a patch. `npm run build`
+  now runs `apps/web/scripts/check-i18n-placeholders.mjs` first, which resolves every
+  `t('key')` against the namespace bound by the nearest `useTranslations`/
+  `getTranslations` in the file and fails the build on an unfulfilled placeholder. Run
+  `npm run check:i18n` after editing `messages/*.json`. EN and RU are at exact parity
+  (255 keys, matching placeholders) — keep them that way.
 - **React keys must not mix id spaces.** The five enemy-draft slots render either a hero
   (`key={`hero-${id}`}`) or an empty placeholder (`key={`slot-${i}`}`). Using the raw
   hero id and the raw slot index in the same list collides whenever a selected hero's
