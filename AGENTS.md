@@ -74,7 +74,16 @@ cd apps/web && npx tsc --noEmit && npm run build
   build whose Next.js version has an open advisory ("Vulnerable version of Next.js
   detected"). Bump `apps/web/package.json` (`next`, `react`, `react-dom`, `next-intl`)
   and re-run `npm audit` before pushing; keep the Docker/CI Node version at ≥20.9
-  (Next 16 requires it).
+  (Next 16 requires it). CI now runs `npm audit --audit-level=high` in the web job, so
+  a vulnerable bump fails the pipeline before it reaches Vercel.
+- **Vercel's production branch is the repo's default branch (`import-implementation`).**
+  The custom domain `draftmaster.wiki` (→ `www.draftmaster.wiki`) is attached to the
+  `draft-master-ai` project with root directory `apps/web`. If the domain ever returns
+  `x-vercel-error: DEPLOYMENT_NOT_FOUND`, it means the aliased deployment is missing or
+  failed — not a DNS problem. `main` is not the deploy branch and only holds a README;
+  pushing there does not publish the site. Deployments are preview-protected (SSO);
+  automation can reach a preview with the `x-vercel-protection-bypass` header, but that
+  secret is header/query-only and does not apply to client-side XHRs.
 - `DRAFTMASTER_` prefixes every setting; `API_PROXY_TARGET` configures the Next.js
   rewrite to the backend.
 - Docker image runs as a non-root user, so `chmod -R a+rX` runs over the copied code;
