@@ -111,7 +111,7 @@ export default async function CounterPage({ params }: { params: Promise<{ hero: 
 
         <section className="card card-pad">
           <h2 className="section-title">{t('goodVsTitle', { hero: hero.name })}</h2>
-          <p className="mb-3 text-xs text-slate-500">{t('itemsSub')}</p>
+          <p className="mb-3 text-xs text-slate-500">{t('itemsSub', { hero: hero.name })}</p>
           {hero.good_items.length ? (
             <ul className="flex flex-wrap gap-2">
               {hero.good_items.map((it) => (
