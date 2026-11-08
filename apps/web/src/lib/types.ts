@@ -21,6 +21,8 @@ export type ItemPick = {
   reason: string;
   source: 'meta' | 'counter' | string;
   phase?: string;
+  /** Enemy hero names this counter item answers (My Hero Strategy only). */
+  answers?: string[];
 };
 
 export type ItemBuild = {
@@ -254,3 +256,115 @@ export type BillingSession = {
 };
 
 export type Role = 'carry' | 'mid' | 'offlane' | 'support' | 'hard_support';
+
+// --- My Hero Strategy -------------------------------------------------------
+
+export type StrategyHero = Hero & {
+  abilities: {
+    name: string;
+    dmg_type: string | null;
+    is_ultimate: boolean;
+    has_disable: boolean;
+    bkbpierce: boolean;
+    desc: string;
+  }[];
+  lane?: string;
+  capabilities?: Record<string, number>;
+};
+
+export type EnemyDossier = {
+  hero_id: number;
+  name: string;
+  icon?: string | null;
+  roles: string[];
+  danger_score: number;
+  threat_to_you: number;
+  matchup_logit: number;
+  what_makes_dangerous: string[];
+  abilities_to_watch: { name: string; dmg_type: string | null; is_ultimate: boolean; has_disable: boolean; bkbpierce: boolean; desc: string }[];
+  how_to_avoid: string[];
+  when_can_fight: string;
+  items_that_help: ItemPick[];
+  positioning: string;
+  lane_risk: 'low' | 'medium' | 'high' | string;
+  lane_advice: string;
+  arch: string[];
+};
+
+export type LaneOpponent = {
+  hero_id: number;
+  name: string;
+  lane: string;
+  risk: 'low' | 'medium' | 'high' | string;
+  kill_threat: boolean;
+  matchup_logit: number;
+  advice: string;
+};
+
+export type HeroStrategy = {
+  hero: StrategyHero;
+  role?: string | null;
+  rank?: string | null;
+  patch?: string | null;
+  generated_in_ms: number;
+  enemy_draft: Hero[];
+  matchup_overview: {
+    difficulty: number;
+    difficulty_label: string;
+    win_probability: number;
+    confidence: string;
+    matchup_advantage: number;
+    main_threats: { hero_id: number; name: string; danger_score: number }[];
+    advantages: string[];
+    biggest_mistakes: string[];
+    favourable_matchups: string[];
+    unfavourable_matchups: string[];
+    assessment: string;
+    factors: { name: string; detail: string; contribution_pp: number }[];
+  };
+  lane_strategy: {
+    phase: string;
+    lane: string;
+    lane_inferred: boolean;
+    difficulty: string;
+    likely_opponents: LaneOpponent[];
+    plan: string[];
+    trading: string;
+    aggression: string;
+    survival: string;
+    when_to_call_help: string[];
+  };
+  skill_build: SkillBuild & {
+    key_abilities: { name: string; reason: string; dmg_type: string | null }[];
+  };
+  item_build: ItemBuild;
+  enemy_dossiers: EnemyDossier[];
+  teamfight_strategy: {
+    where_to_stand: string;
+    target_first: string;
+    avoid: string[];
+    when_to_initiate: string;
+    when_to_wait: string;
+    how_to_survive: string;
+    notes: string[];
+  };
+  target_priority: TargetRow[];
+  power_spikes: { player: PowerSpike[]; enemies: PowerSpike[] };
+  win_conditions: WinConditions;
+  one_sentence_game_plan: string;
+  win_probability: WinProbability;
+  threat_analysis: ThreatAnalysis;
+  data_confidence: {
+    measured: string[];
+    inferred: string[];
+    notes: string[];
+    patch?: string | null;
+    dataset_generated_at?: string | null;
+  };
+};
+
+export type HeroStrategyResponse = {
+  strategy: HeroStrategy;
+  usage: Usage;
+  cached: boolean;
+};

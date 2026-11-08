@@ -15,6 +15,8 @@ import { ReportView } from '@/components/ReportView';
 import { HeroPortrait } from '@/components/HeroPortrait';
 import { ReportSkeleton } from '@/components/ReportSkeleton';
 import { PremiumModal } from '@/components/PremiumModal';
+import { HeroStrategyView } from '@/components/HeroStrategyView';
+import { ModeChooser } from '@/components/ModeChooser';
 import { ScreenshotPanel } from '@/components/panels/ScreenshotPanel';
 import { CoachPanel } from '@/components/panels/CoachPanel';
 import { MetaPanel } from '@/components/panels/MetaPanel';
@@ -33,6 +35,7 @@ export default function Home() {
   const [tab, setTab] = useState<TabKey>('lastpick');
   const [premium, setPremium] = useState(false);
   const [showPlans, setShowPlans] = useState(false);
+  const [showModes, setShowModes] = useState(false);
 
   const [panic, setPanic] = useState<PanicResult | null>(null);
   const [report, setReport] = useState<Report | null>(null);
@@ -197,6 +200,9 @@ export default function Home() {
                   {loading === 'report' ? <Loader2 className="h-4 w-4 animate-spin" /> : <Swords className="h-4 w-4" />}
                   {t('hero.oneClick')}
                 </button>
+                <button type="button" onClick={() => setTab('mystrategy')} className="btn-ghost">
+                  🛡️ {t('tabs.mystrategy')}
+                </button>
                 {selected.length > 0 && (
                   <button type="button" onClick={clear} className="btn-ghost">
                     {t('hero.clear')}
@@ -206,6 +212,16 @@ export default function Home() {
                   <span className="chip border-radiant/40 text-radiant">{t('hero.answeredIn', { ms: elapsed })}</span>
                 )}
               </div>
+              <p className="mt-2 text-xs text-slate-500">
+                {t('hero.notPickedYet')}{' '}
+                <button
+                  type="button"
+                  onClick={() => setShowModes(true)}
+                  className="font-semibold text-radiant underline underline-offset-2"
+                >
+                  {t('hero.compareModes')}
+                </button>
+              </p>
             </div>
 
             <div className="flex w-full max-w-xs flex-col gap-2 rounded-xl border border-base-700 bg-base-900/60 p-3">
@@ -273,10 +289,30 @@ export default function Home() {
           </div>
         )}
 
+        {tab === 'mystrategy' && (
+          <HeroStrategyView
+            heroes={heroes}
+            role={role}
+            rank={rank}
+            premium={premium}
+            onUsage={setUsage}
+            onUpgrade={() => setShowPlans(true)}
+          />
+        )}
         {tab === 'screenshot' && <ScreenshotPanel onUsage={setUsage} />}
         {tab === 'coach' && <CoachPanel premium={premium} onPremium={() => setShowPlans(true)} />}
         {tab === 'meta' && <MetaPanel meta={meta} />}
       </main>
+
+      <ModeChooser
+        open={showModes}
+        onClose={() => setShowModes(false)}
+        onPick={(mode) => {
+          setShowModes(false);
+          setTab(mode);
+          track('mode_selected', { mode });
+        }}
+      />
 
       <PremiumModal
         open={showPlans}

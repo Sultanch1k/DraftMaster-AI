@@ -498,6 +498,12 @@ def _patterns() -> list[tuple[re.Pattern[str], str]]:
         r"Винрейт выше среднего (\1), так что вы не идёте против меты.",
     )
     add(r"^Careful: (.+?) counter you on paper\.$", r"Осторожно: \1 контрят вас на бумаге.")
+    # Item counter reasons append the enemies that justify them; translate the
+    # reason itself and keep the hero names (proper nouns) unchanged.
+    add(
+        r"^(.+) Answers: (.+?)\.$",
+        lambda m: f"{_translate_atomic(m.group(1), 'ru')} Отвечает: {m.group(2)}.",
+    )
 
     # skill build -------------------------------------------------------------
     add(
@@ -1001,11 +1007,19 @@ RU_PROBLEMS = {
     "split push": "сплитпуш",
     "heavy cc teamfight": "мощный контроль в замесах",
     "evasion or blind": "уклонение и слепота",
+    "heavy burst damage": "мощный бурст-урон",
+    "heavy teamfight": "мощные замесы",
+    "heavy push": "мощный пуш",
+    "heavy sustain": "мощный отхил",
+    "healing reduction needed": "нужно снижение лечения",
+    "targeted disables": "одиночный контроль",
 }
 
 
 def _problem_ru(text: str) -> str:
-    return RU_PROBLEMS.get(text.strip().lower(), text.strip())
+    # The engine can join several problems with commas; translate each part.
+    parts = [p.strip() for p in text.split(",")]
+    return ", ".join(RU_PROBLEMS.get(p.lower(), p) for p in parts)
 
 
 def _plural(n: int, one: str, few: str, many: str) -> str:

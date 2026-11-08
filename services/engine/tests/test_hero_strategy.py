@@ -228,6 +228,13 @@ def test_api_russian_localization(client):
     assert "Играйте на" in s["one_sentence_game_plan"]
     assert s["threat_analysis"]["labels"]["magic_damage"] == "Магический урон"
     assert s["data_confidence"]["measured"][0].startswith("преимущество")
+    # Counter items keep the hero names but translate the reasoning around them.
+    reason = s["item_build"]["key_counters"][0]["reason"]
+    assert "Отвечает:" in reason
+    assert "Enemy draft stacks targeted disables" not in reason
+    # The win-probability factors must not leak raw English problem flags.
+    threats = next(f for f in s["matchup_overview"]["factors"] if "угроз" in f["detail"])
+    assert "heavy single target disable" not in threats["detail"]
 
 
 def test_api_counter_pick_still_works(client):
