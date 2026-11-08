@@ -360,12 +360,126 @@ def test_repeating_the_same_draft_does_not_spend_quota(client):
         assert again.json()["usage"]["used_today"] == 1
 
 
-def test_premium_token_bypasses_quota(client):
+def test_forged_premium_token_is_rejected(client):
+    """The old MVP trusted `Authorization: Bearer premium-token` verbatim.
+
+    That let anyone unlock premium by typing one header. Premium must now be
+    proved by an HMAC-signed session token that also exists in the entitlement
+    store, so a hand-crafted token grants nothing.
+    """
+    ids = _ids(client)
+    # Distinct drafts consume quota (the same draft twice is idempotent).
+    drafts = [
+        {"enemy_hero_ids": [ids["Lion"]]},
+        {"enemy_hero_ids": [ids["Axe"]]},
+        {"enemy_hero_ids": [ids["Lina"]]},
+    ]
+    for d in drafts:
+        client.post("/api/panic", json=d, headers={"x-user-id": "forger"})
+    headers = {"x-user-id": "forger", "authorization": "Bearer premium-token"}
+    blocked = client.post("/api/panic", json={"enemy_hero_ids": [ids["Sniper"]]}, headers=headers)
+    assert blocked.status_code == 402
+
+
+def test_valid_signed_session_bypasses_quota(client):
+    """A session minted from a real entitlement is honoured on every request."""
+    from draftmaster_api.billing import sign_session
+
     ids = _ids(client)
     payload = {"enemy_hero_ids": [ids["Lion"]]}
-    headers = {"x-user-id": "premium-user", "authorization": "Bearer premium-token"}
+    # Mint and register an entitlement the way /api/billing/activate does.
+    token = sign_session(
+        client.app.state.settings, email="buyer@example.com", plan="premium",
+        provider="lemonsqueezy", license_key="real-key",
+    )
+    assert token
+    client.app.state.store.put_entitlement(
+        {"session_token": token, "email": "buyer@example.com", "plan": "premium",
+         "status": "active", "provider": "lemonsqueezy", "license_key": "real-key", "expires_at": None}
+    )
+    headers = {"x-user-id": "buyer", "authorization": f"Bearer {token}"}
     for _ in range(5):
-        assert client.post("/api/panic", json=payload, headers=headers).status_code == 200
+        r = client.post("/api/panic", json=payload, headers=headers)
+        assert r.status_code == 200
+        assert r.json()["usage"]["plan"] == "premium"
+        assert r.json()["usage"]["remaining"] is None
+
+
+def test_revoked_entitlement_loses_premium(client):
+    """A refund/cancellation webhook must revoke premium immediately."""
+    from draftmaster_api.billing import sign_session
+
+    ids = _ids(client)
+    token = sign_session(
+        client.app.state.settings, email="refund@example.com", plan="premium",
+        provider="lemonsqueezy", license_key="refund-key",
+    )
+    client.app.state.store.put_entitlement(
+        {"session_token": token, "email": "refund@example.com", "plan": "premium",
+         "status": "active", "provider": "lemonsqueezy", "license_key": "refund-key", "expires_at": None}
+    )
+    assert client.app.state.store.set_entitlement_status(token, "revoked") is True
+    drafts = [
+        {"enemy_hero_ids": [ids["Lion"]]},
+        {"enemy_hero_ids": [ids["Axe"]]},
+        {"enemy_hero_ids": [ids["Lina"]]},
+    ]
+    for d in drafts:
+        client.post("/api/panic", json=d, headers={"x-user-id": "refunded"})
+    headers = {"x-user-id": "refunded", "authorization": f"Bearer {token}"}
+    blocked = client.post("/api/panic", json={"enemy_hero_ids": [ids["Sniper"]]}, headers=headers)
+    assert blocked.status_code == 402
+
+
+def test_billing_config_reports_disabled_without_keys(client):
+    body = client.get("/api/billing/config").json()
+    assert body["enabled"] is False
+    assert body["free_daily_analyses"] == 3
+
+
+def test_activate_without_provider_keys_fails_cleanly(client):
+    """With no provider configured the endpoint must not 500 or leak internals."""
+    r = client.post("/api/billing/activate", json={"license_key": "anything-1234"})
+    assert r.status_code == 422
+    assert "traceback" not in r.text.lower()
+
+
+def test_webhook_rejects_unsigned_payload(client):
+    r = client.post("/api/billing/webhook", json={"meta": {"event_name": "order_refunded"}})
+    # Not configured in tests -> 503; either way it must never 200 unsigned.
+    assert r.status_code in (401, 503)
+
+
+def test_metrics_endpoint_is_gated(client):
+    assert client.get("/api/metrics").status_code == 404
+    ok = client.get("/api/metrics", headers={"x-metrics-token": "test-signing-secret"})
+    assert ok.status_code == 200
+    assert "funnel" in ok.json()
+    assert ok.json()["paying_customers"] == 0
+
+
+def test_events_are_recorded_and_counted(client):
+    r = client.post("/api/events", json={"events": [{"name": "panic_run", "user_id": "u1", "props": {"n": 2}}]})
+    assert r.status_code == 200
+    assert r.json()["recorded"] == 1
+    metrics = client.get("/api/metrics", headers={"x-metrics-token": "test-signing-secret"}).json()
+    assert metrics["funnel"]["panic_run"] == 1
+
+
+def test_subscribe_captures_lead_with_consent(client):
+    ok = client.post("/api/subscribe", json={"email": "Lead@Example.com", "source": "paywall"})
+    assert ok.status_code == 200
+    assert ok.json()["ok"] is True
+    # Stored once, normalised to lowercase, and counted in the private metrics.
+    client.post("/api/subscribe", json={"email": "lead@example.com", "source": "footer"})
+    metrics = client.get("/api/metrics", headers={"x-metrics-token": "test-signing-secret"}).json()
+    assert metrics["subscribers"] == 1
+    assert metrics["funnel"]["email_captured"] >= 1
+
+
+def test_subscribe_rejects_junk_email(client):
+    assert client.post("/api/subscribe", json={"email": "not-an-email"}).status_code == 422
+    assert client.post("/api/subscribe", json={"email": "a@b"}).status_code == 422
 
 
 def test_profile_roundtrip(client):

@@ -236,4 +236,21 @@ export type Meta = {
   patch_losers: { hero_id: number; hero: string; cm_winrate: number }[];
 };
 
+export type BillingConfig = {
+  enabled: boolean;
+  checkout_url: string;
+  support_email: string;
+  free_daily_analyses: number;
+  currency: string;
+  price_monthly: string;
+  price_annual: string;
+};
+
+export type BillingSession = {
+  token: string;
+  plan: 'free' | 'premium';
+  email: string;
+  status: string;
+};
+
 export type Role = 'carry' | 'mid' | 'offlane' | 'support' | 'hard_support';

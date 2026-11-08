@@ -3,7 +3,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AlertCircle, Loader2, Swords } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
-import { api, ApiError, isNetworkError } from '@/lib/api';
+import { api, ApiError, getSessionToken, isNetworkError } from '@/lib/api';
+import { installAnalytics, track } from '@/lib/analytics';
 import type { Hero, Meta, PanicResult, Report, Usage } from '@/lib/types';
 import { cn } from '@/lib/format';
 import { Header, type TabKey } from '@/components/Header';
@@ -49,11 +50,16 @@ export default function Home() {
   const localeRef = useRef(locale);
 
   useEffect(() => {
+    installAnalytics();
+    track('page_view', { locale });
     api.heroes()
       .then(setHeroes)
       .catch((e) => setError(describeError(e, t)));
     api.meta().then(setMeta).catch(() => undefined);
-    setPremium(window.localStorage.getItem('draftmaster_premium') === '1');
+    // Premium is proved by a signed session token, verified server-side on
+    // every paid request. The token is only a cache of that proof — it cannot
+    // be forged into entitlement.
+    setPremium(Boolean(getSessionToken()));
   }, [t]);
 
   useEffect(() => {
@@ -82,15 +88,20 @@ export default function Home() {
     })();
   }, [locale, t]);
 
-  const togglePremium = () => {
-    const next = !premium;
-    setPremium(next);
-    window.localStorage.setItem('draftmaster_premium', next ? '1' : '0');
-  };
+  const refreshPremium = useCallback(() => {
+    // Re-verify with the server; the token alone is not proof of entitlement.
+    api.billingSession()
+      .then((s) => setPremium(s.plan === 'premium'))
+      .catch(() => setPremium(Boolean(getSessionToken())));
+  }, []);
 
   const toggleHero = useCallback(
     (id: number) => {
-      setSelected((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : prev.length >= 5 ? prev : [...prev, id]));
+      setSelected((prev) => {
+        const next = prev.includes(id) ? prev.filter((x) => x !== id) : prev.length >= 5 ? prev : [...prev, id];
+        track('draft_started', { count: next.length });
+        return next;
+      });
       setPanic(null);
       setReport(null);
       setError(null);
@@ -123,15 +134,22 @@ export default function Home() {
         setPanic(res);
         setUsage(res.usage);
         setTab('lastpick');
+        track('panic_run', { heroes: selected.length, ms: Math.round(performance.now() - t0) });
       } else {
         const res = await api.analyse(selected, undefined, role, rank);
         setReport(res.report);
         setUsage(res.usage);
         setTab('draft');
+        track('analysis_run', { heroes: selected.length, ms: Math.round(performance.now() - t0) });
       }
       setElapsed(Math.round(performance.now() - t0));
     } catch (e) {
-      setError(describeError(e, t));
+      const info = describeError(e, t);
+      setError(info);
+      if (e instanceof ApiError && e.status === 402) {
+        // The paywall moment: highest purchase intent in the whole funnel.
+        track('paywall_hit', { feature: kind });
+      }
     } finally {
       setLoading(null);
     }
@@ -264,10 +282,7 @@ export default function Home() {
         open={showPlans}
         premium={premium}
         onClose={() => setShowPlans(false)}
-        onToggle={() => {
-          togglePremium();
-          setShowPlans(false);
-        }}
+        onActivated={refreshPremium}
       />
 
       <footer className="border-t border-base-800 py-6 text-center text-[11px] text-slate-600">

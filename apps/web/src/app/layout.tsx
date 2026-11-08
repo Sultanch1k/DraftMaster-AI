@@ -3,10 +3,9 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import './globals.css';
 
-// The locale lives in a cookie rather than the URL, so every page renders per
-// request. This keeps a single route tree (no /[locale] segment) and makes the
-// language switch instant.
-export const dynamic = 'force-dynamic';
+// The locale lives in a cookie rather than the URL, so the app shell renders
+// per request and the language switch is instant. Individual routes can opt
+// into static rendering (the /counter pages do) for crawlers and speed.
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('meta');

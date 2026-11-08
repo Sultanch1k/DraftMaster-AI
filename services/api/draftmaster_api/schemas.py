@@ -45,6 +45,45 @@ class ProfileUpsert(BaseModel):
     playstyle: str | None = None
 
 
+class ActivateRequest(BaseModel):
+    license_key: str = Field(..., min_length=4, max_length=512)
+
+
+class SessionOut(BaseModel):
+    token: str = ""
+    plan: Literal["free", "premium"] = "free"
+    email: str = ""
+    status: str = "free"
+
+
+class BillingConfigOut(BaseModel):
+    enabled: bool
+    checkout_url: str = ""
+    support_email: str = ""
+    free_daily_analyses: int
+    currency: str = "USD"
+    price_monthly: str = ""
+    price_annual: str = ""
+
+
+class EventIn(BaseModel):
+    """A single client-side funnel event (best-effort, no PII beyond user id)."""
+
+    name: str = Field(..., min_length=1, max_length=64)
+    user_id: str | None = None
+    props: dict[str, Any] = Field(default_factory=dict)
+
+
+class EventBatch(BaseModel):
+    events: list[EventIn] = Field(..., max_length=50)
+
+
+class SubscribeRequest(BaseModel):
+    email: str = Field(..., min_length=5, max_length=254)
+    user_id: str | None = None
+    source: str | None = None
+
+
 class HeroOut(BaseModel):
     id: int
     name: str

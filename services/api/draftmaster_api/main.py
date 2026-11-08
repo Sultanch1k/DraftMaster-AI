@@ -15,7 +15,7 @@ from draftmaster_engine.i18n import localize
 from .config import get_settings
 from .infra import Cache, Store
 from .locale import resolve_locale
-from .routers import analysis, coach, reference, screenshot
+from .routers import analysis, billing, coach, events, reference, screenshot
 from .schemas import HealthOut
 
 log = logging.getLogger("draftmaster")
@@ -121,6 +121,8 @@ def create_app() -> FastAPI:
     app.include_router(analysis.router, prefix="/api")
     app.include_router(screenshot.router, prefix="/api")
     app.include_router(coach.router, prefix="/api")
+    app.include_router(billing.router, prefix="/api")
+    app.include_router(events.router, prefix="/api")
     return app
 
 
