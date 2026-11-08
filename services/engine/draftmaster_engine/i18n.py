@@ -652,7 +652,7 @@ def _patterns() -> list[tuple[re.Pattern[str], str]]:
         r"У \1 есть реальное комбо на убийство против вас на линии — считайте каждый шаг за реку риском.",
     )
     add(
-        r"^Brings (\d+) disable\(s\) — you will be held in place while their team follows up\.$",
+        r"^Brings (\d+) disables? — you will be held in place while their team follows up\.$",
         lambda m: (
             f"Имеет {m.group(1)} "
             f"{_plural(int(m.group(1)), 'контроль', 'контроля', 'контролей')} — вас удержат на месте, пока их команда наносит урон."

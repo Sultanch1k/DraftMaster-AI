@@ -266,10 +266,7 @@ def generate_power_spikes(ds: Dataset, hero_id: int, enemy_ids: list[int]) -> di
         e = ds.by_id.get(eid)
         if not e:
             continue
-        curve = ds.hero_durations.get(eid)
-        peak = None
-        if curve:
-            peak = max(curve, key=lambda p: p["winrate"])
+        peak = ds.peak_window(eid)
         enemy_spikes.append(
             {
                 "hero_id": eid,

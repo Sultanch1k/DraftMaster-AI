@@ -448,13 +448,17 @@ def parse_ability_flags(abilities: dict, hero_abilities: dict) -> dict[str, dict
                     "taunt",
                     "fear",
                     "berserk",
-                    "slow",
-                    "slowed",
                     "bind",
                 )
             )
-            if is_disable:
-                flags["disable_count"] += 1
+            # Movement slows are soft CC: they feed the crowd-control weight
+            # below but must not count as a disable, or a hero with three
+            # slowing abilities (Sniper) is reported as a three-disable
+            # lockdown hero and every threat sentence built on that is wrong.
+            is_soft_cc = "slow" in desc or "slowed" in desc
+            if is_disable or is_soft_cc:
+                if is_disable:
+                    flags["disable_count"] += 1
                 if "silence" in desc:
                     flags["silence"] += 1
                 if "stun" in desc or "hex" in desc or "root" in desc:

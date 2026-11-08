@@ -344,3 +344,38 @@ def test_one_sentence_plan_is_a_single_sentence(dataset, hero_ids):
     assert sentence.endswith(".")
     assert sentence.count(".") == 1
     assert "%" in sentence
+
+
+def test_slow_abilities_do_not_count_as_disables(dataset, hero_ids):
+    """A movement slow is soft CC, not a lock-down.
+
+    Sniper has three abilities that mention "slow" and one mini-stun, but he is
+    not a three-disable hero. Counting slows as disables inflated his
+    disable_count and produced threat prose like "brings 5 disables" plus a
+    wrongly recommended BKB/Aeon package.
+    """
+    sniper = dataset.by_id[hero_ids["Sniper"]]["capabilities"]
+    assert sniper["disable_count"] <= 1, sniper
+    # The crowd-control weight still reflects the slows, so nothing is lost.
+    assert sniper["cc"] >= 1.0
+
+    for name in ("Shadow Shaman", "Lion", "Necrophos"):
+        caps = dataset.by_id[hero_ids[name]]["capabilities"]
+        assert caps["disable_count"] >= 1, name
+        assert caps["disable_count"] <= 2, (name, caps)
+
+
+def test_enemy_power_spike_ignores_thin_samples(dataset, hero_ids):
+    """A peak must come from a game-length bin with a real sample size.
+
+    The raw duration curve has bins backed by a single game; an unweighted
+    maximum reported nonsense like "peak ~75m" for Lion.
+    """
+    from draftmaster_engine.plan import generate_power_spikes
+
+    enemies = [hero_ids["Lion"], hero_ids["Sniper"], hero_ids["Axe"]]
+    spikes = generate_power_spikes(dataset, hero_ids["Juggernaut"], enemies)
+    assert len(spikes["enemies"]) == len(enemies)
+    for row in spikes["enemies"]:
+        assert row["peak_minutes"] is not None
+        assert 0 < row["peak_minutes"] <= 60

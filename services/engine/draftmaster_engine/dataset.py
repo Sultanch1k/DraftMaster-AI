@@ -119,6 +119,22 @@ class Dataset:
         best = min(curve, key=lambda p: abs(p["minutes"] - minutes))
         return best["winrate"]
 
+    def peak_window(self, hero_id: int, min_games: int = 200) -> dict | None:
+        """The game-length window where the hero wins most, ignoring noise.
+
+        Raw duration bins are thin at the extremes (a 75-minute sample is a
+        handful of games), so an unweighted maximum reports a meaningless "peak
+        at 75m". Only bins with a real sample count are eligible.
+        """
+        curve = self.hero_durations.get(hero_id)
+        if not curve:
+            return None
+        eligible = [p for p in curve if p.get("games", 0) >= min_games]
+        pool = eligible or [p for p in curve if p.get("games", 0) > 0]
+        if not pool:
+            return None
+        return max(pool, key=lambda p: p["winrate"])
+
     def late_game_delta(self, hero_id: int) -> float:
         """Winrate delta between late game (>=45m) and early game (~25m)."""
         curve = self.hero_durations.get(hero_id)
