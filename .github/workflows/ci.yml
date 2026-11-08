@@ -53,6 +53,8 @@ jobs:
           cache-dependency-path: apps/web/package-lock.json
       - name: Install
         run: npm ci || npm install
+      - name: Security audit (fail on high/critical)
+        run: npm audit --audit-level=high
       - name: Typecheck
         run: npx tsc --noEmit
       - name: Build
