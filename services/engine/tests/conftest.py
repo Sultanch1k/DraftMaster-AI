@@ -39,6 +39,9 @@ def client(tmp_path, monkeypatch):
     monkeypatch.setenv("DRAFTMASTER_DATABASE_URL", f"sqlite:///{tmp_path/'test.db'}")
     monkeypatch.setenv("DRAFTMASTER_REDIS_URL", "")
     monkeypatch.setenv("DRAFTMASTER_ARTIFACT_PATH", str(_artifact()))
+    # A deterministic signing key lets the billing tests mint real premium
+    # sessions without touching the network.
+    monkeypatch.setenv("DRAFTMASTER_SECRET_KEY", "test-signing-secret")
 
     import draftmaster_api.config as config
 

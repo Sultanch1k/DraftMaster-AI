@@ -1,4 +1,6 @@
 import type {
+  BillingConfig,
+  BillingSession,
   CoachReport,
   Hero,
   Meta,
@@ -36,11 +38,21 @@ export function userId(): string {
   return id;
 }
 
+/** The signed premium session token, stored after a successful activation. */
+export function getSessionToken(): string {
+  if (typeof window === 'undefined') return '';
+  return window.localStorage.getItem('draftmaster_session') || '';
+}
+
+export function setSessionToken(token: string): void {
+  if (typeof window === 'undefined') return;
+  if (token) window.localStorage.setItem('draftmaster_session', token);
+  else window.localStorage.removeItem('draftmaster_session');
+}
+
 function premiumHeaders(): Record<string, string> {
-  if (typeof window === 'undefined') return {};
-  return window.localStorage.getItem('draftmaster_premium') === '1'
-    ? { authorization: 'Bearer premium-token' }
-    : {};
+  const token = getSessionToken();
+  return token ? { authorization: `Bearer ${token}` } : {};
 }
 
 /**
@@ -159,5 +171,21 @@ export const api = {
     request<{ coach_report: CoachReport; cached: boolean }>('/api/match/coach', {
       method: 'POST',
       body: JSON.stringify({ match_id, account_id }),
+    }),
+
+  billingConfig: () => request<BillingConfig>('/api/billing/config'),
+
+  billingSession: () => request<BillingSession>('/api/billing/session'),
+
+  activate: (license_key: string) =>
+    request<BillingSession>('/api/billing/activate', {
+      method: 'POST',
+      body: JSON.stringify({ license_key }),
+    }),
+
+  subscribeEmail: (email: string) =>
+    request<{ ok: boolean }>('/api/subscribe', {
+      method: 'POST',
+      body: JSON.stringify({ email, user_id: userId() }),
     }),
 };

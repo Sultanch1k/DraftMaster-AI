@@ -30,6 +30,21 @@ class Settings(BaseSettings):
     cache_ttl_seconds: int = 300
     match_cache_ttl_seconds: int = 600
 
+    # Billing (Lemon Squeezy). Empty values keep the app fully usable on the
+    # free plan: nothing here is required for the product to run.
+    lemonsqueezy_api_key: str = ""
+    lemonsqueezy_store_id: str = ""
+    lemonsqueezy_webhook_secret: str = ""
+    # Public checkout URL shown to users; when empty the UI hides the buy button
+    # rather than sending users to a dead link.
+    lemonsqueezy_checkout_url: str = ""
+    # Support/contact address surfaced in the UI for refunds and questions.
+    support_email: str = ""
+    # HMAC secret for signing premium session tokens. Generate with
+    # `python -c "import secrets;print(secrets.token_urlsafe(48))"`. When empty
+    # the app runs free-only and no premium session can be minted.
+    secret_key: str = ""
+
     # CORS
     cors_origins: str = "*"
 

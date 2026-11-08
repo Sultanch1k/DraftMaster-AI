@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 
 from fastapi import APIRouter, HTTPException, Request
 
+from ..billing import verify_session
 from ..locale import localize_analysis, localize_panic, resolve_locale
 from ..schemas import AnalyseRequest, PanicRequest, WinProbRequest, UsageOut
 
@@ -20,11 +21,31 @@ def _today() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 
+def _premium_identity(request: Request) -> str | None:
+    """Return a stable identity when the caller holds a valid premium session.
+
+    Premium is proved by an HMAC-signed session token minted by /api/billing/activate
+    after the payment provider confirmed an active license. The token is verified
+    here (signature + expiry) and then checked against the entitlement store, so a
+    forged or hand-crafted token cannot grant premium. Returns None for free users.
+    """
+    auth = request.headers.get("authorization", "")
+    if not auth.lower().startswith("bearer "):
+        return None
+    token = auth.split(" ", 1)[1].strip()
+    payload = verify_session(request.app.state.settings, token)
+    if not payload:
+        return None
+    row = request.app.state.store.get_entitlement(token)
+    # Signature valid but the entitlement must still be active — a refund,
+    # cancellation or chargeback revokes it via the billing webhook.
+    if not row or (row.get("status") or "").lower() != "active":
+        return None
+    return payload.get("sub") or payload.get("email") or "premium"
+
+
 def _plan_for(request: Request) -> str:
-    # Premium is signalled by a bearer token in this MVP; production swaps this
-    # for real auth. Kept explicit so monetisation logic is not buried.
-    token = request.headers.get("authorization", "")
-    return PREMIUM_PLAN if token.lower().startswith("bearer premium") else FREE_PLAN
+    return PREMIUM_PLAN if _premium_identity(request) else FREE_PLAN
 
 
 def _usage_out(request: Request, used: int, plan: str) -> UsageOut:
@@ -43,6 +64,21 @@ def _quota_signature(*parts: object) -> str:
     return hashlib.sha256(json.dumps(parts, sort_keys=True, default=str).encode()).hexdigest()
 
 
+def _quota_identity(request: Request) -> str:
+    """A server-anchored identity for the free daily quota.
+
+    The client-supplied ``x-user-id`` is a convenience only — a determined user
+    can reset it by clearing storage. We therefore mix in the request IP so the
+    free limit is not trivially bypassable, while still keying per-user for the
+    common case. This is deliberately cheap: it is a business guard, not a
+    security boundary (a paid tier exists for anyone who needs more).
+    """
+    client_id = request.headers.get("x-user-id", "anonymous")
+    forwarded = request.headers.get("x-forwarded-for", "")
+    ip = forwarded.split(",")[0].strip() if forwarded else (request.client.host if request.client else "")
+    return hashlib.sha256(f"{client_id}|{ip}".encode()).hexdigest()[:24]
+
+
 def _enforce_quota(request: Request, signature: str | None = None) -> UsageOut:
     """Enforce the daily quota, charging each distinct analysis once per day.
 
@@ -55,7 +91,7 @@ def _enforce_quota(request: Request, signature: str | None = None) -> UsageOut:
     settings = request.app.state.settings
     cache = request.app.state.cache
     plan = _plan_for(request)
-    user = request.headers.get("x-user-id", "anonymous")
+    user = _quota_identity(request)
     day = _today()
 
     if plan == PREMIUM_PLAN:

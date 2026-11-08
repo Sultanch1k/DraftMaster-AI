@@ -86,6 +86,9 @@ class Store:
         self.engine = None
         self._profiles: dict[str, dict] = {}
         self._usage: dict[tuple[str, str], int] = {}
+        self._entitlements: dict[str, dict] = {}
+        self._events: list[dict] = []
+        self._subscribers: dict[str, dict] = {}
         self._lock = threading.Lock()
         self.backend = "memory"
         url = settings.database_url or "sqlite:///" + str(
@@ -119,6 +122,48 @@ class Store:
                             day TEXT,
                             count INTEGER DEFAULT 0,
                             PRIMARY KEY (user_id, day)
+                        )
+                        """
+                    )
+                )
+                conn.execute(
+                    text(
+                        """
+                        CREATE TABLE IF NOT EXISTS entitlements (
+                            session_token TEXT PRIMARY KEY,
+                            email TEXT,
+                            plan TEXT NOT NULL,
+                            status TEXT NOT NULL,
+                            provider TEXT,
+                            license_key TEXT,
+                            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                            expires_at TIMESTAMP
+                        )
+                        """
+                    )
+                )
+                conn.execute(
+                    text(
+                        """
+                        CREATE TABLE IF NOT EXISTS events (
+                            event_id TEXT PRIMARY KEY,
+                            name TEXT NOT NULL,
+                            user_id TEXT,
+                            props TEXT,
+                            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                        )
+                        """
+                    )
+                )
+                conn.execute(
+                    text(
+                        """
+                        CREATE TABLE IF NOT EXISTS subscribers (
+                            email TEXT PRIMARY KEY,
+                            user_id TEXT,
+                            source TEXT,
+                            consent BOOLEAN DEFAULT FALSE,
+                            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                         )
                         """
                     )
@@ -221,3 +266,152 @@ class Store:
                 ).scalar()
                 return int(res or 0)
         return self._usage.get((user_id, day), 0)
+
+    # -- entitlements ----------------------------------------------------
+    def put_entitlement(self, row: dict) -> dict:
+        """Create or update a premium entitlement keyed by its session token."""
+        if self.engine:  # pragma: no cover - requires DB
+            from sqlalchemy import text
+
+            with self.engine.begin() as conn:
+                conn.execute(
+                    text(
+                        """
+                        INSERT INTO entitlements
+                            (session_token, email, plan, status, provider, license_key, expires_at)
+                        VALUES
+                            (:session_token, :email, :plan, :status, :provider, :license_key, :expires_at)
+                        ON CONFLICT (session_token) DO UPDATE SET
+                            email=excluded.email, plan=excluded.plan, status=excluded.status,
+                            provider=excluded.provider, license_key=excluded.license_key,
+                            expires_at=excluded.expires_at
+                        """
+                    ),
+                    row,
+                )
+        with self._lock:
+            self._entitlements[row["session_token"]] = row
+        return row
+
+    def get_entitlement(self, session_token: str) -> dict | None:
+        if not session_token:
+            return None
+        if self.engine:  # pragma: no cover - requires DB
+            from sqlalchemy import text
+
+            with self.engine.connect() as conn:
+                res = conn.execute(
+                    text("SELECT * FROM entitlements WHERE session_token = :t"),
+                    {"t": session_token},
+                ).mappings().first()
+                return dict(res) if res else None
+        return self._entitlements.get(session_token)
+
+    def get_entitlement_by_email(self, email: str) -> dict | None:
+        if not email:
+            return None
+        if self.engine:  # pragma: no cover - requires DB
+            from sqlalchemy import text
+
+            with self.engine.connect() as conn:
+                res = conn.execute(
+                    text("SELECT * FROM entitlements WHERE email = :e ORDER BY created_at DESC LIMIT 1"),
+                    {"e": email},
+                ).mappings().first()
+                return dict(res) if res else None
+        for row in reversed(list(self._entitlements.values())):
+            if row.get("email") == email:
+                return row
+        return None
+
+    def set_entitlement_status(self, session_token: str, status: str) -> bool:
+        row = self.get_entitlement(session_token)
+        if not row:
+            return False
+        row = {**row, "status": status}
+        return bool(self.put_entitlement(row))
+
+    # -- analytics -------------------------------------------------------
+    def record_events(self, events: list[dict]) -> int:
+        """Persist a batch of funnel events. Best-effort and append-only."""
+        if not events:
+            return 0
+        if self.engine:  # pragma: no cover - requires DB
+            from sqlalchemy import text
+
+            with self.engine.begin() as conn:
+                for e in events:
+                    conn.execute(
+                        text(
+                            """
+                            INSERT INTO events (event_id, name, user_id, props)
+                            VALUES (:event_id, :name, :user_id, :props)
+                            """
+                        ),
+                        {
+                            "event_id": e["event_id"],
+                            "name": e["name"],
+                            "user_id": e.get("user_id"),
+                            "props": json.dumps(e.get("props", {})),
+                        },
+                    )
+            return len(events)
+        with self._lock:
+            self._events.extend(events)
+        return len(events)
+
+    def event_counts(self) -> dict[str, int]:
+        """Count of events by name — the raw material for the growth dashboard."""
+        if self.engine:  # pragma: no cover - requires DB
+            from sqlalchemy import text
+
+            with self.engine.connect() as conn:
+                rows = conn.execute(text("SELECT name, COUNT(*) c FROM events GROUP BY name")).all()
+                return {r[0]: int(r[1]) for r in rows}
+        counts: dict[str, int] = {}
+        for e in self._events:
+            counts[e["name"]] = counts.get(e["name"], 0) + 1
+        return counts
+
+    def paid_count(self) -> int:
+        if self.engine:  # pragma: no cover - requires DB
+            from sqlalchemy import text
+
+            with self.engine.connect() as conn:
+                res = conn.execute(
+                    text("SELECT COUNT(*) FROM entitlements WHERE status = 'active'")
+                ).scalar()
+                return int(res or 0)
+        return sum(1 for r in self._entitlements.values() if r.get("status") == "active")
+
+    # -- subscribers -----------------------------------------------------
+    def add_subscriber(self, email: str, user_id: str = "", source: str = "", consent: bool = False) -> dict:
+        """Record an email with explicit consent. Idempotent on the address."""
+        email = (email or "").strip().lower()
+        row = {"email": email, "user_id": user_id, "source": source, "consent": bool(consent)}
+        if self.engine:  # pragma: no cover - requires DB
+            from sqlalchemy import text
+
+            with self.engine.begin() as conn:
+                conn.execute(
+                    text(
+                        """
+                        INSERT INTO subscribers (email, user_id, source, consent)
+                        VALUES (:email, :user_id, :source, :consent)
+                        ON CONFLICT (email) DO UPDATE SET
+                            user_id=excluded.user_id, source=excluded.source, consent=excluded.consent
+                        """
+                    ),
+                    row,
+                )
+        with self._lock:
+            self._subscribers[email] = row
+        return row
+
+    def subscriber_count(self) -> int:
+        if self.engine:  # pragma: no cover - requires DB
+            from sqlalchemy import text
+
+            with self.engine.connect() as conn:
+                return int(conn.execute(text("SELECT COUNT(*) FROM subscribers")).scalar() or 0)
+        return len(self._subscribers)
