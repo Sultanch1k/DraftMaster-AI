@@ -1,0 +1,49 @@
+# Render Blueprint for the DraftMaster AI API.
+#
+# Deploy: Render Dashboard → New → Blueprint → pick this repo. Render reads this
+# file, builds the API image, provisions Postgres and wires DATABASE_URL in.
+#
+# The API is already live on Render; this file makes that deployment reproducible
+# and, critically, provisions a *paid* Postgres. Render's free Postgres expires
+# 30 days after creation, which would silently delete every paying customer's
+# entitlement and every subscriber record.
+services:
+  - type: web
+    name: draftmaster-api
+    runtime: docker
+    dockerfilePath: ./infra/Dockerfile
+    dockerContext: .
+    plan: starter # free spins down after 15 min idle; cold starts kill conversion
+    region: frankfurt
+    healthCheckPath: /health
+    autoDeploy: true # deploys on every push to the production branch (main)
+    envVars:
+      - key: DRAFTMASTER_ENVIRONMENT
+        value: production
+      # Render injects `postgres://…`; normalize_database_url in infra.py rewrites
+      # it to the psycopg 3 driver. Do not hand-edit the scheme here.
+      - key: DRAFTMASTER_DATABASE_URL
+        fromDatabase:
+          name: draftmaster-db
+          property: connectionString
+      - key: DRAFTMASTER_CORS_ORIGINS
+        value: https://www.draftmaster.wiki
+      # Set these in the dashboard (sync: false keeps them out of git):
+      - key: DRAFTMASTER_SECRET_KEY
+        sync: false
+      - key: DRAFTMASTER_OPENDOTA_API_KEY
+        sync: false
+      - key: DRAFTMASTER_LEMONSQUEEZY_API_KEY
+        sync: false
+      - key: DRAFTMASTER_LEMONSQUEEZY_STORE_ID
+        sync: false
+      - key: DRAFTMASTER_LEMONSQUEEZY_CHECKOUT_URL
+        sync: false
+      - key: DRAFTMASTER_LEMONSQUEEZY_WEBHOOK_SECRET
+        sync: false
+
+databases:
+  - name: draftmaster-db
+    plan: basic-256mb # paid: the free tier expires 30 days after creation
+    region: frankfurt
+    postgresMajorVersion: "16"

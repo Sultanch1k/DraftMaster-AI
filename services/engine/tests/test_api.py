@@ -19,6 +19,10 @@ def test_health(client):
     body = r.json()
     assert body["status"] == "ok"
     assert body["hero_count"] >= 120
+    # Durability must be visible remotely: a "memory" store in production means
+    # paying users lose premium on restart, so it is reported, not hidden.
+    assert body["store_backend"] in {"sqlalchemy", "memory"}
+    assert body["cache_backend"] in {"redis", "memory"}
 
 
 def test_root_lists_flagship_endpoints(client):
