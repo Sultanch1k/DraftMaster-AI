@@ -365,6 +365,35 @@ def test_repeating_the_same_draft_does_not_spend_quota(client):
         assert again.json()["usage"]["used_today"] == 1
 
 
+def test_charged_draft_stays_free_after_limit_is_reached(client):
+    """An already-charged draft must never be blocked by the 402 gate.
+
+    "3 analyses per day" means three distinct drafts. A draft the user already
+    spent a unit on (a language switch, a reload, a re-open) has to keep working
+    even after the third distinct draft exhausts the limit — otherwise switching
+    to Russian on the third analysis locks the user out of their own report.
+    """
+    ids = _ids(client)
+    headers = {"x-user-id": "charged-draft-after-limit"}
+    drafts = [
+        {"enemy_hero_ids": [ids["Lion"]]},
+        {"enemy_hero_ids": [ids["Axe"]]},
+        {"enemy_hero_ids": [ids["Shadow Shaman"]]},
+    ]
+    for d in drafts:
+        assert client.post("/api/panic", json=d, headers=headers).status_code == 200
+
+    # A fourth, new draft is refused.
+    blocked = client.post("/api/panic", json={"enemy_hero_ids": [ids["Sniper"]]}, headers=headers)
+    assert blocked.status_code == 402
+
+    # Every draft already charged today still works — including in another locale.
+    for d in drafts:
+        again = client.post("/api/panic", json=d, headers={**headers, "x-locale": "ru"})
+        assert again.status_code == 200
+        assert again.json()["usage"]["used_today"] == 3
+
+
 def test_forged_premium_token_is_rejected(client):
     """The old MVP trusted `Authorization: Bearer premium-token` verbatim.
 

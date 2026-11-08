@@ -99,23 +99,29 @@ def _enforce_quota(request: Request, signature: str | None = None) -> UsageOut:
 
     marker = f"quota:{user}:{day}:{signature or 'default'}"
     already_charged = bool(cache.get(marker))
-    used = store.get_usage(user, day) if already_charged else store.increment_usage(user, day)
-    if used > settings.free_daily_analyses:
-        limit = settings.free_daily_analyses
-        if resolve_locale(request) == "ru":
-            detail = (
-                f"Бесплатный тариф допускает {limit} анализа в день. "
-                "Оформите Premium для безлимитных анализов и ИИ-тренера."
-            )
-        else:
-            detail = (
-                f"Free plan allows {limit} analyses per day. "
-                "Upgrade to Premium for unlimited analyses and the AI coach."
-            )
-        raise HTTPException(status_code=402, detail=detail)
+    used = store.get_usage(user, day)
     if not already_charged:
+        # An analysis already charged today stays free (so a language switch or a
+        # reload never costs a unit). Only a *new* draft once the limit is spent
+        # is refused — charging it first would also block the free re-fetches.
+        if used >= settings.free_daily_analyses:
+            raise HTTPException(status_code=402, detail=_quota_detail(request))
+        used = store.increment_usage(user, day)
         cache.set(marker, 1, 86400)
     return _usage_out(request, used, plan)
+
+
+def _quota_detail(request: Request) -> str:
+    limit = request.app.state.settings.free_daily_analyses
+    if resolve_locale(request) == "ru":
+        return (
+            f"Бесплатный тариф допускает {limit} анализа в день. "
+            "Оформите Premium для безлимитных анализов и ИИ-тренера."
+        )
+    return (
+        f"Free plan allows {limit} analyses per day. "
+        "Upgrade to Premium for unlimited analyses and the AI coach."
+    )
 
 
 def _validate_ids(request: Request, ids: list[int]) -> None:
