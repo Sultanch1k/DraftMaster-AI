@@ -186,10 +186,18 @@ cd apps/web && npx tsc --noEmit && npm run build
   different `enemy_hero_ids` — repeating one draft returns 200 forever and looks like the
   limit is broken.
 
-- **Branch topology.** `import-implementation` is the repo default and the Vercel production
-  branch; `main` is where releases land. They have diverged, so do not assume one contains
-  the other. `infra/render.yaml` is pinned to `import-implementation` so the API and web do
-  not drift.
+- **Branch topology — and the production split-brain it causes.** `main` is the
+  branch that production deploys from: Vercel aliases `www.draftmaster.wiki` to a
+  `main` build (per `docs/deployment-runbook.md` §1). `import-implementation` is
+  the default branch where work lands, and Vercel builds it as a **preview only** —
+  merging to `main` is what changes the live site. The API on Render has drifted
+  from this: it serves `import-implementation` directly (proven — production
+  returns a `plan.py` string introduced on `import-implementation` that has never
+  existed on `main`). So the two hosts can disagree: a fix can be live in the API
+  while the web app that calls it is a release behind. Before claiming anything is
+  "in production", check *both* hosts, and remember a 404 on `www.draftmaster.wiki`
+  usually means "unreleased", not "broken". Release with the documented command in
+  `docs/deployment-runbook.md` §2 (merge `import-implementation` → `main`).
 
 ## Definition of done
 
