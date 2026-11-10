@@ -1,7 +1,7 @@
 {
  "counters": {
-  "offset:en": 3,
-  "offset:ru": 3
+  "offset:en": 6,
+  "offset:ru": 6
  },
  "created_at": "2026-11-09T19:39:10.603710+00:00",
  "history": [
@@ -13,9 +13,151 @@
     "dry": 9,
     "live": 3
    }
+  },
+  {
+   "at": "2026-11-10T16:53:48.006220+00:00",
+   "event": "cycle",
+   "summary": {
+    "created": 3,
+    "dry": 9,
+    "live": 3
+   }
   }
  ],
- "metrics": [],
+ "metrics": [
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-10T16:53:48.006442+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-10T16:53:48.006453+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-10T16:53:48.006457+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-10T16:53:48.006460+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-10T16:53:48.006462+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-10T16:53:48.006465+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-10T16:53:48.006468+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-10T16:53:48.006472+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-10T16:53:48.006475+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-10T16:53:48.006477+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-10T16:53:48.006480+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-10T16:53:48.006483+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  }
+ ],
  "prospects": {
   "analyst:stat-line": {
    "audience": "stats, patch analysis",
@@ -642,6 +784,486 @@
    "live": false,
    "ok": true,
    "payload_preview": "Победители патча — патч 7.41\n\nПобедители патча: Wraith King — 55,1% винрейта.\n\n• Wraith King — 55,1%\n• Meepo — 53,6%\n• Visage — 53,2%\n• Outworld Devourer — 53,1%\n• Spectre — 53,0%\n\n → https://www.draftmaster.wiki"
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/30839936d62a05f4.md",
+   "item": {
+    "body": "Lone Druid is the worst matchup for Anti-Mage (18/100).\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Anti-Mage into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nPlay the draft, not the hero. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-10T16:53:48.009468+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "30839936d62a05f4",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/anti-mage"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      1,
+      80
+     ],
+     "hero_names": [
+      "Anti-Mage",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.1|matchup|en|enemy=80|hero=1",
+    "title": "Anti-Mage vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.1",
+    "variant": "hook-first"
+   },
+   "item_id": "30839936d62a05f4",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Anti-Mage vs Lone Druid: the matchup breakdown\n\nLone Druid is the worst matchup for Anti-Mage (18/100).\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Anti-Mage into this, and if you are already in it, play f"
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Lone Druid is the worst matchup for Anti-Mage (18/100).\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Anti-Mage into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nPlay the draft, not the hero. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-10T16:53:48.009468+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "30839936d62a05f4",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/anti-mage"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      1,
+      80
+     ],
+     "hero_names": [
+      "Anti-Mage",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.1|matchup|en|enemy=80|hero=1",
+    "title": "Anti-Mage vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.1",
+    "variant": "hook-first"
+   },
+   "item_id": "30839936d62a05f4",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Anti-Mage vs Lone Druid: the matchup breakdown\n\nLone Druid is the worst matchup for Anti-Mage (18/100).\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Anti-Mage into this, and if you are already in it, play f"
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Lone Druid is the worst matchup for Anti-Mage (18/100).\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Anti-Mage into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nPlay the draft, not the hero. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-10T16:53:48.009468+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "30839936d62a05f4",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/anti-mage"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      1,
+      80
+     ],
+     "hero_names": [
+      "Anti-Mage",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.1|matchup|en|enemy=80|hero=1",
+    "title": "Anti-Mage vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.1",
+    "variant": "hook-first"
+   },
+   "item_id": "30839936d62a05f4",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Anti-Mage vs Lone Druid: the matchup breakdown\n\nLone Druid is the worst matchup for Anti-Mage (18/100).\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Anti-Mage into this, and if you are already in it, play f"
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Lone Druid is the worst matchup for Anti-Mage (18/100).\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Anti-Mage into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nPlay the draft, not the hero. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-10T16:53:48.009468+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "30839936d62a05f4",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/anti-mage"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      1,
+      80
+     ],
+     "hero_names": [
+      "Anti-Mage",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.1|matchup|en|enemy=80|hero=1",
+    "title": "Anti-Mage vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.1",
+    "variant": "hook-first"
+   },
+   "item_id": "30839936d62a05f4",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Anti-Mage vs Lone Druid: the matchup breakdown\n\nLone Druid is the worst matchup for Anti-Mage (18/100).\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Anti-Mage into this, and if you are already in it, play f"
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/0a48dca7b44d4c83.md",
+   "item": {
+    "body": "Treant Protector is the worst matchup for Axe (19/100).\n\nThe counter score is 19 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Axe into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nPlay the draft, not the hero. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-10T16:53:48.009521+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "0a48dca7b44d4c83",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/axe"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      2,
+      83
+     ],
+     "hero_names": [
+      "Axe",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.2|matchup|en|enemy=83|hero=2",
+    "title": "Axe vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.2",
+    "variant": "hook-first"
+   },
+   "item_id": "0a48dca7b44d4c83",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Axe vs Treant Protector: the matchup breakdown\n\nTreant Protector is the worst matchup for Axe (19/100).\n\nThe counter score is 19 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Axe into this, and if you are already in it, play for you"
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Treant Protector is the worst matchup for Axe (19/100).\n\nThe counter score is 19 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Axe into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nPlay the draft, not the hero. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-10T16:53:48.009521+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "0a48dca7b44d4c83",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/axe"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      2,
+      83
+     ],
+     "hero_names": [
+      "Axe",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.2|matchup|en|enemy=83|hero=2",
+    "title": "Axe vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.2",
+    "variant": "hook-first"
+   },
+   "item_id": "0a48dca7b44d4c83",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Axe vs Treant Protector: the matchup breakdown\n\nTreant Protector is the worst matchup for Axe (19/100).\n\nThe counter score is 19 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Axe into this, and if you are already in it, play for you"
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Treant Protector is the worst matchup for Axe (19/100).\n\nThe counter score is 19 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Axe into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nPlay the draft, not the hero. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-10T16:53:48.009521+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "0a48dca7b44d4c83",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/axe"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      2,
+      83
+     ],
+     "hero_names": [
+      "Axe",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.2|matchup|en|enemy=83|hero=2",
+    "title": "Axe vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.2",
+    "variant": "hook-first"
+   },
+   "item_id": "0a48dca7b44d4c83",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Axe vs Treant Protector: the matchup breakdown\n\nTreant Protector is the worst matchup for Axe (19/100).\n\nThe counter score is 19 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Axe into this, and if you are already in it, play for you"
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Treant Protector is the worst matchup for Axe (19/100).\n\nThe counter score is 19 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Axe into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nPlay the draft, not the hero. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-10T16:53:48.009521+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "0a48dca7b44d4c83",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/axe"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      2,
+      83
+     ],
+     "hero_names": [
+      "Axe",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.2|matchup|en|enemy=83|hero=2",
+    "title": "Axe vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.2",
+    "variant": "hook-first"
+   },
+   "item_id": "0a48dca7b44d4c83",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Axe vs Treant Protector: the matchup breakdown\n\nTreant Protector is the worst matchup for Axe (19/100).\n\nThe counter score is 19 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Axe into this, and if you are already in it, play for you"
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/ru/5cee28022e9f0eba.md",
+   "item": {
+    "body": "Lone Druid — худший матчап для Anti-Mage (18/100).\n\nСчёт контр-пика 18 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Anti-Mage в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\n → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-10T16:53:48.011920+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "5cee28022e9f0eba",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/anti-mage"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      1,
+      80
+     ],
+     "hero_names": [
+      "Anti-Mage",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.1|matchup|ru|enemy=80|hero=1",
+    "title": "Anti-Mage против Lone Druid: разбор матчапа",
+    "topic": "matchup.1",
+    "variant": "hook-first"
+   },
+   "item_id": "5cee28022e9f0eba",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Anti-Mage против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Anti-Mage (18/100).\n\nСчёт контр-пика 18 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Anti-Mage в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фа"
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Lone Druid — худший матчап для Anti-Mage (18/100).\n\nСчёт контр-пика 18 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Anti-Mage в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\n → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-10T16:53:48.011920+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "5cee28022e9f0eba",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/anti-mage"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      1,
+      80
+     ],
+     "hero_names": [
+      "Anti-Mage",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.1|matchup|ru|enemy=80|hero=1",
+    "title": "Anti-Mage против Lone Druid: разбор матчапа",
+    "topic": "matchup.1",
+    "variant": "hook-first"
+   },
+   "item_id": "5cee28022e9f0eba",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Anti-Mage против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Anti-Mage (18/100).\n\nСчёт контр-пика 18 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Anti-Mage в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фа"
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Lone Druid — худший матчап для Anti-Mage (18/100).\n\nСчёт контр-пика 18 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Anti-Mage в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\n → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-10T16:53:48.011920+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "5cee28022e9f0eba",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/anti-mage"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      1,
+      80
+     ],
+     "hero_names": [
+      "Anti-Mage",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.1|matchup|ru|enemy=80|hero=1",
+    "title": "Anti-Mage против Lone Druid: разбор матчапа",
+    "topic": "matchup.1",
+    "variant": "hook-first"
+   },
+   "item_id": "5cee28022e9f0eba",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Anti-Mage против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Anti-Mage (18/100).\n\nСчёт контр-пика 18 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Anti-Mage в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фа"
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Lone Druid — худший матчап для Anti-Mage (18/100).\n\nСчёт контр-пика 18 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Anti-Mage в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\n → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-10T16:53:48.011920+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "5cee28022e9f0eba",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/anti-mage"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      1,
+      80
+     ],
+     "hero_names": [
+      "Anti-Mage",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.1|matchup|ru|enemy=80|hero=1",
+    "title": "Anti-Mage против Lone Druid: разбор матчапа",
+    "topic": "matchup.1",
+    "variant": "hook-first"
+   },
+   "item_id": "5cee28022e9f0eba",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Anti-Mage против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Anti-Mage (18/100).\n\nСчёт контр-пика 18 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Anti-Mage в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фа"
   }
  ],
  "runs": [
@@ -1262,8 +1884,550 @@
      "script_id": "meta-ru-65f6c3a3"
     }
    ]
+  },
+  {
+   "allow_publish": false,
+   "day": "2026-11-10",
+   "items_created": 3,
+   "metrics_ingested": 12,
+   "optimizer_note": "Best variant is 'data-led' (mean score 0.0, CTR 0.0%, n=12). Weight future output toward it.",
+   "outreach": {
+    "candidates": 5,
+    "messages": 5,
+    "paths": [
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_mid-lane-lab.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_carry-clinic.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_offlane-academy.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/community_ru-dota.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/analyst_stat-line.md"
+    ]
+   },
+   "publish_results": [
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/30839936d62a05f4.md",
+     "item": {
+      "body": "Lone Druid is the worst matchup for Anti-Mage (18/100).\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Anti-Mage into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nPlay the draft, not the hero. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-10T16:53:48.009468+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "30839936d62a05f4",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/anti-mage"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        1,
+        80
+       ],
+       "hero_names": [
+        "Anti-Mage",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.1|matchup|en|enemy=80|hero=1",
+      "title": "Anti-Mage vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.1",
+      "variant": "hook-first"
+     },
+     "item_id": "30839936d62a05f4",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Anti-Mage vs Lone Druid: the matchup breakdown\n\nLone Druid is the worst matchup for Anti-Mage (18/100).\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Anti-Mage into this, and if you are already in it, play f"
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Lone Druid is the worst matchup for Anti-Mage (18/100).\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Anti-Mage into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nPlay the draft, not the hero. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-10T16:53:48.009468+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "30839936d62a05f4",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/anti-mage"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        1,
+        80
+       ],
+       "hero_names": [
+        "Anti-Mage",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.1|matchup|en|enemy=80|hero=1",
+      "title": "Anti-Mage vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.1",
+      "variant": "hook-first"
+     },
+     "item_id": "30839936d62a05f4",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Anti-Mage vs Lone Druid: the matchup breakdown\n\nLone Druid is the worst matchup for Anti-Mage (18/100).\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Anti-Mage into this, and if you are already in it, play f"
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Lone Druid is the worst matchup for Anti-Mage (18/100).\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Anti-Mage into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nPlay the draft, not the hero. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-10T16:53:48.009468+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "30839936d62a05f4",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/anti-mage"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        1,
+        80
+       ],
+       "hero_names": [
+        "Anti-Mage",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.1|matchup|en|enemy=80|hero=1",
+      "title": "Anti-Mage vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.1",
+      "variant": "hook-first"
+     },
+     "item_id": "30839936d62a05f4",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Anti-Mage vs Lone Druid: the matchup breakdown\n\nLone Druid is the worst matchup for Anti-Mage (18/100).\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Anti-Mage into this, and if you are already in it, play f"
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Lone Druid is the worst matchup for Anti-Mage (18/100).\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Anti-Mage into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nPlay the draft, not the hero. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-10T16:53:48.009468+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "30839936d62a05f4",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/anti-mage"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        1,
+        80
+       ],
+       "hero_names": [
+        "Anti-Mage",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.1|matchup|en|enemy=80|hero=1",
+      "title": "Anti-Mage vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.1",
+      "variant": "hook-first"
+     },
+     "item_id": "30839936d62a05f4",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Anti-Mage vs Lone Druid: the matchup breakdown\n\nLone Druid is the worst matchup for Anti-Mage (18/100).\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Anti-Mage into this, and if you are already in it, play f"
+    },
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/0a48dca7b44d4c83.md",
+     "item": {
+      "body": "Treant Protector is the worst matchup for Axe (19/100).\n\nThe counter score is 19 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Axe into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nPlay the draft, not the hero. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-10T16:53:48.009521+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "0a48dca7b44d4c83",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/axe"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        2,
+        83
+       ],
+       "hero_names": [
+        "Axe",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.2|matchup|en|enemy=83|hero=2",
+      "title": "Axe vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.2",
+      "variant": "hook-first"
+     },
+     "item_id": "0a48dca7b44d4c83",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Axe vs Treant Protector: the matchup breakdown\n\nTreant Protector is the worst matchup for Axe (19/100).\n\nThe counter score is 19 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Axe into this, and if you are already in it, play for you"
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Treant Protector is the worst matchup for Axe (19/100).\n\nThe counter score is 19 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Axe into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nPlay the draft, not the hero. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-10T16:53:48.009521+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "0a48dca7b44d4c83",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/axe"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        2,
+        83
+       ],
+       "hero_names": [
+        "Axe",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.2|matchup|en|enemy=83|hero=2",
+      "title": "Axe vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.2",
+      "variant": "hook-first"
+     },
+     "item_id": "0a48dca7b44d4c83",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Axe vs Treant Protector: the matchup breakdown\n\nTreant Protector is the worst matchup for Axe (19/100).\n\nThe counter score is 19 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Axe into this, and if you are already in it, play for you"
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Treant Protector is the worst matchup for Axe (19/100).\n\nThe counter score is 19 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Axe into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nPlay the draft, not the hero. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-10T16:53:48.009521+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "0a48dca7b44d4c83",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/axe"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        2,
+        83
+       ],
+       "hero_names": [
+        "Axe",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.2|matchup|en|enemy=83|hero=2",
+      "title": "Axe vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.2",
+      "variant": "hook-first"
+     },
+     "item_id": "0a48dca7b44d4c83",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Axe vs Treant Protector: the matchup breakdown\n\nTreant Protector is the worst matchup for Axe (19/100).\n\nThe counter score is 19 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Axe into this, and if you are already in it, play for you"
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Treant Protector is the worst matchup for Axe (19/100).\n\nThe counter score is 19 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Axe into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nPlay the draft, not the hero. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-10T16:53:48.009521+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "0a48dca7b44d4c83",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/axe"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        2,
+        83
+       ],
+       "hero_names": [
+        "Axe",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.2|matchup|en|enemy=83|hero=2",
+      "title": "Axe vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.2",
+      "variant": "hook-first"
+     },
+     "item_id": "0a48dca7b44d4c83",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Axe vs Treant Protector: the matchup breakdown\n\nTreant Protector is the worst matchup for Axe (19/100).\n\nThe counter score is 19 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Axe into this, and if you are already in it, play for you"
+    },
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/ru/5cee28022e9f0eba.md",
+     "item": {
+      "body": "Lone Druid — худший матчап для Anti-Mage (18/100).\n\nСчёт контр-пика 18 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Anti-Mage в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\n → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-10T16:53:48.011920+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "5cee28022e9f0eba",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/anti-mage"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        1,
+        80
+       ],
+       "hero_names": [
+        "Anti-Mage",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.1|matchup|ru|enemy=80|hero=1",
+      "title": "Anti-Mage против Lone Druid: разбор матчапа",
+      "topic": "matchup.1",
+      "variant": "hook-first"
+     },
+     "item_id": "5cee28022e9f0eba",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Anti-Mage против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Anti-Mage (18/100).\n\nСчёт контр-пика 18 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Anti-Mage в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фа"
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Lone Druid — худший матчап для Anti-Mage (18/100).\n\nСчёт контр-пика 18 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Anti-Mage в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\n → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-10T16:53:48.011920+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "5cee28022e9f0eba",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/anti-mage"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        1,
+        80
+       ],
+       "hero_names": [
+        "Anti-Mage",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.1|matchup|ru|enemy=80|hero=1",
+      "title": "Anti-Mage против Lone Druid: разбор матчапа",
+      "topic": "matchup.1",
+      "variant": "hook-first"
+     },
+     "item_id": "5cee28022e9f0eba",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Anti-Mage против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Anti-Mage (18/100).\n\nСчёт контр-пика 18 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Anti-Mage в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фа"
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Lone Druid — худший матчап для Anti-Mage (18/100).\n\nСчёт контр-пика 18 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Anti-Mage в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\n → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-10T16:53:48.011920+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "5cee28022e9f0eba",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/anti-mage"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        1,
+        80
+       ],
+       "hero_names": [
+        "Anti-Mage",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.1|matchup|ru|enemy=80|hero=1",
+      "title": "Anti-Mage против Lone Druid: разбор матчапа",
+      "topic": "matchup.1",
+      "variant": "hook-first"
+     },
+     "item_id": "5cee28022e9f0eba",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Anti-Mage против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Anti-Mage (18/100).\n\nСчёт контр-пика 18 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Anti-Mage в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фа"
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Lone Druid — худший матчап для Anti-Mage (18/100).\n\nСчёт контр-пика 18 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Anti-Mage в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\n → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-10T16:53:48.011920+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "5cee28022e9f0eba",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/anti-mage"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        1,
+        80
+       ],
+       "hero_names": [
+        "Anti-Mage",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.1|matchup|ru|enemy=80|hero=1",
+      "title": "Anti-Mage против Lone Druid: разбор матчапа",
+      "topic": "matchup.1",
+      "variant": "hook-first"
+     },
+     "item_id": "5cee28022e9f0eba",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Anti-Mage против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Anti-Mage (18/100).\n\nСчёт контр-пика 18 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Anti-Mage в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фа"
+    }
+   ],
+   "published_dry": 9,
+   "published_live": 3,
+   "started_at": "2026-11-10T16:53:48.006220+00:00",
+   "variant_chosen": "hook-first",
+   "videos": [
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/en",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-en-6ca08c28"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/en",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-en-c91b0c3c"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/ru",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-ru-f267d1e0"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/ru",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-ru-e9d10353"
+    }
+   ]
   }
  ],
  "schema_version": 1,
- "variant_stats": {}
+ "variant_stats": {
+  "data-led": {
+   "clicks": 0,
+   "conversions": 0,
+   "impressions": 0,
+   "n": 12,
+   "score": 0.0
+  }
+ }
 }
