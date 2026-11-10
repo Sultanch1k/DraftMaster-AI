@@ -166,6 +166,31 @@ cd apps/web && npx tsc --noEmit && npm run build
   live in `services/growth/tests/`; `data/growth/out/` is gitignored while the state file is
   tracked so the scheduled workflow can persist it. See `docs/growth-agent.md`.
 
+- **The match plan must stay draft-specific.** `plan._phase_content()` takes `threats`
+  and `delta`; it used to accept and ignore both, so every draft produced an identical
+  5-phase timeline — the exact "static guide" behaviour the product claims to replace.
+  When you touch it, keep the threat-driven notes wired and keep
+  `test_match_plan_adapts_to_enemy_draft` passing: it asserts two different enemy drafts
+  yield different plans for the same hero, and it fails if the timeline goes static again.
+
+- **Production store is NOT durable yet.** `/health` on `draftmaster-ai.onrender.com`
+  reports `sqlite+pysqlite`. The Render service was created by hand, so `infra/render.yaml`
+  (which provisions a paid Postgres) never applied — a Blueprint only manages services it
+  created. Setting `DRAFTMASTER_DATABASE_URL` on the existing service fixes it; see
+  `docs/go-live-runbook.md` §1. `scripts/preflight.py` fails on `[store is durable]` until
+  then, which is the intended go/no-go gate. Do not enable billing before it passes:
+  a paying customer whose entitlement is wiped on the next deploy is worse than no sale.
+
+- **The free quota charges per distinct analysis, keyed by user + IP.** Same draft twice is
+  free; three *distinct* drafts then a 402. To exercise the paywall locally, send three
+  different `enemy_hero_ids` — repeating one draft returns 200 forever and looks like the
+  limit is broken.
+
+- **Branch topology.** `import-implementation` is the repo default and the Vercel production
+  branch; `main` is where releases land. They have diverged, so do not assume one contains
+  the other. `infra/render.yaml` is pinned to `import-implementation` so the API and web do
+  not drift.
+
 ## Definition of done
 
 1. Tests pass (`pytest`), types check (`tsc --noEmit`), and the production build
