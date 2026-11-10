@@ -6,7 +6,6 @@ from fastapi import APIRouter, File, HTTPException, Request, UploadFile
 from draftmaster_engine.i18n import localize, localize_report
 
 from ..locale import resolve_locale
-from ..schemas import UsageOut
 from .analysis import _enforce_quota, _quota_signature
 
 router = APIRouter(tags=["screenshot"])

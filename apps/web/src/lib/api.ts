@@ -181,6 +181,16 @@ export const api = {
 
   billingConfig: () => request<BillingConfig>('/api/billing/config'),
 
+  /** Mint a signed, public share link for a draft (spends quota like a panic run). */
+  createShare: (enemy_hero_ids: number[], role?: string, rank_tier?: number) =>
+    request<{ token: string; path: string; win_probability: number | null }>('/api/share', {
+      method: 'POST',
+      body: JSON.stringify({ enemy_hero_ids, role, rank_tier }),
+    }),
+
+  /** Render the plan behind a signed share token. No quota is charged. */
+  renderShare: (token: string) => request<PanicResult>(`/api/share/${token}`),
+
   billingSession: () => request<BillingSession>('/api/billing/session'),
 
   activate: (license_key: string) =>

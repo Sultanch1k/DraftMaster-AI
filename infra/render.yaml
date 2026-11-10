@@ -7,6 +7,11 @@
 # and, critically, provisions a *paid* Postgres. Render's free Postgres expires
 # 30 days after creation, which would silently delete every paying customer's
 # entitlement and every subscriber record.
+#
+# IMPORTANT: a service created by hand in the dashboard is NOT managed by this
+# file. That is why production currently reports `sqlite+pysqlite` from /health
+# — no DATABASE_URL was ever injected. Recreate the service from this Blueprint
+# (or set DRAFTMASTER_DATABASE_URL manually) to make entitlements survive a deploy.
 services:
   - type: web
     name: draftmaster-api
@@ -15,14 +20,24 @@ services:
     dockerContext: .
     plan: starter # free spins down after 15 min idle; cold starts kill conversion
     region: frankfurt
+    # Track the same branch Vercel deploys as production, so API and web never
+    # drift apart. `main` is only where tagged releases land.
+    branch: import-implementation
     healthCheckPath: /health
-    autoDeploy: true # deploys on every push to the production branch (main)
+    autoDeploy: true # deploys on every push to the production branch
     envVars:
       - key: DRAFTMASTER_ENVIRONMENT
         value: production
       # Render injects `postgres://…`; normalize_database_url in infra.py rewrites
       # it to the psycopg 3 driver. Do not hand-edit the scheme here.
       - key: DRAFTMASTER_DATABASE_URL
+        fromDatabase:
+          name: draftmaster-db
+          property: connectionString
+      # Same value under Render's conventional name. The app reads the
+      # DRAFTMASTER_-prefixed key above; this alias keeps the dashboard readable
+      # and keeps any tooling that expects DATABASE_URL working.
+      - key: DATABASE_URL
         fromDatabase:
           name: draftmaster-db
           property: connectionString

@@ -8,8 +8,6 @@ from __future__ import annotations
 
 import math
 
-import pytest
-
 from draftmaster_engine.dataset import Dataset
 from draftmaster_engine.items import build_items
 from draftmaster_engine.plan import (
@@ -320,6 +318,34 @@ def test_match_plan_has_five_phases(dataset, hero_ids):
     for phase in plan:
         for key in ("objectives", "farm_focus", "fight_focus", "map_movement", "tower_priority", "roshan_priority", "danger_zones"):
             assert phase[key]
+
+
+def test_match_plan_adapts_to_enemy_draft(dataset, hero_ids):
+    """The timeline must be draft-specific, not a static guide.
+
+    Two drafts with different threat profiles must produce different plans for
+    the same hero; otherwise the flagship "plan for this exact game" claim is
+    false and the report is just a renamed static guide.
+    """
+    hero = dataset.by_id[hero_ids["Juggernaut"]]
+
+    # Heavy targeted-disable + teamfight draft.
+    lockdown = [hero_ids["Lion"], hero_ids["Shadow Shaman"], hero_ids["Axe"]]
+    # Invisibility + evasion draft.
+    evasive = [hero_ids["Riki"], hero_ids["Phantom Assassin"], hero_ids["Bounty Hunter"]]
+
+    plan_a = generate_match_plan(dataset, hero, analyse_threats(dataset, lockdown))
+    plan_b = generate_match_plan(dataset, hero, analyse_threats(dataset, evasive))
+
+    text_a = " ".join(
+        f"{p['fight_focus']} {' '.join(p['danger_zones'])} {p['farm_focus']} {p['roshan_priority']} {p['objectives']}"
+        for p in plan_a
+    )
+    text_b = " ".join(
+        f"{p['fight_focus']} {' '.join(p['danger_zones'])} {p['farm_focus']} {p['roshan_priority']} {p['objectives']}"
+        for p in plan_b
+    )
+    assert text_a != text_b, "match plan is identical for two very different enemy drafts"
 
 
 def test_win_conditions_have_three_tiers(dataset, hero_ids):

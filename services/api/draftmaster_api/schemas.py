@@ -39,6 +39,27 @@ class HeroStrategyRequest(BaseModel):
     locale: str | None = None
 
 
+class ShareRequest(BaseModel):
+    """Mint a signed, public link for a draft the caller already has a plan for.
+
+    The caller pays the normal quota (and pays nothing when re-sharing a draft
+    already analysed today), so a share link cannot become an unlimited free
+    analysis endpoint. The recommended hero is derived server-side from the same
+    engine call the public render endpoint makes, so the link can never advertise
+    a hero the page does not actually show.
+    """
+
+    enemy_hero_ids: list[int] = Field(..., min_length=1, max_length=5)
+    role: str | None = None
+    rank_tier: int | None = Field(default=None, ge=0, le=85)
+
+
+class ShareOut(BaseModel):
+    token: str
+    path: str
+    win_probability: float | None = None
+
+
 class WinProbRequest(BaseModel):
     enemy_hero_ids: list[int] = Field(..., min_length=1, max_length=5)
     hero_id: int

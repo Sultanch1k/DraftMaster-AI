@@ -15,6 +15,7 @@ import { ReportView } from '@/components/ReportView';
 import { HeroPortrait } from '@/components/HeroPortrait';
 import { ReportSkeleton } from '@/components/ReportSkeleton';
 import { PremiumModal } from '@/components/PremiumModal';
+import { ShareBar } from '@/components/ShareBar';
 import { HeroStrategyView } from '@/components/HeroStrategyView';
 import { ModeChooser } from '@/components/ModeChooser';
 import { ScreenshotPanel } from '@/components/panels/ScreenshotPanel';
@@ -36,6 +37,17 @@ export default function Home() {
   const [premium, setPremium] = useState(false);
   const [showPlans, setShowPlans] = useState(false);
   const [showModes, setShowModes] = useState(false);
+
+  // Deep link from the public pages: /?upgrade=1 opens the plan panel, so the
+  // checkout link on /panic lands straight on the purchase decision.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('upgrade') === '1') {
+      setShowPlans(true);
+      track('upgrade_clicked', { source: 'deep_link' });
+    }
+  }, []);
 
   const [panic, setPanic] = useState<PanicResult | null>(null);
   const [report, setReport] = useState<Report | null>(null);
@@ -267,7 +279,21 @@ export default function Home() {
                   <div className="flex flex-1 flex-col gap-1.5">
                     {error.quota && <span className="font-semibold">{t('errors.quotaTitle')}</span>}
                     <span>{error.message}</span>
-                    {lastRun && selected.length > 0 && (
+                    {error.quota && (
+                      // The paywall moment has the highest purchase intent in
+                      // the whole product; never dead-end it with a message.
+                      <button
+                        type="button"
+                        onClick={() => {
+                          track('upgrade_clicked', { source: 'paywall_banner' });
+                          setShowPlans(true);
+                        }}
+                        className="btn-primary mt-0.5 self-start"
+                      >
+                        {t('errors.unlock')}
+                      </button>
+                    )}
+                    {!error.quota && lastRun && selected.length > 0 && (
                       <button
                         type="button"
                         onClick={() => run(lastRun)}
@@ -280,7 +306,20 @@ export default function Home() {
                 </div>
               )}
               {loading && <ReportSkeleton label={t('loading.reading', { count: selected.length })} />}
-              {!loading && tab === 'lastpick' && panic && <PanicView result={panic} onFullReport={() => run('report')} />}
+              {!loading && tab === 'lastpick' && panic && (
+                <>
+                  <PanicView result={panic} onFullReport={() => run('report')} />
+                  <div className="flex flex-wrap items-center gap-2">
+                    <ShareBar
+                      enemyIds={selected}
+                      role={role}
+                      rank={rank}
+                      onQuota={() => setShowPlans(true)}
+                    />
+                    <span className="text-xs text-slate-500">{t('share.subhint')}</span>
+                  </div>
+                </>
+              )}
               {!loading && tab === 'draft' && report && <ReportView report={report} />}
               {!loading && !panic && !report && (
                 <EmptyState onScreenshot={() => setTab('screenshot')} />

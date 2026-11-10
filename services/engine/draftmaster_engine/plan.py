@@ -6,10 +6,8 @@ the shrunk matchup matrix, and the empirical duration curve — no static guides
 """
 from __future__ import annotations
 
-from dataclasses import dataclass, field
-
 from .dataset import Dataset
-from .threats import ThreatProfile, DIMENSION_LABELS
+from .threats import ThreatProfile
 
 PHASES = [
     ("0-10", "Laning", 0, 600),
@@ -250,7 +248,7 @@ def generate_power_spikes(ds: Dataset, hero_id: int, enemy_ids: list[int]) -> di
                 {
                     "type": "Item",
                     "when": f"{key_items[0]['name']} timing",
-                    "detail": f"Your first major item. Hit this timing and force a fight immediately.",
+                    "detail": "Your first major item. Hit this timing and force a fight immediately.",
                 }
             )
         delta = ds.late_game_delta(hero_id)
@@ -305,7 +303,7 @@ def generate_match_plan(ds: Dataset, hero: dict, threats: ThreatProfile) -> list
     plan = []
     for label, name, lo, hi in PHASES:
         objectives, farm, fight, movement, towers, roshan, danger = _phase_content(
-            label, name, threats, delta
+            label, name, threats, delta, hero["localized_name"]
         )
         plan.append(
             {
@@ -323,57 +321,100 @@ def generate_match_plan(ds: Dataset, hero: dict, threats: ThreatProfile) -> list
     return plan
 
 
-def _phase_content(label: str, name: str, threats: ThreatProfile, delta: float):
-    t = threats.scores
+def _phase_content(label: str, name: str, threats: ThreatProfile, delta: float, hero_name: str):
+    s = threats.scores
+    p = threats.problems
+
+    # Tactical notes that only apply when the enemy draft actually poses the
+    # threat. Without this the timeline reads the same for every draft, which is
+    # exactly the "static guide" behaviour the product promises to replace.
+    anti_cc = []
+    if p.get("heavy_single_target_disable", 0) >= 55:
+        anti_cc.append("Do not show first — they have a targeted lockdown, so wait for the disable to be spent.")
+    if p.get("heavy_cc_teamfight", 0) >= 55:
+        anti_cc.append("Expect an initiation — bait it out, then re-engage on their cooldowns.")
+    if p.get("silence", 0) >= 45:
+        anti_cc.append("They can silence you — hold a dispel (Manta/Eul's/Guardian Greaves) before committing.")
+    if p.get("invisibility", 0) >= 40:
+        anti_cc.append("They have invisibility — carry dust and keep sentries on the flanks.")
+    if p.get("kite_and_slow", 0) >= 50:
+        anti_cc.append("They kite — close the gap with a mobility item before fighting in the open.")
+    if p.get("heal_heavy", 0) >= 55:
+        anti_cc.append("They sustain through fights — have anti-heal (Spirit Vessel/Skadi) up first.")
+    if p.get("split_push", 0) >= 50:
+        anti_cc.append("They split-push — keep lanes shoved and send one hero to answer the far lane.")
+
     if label == "0-10":
-        return (
-            ["Secure your lane, hit your level 6 power spike", "Contest the 4/6/8 minute runes if safe"],
-            "Prioritise last hits and denies; a 40+ last-hit lane is a won lane.",
-            "Only fight if the enemy overextends into your tower or a support rotates.",
-            "Stay on your half of the map; ward your jungle entrance.",
-            "Take the enemy safelane tower only if you win the lane hard.",
-            "Do not attempt Roshan — you lack the damage and sustain.",
-            ["Enemy jungle at night", "Rune fights if enemy has level-1 kill threat"],
-        )
+        objectives = ["Secure your lane, hit your level 6 power spike", "Contest the 4/6/8 minute runes if safe"]
+        farm = "Prioritise last hits and denies; a 40+ last-hit lane is a won lane."
+        fight = "Only fight if the enemy overextends into your tower or a support rotates."
+        movement = "Stay on your half of the map; ward your jungle entrance."
+        towers = "Take the enemy safelane tower only if you win the lane hard."
+        roshan = "Do not attempt Roshan — you lack the damage and sustain."
+        danger = ["Enemy jungle at night", "Rune fights if enemy has level-1 kill threat"]
+        if s.get("early_game", 0) >= 60:
+            danger.append("Any even trade before level 6 — their draft peaks early")
+            farm = "Play safe and farm; their draft is strongest right now, so do not force early fights."
+        if s.get("pickoff", 0) >= 60:
+            danger.append("Farming alone in lane — they have pickoff threat")
+        if s.get("push", 0) >= 60:
+            towers = "They can push early — keep side lanes shoved and defend your T1s."
+        return (objectives, farm, fight, movement, towers, roshan, danger)
+
     if label == "10-20":
-        return (
-            ["Convert your first item into a tower", "Take T1 towers on the side lanes"],
-            "Farm towards your first major item; take ancient stacks if available.",
-            "Fight when your ultimate and first item are both up.",
-            "Rotate with your team after every won fight; do not farm alone into a push draft.",
-            "T1 towers first, T2 only with Aegis or a big man advantage.",
-            "Scout Roshan if you have a hero who can solo it; otherwise wait for a won fight.",
-            ["Deep enemy jungle without vision", "High ground fights you do not need"],
-        )
+        objectives = ["Convert your first item into a tower", "Take T1 towers on the side lanes"]
+        farm = "Farm towards your first major item; take ancient stacks if available."
+        fight = "Fight when your ultimate and first item are both up."
+        movement = "Rotate with your team after every won fight; do not farm alone into a push draft."
+        towers = "T1 towers first, T2 only with Aegis or a big man advantage."
+        roshan = "Scout Roshan if you have a hero who can solo it; otherwise wait for a won fight."
+        danger = ["Deep enemy jungle without vision", "High ground fights you do not need"]
+        if s.get("roshan", 0) >= 55:
+            roshan = "They can take Roshan early — check and ward the pit after every fight."
+        if delta > 0.01:
+            farm = "You outscale this draft — trade map for farm and skip coin-flip fights."
+        return (objectives, farm, fight + (" " + " ".join(anti_cc) if anti_cc else ""), movement, towers, roshan, danger)
+
     if label == "20-30":
-        return (
-            ["Group and take T2 towers", "First Roshan is the objective that wins this phase"],
-            "Farm the enemy jungle after won fights, not your own — starve them.",
-            "Force fights around Aegis and your key item timings.",
-            "Move as 5 with Aegis; pick off anyone who splits.",
-            "Take T2 towers, then the T3 on the weakest lane.",
-            "Take Roshan the moment you win a fight near the pit.",
-            ["Enemy high ground without Aegis", "Fighting inside enemy base with no buyback"],
-        )
+        objectives = ["Group and take T2 towers", "First Roshan is the objective that wins this phase"]
+        farm = "Farm the enemy jungle after won fights, not your own — starve them."
+        fight = "Force fights around Aegis and your key item timings."
+        movement = "Move as 5 with Aegis; pick off anyone who splits."
+        towers = "Take T2 towers, then the T3 on the weakest lane."
+        roshan = "Take Roshan the moment you win a fight near the pit."
+        danger = ["Enemy high ground without Aegis", "Fighting inside enemy base with no buyback"]
+        if delta < -0.01:
+            objectives = ["Force the pace now — this is your peak", "Take T2s and Roshan before their cores come online"]
+            danger.append(f"{hero_name} falls off late — every minute past 40 favours them")
+        if s.get("teamfight", 0) >= 65:
+            fight = "They teamfight better — win with pickoffs and split push, not a straight 5v5."
+        return (objectives, farm, fight + (" " + " ".join(anti_cc) if anti_cc else ""), movement, towers, roshan, danger)
+
     if label == "30-45":
-        return (
-            ["Break the barracks", "Second Roshan for the high-ground push"],
-            "Keep lanes pushed out before every fight; never lose map control.",
-            "Only take fights you start, with Aegis, or after a pickoff.",
-            "Hold vision around Roshan and the enemy triangle.",
-            "Take T3s on the lane where you have Aegis and buybacks.",
-            "Second Roshan is mandatory before high ground.",
-            ["High ground without Aegis + buybacks", "Chasing kills into their fountain area"],
-        )
-    return (
-        ["Close the game with Aegis and buybacks", "Take barracks, then throne"],
-        "Sell early items for a final luxury upgrade; keep buyback gold.",
-        "Fight only with full ultimates, Aegis and buybacks available.",
-        "Push as 5 with vision; never split alone in the enemy half.",
-        "Take the throne in one push, not two half-hearted attempts.",
-        "Third Roshan if the game goes this long.",
-        ["Any fight without buyback", "Defending with 2+ heroes dead"],
-    )
+        objectives = ["Break the barracks", "Second Roshan for the high-ground push"]
+        farm = "Keep lanes pushed out before every fight; never lose map control."
+        fight = "Only take fights you start, with Aegis, or after a pickoff."
+        movement = "Hold vision around Roshan and the enemy triangle."
+        towers = "Take T3s on the lane where you have Aegis and buybacks."
+        roshan = "Second Roshan is mandatory before high ground."
+        danger = ["High ground without Aegis + buybacks", "Chasing kills into their fountain area"]
+        if delta < -0.01:
+            roshan = "Do not slow the game down — take Roshan and go high ground now."
+        return (objectives, farm, fight + (" " + " ".join(anti_cc) if anti_cc else ""), movement, towers, roshan, danger)
+
+    objectives = ["Close the game with Aegis and buybacks", "Take barracks, then throne"]
+    farm = "Sell early items for a final luxury upgrade; keep buyback gold."
+    fight = "Fight only with full ultimates, Aegis and buybacks available."
+    movement = "Push as 5 with vision; never split alone in the enemy half."
+    towers = "Take the throne in one push, not two half-hearted attempts."
+    roshan = "Third Roshan if the game goes this long."
+    danger = ["Any fight without buyback", "Defending with 2+ heroes dead"]
+    if delta > 0.01:
+        objectives = ["This is your window — group and end the game", "Take barracks, then throne with Aegis"]
+        fight = "You scale past them — force one decisive fight and convert it."
+    if delta < -0.01:
+        danger.append(f"{hero_name} is past their peak — win with one clean Aegis push or not at all")
+    return (objectives, farm, fight + (" " + " ".join(anti_cc) if anti_cc else ""), movement, towers, roshan, danger)
 
 
 # ---------------------------------------------------------------------------

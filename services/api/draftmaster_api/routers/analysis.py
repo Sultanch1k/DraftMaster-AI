@@ -9,7 +9,16 @@ from fastapi import APIRouter, HTTPException, Request
 
 from ..billing import verify_session
 from ..locale import localize_analysis, localize_hero_strategy, localize_panic, resolve_locale
-from ..schemas import AnalyseRequest, HeroStrategyRequest, PanicRequest, WinProbRequest, UsageOut
+from ..schemas import (
+    AnalyseRequest,
+    HeroStrategyRequest,
+    PanicRequest,
+    ShareOut,
+    ShareRequest,
+    WinProbRequest,
+    UsageOut,
+)
+from ..share import sign_share, verify_share
 
 router = APIRouter(tags=["analysis"])
 
@@ -227,6 +236,73 @@ def panic(payload: PanicRequest, request: Request) -> dict:
         comfort=payload.comfort,
     )
     result["usage"] = usage.model_dump()
+    return localize_panic(result, locale)
+
+
+@router.post("/share", response_model=ShareOut)
+def create_share(payload: ShareRequest, request: Request) -> dict:
+    """Mint a signed, public link for a draft.
+
+    Charged against the normal daily quota, so the share loop cannot be abused
+    as a free unlimited-analysis endpoint. Re-sharing a draft already analysed
+    today is free, because the quota signature matches (see `_enforce_quota`).
+    """
+    _validate_ids(request, payload.enemy_hero_ids)
+    _enforce_quota(
+        request, _quota_signature("panic", payload.enemy_hero_ids, payload.role, payload.rank_tier)
+    )
+
+    # Derive the pick and the win probability from the same engine call the
+    # public render endpoint will make, so the OG card and the page it links to
+    # can never advertise different heroes.
+    result = request.app.state.engine.panic(
+        enemy_ids=payload.enemy_hero_ids,
+        role=payload.role,
+        rank_tier=payload.rank_tier,
+        comfort={},
+    )
+    hero_id = result["best_hero"]["hero_id"]
+    win = result.get("win_probability", {}).get("player_win_probability")
+
+    body: dict = {"e": payload.enemy_hero_ids, "h": hero_id}
+    if win is not None:
+        body["w"] = round(float(win))
+    if payload.role:
+        body["r"] = payload.role
+    if payload.rank_tier:
+        body["rk"] = payload.rank_tier
+
+    token = sign_share(request.app.state.settings, body)
+    if not token:
+        # No signing key: the product runs free-only, and the client falls back
+        # to its own unsigned link (which renders client-side).
+        return {"token": "", "path": "", "win_probability": win}
+    return {"token": token, "path": f"/share/{token}", "win_probability": win}
+
+
+@router.get("/share/{token}")
+def render_share(token: str, request: Request) -> dict:
+    """Render the plan behind a signed share token — no quota charged.
+
+    The signature is what makes this safe to leave public: a token can only be
+    produced by an authenticated quota-paying request, so a stranger opening a
+    shared link is spending the sharer's quota, not getting a free tier.
+    """
+    payload = verify_share(request.app.state.settings, token)
+    if not payload:
+        raise HTTPException(status_code=404, detail="This share link is invalid or has expired.")
+    _validate_ids(request, payload["e"])
+    locale = resolve_locale(request)
+    result = request.app.state.engine.panic(
+        enemy_ids=payload["e"],
+        role=payload.get("r"),
+        rank_tier=payload.get("rk"),
+        comfort={},
+    )
+    # A shared link is a read-only view: drop the usage block entirely (the
+    # viewer is not the account being charged, and a quota count here would be
+    # meaningless).
+    result.pop("usage", None)
     return localize_panic(result, locale)
 
 

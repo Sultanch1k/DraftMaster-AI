@@ -11,11 +11,24 @@ adding a function and a registry entry rather than editing a template string.
 from __future__ import annotations
 
 import hashlib
+import re
 from datetime import datetime, timezone
 
 from .config import SITE_URL
 from .models import ContentItem
 from .topics import Topic
+
+
+def slugify(name: str) -> str:
+    """Hero slug, matching tools/pipeline/build_seo_pages.py exactly.
+
+    The web app's /counter and /hero routes use this slug; a different rule here
+    would emit links that 404 (e.g. "Nature's Prophet" -> natures-prophet, not
+    nature's-prophet).
+    """
+    s = name.lower().replace("'", "").replace(".", "")
+    s = re.sub(r"[^a-z0-9]+", "-", s).strip("-")
+    return s
 
 # The style variants the optimizer chooses between. Each is a small knob set the
 # renderers honour, so a new variant only has to declare what it changes.
@@ -192,7 +205,7 @@ def _render_matchup(engine: ContentEngine, topic: Topic, style: dict, locale: st
     hero = engine._hero(topic.data["hero"])
     enemy = engine._hero(topic.data["enemy"])
     score = engine.ds.counter_score(topic.data["hero"], topic.data["enemy"])
-    links = engine._links(f"/counter/{hero['localized_name'].lower().replace(' ', '-')}")
+    links = engine._links(f"/counter/{slugify(hero['localized_name'])}")
 
     if locale == "ru":
         stat = f"{enemy['localized_name']} — худший матчап для {hero['localized_name']} ({score:.0f}/100)."
@@ -228,7 +241,7 @@ def _render_guide(engine: ContentEngine, topic: Topic, style: dict, locale: str)
     hero = engine._hero(topic.data["hero"])
     build = engine.ds.hero_builds.get(hero["id"], {})
     top_early = _top_items(engine, build.get("early_game", {}), 3)
-    links = engine._links(f"/hero/{hero['localized_name'].lower().replace(' ', '-')}")
+    links = engine._links(f"/hero/{slugify(hero['localized_name'])}")
 
     if locale == "ru":
         stat = f"{hero['localized_name']}: {_pct_ru(hero.get('cm_winrate'))} винрейта на текущем патче."
