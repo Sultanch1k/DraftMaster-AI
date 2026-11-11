@@ -1,7 +1,7 @@
 {
  "counters": {
-  "offset:en": 6,
-  "offset:ru": 6
+  "offset:en": 9,
+  "offset:ru": 9
  },
  "created_at": "2026-11-09T19:39:10.603710+00:00",
  "history": [
@@ -16,6 +16,15 @@
   },
   {
    "at": "2026-11-10T16:53:48.006220+00:00",
+   "event": "cycle",
+   "summary": {
+    "created": 3,
+    "dry": 9,
+    "live": 3
+   }
+  },
+  {
+   "at": "2026-11-11T16:58:54.207764+00:00",
    "event": "cycle",
    "summary": {
     "created": 3,
@@ -156,6 +165,270 @@
    "measured_at": "2026-11-10T16:53:48.006483+00:00",
    "topic": "meta.winners",
    "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-11T16:58:54.208004+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-11T16:58:54.208016+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-11T16:58:54.208021+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-11T16:58:54.208024+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-11T16:58:54.208027+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-11T16:58:54.208031+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-11T16:58:54.208034+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-11T16:58:54.208038+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-11T16:58:54.208041+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-11T16:58:54.208044+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-11T16:58:54.208048+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-11T16:58:54.208050+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-11T16:58:54.208053+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-11T16:58:54.208056+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-11T16:58:54.208059+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-11T16:58:54.208062+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-11T16:58:54.208065+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-11T16:58:54.208068+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-11T16:58:54.208071+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-11T16:58:54.208073+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-11T16:58:54.208076+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-11T16:58:54.208079+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-11T16:58:54.208081+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-11T16:58:54.208086+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
   }
  ],
  "prospects": {
@@ -1264,6 +1537,486 @@
    "live": false,
    "ok": true,
    "payload_preview": "Anti-Mage против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Anti-Mage (18/100).\n\nСчёт контр-пика 18 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Anti-Mage в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фа"
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/2faf1d382a6714ed.md",
+   "item": {
+    "body": "The counter score is 23 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Bloodseeker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nSave this for your next draft. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-11T16:58:54.211203+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "2faf1d382a6714ed",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/bloodseeker"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      4,
+      80
+     ],
+     "hero_names": [
+      "Bloodseeker",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.4|matchup|en|enemy=80|hero=4",
+    "title": "Bloodseeker vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.4",
+    "variant": "listicle"
+   },
+   "item_id": "2faf1d382a6714ed",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Bloodseeker vs Lone Druid: the matchup breakdown\n\nThe counter score is 23 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Bloodseeker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\n"
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 23 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Bloodseeker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nSave this for your next draft. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-11T16:58:54.211203+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "2faf1d382a6714ed",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/bloodseeker"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      4,
+      80
+     ],
+     "hero_names": [
+      "Bloodseeker",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.4|matchup|en|enemy=80|hero=4",
+    "title": "Bloodseeker vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.4",
+    "variant": "listicle"
+   },
+   "item_id": "2faf1d382a6714ed",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Bloodseeker vs Lone Druid: the matchup breakdown\n\nThe counter score is 23 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Bloodseeker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\n"
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 23 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Bloodseeker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nSave this for your next draft. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-11T16:58:54.211203+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "2faf1d382a6714ed",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/bloodseeker"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      4,
+      80
+     ],
+     "hero_names": [
+      "Bloodseeker",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.4|matchup|en|enemy=80|hero=4",
+    "title": "Bloodseeker vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.4",
+    "variant": "listicle"
+   },
+   "item_id": "2faf1d382a6714ed",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Bloodseeker vs Lone Druid: the matchup breakdown\n\nThe counter score is 23 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Bloodseeker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\n"
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 23 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Bloodseeker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nSave this for your next draft. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-11T16:58:54.211203+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "2faf1d382a6714ed",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/bloodseeker"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      4,
+      80
+     ],
+     "hero_names": [
+      "Bloodseeker",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.4|matchup|en|enemy=80|hero=4",
+    "title": "Bloodseeker vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.4",
+    "variant": "listicle"
+   },
+   "item_id": "2faf1d382a6714ed",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Bloodseeker vs Lone Druid: the matchup breakdown\n\nThe counter score is 23 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Bloodseeker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\n"
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/7ff06c4a033d3de8.md",
+   "item": {
+    "body": "The counter score is 24 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Crystal Maiden into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nSave this for your next draft. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-11T16:58:54.211243+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "7ff06c4a033d3de8",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/crystal-maiden"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      5,
+      33
+     ],
+     "hero_names": [
+      "Crystal Maiden",
+      "Enigma"
+     ]
+    },
+    "signature": "matchup.5|matchup|en|enemy=33|hero=5",
+    "title": "Crystal Maiden vs Enigma: the matchup breakdown",
+    "topic": "matchup.5",
+    "variant": "listicle"
+   },
+   "item_id": "7ff06c4a033d3de8",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Crystal Maiden vs Enigma: the matchup breakdown\n\nThe counter score is 24 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Crystal Maiden into this, and if you are already in it, play for your own timings instead of trading straight up."
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 24 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Crystal Maiden into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nSave this for your next draft. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-11T16:58:54.211243+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "7ff06c4a033d3de8",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/crystal-maiden"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      5,
+      33
+     ],
+     "hero_names": [
+      "Crystal Maiden",
+      "Enigma"
+     ]
+    },
+    "signature": "matchup.5|matchup|en|enemy=33|hero=5",
+    "title": "Crystal Maiden vs Enigma: the matchup breakdown",
+    "topic": "matchup.5",
+    "variant": "listicle"
+   },
+   "item_id": "7ff06c4a033d3de8",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Crystal Maiden vs Enigma: the matchup breakdown\n\nThe counter score is 24 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Crystal Maiden into this, and if you are already in it, play for your own timings instead of trading straight up."
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 24 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Crystal Maiden into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nSave this for your next draft. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-11T16:58:54.211243+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "7ff06c4a033d3de8",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/crystal-maiden"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      5,
+      33
+     ],
+     "hero_names": [
+      "Crystal Maiden",
+      "Enigma"
+     ]
+    },
+    "signature": "matchup.5|matchup|en|enemy=33|hero=5",
+    "title": "Crystal Maiden vs Enigma: the matchup breakdown",
+    "topic": "matchup.5",
+    "variant": "listicle"
+   },
+   "item_id": "7ff06c4a033d3de8",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Crystal Maiden vs Enigma: the matchup breakdown\n\nThe counter score is 24 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Crystal Maiden into this, and if you are already in it, play for your own timings instead of trading straight up."
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 24 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Crystal Maiden into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nSave this for your next draft. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-11T16:58:54.211243+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "7ff06c4a033d3de8",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/crystal-maiden"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      5,
+      33
+     ],
+     "hero_names": [
+      "Crystal Maiden",
+      "Enigma"
+     ]
+    },
+    "signature": "matchup.5|matchup|en|enemy=33|hero=5",
+    "title": "Crystal Maiden vs Enigma: the matchup breakdown",
+    "topic": "matchup.5",
+    "variant": "listicle"
+   },
+   "item_id": "7ff06c4a033d3de8",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Crystal Maiden vs Enigma: the matchup breakdown\n\nThe counter score is 24 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Crystal Maiden into this, and if you are already in it, play for your own timings instead of trading straight up."
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/ru/45a0da9fc9d971b3.md",
+   "item": {
+    "body": "Lone Druid — худший матчап для Bloodseeker (23/100).\n\nСчёт контр-пика 23 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Bloodseeker в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\n → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-11T16:58:54.213867+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "45a0da9fc9d971b3",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/bloodseeker"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      4,
+      80
+     ],
+     "hero_names": [
+      "Bloodseeker",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.4|matchup|ru|enemy=80|hero=4",
+    "title": "Bloodseeker против Lone Druid: разбор матчапа",
+    "topic": "matchup.4",
+    "variant": "listicle"
+   },
+   "item_id": "45a0da9fc9d971b3",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Bloodseeker против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Bloodseeker (23/100).\n\nСчёт контр-пика 23 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Bloodseeker в этот матчап, если у вас есть выбор. Если уже взяли — играйте"
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Lone Druid — худший матчап для Bloodseeker (23/100).\n\nСчёт контр-пика 23 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Bloodseeker в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\n → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-11T16:58:54.213867+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "45a0da9fc9d971b3",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/bloodseeker"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      4,
+      80
+     ],
+     "hero_names": [
+      "Bloodseeker",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.4|matchup|ru|enemy=80|hero=4",
+    "title": "Bloodseeker против Lone Druid: разбор матчапа",
+    "topic": "matchup.4",
+    "variant": "listicle"
+   },
+   "item_id": "45a0da9fc9d971b3",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Bloodseeker против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Bloodseeker (23/100).\n\nСчёт контр-пика 23 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Bloodseeker в этот матчап, если у вас есть выбор. Если уже взяли — играйте"
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Lone Druid — худший матчап для Bloodseeker (23/100).\n\nСчёт контр-пика 23 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Bloodseeker в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\n → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-11T16:58:54.213867+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "45a0da9fc9d971b3",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/bloodseeker"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      4,
+      80
+     ],
+     "hero_names": [
+      "Bloodseeker",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.4|matchup|ru|enemy=80|hero=4",
+    "title": "Bloodseeker против Lone Druid: разбор матчапа",
+    "topic": "matchup.4",
+    "variant": "listicle"
+   },
+   "item_id": "45a0da9fc9d971b3",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Bloodseeker против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Bloodseeker (23/100).\n\nСчёт контр-пика 23 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Bloodseeker в этот матчап, если у вас есть выбор. Если уже взяли — играйте"
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Lone Druid — худший матчап для Bloodseeker (23/100).\n\nСчёт контр-пика 23 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Bloodseeker в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\n → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-11T16:58:54.213867+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "45a0da9fc9d971b3",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/bloodseeker"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      4,
+      80
+     ],
+     "hero_names": [
+      "Bloodseeker",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.4|matchup|ru|enemy=80|hero=4",
+    "title": "Bloodseeker против Lone Druid: разбор матчапа",
+    "topic": "matchup.4",
+    "variant": "listicle"
+   },
+   "item_id": "45a0da9fc9d971b3",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Bloodseeker против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Bloodseeker (23/100).\n\nСчёт контр-пика 23 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Bloodseeker в этот матчап, если у вас есть выбор. Если уже взяли — играйте"
   }
  ],
  "runs": [
@@ -2418,11 +3171,552 @@
      "script_id": "matchup-ru-e9d10353"
     }
    ]
+  },
+  {
+   "allow_publish": false,
+   "day": "2026-11-11",
+   "items_created": 3,
+   "metrics_ingested": 24,
+   "optimizer_note": "Best variant is 'data-led' (mean score 0.0, CTR 0.0%, n=24). Weight future output toward it.",
+   "outreach": {
+    "candidates": 5,
+    "messages": 5,
+    "paths": [
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_mid-lane-lab.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_carry-clinic.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_offlane-academy.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/community_ru-dota.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/analyst_stat-line.md"
+    ]
+   },
+   "publish_results": [
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/2faf1d382a6714ed.md",
+     "item": {
+      "body": "The counter score is 23 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Bloodseeker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nSave this for your next draft. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-11T16:58:54.211203+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "2faf1d382a6714ed",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/bloodseeker"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        4,
+        80
+       ],
+       "hero_names": [
+        "Bloodseeker",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.4|matchup|en|enemy=80|hero=4",
+      "title": "Bloodseeker vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.4",
+      "variant": "listicle"
+     },
+     "item_id": "2faf1d382a6714ed",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Bloodseeker vs Lone Druid: the matchup breakdown\n\nThe counter score is 23 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Bloodseeker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\n"
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 23 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Bloodseeker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nSave this for your next draft. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-11T16:58:54.211203+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "2faf1d382a6714ed",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/bloodseeker"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        4,
+        80
+       ],
+       "hero_names": [
+        "Bloodseeker",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.4|matchup|en|enemy=80|hero=4",
+      "title": "Bloodseeker vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.4",
+      "variant": "listicle"
+     },
+     "item_id": "2faf1d382a6714ed",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Bloodseeker vs Lone Druid: the matchup breakdown\n\nThe counter score is 23 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Bloodseeker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\n"
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 23 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Bloodseeker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nSave this for your next draft. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-11T16:58:54.211203+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "2faf1d382a6714ed",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/bloodseeker"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        4,
+        80
+       ],
+       "hero_names": [
+        "Bloodseeker",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.4|matchup|en|enemy=80|hero=4",
+      "title": "Bloodseeker vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.4",
+      "variant": "listicle"
+     },
+     "item_id": "2faf1d382a6714ed",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Bloodseeker vs Lone Druid: the matchup breakdown\n\nThe counter score is 23 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Bloodseeker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\n"
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 23 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Bloodseeker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nSave this for your next draft. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-11T16:58:54.211203+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "2faf1d382a6714ed",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/bloodseeker"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        4,
+        80
+       ],
+       "hero_names": [
+        "Bloodseeker",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.4|matchup|en|enemy=80|hero=4",
+      "title": "Bloodseeker vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.4",
+      "variant": "listicle"
+     },
+     "item_id": "2faf1d382a6714ed",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Bloodseeker vs Lone Druid: the matchup breakdown\n\nThe counter score is 23 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Bloodseeker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\n"
+    },
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/7ff06c4a033d3de8.md",
+     "item": {
+      "body": "The counter score is 24 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Crystal Maiden into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nSave this for your next draft. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-11T16:58:54.211243+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "7ff06c4a033d3de8",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/crystal-maiden"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        5,
+        33
+       ],
+       "hero_names": [
+        "Crystal Maiden",
+        "Enigma"
+       ]
+      },
+      "signature": "matchup.5|matchup|en|enemy=33|hero=5",
+      "title": "Crystal Maiden vs Enigma: the matchup breakdown",
+      "topic": "matchup.5",
+      "variant": "listicle"
+     },
+     "item_id": "7ff06c4a033d3de8",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Crystal Maiden vs Enigma: the matchup breakdown\n\nThe counter score is 24 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Crystal Maiden into this, and if you are already in it, play for your own timings instead of trading straight up."
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 24 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Crystal Maiden into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nSave this for your next draft. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-11T16:58:54.211243+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "7ff06c4a033d3de8",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/crystal-maiden"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        5,
+        33
+       ],
+       "hero_names": [
+        "Crystal Maiden",
+        "Enigma"
+       ]
+      },
+      "signature": "matchup.5|matchup|en|enemy=33|hero=5",
+      "title": "Crystal Maiden vs Enigma: the matchup breakdown",
+      "topic": "matchup.5",
+      "variant": "listicle"
+     },
+     "item_id": "7ff06c4a033d3de8",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Crystal Maiden vs Enigma: the matchup breakdown\n\nThe counter score is 24 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Crystal Maiden into this, and if you are already in it, play for your own timings instead of trading straight up."
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 24 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Crystal Maiden into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nSave this for your next draft. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-11T16:58:54.211243+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "7ff06c4a033d3de8",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/crystal-maiden"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        5,
+        33
+       ],
+       "hero_names": [
+        "Crystal Maiden",
+        "Enigma"
+       ]
+      },
+      "signature": "matchup.5|matchup|en|enemy=33|hero=5",
+      "title": "Crystal Maiden vs Enigma: the matchup breakdown",
+      "topic": "matchup.5",
+      "variant": "listicle"
+     },
+     "item_id": "7ff06c4a033d3de8",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Crystal Maiden vs Enigma: the matchup breakdown\n\nThe counter score is 24 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Crystal Maiden into this, and if you are already in it, play for your own timings instead of trading straight up."
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 24 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Crystal Maiden into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nSave this for your next draft. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-11T16:58:54.211243+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "7ff06c4a033d3de8",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/crystal-maiden"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        5,
+        33
+       ],
+       "hero_names": [
+        "Crystal Maiden",
+        "Enigma"
+       ]
+      },
+      "signature": "matchup.5|matchup|en|enemy=33|hero=5",
+      "title": "Crystal Maiden vs Enigma: the matchup breakdown",
+      "topic": "matchup.5",
+      "variant": "listicle"
+     },
+     "item_id": "7ff06c4a033d3de8",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Crystal Maiden vs Enigma: the matchup breakdown\n\nThe counter score is 24 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Crystal Maiden into this, and if you are already in it, play for your own timings instead of trading straight up."
+    },
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/ru/45a0da9fc9d971b3.md",
+     "item": {
+      "body": "Lone Druid — худший матчап для Bloodseeker (23/100).\n\nСчёт контр-пика 23 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Bloodseeker в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\n → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-11T16:58:54.213867+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "45a0da9fc9d971b3",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/bloodseeker"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        4,
+        80
+       ],
+       "hero_names": [
+        "Bloodseeker",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.4|matchup|ru|enemy=80|hero=4",
+      "title": "Bloodseeker против Lone Druid: разбор матчапа",
+      "topic": "matchup.4",
+      "variant": "listicle"
+     },
+     "item_id": "45a0da9fc9d971b3",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Bloodseeker против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Bloodseeker (23/100).\n\nСчёт контр-пика 23 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Bloodseeker в этот матчап, если у вас есть выбор. Если уже взяли — играйте"
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Lone Druid — худший матчап для Bloodseeker (23/100).\n\nСчёт контр-пика 23 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Bloodseeker в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\n → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-11T16:58:54.213867+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "45a0da9fc9d971b3",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/bloodseeker"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        4,
+        80
+       ],
+       "hero_names": [
+        "Bloodseeker",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.4|matchup|ru|enemy=80|hero=4",
+      "title": "Bloodseeker против Lone Druid: разбор матчапа",
+      "topic": "matchup.4",
+      "variant": "listicle"
+     },
+     "item_id": "45a0da9fc9d971b3",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Bloodseeker против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Bloodseeker (23/100).\n\nСчёт контр-пика 23 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Bloodseeker в этот матчап, если у вас есть выбор. Если уже взяли — играйте"
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Lone Druid — худший матчап для Bloodseeker (23/100).\n\nСчёт контр-пика 23 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Bloodseeker в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\n → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-11T16:58:54.213867+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "45a0da9fc9d971b3",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/bloodseeker"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        4,
+        80
+       ],
+       "hero_names": [
+        "Bloodseeker",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.4|matchup|ru|enemy=80|hero=4",
+      "title": "Bloodseeker против Lone Druid: разбор матчапа",
+      "topic": "matchup.4",
+      "variant": "listicle"
+     },
+     "item_id": "45a0da9fc9d971b3",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Bloodseeker против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Bloodseeker (23/100).\n\nСчёт контр-пика 23 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Bloodseeker в этот матчап, если у вас есть выбор. Если уже взяли — играйте"
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Lone Druid — худший матчап для Bloodseeker (23/100).\n\nСчёт контр-пика 23 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Bloodseeker в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\n → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-11T16:58:54.213867+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "45a0da9fc9d971b3",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/bloodseeker"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        4,
+        80
+       ],
+       "hero_names": [
+        "Bloodseeker",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.4|matchup|ru|enemy=80|hero=4",
+      "title": "Bloodseeker против Lone Druid: разбор матчапа",
+      "topic": "matchup.4",
+      "variant": "listicle"
+     },
+     "item_id": "45a0da9fc9d971b3",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Bloodseeker против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Bloodseeker (23/100).\n\nСчёт контр-пика 23 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Bloodseeker в этот матчап, если у вас есть выбор. Если уже взяли — играйте"
+    }
+   ],
+   "published_dry": 9,
+   "published_live": 3,
+   "started_at": "2026-11-11T16:58:54.207764+00:00",
+   "variant_chosen": "listicle",
+   "videos": [
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/en",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-en-e079b231"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/en",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-en-c2867733"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/ru",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-ru-191bc6b7"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/ru",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-ru-6749a379"
+    }
+   ]
   }
  ],
  "schema_version": 1,
  "variant_stats": {
   "data-led": {
+   "clicks": 0,
+   "conversions": 0,
+   "impressions": 0,
+   "n": 24,
+   "score": 0.0
+  },
+  "hook-first": {
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
