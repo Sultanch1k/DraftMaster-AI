@@ -1,7 +1,7 @@
 {
  "counters": {
-  "offset:en": 9,
-  "offset:ru": 9
+  "offset:en": 12,
+  "offset:ru": 12
  },
  "created_at": "2026-11-09T19:39:10.603710+00:00",
  "history": [
@@ -25,6 +25,15 @@
   },
   {
    "at": "2026-11-11T16:58:54.207764+00:00",
+   "event": "cycle",
+   "summary": {
+    "created": 3,
+    "dry": 9,
+    "live": 3
+   }
+  },
+  {
+   "at": "2026-11-12T17:27:51.587392+00:00",
    "event": "cycle",
    "summary": {
     "created": 3,
@@ -429,6 +438,402 @@
    "measured_at": "2026-11-11T16:58:54.208086+00:00",
    "topic": "matchup.1",
    "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-12T17:27:51.587584+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-12T17:27:51.587593+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-12T17:27:51.587598+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-12T17:27:51.587601+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-12T17:27:51.587603+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-12T17:27:51.587606+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-12T17:27:51.587608+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-12T17:27:51.587611+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-12T17:27:51.587613+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-12T17:27:51.587621+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-12T17:27:51.587626+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-12T17:27:51.587631+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-12T17:27:51.587635+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-12T17:27:51.587638+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-12T17:27:51.587646+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-12T17:27:51.587649+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-12T17:27:51.587653+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-12T17:27:51.587657+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-12T17:27:51.587660+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-12T17:27:51.587663+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-12T17:27:51.587666+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-12T17:27:51.587670+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-12T17:27:51.587673+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-12T17:27:51.587676+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-12T17:27:51.587679+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-12T17:27:51.587685+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-12T17:27:51.587689+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-12T17:27:51.587692+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-12T17:27:51.587695+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-12T17:27:51.587699+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-12T17:27:51.587702+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-12T17:27:51.587705+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-12T17:27:51.587709+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-12T17:27:51.587713+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-12T17:27:51.587716+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-12T17:27:51.587719+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
   }
  ],
  "prospects": {
@@ -2017,6 +2422,486 @@
    "live": false,
    "ok": true,
    "payload_preview": "Bloodseeker против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Bloodseeker (23/100).\n\nСчёт контр-пика 23 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Bloodseeker в этот матчап, если у вас есть выбор. Если уже взяли — играйте"
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/482b07a9e8e6b5c1.md",
+   "item": {
+    "body": "Why does Earthshaker lose to Treant Protector?\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Earthshaker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nWhat would you have picked? → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-12T17:27:51.590520+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "482b07a9e8e6b5c1",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/earthshaker"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      7,
+      83
+     ],
+     "hero_names": [
+      "Earthshaker",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.7|matchup|en|enemy=83|hero=7",
+    "title": "Earthshaker vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.7",
+    "variant": "question"
+   },
+   "item_id": "482b07a9e8e6b5c1",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Earthshaker vs Treant Protector: the matchup breakdown\n\nWhy does Earthshaker lose to Treant Protector?\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Earthshaker into this, and if you are already in it, play "
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Why does Earthshaker lose to Treant Protector?\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Earthshaker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nWhat would you have picked? → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-12T17:27:51.590520+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "482b07a9e8e6b5c1",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/earthshaker"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      7,
+      83
+     ],
+     "hero_names": [
+      "Earthshaker",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.7|matchup|en|enemy=83|hero=7",
+    "title": "Earthshaker vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.7",
+    "variant": "question"
+   },
+   "item_id": "482b07a9e8e6b5c1",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Earthshaker vs Treant Protector: the matchup breakdown\n\nWhy does Earthshaker lose to Treant Protector?\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Earthshaker into this, and if you are already in it, play "
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Why does Earthshaker lose to Treant Protector?\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Earthshaker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nWhat would you have picked? → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-12T17:27:51.590520+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "482b07a9e8e6b5c1",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/earthshaker"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      7,
+      83
+     ],
+     "hero_names": [
+      "Earthshaker",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.7|matchup|en|enemy=83|hero=7",
+    "title": "Earthshaker vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.7",
+    "variant": "question"
+   },
+   "item_id": "482b07a9e8e6b5c1",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Earthshaker vs Treant Protector: the matchup breakdown\n\nWhy does Earthshaker lose to Treant Protector?\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Earthshaker into this, and if you are already in it, play "
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Why does Earthshaker lose to Treant Protector?\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Earthshaker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nWhat would you have picked? → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-12T17:27:51.590520+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "482b07a9e8e6b5c1",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/earthshaker"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      7,
+      83
+     ],
+     "hero_names": [
+      "Earthshaker",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.7|matchup|en|enemy=83|hero=7",
+    "title": "Earthshaker vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.7",
+    "variant": "question"
+   },
+   "item_id": "482b07a9e8e6b5c1",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Earthshaker vs Treant Protector: the matchup breakdown\n\nWhy does Earthshaker lose to Treant Protector?\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Earthshaker into this, and if you are already in it, play "
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/cdd8c116f44d6ceb.md",
+   "item": {
+    "body": "Why does Juggernaut lose to Treant Protector?\n\nThe counter score is 20 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Juggernaut into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nWhat would you have picked? → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-12T17:27:51.590555+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "cdd8c116f44d6ceb",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/juggernaut"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      8,
+      83
+     ],
+     "hero_names": [
+      "Juggernaut",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.8|matchup|en|enemy=83|hero=8",
+    "title": "Juggernaut vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.8",
+    "variant": "question"
+   },
+   "item_id": "cdd8c116f44d6ceb",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Juggernaut vs Treant Protector: the matchup breakdown\n\nWhy does Juggernaut lose to Treant Protector?\n\nThe counter score is 20 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Juggernaut into this, and if you are already in it, play for"
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Why does Juggernaut lose to Treant Protector?\n\nThe counter score is 20 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Juggernaut into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nWhat would you have picked? → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-12T17:27:51.590555+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "cdd8c116f44d6ceb",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/juggernaut"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      8,
+      83
+     ],
+     "hero_names": [
+      "Juggernaut",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.8|matchup|en|enemy=83|hero=8",
+    "title": "Juggernaut vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.8",
+    "variant": "question"
+   },
+   "item_id": "cdd8c116f44d6ceb",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Juggernaut vs Treant Protector: the matchup breakdown\n\nWhy does Juggernaut lose to Treant Protector?\n\nThe counter score is 20 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Juggernaut into this, and if you are already in it, play for"
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Why does Juggernaut lose to Treant Protector?\n\nThe counter score is 20 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Juggernaut into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nWhat would you have picked? → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-12T17:27:51.590555+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "cdd8c116f44d6ceb",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/juggernaut"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      8,
+      83
+     ],
+     "hero_names": [
+      "Juggernaut",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.8|matchup|en|enemy=83|hero=8",
+    "title": "Juggernaut vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.8",
+    "variant": "question"
+   },
+   "item_id": "cdd8c116f44d6ceb",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Juggernaut vs Treant Protector: the matchup breakdown\n\nWhy does Juggernaut lose to Treant Protector?\n\nThe counter score is 20 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Juggernaut into this, and if you are already in it, play for"
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Why does Juggernaut lose to Treant Protector?\n\nThe counter score is 20 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Juggernaut into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nWhat would you have picked? → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-12T17:27:51.590555+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "cdd8c116f44d6ceb",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/juggernaut"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      8,
+      83
+     ],
+     "hero_names": [
+      "Juggernaut",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.8|matchup|en|enemy=83|hero=8",
+    "title": "Juggernaut vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.8",
+    "variant": "question"
+   },
+   "item_id": "cdd8c116f44d6ceb",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Juggernaut vs Treant Protector: the matchup breakdown\n\nWhy does Juggernaut lose to Treant Protector?\n\nThe counter score is 20 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Juggernaut into this, and if you are already in it, play for"
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/ru/2ba73590731b239f.md",
+   "item": {
+    "body": "Почему Earthshaker проигрывает Treant Protector?\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Earthshaker в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nА что выбрали бы вы? → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-12T17:27:51.592889+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "2ba73590731b239f",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/earthshaker"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      7,
+      83
+     ],
+     "hero_names": [
+      "Earthshaker",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.7|matchup|ru|enemy=83|hero=7",
+    "title": "Earthshaker против Treant Protector: разбор матчапа",
+    "topic": "matchup.7",
+    "variant": "question"
+   },
+   "item_id": "2ba73590731b239f",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Earthshaker против Treant Protector: разбор матчапа\n\nПочему Earthshaker проигрывает Treant Protector?\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Earthshaker в этот матчап, если у вас есть выбор. Если уже взяли — играй"
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Почему Earthshaker проигрывает Treant Protector?\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Earthshaker в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nА что выбрали бы вы? → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-12T17:27:51.592889+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "2ba73590731b239f",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/earthshaker"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      7,
+      83
+     ],
+     "hero_names": [
+      "Earthshaker",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.7|matchup|ru|enemy=83|hero=7",
+    "title": "Earthshaker против Treant Protector: разбор матчапа",
+    "topic": "matchup.7",
+    "variant": "question"
+   },
+   "item_id": "2ba73590731b239f",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Earthshaker против Treant Protector: разбор матчапа\n\nПочему Earthshaker проигрывает Treant Protector?\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Earthshaker в этот матчап, если у вас есть выбор. Если уже взяли — играй"
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Почему Earthshaker проигрывает Treant Protector?\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Earthshaker в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nА что выбрали бы вы? → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-12T17:27:51.592889+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "2ba73590731b239f",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/earthshaker"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      7,
+      83
+     ],
+     "hero_names": [
+      "Earthshaker",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.7|matchup|ru|enemy=83|hero=7",
+    "title": "Earthshaker против Treant Protector: разбор матчапа",
+    "topic": "matchup.7",
+    "variant": "question"
+   },
+   "item_id": "2ba73590731b239f",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Earthshaker против Treant Protector: разбор матчапа\n\nПочему Earthshaker проигрывает Treant Protector?\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Earthshaker в этот матчап, если у вас есть выбор. Если уже взяли — играй"
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Почему Earthshaker проигрывает Treant Protector?\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Earthshaker в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nА что выбрали бы вы? → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-12T17:27:51.592889+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "2ba73590731b239f",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/earthshaker"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      7,
+      83
+     ],
+     "hero_names": [
+      "Earthshaker",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.7|matchup|ru|enemy=83|hero=7",
+    "title": "Earthshaker против Treant Protector: разбор матчапа",
+    "topic": "matchup.7",
+    "variant": "question"
+   },
+   "item_id": "2ba73590731b239f",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Earthshaker против Treant Protector: разбор матчапа\n\nПочему Earthshaker проигрывает Treant Protector?\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Earthshaker в этот матчап, если у вас есть выбор. Если уже взяли — играй"
   }
  ],
  "runs": [
@@ -3705,6 +4590,540 @@
      "script_id": "matchup-ru-6749a379"
     }
    ]
+  },
+  {
+   "allow_publish": false,
+   "day": "2026-11-12",
+   "items_created": 3,
+   "metrics_ingested": 36,
+   "optimizer_note": "Best variant is 'data-led' (mean score 0.0, CTR 0.0%, n=36). Weight future output toward it.",
+   "outreach": {
+    "candidates": 5,
+    "messages": 5,
+    "paths": [
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_mid-lane-lab.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_carry-clinic.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_offlane-academy.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/community_ru-dota.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/analyst_stat-line.md"
+    ]
+   },
+   "publish_results": [
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/482b07a9e8e6b5c1.md",
+     "item": {
+      "body": "Why does Earthshaker lose to Treant Protector?\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Earthshaker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nWhat would you have picked? → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-12T17:27:51.590520+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "482b07a9e8e6b5c1",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/earthshaker"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        7,
+        83
+       ],
+       "hero_names": [
+        "Earthshaker",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.7|matchup|en|enemy=83|hero=7",
+      "title": "Earthshaker vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.7",
+      "variant": "question"
+     },
+     "item_id": "482b07a9e8e6b5c1",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Earthshaker vs Treant Protector: the matchup breakdown\n\nWhy does Earthshaker lose to Treant Protector?\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Earthshaker into this, and if you are already in it, play "
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Why does Earthshaker lose to Treant Protector?\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Earthshaker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nWhat would you have picked? → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-12T17:27:51.590520+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "482b07a9e8e6b5c1",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/earthshaker"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        7,
+        83
+       ],
+       "hero_names": [
+        "Earthshaker",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.7|matchup|en|enemy=83|hero=7",
+      "title": "Earthshaker vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.7",
+      "variant": "question"
+     },
+     "item_id": "482b07a9e8e6b5c1",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Earthshaker vs Treant Protector: the matchup breakdown\n\nWhy does Earthshaker lose to Treant Protector?\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Earthshaker into this, and if you are already in it, play "
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Why does Earthshaker lose to Treant Protector?\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Earthshaker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nWhat would you have picked? → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-12T17:27:51.590520+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "482b07a9e8e6b5c1",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/earthshaker"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        7,
+        83
+       ],
+       "hero_names": [
+        "Earthshaker",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.7|matchup|en|enemy=83|hero=7",
+      "title": "Earthshaker vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.7",
+      "variant": "question"
+     },
+     "item_id": "482b07a9e8e6b5c1",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Earthshaker vs Treant Protector: the matchup breakdown\n\nWhy does Earthshaker lose to Treant Protector?\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Earthshaker into this, and if you are already in it, play "
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Why does Earthshaker lose to Treant Protector?\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Earthshaker into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nWhat would you have picked? → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-12T17:27:51.590520+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "482b07a9e8e6b5c1",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/earthshaker"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        7,
+        83
+       ],
+       "hero_names": [
+        "Earthshaker",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.7|matchup|en|enemy=83|hero=7",
+      "title": "Earthshaker vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.7",
+      "variant": "question"
+     },
+     "item_id": "482b07a9e8e6b5c1",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Earthshaker vs Treant Protector: the matchup breakdown\n\nWhy does Earthshaker lose to Treant Protector?\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Earthshaker into this, and if you are already in it, play "
+    },
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/cdd8c116f44d6ceb.md",
+     "item": {
+      "body": "Why does Juggernaut lose to Treant Protector?\n\nThe counter score is 20 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Juggernaut into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nWhat would you have picked? → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-12T17:27:51.590555+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "cdd8c116f44d6ceb",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/juggernaut"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        8,
+        83
+       ],
+       "hero_names": [
+        "Juggernaut",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.8|matchup|en|enemy=83|hero=8",
+      "title": "Juggernaut vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.8",
+      "variant": "question"
+     },
+     "item_id": "cdd8c116f44d6ceb",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Juggernaut vs Treant Protector: the matchup breakdown\n\nWhy does Juggernaut lose to Treant Protector?\n\nThe counter score is 20 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Juggernaut into this, and if you are already in it, play for"
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Why does Juggernaut lose to Treant Protector?\n\nThe counter score is 20 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Juggernaut into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nWhat would you have picked? → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-12T17:27:51.590555+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "cdd8c116f44d6ceb",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/juggernaut"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        8,
+        83
+       ],
+       "hero_names": [
+        "Juggernaut",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.8|matchup|en|enemy=83|hero=8",
+      "title": "Juggernaut vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.8",
+      "variant": "question"
+     },
+     "item_id": "cdd8c116f44d6ceb",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Juggernaut vs Treant Protector: the matchup breakdown\n\nWhy does Juggernaut lose to Treant Protector?\n\nThe counter score is 20 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Juggernaut into this, and if you are already in it, play for"
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Why does Juggernaut lose to Treant Protector?\n\nThe counter score is 20 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Juggernaut into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nWhat would you have picked? → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-12T17:27:51.590555+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "cdd8c116f44d6ceb",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/juggernaut"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        8,
+        83
+       ],
+       "hero_names": [
+        "Juggernaut",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.8|matchup|en|enemy=83|hero=8",
+      "title": "Juggernaut vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.8",
+      "variant": "question"
+     },
+     "item_id": "cdd8c116f44d6ceb",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Juggernaut vs Treant Protector: the matchup breakdown\n\nWhy does Juggernaut lose to Treant Protector?\n\nThe counter score is 20 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Juggernaut into this, and if you are already in it, play for"
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Why does Juggernaut lose to Treant Protector?\n\nThe counter score is 20 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Juggernaut into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nWhat would you have picked? → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-12T17:27:51.590555+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "cdd8c116f44d6ceb",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/juggernaut"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        8,
+        83
+       ],
+       "hero_names": [
+        "Juggernaut",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.8|matchup|en|enemy=83|hero=8",
+      "title": "Juggernaut vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.8",
+      "variant": "question"
+     },
+     "item_id": "cdd8c116f44d6ceb",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Juggernaut vs Treant Protector: the matchup breakdown\n\nWhy does Juggernaut lose to Treant Protector?\n\nThe counter score is 20 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Juggernaut into this, and if you are already in it, play for"
+    },
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/ru/2ba73590731b239f.md",
+     "item": {
+      "body": "Почему Earthshaker проигрывает Treant Protector?\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Earthshaker в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nА что выбрали бы вы? → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-12T17:27:51.592889+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "2ba73590731b239f",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/earthshaker"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        7,
+        83
+       ],
+       "hero_names": [
+        "Earthshaker",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.7|matchup|ru|enemy=83|hero=7",
+      "title": "Earthshaker против Treant Protector: разбор матчапа",
+      "topic": "matchup.7",
+      "variant": "question"
+     },
+     "item_id": "2ba73590731b239f",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Earthshaker против Treant Protector: разбор матчапа\n\nПочему Earthshaker проигрывает Treant Protector?\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Earthshaker в этот матчап, если у вас есть выбор. Если уже взяли — играй"
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Почему Earthshaker проигрывает Treant Protector?\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Earthshaker в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nА что выбрали бы вы? → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-12T17:27:51.592889+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "2ba73590731b239f",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/earthshaker"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        7,
+        83
+       ],
+       "hero_names": [
+        "Earthshaker",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.7|matchup|ru|enemy=83|hero=7",
+      "title": "Earthshaker против Treant Protector: разбор матчапа",
+      "topic": "matchup.7",
+      "variant": "question"
+     },
+     "item_id": "2ba73590731b239f",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Earthshaker против Treant Protector: разбор матчапа\n\nПочему Earthshaker проигрывает Treant Protector?\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Earthshaker в этот матчап, если у вас есть выбор. Если уже взяли — играй"
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Почему Earthshaker проигрывает Treant Protector?\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Earthshaker в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nА что выбрали бы вы? → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-12T17:27:51.592889+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "2ba73590731b239f",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/earthshaker"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        7,
+        83
+       ],
+       "hero_names": [
+        "Earthshaker",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.7|matchup|ru|enemy=83|hero=7",
+      "title": "Earthshaker против Treant Protector: разбор матчапа",
+      "topic": "matchup.7",
+      "variant": "question"
+     },
+     "item_id": "2ba73590731b239f",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Earthshaker против Treant Protector: разбор матчапа\n\nПочему Earthshaker проигрывает Treant Protector?\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Earthshaker в этот матчап, если у вас есть выбор. Если уже взяли — играй"
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Почему Earthshaker проигрывает Treant Protector?\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Earthshaker в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nА что выбрали бы вы? → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-12T17:27:51.592889+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "2ba73590731b239f",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/earthshaker"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        7,
+        83
+       ],
+       "hero_names": [
+        "Earthshaker",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.7|matchup|ru|enemy=83|hero=7",
+      "title": "Earthshaker против Treant Protector: разбор матчапа",
+      "topic": "matchup.7",
+      "variant": "question"
+     },
+     "item_id": "2ba73590731b239f",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Earthshaker против Treant Protector: разбор матчапа\n\nПочему Earthshaker проигрывает Treant Protector?\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Earthshaker в этот матчап, если у вас есть выбор. Если уже взяли — играй"
+    }
+   ],
+   "published_dry": 9,
+   "published_live": 3,
+   "started_at": "2026-11-12T17:27:51.587392+00:00",
+   "variant_chosen": "question",
+   "videos": [
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/en",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-en-006388e6"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/en",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-en-9a3b6ccc"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/ru",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-ru-ecdb7fac"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/ru",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-ru-f4a1c85c"
+    }
+   ]
   }
  ],
  "schema_version": 1,
@@ -3713,10 +5132,17 @@
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
-   "n": 24,
+   "n": 36,
    "score": 0.0
   },
   "hook-first": {
+   "clicks": 0,
+   "conversions": 0,
+   "impressions": 0,
+   "n": 24,
+   "score": 0.0
+  },
+  "listicle": {
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
