@@ -1,7 +1,7 @@
 {
  "counters": {
-  "offset:en": 12,
-  "offset:ru": 12
+  "offset:en": 15,
+  "offset:ru": 15
  },
  "created_at": "2026-11-09T19:39:10.603710+00:00",
  "history": [
@@ -34,6 +34,15 @@
   },
   {
    "at": "2026-11-12T17:27:51.587392+00:00",
+   "event": "cycle",
+   "summary": {
+    "created": 3,
+    "dry": 9,
+    "live": 3
+   }
+  },
+  {
+   "at": "2026-11-13T17:02:28.415508+00:00",
    "event": "cycle",
    "summary": {
     "created": 3,
@@ -834,6 +843,534 @@
    "measured_at": "2026-11-12T17:27:51.587719+00:00",
    "topic": "matchup.4",
    "variant": "listicle"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-13T17:02:28.415725+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-13T17:02:28.415736+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-13T17:02:28.415741+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-13T17:02:28.415743+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-13T17:02:28.415746+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-13T17:02:28.415749+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-13T17:02:28.415752+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-13T17:02:28.415755+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-13T17:02:28.415762+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-13T17:02:28.415766+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-13T17:02:28.415770+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-13T17:02:28.415774+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-13T17:02:28.415778+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-13T17:02:28.415782+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-13T17:02:28.415793+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-13T17:02:28.415797+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-13T17:02:28.415800+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-13T17:02:28.415804+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-13T17:02:28.415808+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-13T17:02:28.415811+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-13T17:02:28.415815+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-13T17:02:28.415818+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-13T17:02:28.415822+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-13T17:02:28.415828+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-13T17:02:28.415832+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-13T17:02:28.415836+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-13T17:02:28.415840+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-13T17:02:28.415843+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-13T17:02:28.415847+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-13T17:02:28.415851+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-13T17:02:28.415854+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-13T17:02:28.415858+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-13T17:02:28.415862+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-13T17:02:28.415866+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-13T17:02:28.415870+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-13T17:02:28.415875+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "482b07a9e8e6b5c1",
+   "measured_at": "2026-11-13T17:02:28.415878+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "482b07a9e8e6b5c1",
+   "measured_at": "2026-11-13T17:02:28.415881+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "482b07a9e8e6b5c1",
+   "measured_at": "2026-11-13T17:02:28.415883+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "482b07a9e8e6b5c1",
+   "measured_at": "2026-11-13T17:02:28.415885+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "cdd8c116f44d6ceb",
+   "measured_at": "2026-11-13T17:02:28.415888+00:00",
+   "topic": "matchup.8",
+   "variant": "question"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "cdd8c116f44d6ceb",
+   "measured_at": "2026-11-13T17:02:28.415890+00:00",
+   "topic": "matchup.8",
+   "variant": "question"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "cdd8c116f44d6ceb",
+   "measured_at": "2026-11-13T17:02:28.415893+00:00",
+   "topic": "matchup.8",
+   "variant": "question"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "cdd8c116f44d6ceb",
+   "measured_at": "2026-11-13T17:02:28.415895+00:00",
+   "topic": "matchup.8",
+   "variant": "question"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2ba73590731b239f",
+   "measured_at": "2026-11-13T17:02:28.415897+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2ba73590731b239f",
+   "measured_at": "2026-11-13T17:02:28.415900+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2ba73590731b239f",
+   "measured_at": "2026-11-13T17:02:28.415905+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2ba73590731b239f",
+   "measured_at": "2026-11-13T17:02:28.415907+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
   }
  ],
  "prospects": {
@@ -2902,6 +3439,486 @@
    "live": false,
    "ok": true,
    "payload_preview": "Earthshaker против Treant Protector: разбор матчапа\n\nПочему Earthshaker проигрывает Treant Protector?\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Earthshaker в этот матчап, если у вас есть выбор. Если уже взяли — играй"
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/6e904be9baf04a5c.md",
+   "item": {
+    "body": "The counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Morphling into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-13T17:02:28.418769+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "6e904be9baf04a5c",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/morphling"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      10,
+      83
+     ],
+     "hero_names": [
+      "Morphling",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.10|matchup|en|enemy=83|hero=10",
+    "title": "Morphling vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.10",
+    "variant": "story"
+   },
+   "item_id": "6e904be9baf04a5c",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Morphling vs Treant Protector: the matchup breakdown\n\nThe counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Morphling into this, and if you are already in it, play for your own timings instead of trading straight up."
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Morphling into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-13T17:02:28.418769+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "6e904be9baf04a5c",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/morphling"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      10,
+      83
+     ],
+     "hero_names": [
+      "Morphling",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.10|matchup|en|enemy=83|hero=10",
+    "title": "Morphling vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.10",
+    "variant": "story"
+   },
+   "item_id": "6e904be9baf04a5c",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Morphling vs Treant Protector: the matchup breakdown\n\nThe counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Morphling into this, and if you are already in it, play for your own timings instead of trading straight up."
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Morphling into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-13T17:02:28.418769+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "6e904be9baf04a5c",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/morphling"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      10,
+      83
+     ],
+     "hero_names": [
+      "Morphling",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.10|matchup|en|enemy=83|hero=10",
+    "title": "Morphling vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.10",
+    "variant": "story"
+   },
+   "item_id": "6e904be9baf04a5c",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Morphling vs Treant Protector: the matchup breakdown\n\nThe counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Morphling into this, and if you are already in it, play for your own timings instead of trading straight up."
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Morphling into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-13T17:02:28.418769+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "6e904be9baf04a5c",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/morphling"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      10,
+      83
+     ],
+     "hero_names": [
+      "Morphling",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.10|matchup|en|enemy=83|hero=10",
+    "title": "Morphling vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.10",
+    "variant": "story"
+   },
+   "item_id": "6e904be9baf04a5c",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Morphling vs Treant Protector: the matchup breakdown\n\nThe counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Morphling into this, and if you are already in it, play for your own timings instead of trading straight up."
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/08c1f4255bd933ee.md",
+   "item": {
+    "body": "The counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Shadow Fiend into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-13T17:02:28.418802+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "08c1f4255bd933ee",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/shadow-fiend"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      11,
+      80
+     ],
+     "hero_names": [
+      "Shadow Fiend",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.11|matchup|en|enemy=80|hero=11",
+    "title": "Shadow Fiend vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.11",
+    "variant": "story"
+   },
+   "item_id": "08c1f4255bd933ee",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Shadow Fiend vs Lone Druid: the matchup breakdown\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Shadow Fiend into this, and if you are already in it, play for your own timings instead of trading straight up."
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Shadow Fiend into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-13T17:02:28.418802+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "08c1f4255bd933ee",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/shadow-fiend"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      11,
+      80
+     ],
+     "hero_names": [
+      "Shadow Fiend",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.11|matchup|en|enemy=80|hero=11",
+    "title": "Shadow Fiend vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.11",
+    "variant": "story"
+   },
+   "item_id": "08c1f4255bd933ee",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Shadow Fiend vs Lone Druid: the matchup breakdown\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Shadow Fiend into this, and if you are already in it, play for your own timings instead of trading straight up."
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Shadow Fiend into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-13T17:02:28.418802+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "08c1f4255bd933ee",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/shadow-fiend"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      11,
+      80
+     ],
+     "hero_names": [
+      "Shadow Fiend",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.11|matchup|en|enemy=80|hero=11",
+    "title": "Shadow Fiend vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.11",
+    "variant": "story"
+   },
+   "item_id": "08c1f4255bd933ee",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Shadow Fiend vs Lone Druid: the matchup breakdown\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Shadow Fiend into this, and if you are already in it, play for your own timings instead of trading straight up."
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Shadow Fiend into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-13T17:02:28.418802+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "08c1f4255bd933ee",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/shadow-fiend"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      11,
+      80
+     ],
+     "hero_names": [
+      "Shadow Fiend",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.11|matchup|en|enemy=80|hero=11",
+    "title": "Shadow Fiend vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.11",
+    "variant": "story"
+   },
+   "item_id": "08c1f4255bd933ee",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Shadow Fiend vs Lone Druid: the matchup breakdown\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Shadow Fiend into this, and if you are already in it, play for your own timings instead of trading straight up."
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/ru/b169df5c947f2d35.md",
+   "item": {
+    "body": "Treant Protector — худший матчап для Morphling (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Morphling в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-13T17:02:28.421128+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "b169df5c947f2d35",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/morphling"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      10,
+      83
+     ],
+     "hero_names": [
+      "Morphling",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.10|matchup|ru|enemy=83|hero=10",
+    "title": "Morphling против Treant Protector: разбор матчапа",
+    "topic": "matchup.10",
+    "variant": "story"
+   },
+   "item_id": "b169df5c947f2d35",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Morphling против Treant Protector: разбор матчапа\n\nTreant Protector — худший матчап для Morphling (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Morphling в этот матчап, если у вас есть выбор. Если уже взяли — и"
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Treant Protector — худший матчап для Morphling (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Morphling в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-13T17:02:28.421128+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "b169df5c947f2d35",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/morphling"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      10,
+      83
+     ],
+     "hero_names": [
+      "Morphling",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.10|matchup|ru|enemy=83|hero=10",
+    "title": "Morphling против Treant Protector: разбор матчапа",
+    "topic": "matchup.10",
+    "variant": "story"
+   },
+   "item_id": "b169df5c947f2d35",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Morphling против Treant Protector: разбор матчапа\n\nTreant Protector — худший матчап для Morphling (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Morphling в этот матчап, если у вас есть выбор. Если уже взяли — и"
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Treant Protector — худший матчап для Morphling (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Morphling в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-13T17:02:28.421128+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "b169df5c947f2d35",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/morphling"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      10,
+      83
+     ],
+     "hero_names": [
+      "Morphling",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.10|matchup|ru|enemy=83|hero=10",
+    "title": "Morphling против Treant Protector: разбор матчапа",
+    "topic": "matchup.10",
+    "variant": "story"
+   },
+   "item_id": "b169df5c947f2d35",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Morphling против Treant Protector: разбор матчапа\n\nTreant Protector — худший матчап для Morphling (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Morphling в этот матчап, если у вас есть выбор. Если уже взяли — и"
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Treant Protector — худший матчап для Morphling (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Morphling в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-13T17:02:28.421128+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "b169df5c947f2d35",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/morphling"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      10,
+      83
+     ],
+     "hero_names": [
+      "Morphling",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.10|matchup|ru|enemy=83|hero=10",
+    "title": "Morphling против Treant Protector: разбор матчапа",
+    "topic": "matchup.10",
+    "variant": "story"
+   },
+   "item_id": "b169df5c947f2d35",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Morphling против Treant Protector: разбор матчапа\n\nTreant Protector — худший матчап для Morphling (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Morphling в этот матчап, если у вас есть выбор. Если уже взяли — и"
   }
  ],
  "runs": [
@@ -5124,6 +6141,540 @@
      "script_id": "matchup-ru-f4a1c85c"
     }
    ]
+  },
+  {
+   "allow_publish": false,
+   "day": "2026-11-13",
+   "items_created": 3,
+   "metrics_ingested": 48,
+   "optimizer_note": "Best variant is 'data-led' (mean score 0.0, CTR 0.0%, n=48). Weight future output toward it.",
+   "outreach": {
+    "candidates": 5,
+    "messages": 5,
+    "paths": [
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_mid-lane-lab.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_carry-clinic.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_offlane-academy.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/community_ru-dota.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/analyst_stat-line.md"
+    ]
+   },
+   "publish_results": [
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/6e904be9baf04a5c.md",
+     "item": {
+      "body": "The counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Morphling into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-13T17:02:28.418769+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "6e904be9baf04a5c",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/morphling"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        10,
+        83
+       ],
+       "hero_names": [
+        "Morphling",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.10|matchup|en|enemy=83|hero=10",
+      "title": "Morphling vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.10",
+      "variant": "story"
+     },
+     "item_id": "6e904be9baf04a5c",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Morphling vs Treant Protector: the matchup breakdown\n\nThe counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Morphling into this, and if you are already in it, play for your own timings instead of trading straight up."
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Morphling into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-13T17:02:28.418769+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "6e904be9baf04a5c",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/morphling"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        10,
+        83
+       ],
+       "hero_names": [
+        "Morphling",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.10|matchup|en|enemy=83|hero=10",
+      "title": "Morphling vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.10",
+      "variant": "story"
+     },
+     "item_id": "6e904be9baf04a5c",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Morphling vs Treant Protector: the matchup breakdown\n\nThe counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Morphling into this, and if you are already in it, play for your own timings instead of trading straight up."
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Morphling into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-13T17:02:28.418769+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "6e904be9baf04a5c",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/morphling"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        10,
+        83
+       ],
+       "hero_names": [
+        "Morphling",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.10|matchup|en|enemy=83|hero=10",
+      "title": "Morphling vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.10",
+      "variant": "story"
+     },
+     "item_id": "6e904be9baf04a5c",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Morphling vs Treant Protector: the matchup breakdown\n\nThe counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Morphling into this, and if you are already in it, play for your own timings instead of trading straight up."
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Morphling into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-13T17:02:28.418769+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "6e904be9baf04a5c",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/morphling"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        10,
+        83
+       ],
+       "hero_names": [
+        "Morphling",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.10|matchup|en|enemy=83|hero=10",
+      "title": "Morphling vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.10",
+      "variant": "story"
+     },
+     "item_id": "6e904be9baf04a5c",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Morphling vs Treant Protector: the matchup breakdown\n\nThe counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Morphling into this, and if you are already in it, play for your own timings instead of trading straight up."
+    },
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/08c1f4255bd933ee.md",
+     "item": {
+      "body": "The counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Shadow Fiend into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-13T17:02:28.418802+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "08c1f4255bd933ee",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/shadow-fiend"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        11,
+        80
+       ],
+       "hero_names": [
+        "Shadow Fiend",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.11|matchup|en|enemy=80|hero=11",
+      "title": "Shadow Fiend vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.11",
+      "variant": "story"
+     },
+     "item_id": "08c1f4255bd933ee",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Shadow Fiend vs Lone Druid: the matchup breakdown\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Shadow Fiend into this, and if you are already in it, play for your own timings instead of trading straight up."
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Shadow Fiend into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-13T17:02:28.418802+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "08c1f4255bd933ee",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/shadow-fiend"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        11,
+        80
+       ],
+       "hero_names": [
+        "Shadow Fiend",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.11|matchup|en|enemy=80|hero=11",
+      "title": "Shadow Fiend vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.11",
+      "variant": "story"
+     },
+     "item_id": "08c1f4255bd933ee",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Shadow Fiend vs Lone Druid: the matchup breakdown\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Shadow Fiend into this, and if you are already in it, play for your own timings instead of trading straight up."
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Shadow Fiend into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-13T17:02:28.418802+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "08c1f4255bd933ee",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/shadow-fiend"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        11,
+        80
+       ],
+       "hero_names": [
+        "Shadow Fiend",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.11|matchup|en|enemy=80|hero=11",
+      "title": "Shadow Fiend vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.11",
+      "variant": "story"
+     },
+     "item_id": "08c1f4255bd933ee",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Shadow Fiend vs Lone Druid: the matchup breakdown\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Shadow Fiend into this, and if you are already in it, play for your own timings instead of trading straight up."
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Shadow Fiend into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-13T17:02:28.418802+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "08c1f4255bd933ee",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/shadow-fiend"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        11,
+        80
+       ],
+       "hero_names": [
+        "Shadow Fiend",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.11|matchup|en|enemy=80|hero=11",
+      "title": "Shadow Fiend vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.11",
+      "variant": "story"
+     },
+     "item_id": "08c1f4255bd933ee",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Shadow Fiend vs Lone Druid: the matchup breakdown\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Shadow Fiend into this, and if you are already in it, play for your own timings instead of trading straight up."
+    },
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/ru/b169df5c947f2d35.md",
+     "item": {
+      "body": "Treant Protector — худший матчап для Morphling (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Morphling в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-13T17:02:28.421128+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "b169df5c947f2d35",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/morphling"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        10,
+        83
+       ],
+       "hero_names": [
+        "Morphling",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.10|matchup|ru|enemy=83|hero=10",
+      "title": "Morphling против Treant Protector: разбор матчапа",
+      "topic": "matchup.10",
+      "variant": "story"
+     },
+     "item_id": "b169df5c947f2d35",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Morphling против Treant Protector: разбор матчапа\n\nTreant Protector — худший матчап для Morphling (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Morphling в этот матчап, если у вас есть выбор. Если уже взяли — и"
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Treant Protector — худший матчап для Morphling (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Morphling в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-13T17:02:28.421128+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "b169df5c947f2d35",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/morphling"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        10,
+        83
+       ],
+       "hero_names": [
+        "Morphling",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.10|matchup|ru|enemy=83|hero=10",
+      "title": "Morphling против Treant Protector: разбор матчапа",
+      "topic": "matchup.10",
+      "variant": "story"
+     },
+     "item_id": "b169df5c947f2d35",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Morphling против Treant Protector: разбор матчапа\n\nTreant Protector — худший матчап для Morphling (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Morphling в этот матчап, если у вас есть выбор. Если уже взяли — и"
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Treant Protector — худший матчап для Morphling (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Morphling в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-13T17:02:28.421128+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "b169df5c947f2d35",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/morphling"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        10,
+        83
+       ],
+       "hero_names": [
+        "Morphling",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.10|matchup|ru|enemy=83|hero=10",
+      "title": "Morphling против Treant Protector: разбор матчапа",
+      "topic": "matchup.10",
+      "variant": "story"
+     },
+     "item_id": "b169df5c947f2d35",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Morphling против Treant Protector: разбор матчапа\n\nTreant Protector — худший матчап для Morphling (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Morphling в этот матчап, если у вас есть выбор. Если уже взяли — и"
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Treant Protector — худший матчап для Morphling (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Morphling в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-13T17:02:28.421128+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "b169df5c947f2d35",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/morphling"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        10,
+        83
+       ],
+       "hero_names": [
+        "Morphling",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.10|matchup|ru|enemy=83|hero=10",
+      "title": "Morphling против Treant Protector: разбор матчапа",
+      "topic": "matchup.10",
+      "variant": "story"
+     },
+     "item_id": "b169df5c947f2d35",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Morphling против Treant Protector: разбор матчапа\n\nTreant Protector — худший матчап для Morphling (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Morphling в этот матчап, если у вас есть выбор. Если уже взяли — и"
+    }
+   ],
+   "published_dry": 9,
+   "published_live": 3,
+   "started_at": "2026-11-13T17:02:28.415508+00:00",
+   "variant_chosen": "story",
+   "videos": [
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/en",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-en-31d11219"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/en",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-en-5009e8ea"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/ru",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-ru-94668f20"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/ru",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-ru-41026458"
+    }
+   ]
   }
  ],
  "schema_version": 1,
@@ -5132,17 +6683,24 @@
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
-   "n": 36,
+   "n": 48,
    "score": 0.0
   },
   "hook-first": {
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
-   "n": 24,
+   "n": 36,
    "score": 0.0
   },
   "listicle": {
+   "clicks": 0,
+   "conversions": 0,
+   "impressions": 0,
+   "n": 24,
+   "score": 0.0
+  },
+  "question": {
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
