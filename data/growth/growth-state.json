@@ -1,7 +1,7 @@
 {
  "counters": {
-  "offset:en": 15,
-  "offset:ru": 15
+  "offset:en": 18,
+  "offset:ru": 18
  },
  "created_at": "2026-11-09T19:39:10.603710+00:00",
  "history": [
@@ -43,6 +43,15 @@
   },
   {
    "at": "2026-11-13T17:02:28.415508+00:00",
+   "event": "cycle",
+   "summary": {
+    "created": 3,
+    "dry": 9,
+    "live": 3
+   }
+  },
+  {
+   "at": "2026-11-14T15:40:21.686264+00:00",
    "event": "cycle",
    "summary": {
     "created": 3,
@@ -1371,6 +1380,666 @@
    "measured_at": "2026-11-13T17:02:28.415907+00:00",
    "topic": "matchup.7",
    "variant": "question"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-14T15:40:21.686478+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-14T15:40:21.686503+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-14T15:40:21.686509+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-14T15:40:21.686512+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-14T15:40:21.686515+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-14T15:40:21.686518+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-14T15:40:21.686520+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-14T15:40:21.686523+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-14T15:40:21.686525+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-14T15:40:21.686528+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-14T15:40:21.686530+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-14T15:40:21.686533+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-14T15:40:21.686535+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-14T15:40:21.686538+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-14T15:40:21.686540+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-14T15:40:21.686542+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-14T15:40:21.686545+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-14T15:40:21.686547+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-14T15:40:21.686550+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-14T15:40:21.686552+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-14T15:40:21.686554+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-14T15:40:21.686557+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-14T15:40:21.686559+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-14T15:40:21.686562+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-14T15:40:21.686564+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-14T15:40:21.686568+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-14T15:40:21.686571+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-14T15:40:21.686574+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-14T15:40:21.686577+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-14T15:40:21.686579+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-14T15:40:21.686581+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-14T15:40:21.686584+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-14T15:40:21.686586+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-14T15:40:21.686589+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-14T15:40:21.686591+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-14T15:40:21.686593+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "482b07a9e8e6b5c1",
+   "measured_at": "2026-11-14T15:40:21.686596+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "482b07a9e8e6b5c1",
+   "measured_at": "2026-11-14T15:40:21.686599+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "482b07a9e8e6b5c1",
+   "measured_at": "2026-11-14T15:40:21.686602+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "482b07a9e8e6b5c1",
+   "measured_at": "2026-11-14T15:40:21.686604+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "cdd8c116f44d6ceb",
+   "measured_at": "2026-11-14T15:40:21.686606+00:00",
+   "topic": "matchup.8",
+   "variant": "question"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "cdd8c116f44d6ceb",
+   "measured_at": "2026-11-14T15:40:21.686609+00:00",
+   "topic": "matchup.8",
+   "variant": "question"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "cdd8c116f44d6ceb",
+   "measured_at": "2026-11-14T15:40:21.686611+00:00",
+   "topic": "matchup.8",
+   "variant": "question"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "cdd8c116f44d6ceb",
+   "measured_at": "2026-11-14T15:40:21.686614+00:00",
+   "topic": "matchup.8",
+   "variant": "question"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2ba73590731b239f",
+   "measured_at": "2026-11-14T15:40:21.686616+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2ba73590731b239f",
+   "measured_at": "2026-11-14T15:40:21.686618+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2ba73590731b239f",
+   "measured_at": "2026-11-14T15:40:21.686621+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2ba73590731b239f",
+   "measured_at": "2026-11-14T15:40:21.686623+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "6e904be9baf04a5c",
+   "measured_at": "2026-11-14T15:40:21.686625+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "6e904be9baf04a5c",
+   "measured_at": "2026-11-14T15:40:21.686628+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "6e904be9baf04a5c",
+   "measured_at": "2026-11-14T15:40:21.686630+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "6e904be9baf04a5c",
+   "measured_at": "2026-11-14T15:40:21.686632+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "08c1f4255bd933ee",
+   "measured_at": "2026-11-14T15:40:21.686635+00:00",
+   "topic": "matchup.11",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "08c1f4255bd933ee",
+   "measured_at": "2026-11-14T15:40:21.686637+00:00",
+   "topic": "matchup.11",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "08c1f4255bd933ee",
+   "measured_at": "2026-11-14T15:40:21.686639+00:00",
+   "topic": "matchup.11",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "08c1f4255bd933ee",
+   "measured_at": "2026-11-14T15:40:21.686642+00:00",
+   "topic": "matchup.11",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "b169df5c947f2d35",
+   "measured_at": "2026-11-14T15:40:21.686644+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "b169df5c947f2d35",
+   "measured_at": "2026-11-14T15:40:21.686647+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "b169df5c947f2d35",
+   "measured_at": "2026-11-14T15:40:21.686649+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "b169df5c947f2d35",
+   "measured_at": "2026-11-14T15:40:21.686651+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
   }
  ],
  "prospects": {
@@ -3919,6 +4588,486 @@
    "live": false,
    "ok": true,
    "payload_preview": "Morphling против Treant Protector: разбор матчапа\n\nTreant Protector — худший матчап для Morphling (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Morphling в этот матчап, если у вас есть выбор. Если уже взяли — и"
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/3ed0694f4466adca.md",
+   "item": {
+    "body": "The counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Puck into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-14T15:40:21.689551+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "3ed0694f4466adca",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/puck"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      13,
+      80
+     ],
+     "hero_names": [
+      "Puck",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.13|matchup|en|enemy=80|hero=13",
+    "title": "Puck vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.13",
+    "variant": "story"
+   },
+   "item_id": "3ed0694f4466adca",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Puck vs Lone Druid: the matchup breakdown\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Puck into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then"
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Puck into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-14T15:40:21.689551+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "3ed0694f4466adca",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/puck"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      13,
+      80
+     ],
+     "hero_names": [
+      "Puck",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.13|matchup|en|enemy=80|hero=13",
+    "title": "Puck vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.13",
+    "variant": "story"
+   },
+   "item_id": "3ed0694f4466adca",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Puck vs Lone Druid: the matchup breakdown\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Puck into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then"
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Puck into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-14T15:40:21.689551+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "3ed0694f4466adca",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/puck"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      13,
+      80
+     ],
+     "hero_names": [
+      "Puck",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.13|matchup|en|enemy=80|hero=13",
+    "title": "Puck vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.13",
+    "variant": "story"
+   },
+   "item_id": "3ed0694f4466adca",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Puck vs Lone Druid: the matchup breakdown\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Puck into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then"
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Puck into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-14T15:40:21.689551+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "3ed0694f4466adca",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/puck"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      13,
+      80
+     ],
+     "hero_names": [
+      "Puck",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.13|matchup|en|enemy=80|hero=13",
+    "title": "Puck vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.13",
+    "variant": "story"
+   },
+   "item_id": "3ed0694f4466adca",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Puck vs Lone Druid: the matchup breakdown\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Puck into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then"
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/174149e33d60fb99.md",
+   "item": {
+    "body": "The counter score is 22 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Pudge into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-14T15:40:21.689587+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "174149e33d60fb99",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/pudge"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      14,
+      80
+     ],
+     "hero_names": [
+      "Pudge",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.14|matchup|en|enemy=80|hero=14",
+    "title": "Pudge vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.14",
+    "variant": "story"
+   },
+   "item_id": "174149e33d60fb99",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Pudge vs Lone Druid: the matchup breakdown\n\nThe counter score is 22 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Pudge into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, th"
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 22 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Pudge into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-14T15:40:21.689587+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "174149e33d60fb99",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/pudge"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      14,
+      80
+     ],
+     "hero_names": [
+      "Pudge",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.14|matchup|en|enemy=80|hero=14",
+    "title": "Pudge vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.14",
+    "variant": "story"
+   },
+   "item_id": "174149e33d60fb99",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Pudge vs Lone Druid: the matchup breakdown\n\nThe counter score is 22 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Pudge into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, th"
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 22 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Pudge into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-14T15:40:21.689587+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "174149e33d60fb99",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/pudge"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      14,
+      80
+     ],
+     "hero_names": [
+      "Pudge",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.14|matchup|en|enemy=80|hero=14",
+    "title": "Pudge vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.14",
+    "variant": "story"
+   },
+   "item_id": "174149e33d60fb99",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Pudge vs Lone Druid: the matchup breakdown\n\nThe counter score is 22 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Pudge into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, th"
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 22 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Pudge into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-14T15:40:21.689587+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "174149e33d60fb99",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/pudge"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      14,
+      80
+     ],
+     "hero_names": [
+      "Pudge",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.14|matchup|en|enemy=80|hero=14",
+    "title": "Pudge vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.14",
+    "variant": "story"
+   },
+   "item_id": "174149e33d60fb99",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Pudge vs Lone Druid: the matchup breakdown\n\nThe counter score is 22 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Pudge into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, th"
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/ru/446817b0ccd2aabd.md",
+   "item": {
+    "body": "Lone Druid — худший матчап для Puck (13/100).\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Puck в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-14T15:40:21.691926+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "446817b0ccd2aabd",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/puck"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      13,
+      80
+     ],
+     "hero_names": [
+      "Puck",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.13|matchup|ru|enemy=80|hero=13",
+    "title": "Puck против Lone Druid: разбор матчапа",
+    "topic": "matchup.13",
+    "variant": "story"
+   },
+   "item_id": "446817b0ccd2aabd",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Puck против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Puck (13/100).\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Puck в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите сво"
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Lone Druid — худший матчап для Puck (13/100).\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Puck в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-14T15:40:21.691926+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "446817b0ccd2aabd",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/puck"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      13,
+      80
+     ],
+     "hero_names": [
+      "Puck",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.13|matchup|ru|enemy=80|hero=13",
+    "title": "Puck против Lone Druid: разбор матчапа",
+    "topic": "matchup.13",
+    "variant": "story"
+   },
+   "item_id": "446817b0ccd2aabd",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Puck против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Puck (13/100).\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Puck в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите сво"
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Lone Druid — худший матчап для Puck (13/100).\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Puck в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-14T15:40:21.691926+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "446817b0ccd2aabd",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/puck"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      13,
+      80
+     ],
+     "hero_names": [
+      "Puck",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.13|matchup|ru|enemy=80|hero=13",
+    "title": "Puck против Lone Druid: разбор матчапа",
+    "topic": "matchup.13",
+    "variant": "story"
+   },
+   "item_id": "446817b0ccd2aabd",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Puck против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Puck (13/100).\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Puck в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите сво"
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Lone Druid — худший матчап для Puck (13/100).\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Puck в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-14T15:40:21.691926+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "446817b0ccd2aabd",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/puck"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      13,
+      80
+     ],
+     "hero_names": [
+      "Puck",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.13|matchup|ru|enemy=80|hero=13",
+    "title": "Puck против Lone Druid: разбор матчапа",
+    "topic": "matchup.13",
+    "variant": "story"
+   },
+   "item_id": "446817b0ccd2aabd",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Puck против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Puck (13/100).\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Puck в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите сво"
   }
  ],
  "runs": [
@@ -6675,6 +7824,540 @@
      "script_id": "matchup-ru-41026458"
     }
    ]
+  },
+  {
+   "allow_publish": false,
+   "day": "2026-11-14",
+   "items_created": 3,
+   "metrics_ingested": 60,
+   "optimizer_note": "Best variant is 'data-led' (mean score 0.0, CTR 0.0%, n=60). Weight future output toward it.",
+   "outreach": {
+    "candidates": 5,
+    "messages": 5,
+    "paths": [
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_mid-lane-lab.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_carry-clinic.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_offlane-academy.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/community_ru-dota.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/analyst_stat-line.md"
+    ]
+   },
+   "publish_results": [
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/3ed0694f4466adca.md",
+     "item": {
+      "body": "The counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Puck into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-14T15:40:21.689551+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "3ed0694f4466adca",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/puck"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        13,
+        80
+       ],
+       "hero_names": [
+        "Puck",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.13|matchup|en|enemy=80|hero=13",
+      "title": "Puck vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.13",
+      "variant": "story"
+     },
+     "item_id": "3ed0694f4466adca",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Puck vs Lone Druid: the matchup breakdown\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Puck into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then"
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Puck into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-14T15:40:21.689551+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "3ed0694f4466adca",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/puck"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        13,
+        80
+       ],
+       "hero_names": [
+        "Puck",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.13|matchup|en|enemy=80|hero=13",
+      "title": "Puck vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.13",
+      "variant": "story"
+     },
+     "item_id": "3ed0694f4466adca",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Puck vs Lone Druid: the matchup breakdown\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Puck into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then"
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Puck into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-14T15:40:21.689551+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "3ed0694f4466adca",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/puck"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        13,
+        80
+       ],
+       "hero_names": [
+        "Puck",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.13|matchup|en|enemy=80|hero=13",
+      "title": "Puck vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.13",
+      "variant": "story"
+     },
+     "item_id": "3ed0694f4466adca",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Puck vs Lone Druid: the matchup breakdown\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Puck into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then"
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Puck into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-14T15:40:21.689551+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "3ed0694f4466adca",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/puck"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        13,
+        80
+       ],
+       "hero_names": [
+        "Puck",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.13|matchup|en|enemy=80|hero=13",
+      "title": "Puck vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.13",
+      "variant": "story"
+     },
+     "item_id": "3ed0694f4466adca",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Puck vs Lone Druid: the matchup breakdown\n\nThe counter score is 13 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Puck into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then"
+    },
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/174149e33d60fb99.md",
+     "item": {
+      "body": "The counter score is 22 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Pudge into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-14T15:40:21.689587+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "174149e33d60fb99",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/pudge"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        14,
+        80
+       ],
+       "hero_names": [
+        "Pudge",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.14|matchup|en|enemy=80|hero=14",
+      "title": "Pudge vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.14",
+      "variant": "story"
+     },
+     "item_id": "174149e33d60fb99",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Pudge vs Lone Druid: the matchup breakdown\n\nThe counter score is 22 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Pudge into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, th"
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 22 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Pudge into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-14T15:40:21.689587+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "174149e33d60fb99",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/pudge"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        14,
+        80
+       ],
+       "hero_names": [
+        "Pudge",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.14|matchup|en|enemy=80|hero=14",
+      "title": "Pudge vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.14",
+      "variant": "story"
+     },
+     "item_id": "174149e33d60fb99",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Pudge vs Lone Druid: the matchup breakdown\n\nThe counter score is 22 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Pudge into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, th"
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 22 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Pudge into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-14T15:40:21.689587+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "174149e33d60fb99",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/pudge"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        14,
+        80
+       ],
+       "hero_names": [
+        "Pudge",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.14|matchup|en|enemy=80|hero=14",
+      "title": "Pudge vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.14",
+      "variant": "story"
+     },
+     "item_id": "174149e33d60fb99",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Pudge vs Lone Druid: the matchup breakdown\n\nThe counter score is 22 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Pudge into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, th"
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 22 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Pudge into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-14T15:40:21.689587+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "174149e33d60fb99",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/pudge"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        14,
+        80
+       ],
+       "hero_names": [
+        "Pudge",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.14|matchup|en|enemy=80|hero=14",
+      "title": "Pudge vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.14",
+      "variant": "story"
+     },
+     "item_id": "174149e33d60fb99",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Pudge vs Lone Druid: the matchup breakdown\n\nThe counter score is 22 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Pudge into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, th"
+    },
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/ru/446817b0ccd2aabd.md",
+     "item": {
+      "body": "Lone Druid — худший матчап для Puck (13/100).\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Puck в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-14T15:40:21.691926+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "446817b0ccd2aabd",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/puck"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        13,
+        80
+       ],
+       "hero_names": [
+        "Puck",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.13|matchup|ru|enemy=80|hero=13",
+      "title": "Puck против Lone Druid: разбор матчапа",
+      "topic": "matchup.13",
+      "variant": "story"
+     },
+     "item_id": "446817b0ccd2aabd",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Puck против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Puck (13/100).\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Puck в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите сво"
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Lone Druid — худший матчап для Puck (13/100).\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Puck в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-14T15:40:21.691926+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "446817b0ccd2aabd",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/puck"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        13,
+        80
+       ],
+       "hero_names": [
+        "Puck",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.13|matchup|ru|enemy=80|hero=13",
+      "title": "Puck против Lone Druid: разбор матчапа",
+      "topic": "matchup.13",
+      "variant": "story"
+     },
+     "item_id": "446817b0ccd2aabd",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Puck против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Puck (13/100).\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Puck в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите сво"
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Lone Druid — худший матчап для Puck (13/100).\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Puck в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-14T15:40:21.691926+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "446817b0ccd2aabd",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/puck"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        13,
+        80
+       ],
+       "hero_names": [
+        "Puck",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.13|matchup|ru|enemy=80|hero=13",
+      "title": "Puck против Lone Druid: разбор матчапа",
+      "topic": "matchup.13",
+      "variant": "story"
+     },
+     "item_id": "446817b0ccd2aabd",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Puck против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Puck (13/100).\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Puck в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите сво"
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Lone Druid — худший матчап для Puck (13/100).\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Puck в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-14T15:40:21.691926+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "446817b0ccd2aabd",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/puck"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        13,
+        80
+       ],
+       "hero_names": [
+        "Puck",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.13|matchup|ru|enemy=80|hero=13",
+      "title": "Puck против Lone Druid: разбор матчапа",
+      "topic": "matchup.13",
+      "variant": "story"
+     },
+     "item_id": "446817b0ccd2aabd",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Puck против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Puck (13/100).\n\nСчёт контр-пика 13 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Puck в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите сво"
+    }
+   ],
+   "published_dry": 9,
+   "published_live": 3,
+   "started_at": "2026-11-14T15:40:21.686264+00:00",
+   "variant_chosen": "story",
+   "videos": [
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/en",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-en-40157e37"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/en",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-en-62af40e5"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/ru",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-ru-bc8a9df1"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/ru",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-ru-9f060259"
+    }
+   ]
   }
  ],
  "schema_version": 1,
@@ -6683,24 +8366,31 @@
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
-   "n": 48,
+   "n": 60,
    "score": 0.0
   },
   "hook-first": {
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
-   "n": 36,
+   "n": 48,
    "score": 0.0
   },
   "listicle": {
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
-   "n": 24,
+   "n": 36,
    "score": 0.0
   },
   "question": {
+   "clicks": 0,
+   "conversions": 0,
+   "impressions": 0,
+   "n": 24,
+   "score": 0.0
+  },
+  "story": {
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
