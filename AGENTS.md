@@ -228,14 +228,24 @@ cd apps/web && npx tsc --noEmit && npm run build
 - **Social posters must be rendered on the server, not on a client canvas.**
   Valve's hero CDN only sends `Access-Control-Allow-Origin` for dota2.com, so a
   canvas that draws hero art is tainted and `toBlob()` throws. Posters are built
-  with `next/og` (Satori) in `src/app/og/poster` and `src/app/og/share/[token]`,
-  which can embed the real art and item icons. Related traps: the poster routes
-  must stay *out* of `/api/*` (the FastAPI rewrite in `next.config.mjs` shadows
-  that namespace and turns them into 502/404), the vendored fonts live under
-  `src/assets/fonts` (not `public/`) and must stay listed in
-  `outputFileTracingIncludes` or the standalone/Docker build 500s, and
-  `DRAFTMASTER_SECRET_KEY` must be set or `POST /api/share` mints an unsigned
-  token that `verify_share` rejects.
+  with `next/og` (Satori) in `src/app/og/share/[token]`, which can embed the real
+  art and item icons. Related traps: the poster routes must stay *out* of
+  `/api/*` (the FastAPI rewrite in `next.config.mjs` shadows that namespace and
+  turns them into 502/404), the vendored fonts live under `src/assets/fonts` (not
+  `public/`) and must stay listed in `outputFileTracingIncludes` or the
+  standalone/Docker build 500s, and `DRAFTMASTER_SECRET_KEY` must be set or
+  `POST /api/share` mints an unsigned token that `verify_share` rejects.
+
+- **A server-side poster must never call a quota-charging endpoint.** The poster
+  renderer runs on the web host's server IP with no user identity, so every
+  render across every user shares one anonymous free bucket. An earlier
+  `/og/poster` route called `/api/panic` directly and 402'd after three drafts a
+  day, product-wide. Posters now render *only* through a signed share token
+  (`GET /api/share/{token}`), which is quota-free by design: the token could only
+  be minted by an authenticated, quota-paying request. The client mints the token
+  once (`useShareLink` in `ShareBar.tsx`) and reuses it for both the share button
+  and the poster. When no token exists (no signing key, or the free quota is
+  spent) the poster section hides rather than showing a broken image.
 
 ## Definition of done
 

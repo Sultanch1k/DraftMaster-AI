@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import type { PanicResult } from '@/lib/types';
 import { fromPanic } from '@/lib/winplan';
 import { HeroPortrait } from '../HeroPortrait';
-import { ShareBar } from '../ShareBar';
+import { ShareBar, useShareLink } from '../ShareBar';
 import { WinPlanView } from './WinPlanView';
 import { PosterExport } from './PosterExport';
 
@@ -33,30 +33,33 @@ export function PanicWinPlan({
   const tShare = useTranslations('winplan.share');
   const tVerdict = useTranslations('winplan.verdictKind');
   const plan = fromPanic(result);
-  const query = new URLSearchParams();
-  if (enemyIds.length) query.set('e', enemyIds.join(','));
-  if (role) query.set('role', role);
-  if (rank) query.set('rk', String(rank));
+  // One signed token serves both the share button and the poster renderer, so
+  // the poster never re-charges quota (it would otherwise hit the API from the
+  // server IP and share one anonymous free bucket with every other poster).
+  const sharePath = useShareLink(enemyIds, role, rank);
+  const posterBase = sharePath ? sharePath.replace(/^\/share\//, '/og/share/') : null;
 
   return (
     <WinPlanView
       plan={plan}
       header={
         <div className="flex flex-wrap items-center gap-2">
-          <ShareBar enemyIds={enemyIds} role={role} rank={rank} onQuota={onQuota} />
+          <ShareBar enemyIds={enemyIds} role={role} rank={rank} onQuota={onQuota} token={sharePath} />
         </div>
       }
       footer={
         <>
-          <PosterExport
-            posterBase={`/og/poster?${query.toString()}`}
-            filename={`draftmaster-${plan.heroId}-${plan.heroName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-            caption={tShare('caption', {
-              hero: plan.heroName,
-              verdict: tVerdict(plan.verdict.kind),
-              plan: plan.mainWinPlan,
-            })}
-          />
+          {posterBase && (
+            <PosterExport
+              posterBase={posterBase}
+              filename={`draftmaster-${plan.heroId}-${plan.heroName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+              caption={tShare('caption', {
+                hero: plan.heroName,
+                verdict: tVerdict(plan.verdict.kind),
+                plan: plan.mainWinPlan,
+              })}
+            />
+          )}
 
           {result.backups.length > 0 && (
             <section className="rounded-panel border border-base-700 bg-base-850 p-4 sm:p-5">
