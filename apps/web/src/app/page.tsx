@@ -184,13 +184,13 @@ export default function Home() {
         <section className="card card-pad">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-xl">
-              <h1 className="text-2xl font-black leading-tight text-white sm:text-3xl xl:text-4xl">
+              <h1 className="text-2xl font-black leading-tight text-ink sm:text-3xl xl:text-4xl">
                 {t('hero.headline1')}
                 <span className="block text-radiant">{t('hero.headline2')}</span>
               </h1>
-              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-400 xl:text-base">
+              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink-muted xl:text-base">
                 {t('hero.sub1')}{' '}
-                <span className="text-slate-200">{t('hero.sub2', { count: heroes.length || 127 })}</span>{' '}
+                <span className="text-ink-soft">{t('hero.sub2', { count: heroes.length || 127 })}</span>{' '}
                 {t('hero.sub3')}
               </p>
               <div className="mt-3 flex flex-wrap items-center gap-2">
@@ -224,7 +224,7 @@ export default function Home() {
                   <span className="chip border-radiant/40 text-radiant">{t('hero.answeredIn', { ms: elapsed })}</span>
                 )}
               </div>
-              <p className="mt-2 text-xs text-slate-500">
+              <p className="mt-2 text-xs text-ink-faint">
                 {t('hero.notPickedYet')}{' '}
                 <button
                   type="button"
@@ -246,7 +246,7 @@ export default function Home() {
                   ) : (
                     <span
                       key={`slot-${i}`}
-                      className="flex h-10 w-10 items-center justify-center rounded-md border border-dashed border-base-600 text-xs text-slate-600"
+                      className="flex h-10 w-10 items-center justify-center rounded-md border border-dashed border-base-600 text-xs text-ink-faint"
                     >
                       {i + 1}
                     </span>
@@ -356,28 +356,28 @@ export default function Home() {
         onActivated={refreshPremium}
       />
 
-      <footer className="border-t border-base-800 py-6 text-center text-[11px] text-slate-600">
+      <footer className="border-t border-base-800 py-6 text-center text-[11px] text-ink-faint">
         {t('footer.disclaimer')}{' '}
         <a
           href="https://www.opendota.com"
           target="_blank"
           rel="noreferrer noopener"
-          className="underline underline-offset-2 hover:text-slate-400"
+          className="underline underline-offset-2 hover:text-ink-muted"
         >
           {t('footer.data')}
         </a>
         {' · '}
         {t('footer.plan', { tier: premium ? t('footer.premium') : t('footer.free') })}
         {' · '}
-        <Link href="/blog" className="underline underline-offset-2 hover:text-slate-400">
+        <Link href="/blog" className="underline underline-offset-2 hover:text-ink-muted">
           {t('footer.blog')}
         </Link>
         {' · '}
-        <Link href="/privacy" className="underline underline-offset-2 hover:text-slate-400">
+        <Link href="/privacy" className="underline underline-offset-2 hover:text-ink-muted">
           {t('footer.privacy')}
         </Link>
         {' · '}
-        <Link href="/terms" className="underline underline-offset-2 hover:text-slate-400">
+        <Link href="/terms" className="underline underline-offset-2 hover:text-ink-muted">
           {t('footer.terms')}
         </Link>
       </footer>
@@ -398,8 +398,8 @@ function EmptyState({ onScreenshot }: { onScreenshot: () => void }) {
   return (
     <div className="card card-pad flex flex-col items-center gap-3 py-12 text-center">
       <span className="flex h-12 w-12 items-center justify-center rounded-full bg-base-800 text-2xl">🧠</span>
-      <h3 className="text-lg font-bold text-white">{t('title')}</h3>
-      <p className="max-w-md text-sm text-slate-400">
+      <h3 className="text-lg font-bold text-ink">{t('title')}</h3>
+      <p className="max-w-md text-sm text-ink-muted">
         {t('body1')} <span className="text-dire">{tHero('panic')}</span> {t('body2')}{' '}
         <span className="text-radiant">{tHero('oneClick')}</span> {t('body3')}
       </p>

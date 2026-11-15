@@ -11,7 +11,7 @@ export function Bar({ value, className }: { value: number; className?: string })
 export function StatRow({ label, value, suffix = '' }: { label: string; value: number; suffix?: string }) {
   return (
     <div className="flex items-center gap-2">
-      <span className="w-24 shrink-0 text-xs text-slate-400">{label}</span>
+      <span className="w-24 shrink-0 text-xs text-ink-muted">{label}</span>
       <Bar value={value} className="flex-1" />
       <span className={cn('w-14 shrink-0 text-right text-xs font-semibold tabular-nums', scoreColor(value))}>
         {value.toFixed(1)}

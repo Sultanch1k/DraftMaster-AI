@@ -41,10 +41,10 @@ export function Header({
             </svg>
           </span>
           <div className="leading-tight">
-            <p className="text-sm font-black tracking-tight text-white">
+            <p className="text-sm font-black tracking-tight text-ink">
               DraftMaster<span className="text-radiant"> AI</span>
             </p>
-            <p className="hidden text-[10px] text-slate-500 sm:block">{t('tagline')}</p>
+            <p className="hidden text-[10px] text-ink-faint sm:block">{t('tagline')}</p>
           </div>
         </div>
 
@@ -59,11 +59,11 @@ export function Header({
                 'shrink-0 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition',
                 tab === tab_.key
                   ? tab_.accent === 'dire'
-                    ? 'bg-dire text-white'
+                    ? 'bg-dire text-ink'
                     : tab_.accent === 'radiant'
                       ? 'bg-radiant text-base-950'
-                      : 'bg-base-700 text-white'
-                  : 'text-slate-400 hover:bg-base-800 hover:text-slate-200',
+                      : 'bg-base-700 text-ink'
+                  : 'text-ink-muted hover:bg-base-800 hover:text-ink-soft',
               )}
             >
               <span className="mr-1" aria-hidden>

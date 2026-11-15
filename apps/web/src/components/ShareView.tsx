@@ -39,7 +39,7 @@ export function ShareView({ token }: { token: string }) {
   if (failed) {
     return (
       <div className="mx-auto flex max-w-lg flex-col items-center gap-4 py-24 text-center">
-        <p className="text-lg font-semibold text-slate-200">{t('invalid')}</p>
+        <p className="text-lg font-semibold text-ink-soft">{t('invalid')}</p>
         <Link href="/" className="btn-primary">
           {t('ctaOwn')} <ArrowRight className="h-4 w-4" />
         </Link>
@@ -49,7 +49,7 @@ export function ShareView({ token }: { token: string }) {
 
   if (!result) {
     return (
-      <div className="flex items-center justify-center gap-3 py-24 text-sm text-slate-400">
+      <div className="flex items-center justify-center gap-3 py-24 text-sm text-ink-muted">
         <Loader2 className="h-5 w-5 animate-spin text-radiant" />
         {t('loading')}
       </div>

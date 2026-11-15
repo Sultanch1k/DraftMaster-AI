@@ -24,7 +24,7 @@ export function WinProbabilityBar({ wp, compact = false }: { wp: WinProbability;
         </div>
         <div className="text-right">
           <p className="label">{t('enemy')}</p>
-          <p className="text-xl font-bold tabular-nums leading-none text-slate-300">{them.toFixed(1)}%</p>
+          <p className="text-xl font-bold tabular-nums leading-none text-ink-soft">{them.toFixed(1)}%</p>
         </div>
       </div>
 
@@ -62,13 +62,13 @@ export function WinProbFactors({ wp }: { wp: WinProbability }) {
               {f.contribution_pp.toFixed(1)}
             </span>
             <span className="flex-1">
-              <span className="font-semibold text-slate-200">{f.name}</span>
-              <span className="block text-xs text-slate-400">{f.detail}</span>
+              <span className="font-semibold text-ink-soft">{f.name}</span>
+              <span className="block text-xs text-ink-muted">{f.detail}</span>
             </span>
           </li>
         );
       })}
-      <li className="pt-1 text-[11px] text-slate-500">{t('note', { rank: wp.rank_label })}</li>
+      <li className="pt-1 text-[11px] text-ink-faint">{t('note', { rank: wp.rank_label })}</li>
     </ul>
   );
 }

@@ -66,7 +66,7 @@ export default async function CounterPage({ params }: { params: Promise<{ hero: 
 
       <header className="border-b border-base-800">
         <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-4">
-          <Link href="/" className="text-sm font-black tracking-tight text-white">
+          <Link href="/" className="text-sm font-black tracking-tight text-ink">
             DRAFT<span className="text-radiant">MASTER</span>
           </Link>
           <Link href="/" className="btn-primary text-xs">
@@ -79,17 +79,17 @@ export default async function CounterPage({ params }: { params: Promise<{ hero: 
         <section className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
           <HeroPortrait icon={hero.icon} name={hero.name} size={72} priority />
           <div>
-            <h1 className="text-2xl font-black text-white sm:text-3xl">{t('h1', { hero: hero.name })}</h1>
-            <p className="mt-1 max-w-2xl text-sm text-slate-400">
+            <h1 className="text-2xl font-black text-ink sm:text-3xl">{t('h1', { hero: hero.name })}</h1>
+            <p className="mt-1 max-w-2xl text-sm text-ink-muted">
               {t('intro', { hero: hero.name, patch: SEO_PATCH ?? '' })}
             </p>
-            <p className="mt-1 text-xs text-slate-500">{t('winrate', { hero: hero.name, winrate: hero.pub_winrate.toFixed(1) })}</p>
+            <p className="mt-1 text-xs text-ink-faint">{t('winrate', { hero: hero.name, winrate: hero.pub_winrate.toFixed(1) })}</p>
           </div>
         </section>
 
         <section className="card card-pad">
           <h2 className="section-title">{t('countersTitle', { hero: hero.name })}</h2>
-          <p className="mb-3 text-xs text-slate-500">{t('countersSub')}</p>
+          <p className="mb-3 text-xs text-ink-faint">{t('countersSub')}</p>
           <ol className="grid gap-2 sm:grid-cols-2">
             {hero.counters.map((c, i) => (
               <li key={c.id}>
@@ -97,9 +97,9 @@ export default async function CounterPage({ params }: { params: Promise<{ hero: 
                   href={`/counter/${c.slug}`}
                   className="flex items-center gap-3 rounded-lg border border-base-800 bg-base-900/50 p-2 transition-colors hover:border-radiant/40"
                 >
-                  <span className="w-5 text-center text-xs font-bold text-slate-500">{i + 1}</span>
+                  <span className="w-5 text-center text-xs font-bold text-ink-faint">{i + 1}</span>
                   <HeroPortrait icon={null} name={c.name} size={32} />
-                  <span className="flex-1 text-sm font-semibold text-slate-200">{c.name}</span>
+                  <span className="flex-1 text-sm font-semibold text-ink-soft">{c.name}</span>
                   <span className="chip border-radiant/40 text-radiant">
                     {c.score >= 0 ? `+${(c.score * 100).toFixed(1)}` : (c.score * 100).toFixed(1)}
                   </span>
@@ -111,24 +111,24 @@ export default async function CounterPage({ params }: { params: Promise<{ hero: 
 
         <section className="card card-pad">
           <h2 className="section-title">{t('goodVsTitle', { hero: hero.name })}</h2>
-          <p className="mb-3 text-xs text-slate-500">{t('itemsSub', { hero: hero.name })}</p>
+          <p className="mb-3 text-xs text-ink-faint">{t('itemsSub', { hero: hero.name })}</p>
           {hero.good_items.length ? (
             <ul className="flex flex-wrap gap-2">
               {hero.good_items.map((it) => (
-                <li key={it.key} className="chip border-radiant/40 text-slate-200">
+                <li key={it.key} className="chip border-radiant/40 text-ink-soft">
                   {it.name}
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="text-xs text-slate-500">{t('noItems')}</p>
+            <p className="text-xs text-ink-faint">{t('noItems')}</p>
           )}
           {hero.bad_items.length > 0 && (
             <>
-              <h3 className="mt-4 text-xs font-bold uppercase tracking-wide text-slate-400">{t('avoidTitle')}</h3>
+              <h3 className="mt-4 text-xs font-bold uppercase tracking-wide text-ink-muted">{t('avoidTitle')}</h3>
               <ul className="mt-2 flex flex-wrap gap-2">
                 {hero.bad_items.map((it) => (
-                  <li key={it.key} className="chip border-dire/40 text-slate-300 line-through decoration-dire/60">
+                  <li key={it.key} className="chip border-dire/40 text-ink-soft line-through decoration-dire/60">
                     {it.name}
                   </li>
                 ))}
@@ -142,7 +142,7 @@ export default async function CounterPage({ params }: { params: Promise<{ hero: 
           <ul className="flex flex-wrap gap-2">
             {hero.strong_against.map((c) => (
               <li key={c.id}>
-                <Link href={`/counter/${c.slug}`} className="chip border-base-700 text-slate-300 hover:border-radiant/40">
+                <Link href={`/counter/${c.slug}`} className="chip border-base-700 text-ink-soft hover:border-radiant/40">
                   {c.name}
                 </Link>
               </li>
@@ -151,7 +151,7 @@ export default async function CounterPage({ params }: { params: Promise<{ hero: 
         </section>
 
         <section className="card card-pad flex flex-col items-start gap-3 bg-radiant/5">
-          <h2 className="text-lg font-black text-white">{t('ctaTitle', { hero: hero.name })}</h2>
+          <h2 className="text-lg font-black text-ink">{t('ctaTitle', { hero: hero.name })}</h2>
           <Link href="/" className="btn-primary">
             {t('cta')}
           </Link>
@@ -159,7 +159,7 @@ export default async function CounterPage({ params }: { params: Promise<{ hero: 
 
         <nav aria-label={t('allHeroes')} className="flex flex-wrap gap-2">
           {allSeoHeroes.slice(0, 60).map((h) => (
-            <Link key={h.slug} href={`/counter/${h.slug}`} className="text-[11px] text-slate-500 hover:text-radiant">
+            <Link key={h.slug} href={`/counter/${h.slug}`} className="text-[11px] text-ink-faint hover:text-radiant">
               {h.name}
             </Link>
           ))}

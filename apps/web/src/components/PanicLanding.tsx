@@ -94,7 +94,7 @@ export function PanicLanding() {
           </div>
         )}
         {loading && (
-          <div className="flex items-center justify-center gap-3 py-16 text-sm text-slate-400">
+          <div className="flex items-center justify-center gap-3 py-16 text-sm text-ink-muted">
             <Loader2 className="h-5 w-5 animate-spin text-radiant" />
             {t('loading')}
           </div>
@@ -102,7 +102,7 @@ export function PanicLanding() {
         {!loading && result && (
           <PanicWinPlan result={result} enemyIds={selected} role={role} rank={rank} />
         )}
-        {!loading && !result && !error && <p className="card card-pad text-sm text-slate-400">{t('empty')}</p>}
+        {!loading && !result && !error && <p className="card card-pad text-sm text-ink-muted">{t('empty')}</p>}
       </section>
     </div>
   );

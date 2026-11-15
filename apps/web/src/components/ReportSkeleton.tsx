@@ -7,7 +7,7 @@ import { Loader2 } from 'lucide-react';
 export function ReportSkeleton({ label }: { label: string }) {
   return (
     <div className="flex flex-col gap-4" aria-busy="true" aria-live="polite">
-      <div className="card card-pad flex items-center gap-3 text-sm text-slate-300">
+      <div className="card card-pad flex items-center gap-3 text-sm text-ink-soft">
         <Loader2 className="h-4 w-4 animate-spin text-radiant" />
         {label}
       </div>

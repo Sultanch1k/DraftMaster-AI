@@ -48,8 +48,8 @@ export function ModeChooser({ open, onClose, onPick }: Props) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-4 flex items-start justify-between gap-3">
-          <h2 className="text-lg font-black text-white">{t('title')}</h2>
-          <button type="button" onClick={onClose} aria-label="Close" className="rounded p-1 text-slate-400 hover:text-white">
+          <h2 className="text-lg font-black text-ink">{t('title')}</h2>
+          <button type="button" onClick={onClose} aria-label="Close" className="rounded p-1 text-ink-muted hover:text-ink">
             <X className="h-4 w-4" />
           </button>
         </div>
@@ -64,8 +64,8 @@ export function ModeChooser({ open, onClose, onPick }: Props) {
             <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-dire/15 text-dire">
               <Swords className="h-5 w-5" />
             </span>
-            <span className="text-sm font-bold text-white">{t('counterTitle')}</span>
-            <span className="text-xs leading-relaxed text-slate-400">{t('counterBody')}</span>
+            <span className="text-sm font-bold text-ink">{t('counterTitle')}</span>
+            <span className="text-xs leading-relaxed text-ink-muted">{t('counterBody')}</span>
           </button>
 
           <button
@@ -76,8 +76,8 @@ export function ModeChooser({ open, onClose, onPick }: Props) {
             <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-radiant/15 text-radiant">
               <Shield className="h-5 w-5" />
             </span>
-            <span className="text-sm font-bold text-white">{t('mineTitle')}</span>
-            <span className="text-xs leading-relaxed text-slate-400">{t('mineBody')}</span>
+            <span className="text-sm font-bold text-ink">{t('mineTitle')}</span>
+            <span className="text-xs leading-relaxed text-ink-muted">{t('mineBody')}</span>
           </button>
         </div>
       </div>

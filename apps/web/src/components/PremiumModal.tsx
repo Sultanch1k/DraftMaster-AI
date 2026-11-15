@@ -100,7 +100,7 @@ export function PremiumModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-base-950/80 p-4 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
       onClick={onClose}
@@ -108,11 +108,11 @@ export function PremiumModal({
       <div className="card card-pad max-h-[92dvh] w-full max-w-lg overflow-y-auto" onClick={(e) => e.stopPropagation()}>
         <div className="mb-3 flex items-center justify-between">
           <h2 className="section-title">{t('title')}</h2>
-          <button type="button" onClick={onClose} aria-label={t('close')} className="rounded p-1 text-slate-400 hover:text-slate-200">
+          <button type="button" onClick={onClose} aria-label={t('close')} className="rounded p-1 text-ink-muted hover:text-ink-soft">
             <X className="h-4 w-4" />
           </button>
         </div>
-        <p className="mb-4 text-sm text-slate-400">{t('subtitle')}</p>
+        <p className="mb-4 text-sm text-ink-muted">{t('subtitle')}</p>
 
         <div className="grid gap-3 sm:grid-cols-2">
           {plans.map((p) => {
@@ -126,13 +126,13 @@ export function PremiumModal({
                 )}
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-bold text-white">{t(p.key)}</span>
+                  <span className="text-sm font-bold text-ink">{t(p.key)}</span>
                   {active && <span className="chip border-radiant/50 text-radiant">{t('current')}</span>}
                 </div>
-                <p className="text-xs text-slate-400">{t(`${p.key}Price`)}</p>
+                <p className="text-xs text-ink-muted">{t(`${p.key}Price`)}</p>
                 <ul className="flex flex-1 flex-col gap-1.5">
                   {p.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-xs text-slate-300">
+                    <li key={f} className="flex items-start gap-2 text-xs text-ink-soft">
                       <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-radiant" />
                       {f}
                     </li>
@@ -158,7 +158,7 @@ export function PremiumModal({
                 >
                   {t('buy')}
                 </a>
-                <p className="text-[11px] text-slate-500">{t('afterPurchase')}</p>
+                <p className="text-[11px] text-ink-faint">{t('afterPurchase')}</p>
                 <div className="flex gap-2">
                   <input
                     value={key}
@@ -166,7 +166,7 @@ export function PremiumModal({
                     placeholder={t('licensePlaceholder')}
                     autoComplete="off"
                     spellCheck={false}
-                    className="w-full rounded-lg border border-base-600 bg-base-900/80 px-3 py-2 text-sm text-slate-100 outline-none placeholder:text-slate-500 focus:border-radiant/60"
+                    className="w-full rounded-lg border border-base-600 bg-base-900/80 px-3 py-2 text-sm text-ink outline-none placeholder:text-ink-faint focus:border-radiant/60"
                   />
                   <button type="button" onClick={activate} disabled={busy || key.trim().length < 4} className="btn-primary shrink-0">
                     {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : t('activate')}
@@ -175,15 +175,15 @@ export function PremiumModal({
                 {error && <p className="text-xs text-dire">{error}</p>}
               </>
             ) : (
-              <p className="text-[11px] text-slate-500">{t('comingSoon')}</p>
+              <p className="text-[11px] text-ink-faint">{t('comingSoon')}</p>
             )}
           </div>
         )}
 
         {!premium && !emailDone && (
           <div className="mt-3 rounded-xl border border-base-800 bg-base-900/40 p-3">
-            <p className="text-xs font-semibold text-slate-200">{t('emailTitle')}</p>
-            <p className="mt-1 text-[11px] text-slate-500">{t('emailBody')}</p>
+            <p className="text-xs font-semibold text-ink-soft">{t('emailTitle')}</p>
+            <p className="mt-1 text-[11px] text-ink-faint">{t('emailBody')}</p>
             <div className="mt-2 flex gap-2">
               <input
                 type="email"
@@ -191,7 +191,7 @@ export function PremiumModal({
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={t('emailPlaceholder')}
                 autoComplete="email"
-                className="w-full rounded-lg border border-base-600 bg-base-900/80 px-3 py-2 text-sm text-slate-100 outline-none placeholder:text-slate-500 focus:border-radiant/60"
+                className="w-full rounded-lg border border-base-600 bg-base-900/80 px-3 py-2 text-sm text-ink outline-none placeholder:text-ink-faint focus:border-radiant/60"
               />
               <button type="button" onClick={subscribe} disabled={emailBusy} className="btn-ghost shrink-0 border border-base-600">
                 {emailBusy ? <Loader2 className="h-4 w-4 animate-spin" /> : t('emailCta')}
@@ -202,7 +202,7 @@ export function PremiumModal({
         )}
         {emailDone && <p className="mt-3 text-xs font-semibold text-radiant">{t('emailDone')}</p>}
 
-        <p className="mt-3 text-[11px] text-slate-500">{t('note')}</p>
+        <p className="mt-3 text-[11px] text-ink-faint">{t('note')}</p>
       </div>
     </div>
   );

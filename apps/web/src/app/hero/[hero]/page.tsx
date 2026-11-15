@@ -72,21 +72,21 @@ export default async function HeroGuidePage({ params }: { params: Promise<{ hero
         <section className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
           <HeroPortrait icon={hero.icon} name={hero.name} size={72} priority />
           <div>
-            <h1 className="text-2xl font-black text-white sm:text-3xl">{t('h1', { hero: hero.name })}</h1>
-            <p className="mt-1 max-w-2xl text-sm text-slate-400">{t('intro', { hero: hero.name, patch: SEO_PATCH ?? '' })}</p>
-            <p className="mt-1 text-xs text-slate-500">
+            <h1 className="text-2xl font-black text-ink sm:text-3xl">{t('h1', { hero: hero.name })}</h1>
+            <p className="mt-1 max-w-2xl text-sm text-ink-muted">{t('intro', { hero: hero.name, patch: SEO_PATCH ?? '' })}</p>
+            <p className="mt-1 text-xs text-ink-faint">
               {t('winrates', {
                 pub: hero.pub_winrate.toFixed(1),
                 cm: hero.cm_winrate.toFixed(1),
               })}
             </p>
-            <p className="mt-1 text-xs text-slate-500">{t('roles')}: {hero.roles.join(' · ')}</p>
+            <p className="mt-1 text-xs text-ink-faint">{t('roles')}: {hero.roles.join(' · ')}</p>
           </div>
         </section>
 
         <section className="card card-pad">
           <h2 className="section-title">{t('fearTitle', { hero: hero.name })}</h2>
-          <p className="mb-3 text-xs text-slate-500">{t('fearSub', { hero: hero.name })}</p>
+          <p className="mb-3 text-xs text-ink-faint">{t('fearSub', { hero: hero.name })}</p>
           <ol className="grid gap-2 sm:grid-cols-2">
             {hero.counters.slice(0, 8).map((c, i) => (
               <li key={c.id}>
@@ -94,9 +94,9 @@ export default async function HeroGuidePage({ params }: { params: Promise<{ hero
                   href={`/counter/${c.slug}`}
                   className="flex items-center gap-3 rounded-lg border border-base-800 bg-base-900/50 p-2 transition-colors hover:border-dire/40"
                 >
-                  <span className="w-5 text-center text-xs font-bold text-slate-500">{i + 1}</span>
+                  <span className="w-5 text-center text-xs font-bold text-ink-faint">{i + 1}</span>
                   <HeroPortrait icon={null} name={c.name} size={32} />
-                  <span className="flex-1 text-sm font-semibold text-slate-200">{c.name}</span>
+                  <span className="flex-1 text-sm font-semibold text-ink-soft">{c.name}</span>
                   <span className="chip border-dire/40 text-dire">
                     {c.score >= 0 ? `+${(c.score * 100).toFixed(1)}` : (c.score * 100).toFixed(1)}
                   </span>
@@ -109,7 +109,7 @@ export default async function HeroGuidePage({ params }: { params: Promise<{ hero
         {hero.problems.length > 0 && (
           <section className="card card-pad">
             <h2 className="section-title">{t('problemsTitle', { hero: hero.name })}</h2>
-            <p className="mb-3 text-xs text-slate-500">{t('problemsSub', { hero: hero.name })}</p>
+            <p className="mb-3 text-xs text-ink-faint">{t('problemsSub', { hero: hero.name })}</p>
             <ul className="flex flex-wrap gap-2">
               {hero.problems.map((p) => (
                 <li key={p} className="chip border-gold/40 text-gold">
@@ -122,17 +122,17 @@ export default async function HeroGuidePage({ params }: { params: Promise<{ hero
 
         <section className="card card-pad">
           <h2 className="section-title">{t('itemsTitle', { hero: hero.name })}</h2>
-          <p className="mb-3 text-xs text-slate-500">{t('itemsSub', { hero: hero.name })}</p>
+          <p className="mb-3 text-xs text-ink-faint">{t('itemsSub', { hero: hero.name })}</p>
           {hero.good_items.length ? (
             <ul className="flex flex-wrap gap-2">
               {hero.good_items.map((it) => (
-                <li key={it.key} className="chip border-radiant/40 text-slate-200">
+                <li key={it.key} className="chip border-radiant/40 text-ink-soft">
                   {it.name}
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="text-xs text-slate-500">{t('noItems')}</p>
+            <p className="text-xs text-ink-faint">{t('noItems')}</p>
           )}
         </section>
 
@@ -141,7 +141,7 @@ export default async function HeroGuidePage({ params }: { params: Promise<{ hero
           <ul className="flex flex-wrap gap-2">
             {hero.strong_against.slice(0, 12).map((c) => (
               <li key={c.id}>
-                <Link href={`/hero/${c.slug}`} className="chip border-base-700 text-slate-300 hover:border-radiant/40">
+                <Link href={`/hero/${c.slug}`} className="chip border-base-700 text-ink-soft hover:border-radiant/40">
                   {c.name}
                 </Link>
               </li>
@@ -150,8 +150,8 @@ export default async function HeroGuidePage({ params }: { params: Promise<{ hero
         </section>
 
         <section className="card card-pad flex flex-col items-start gap-3 bg-radiant/5">
-          <h2 className="text-lg font-black text-white">{t('ctaTitle', { hero: hero.name })}</h2>
-          <p className="max-w-2xl text-sm text-slate-400">{t('ctaBody')}</p>
+          <h2 className="text-lg font-black text-ink">{t('ctaTitle', { hero: hero.name })}</h2>
+          <p className="max-w-2xl text-sm text-ink-muted">{t('ctaBody')}</p>
           <Link href="/" className="btn-primary">
             {t('cta')}
           </Link>
@@ -159,7 +159,7 @@ export default async function HeroGuidePage({ params }: { params: Promise<{ hero
 
         <nav aria-label={t('allHeroes')} className="flex flex-wrap gap-2">
           {allSeoHeroes.slice(0, 60).map((h) => (
-            <Link key={h.slug} href={`/hero/${h.slug}`} className="text-[11px] text-slate-500 hover:text-radiant">
+            <Link key={h.slug} href={`/hero/${h.slug}`} className="text-[11px] text-ink-faint hover:text-radiant">
               {h.name}
             </Link>
           ))}

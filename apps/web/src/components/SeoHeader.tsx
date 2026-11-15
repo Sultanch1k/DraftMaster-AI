@@ -12,7 +12,7 @@ export async function SeoHeader() {
   return (
     <header className="border-b border-base-800">
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-4">
-        <Link href="/" className="text-sm font-black tracking-tight text-white">
+        <Link href="/" className="text-sm font-black tracking-tight text-ink">
           DRAFT<span className="text-radiant">MASTER</span>
         </Link>
         <Link href="/" className="btn-primary text-xs">

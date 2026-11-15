@@ -38,9 +38,9 @@ function HeroRow({ name, value, sub, tone }: { name: string; value: string; sub:
   const slug = slugForName(name);
   const inner = (
     <>
-      <span className="flex-1 text-sm font-semibold text-slate-200">{name}</span>
+      <span className="flex-1 text-sm font-semibold text-ink-soft">{name}</span>
       <span className={`tabular-nums text-sm font-bold ${tone}`}>{value}</span>
-      <span className="w-20 text-right text-[10px] uppercase tracking-wide text-slate-500">{sub}</span>
+      <span className="w-20 text-right text-[10px] uppercase tracking-wide text-ink-faint">{sub}</span>
     </>
   );
   return (
@@ -73,8 +73,8 @@ export default async function MetaPage() {
       <SeoHeader />
       <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-4 py-6">
         <section>
-          <h1 className="text-2xl font-black text-white sm:text-3xl">{t('title')}</h1>
-          <p className="mt-2 max-w-2xl text-sm text-slate-400">
+          <h1 className="text-2xl font-black text-ink sm:text-3xl">{t('title')}</h1>
+          <p className="mt-2 max-w-2xl text-sm text-ink-muted">
             {meta ? t('intro', { patch: meta.patch ?? '', source: meta.source }) : t('unavailable')}
           </p>
         </section>
@@ -85,7 +85,7 @@ export default async function MetaPage() {
               <h2 className="section-title mb-3">🔥 {t('trending')}</h2>
               <ul className="flex flex-col gap-1.5">
                 {meta.trending.slice(0, 10).map((row) => (
-                  <HeroRow key={row.hero_id} name={row.hero} value={row.picks.toLocaleString('en-US')} sub={t('picks')} tone="text-slate-200" />
+                  <HeroRow key={row.hero_id} name={row.hero} value={row.picks.toLocaleString('en-US')} sub={t('picks')} tone="text-ink-soft" />
                 ))}
               </ul>
             </section>
@@ -108,8 +108,8 @@ export default async function MetaPage() {
           </div>
         )}
         <section className="card card-pad flex flex-col items-start gap-3 bg-radiant/5">
-          <h2 className="text-lg font-black text-white">{t('ctaTitle')}</h2>
-          <p className="max-w-2xl text-sm text-slate-400">{t('ctaBody')}</p>
+          <h2 className="text-lg font-black text-ink">{t('ctaTitle')}</h2>
+          <p className="max-w-2xl text-sm text-ink-muted">{t('ctaBody')}</p>
           <Link href="/" className="btn-primary">
             {t('cta')}
           </Link>
