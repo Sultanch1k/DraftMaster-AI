@@ -213,6 +213,18 @@ cd apps/web && npx tsc --noEmit && npm run build
   webhook revokes by buyer email (`Store.revoke_entitlements_by_email`), not by the
   newest token — a single-session revoke left the buyer premium on other devices.
 
+- **Social posters must be rendered on the server, not on a client canvas.**
+  Valve's hero CDN only sends `Access-Control-Allow-Origin` for dota2.com, so a
+  canvas that draws hero art is tainted and `toBlob()` throws. Posters are built
+  with `next/og` (Satori) in `src/app/og/poster` and `src/app/og/share/[token]`,
+  which can embed the real art and item icons. Related traps: the poster routes
+  must stay *out* of `/api/*` (the FastAPI rewrite in `next.config.mjs` shadows
+  that namespace and turns them into 502/404), the vendored fonts live under
+  `src/assets/fonts` (not `public/`) and must stay listed in
+  `outputFileTracingIncludes` or the standalone/Docker build 500s, and
+  `DRAFTMASTER_SECRET_KEY` must be set or `POST /api/share` mints an unsigned
+  token that `verify_share` rejects.
+
 ## Definition of done
 
 1. Tests pass (`pytest`), types check (`tsc --noEmit`), and the production build
