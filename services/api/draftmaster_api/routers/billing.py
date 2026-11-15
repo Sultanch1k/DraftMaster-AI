@@ -142,9 +142,11 @@ async def webhook(request: Request, x_signature: str = Header(default="")) -> di
         "order_refunded",
     }
     if event in revoked_events and email:
-        row = store.get_entitlement_by_email(email)
-        if row:
-            store.set_entitlement_status(row["session_token"], "revoked")
-            log.info("entitlement revoked for %s (%s)", email, event)
+        # Revoke *every* session for the buyer, not just the newest: each
+        # activation mints a new token, so a single-session revoke would leave
+        # the buyer premium on their other devices after a refund.
+        count = store.revoke_entitlements_by_email(email)
+        if count:
+            log.info("revoked %d entitlement(s) for %s (%s)", count, email, event)
 
     return {"ok": True, "event": event}
