@@ -249,7 +249,10 @@
     "premium": "Premium",
     "free": "Бесплатный",
     "plan": "тариф {tier}",
-    "data": "Данные из OpenDota"
+    "data": "Данные из OpenDota",
+    "blog": "Блог о стратегиях",
+    "privacy": "Конфиденциальность",
+    "terms": "Условия"
   },
   "metaPanel": {
     "title": "Мета-аналитика",

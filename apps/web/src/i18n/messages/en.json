@@ -249,7 +249,10 @@
     "premium": "Premium",
     "free": "Free",
     "plan": "{tier} plan",
-    "data": "Data from OpenDota"
+    "data": "Data from OpenDota",
+    "blog": "Strategy Blog",
+    "privacy": "Privacy",
+    "terms": "Terms"
   },
   "metaPanel": {
     "title": "Meta Intelligence",

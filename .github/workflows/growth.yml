@@ -60,6 +60,11 @@ jobs:
         run: |
           python -m draftmaster_growth run --posts "${{ github.event.inputs.posts || '3' }}" \
             | tee /tmp/growth-report.json
+      - name: Build blog dataset for the web app
+        # The agent's Markdown lands in a git-ignored dir outside apps/web, so
+        # Vercel never sees it. This mirrors build_seo_pages.py: render the
+        # content into a committed dataset the /blog routes serve.
+        run: python tools/pipeline/build_blog.py
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -73,7 +78,7 @@ jobs:
         run: |
           git config user.name "draftmaster-growth[bot]"
           git config user.email "growth-bot@users.noreply.github.com"
-          git add data/growth || true
+          git add data/growth apps/web/src/data/blog-posts.json || true
           if git diff --cached --quiet; then
             echo "no changes to commit"
           else

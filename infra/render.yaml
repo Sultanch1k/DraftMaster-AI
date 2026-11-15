@@ -21,8 +21,11 @@ services:
     plan: starter # free spins down after 15 min idle; cold starts kill conversion
     region: frankfurt
     # Track the same branch Vercel deploys as production, so API and web never
-    # drift apart. `main` is only where tagged releases land.
-    branch: import-implementation
+    # drift apart. `main` is the production branch; `import-implementation` is
+    # the integration/default branch, which also receives the growth bot's daily
+    # state commits — pointing this at it redeploys (and, on ephemeral storage,
+    # wipes) production every day.
+    branch: main
     healthCheckPath: /health
     autoDeploy: true # deploys on every push to the production branch
     envVars:

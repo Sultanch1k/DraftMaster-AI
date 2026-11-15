@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AlertCircle, Loader2, Swords } from 'lucide-react';
+import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { api, ApiError, getSessionToken, isNetworkError } from '@/lib/api';
 import { installAnalytics, track } from '@/lib/analytics';
@@ -372,6 +373,18 @@ export default function Home() {
         </a>
         {' · '}
         {t('footer.plan', { tier: premium ? t('footer.premium') : t('footer.free') })}
+        {' · '}
+        <Link href="/blog" className="underline underline-offset-2 hover:text-slate-400">
+          {t('footer.blog')}
+        </Link>
+        {' · '}
+        <Link href="/privacy" className="underline underline-offset-2 hover:text-slate-400">
+          {t('footer.privacy')}
+        </Link>
+        {' · '}
+        <Link href="/terms" className="underline underline-offset-2 hover:text-slate-400">
+          {t('footer.terms')}
+        </Link>
       </footer>
     </div>
   );
