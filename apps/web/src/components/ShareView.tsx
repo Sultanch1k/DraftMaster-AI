@@ -7,7 +7,9 @@ import { useTranslations } from 'next-intl';
 import { api, ApiError } from '@/lib/api';
 import { installAnalytics, track } from '@/lib/analytics';
 import type { PanicResult } from '@/lib/types';
-import { PanicView } from './PanicView';
+import { fromPanic } from '@/lib/winplan';
+import { WinPlanView } from './winplan/WinPlanView';
+import { PosterExport } from './winplan/PosterExport';
 
 /**
  * Public view of a shared win plan.
@@ -37,7 +39,7 @@ export function ShareView({ token }: { token: string }) {
   if (failed) {
     return (
       <div className="mx-auto flex max-w-lg flex-col items-center gap-4 py-24 text-center">
-        <p className="text-lg font-semibold text-slate-200">{t('invalid')}</p>
+        <p className="text-lg font-semibold text-ink-soft">{t('invalid')}</p>
         <Link href="/" className="btn-primary">
           {t('ctaOwn')} <ArrowRight className="h-4 w-4" />
         </Link>
@@ -47,24 +49,34 @@ export function ShareView({ token }: { token: string }) {
 
   if (!result) {
     return (
-      <div className="flex items-center justify-center gap-3 py-24 text-sm text-slate-400">
+      <div className="flex items-center justify-center gap-3 py-24 text-sm text-ink-muted">
         <Loader2 className="h-5 w-5 animate-spin text-radiant" />
         {t('loading')}
       </div>
     );
   }
 
+  const plan = fromPanic(result);
   return (
     <div className="flex flex-col gap-3">
-      <div className="card card-pad border-radiant/40">
-        <p className="text-sm font-semibold text-radiant">{t('viewTitle')}</p>
-        <p className="mt-1 text-xs text-slate-400">{t('viewSub')}</p>
+      <div className="card card-pad border-accent/40">
+        <p className="text-sm font-semibold text-accent-bright">{t('viewTitle')}</p>
+        <p className="mt-1 text-xs text-ink-muted">{t('viewSub')}</p>
         <Link href="/" className="btn-primary mt-3 self-start">
           {t('ctaOwn')} <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
-      <PanicView result={result} />
-      <p className="text-center text-xs text-slate-500">{t('madeBy')}</p>
+      <WinPlanView
+        plan={plan}
+        footer={
+          <PosterExport
+            posterBase={`/og/share/${encodeURIComponent(token)}`}
+            filename={`draftmaster-${plan.heroId}-${plan.heroName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+            caption={`${plan.heroName} — ${plan.mainWinPlan}`}
+          />
+        }
+      />
+      <p className="text-center text-xs text-ink-faint">{t('madeBy')}</p>
     </div>
   );
 }

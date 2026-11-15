@@ -7,7 +7,7 @@ import raw from '@/data/hero-counters.json';
  * for the OG image and page copy without an API round trip, using the same
  * committed dataset the SEO pages already rely on.
  */
-type HeroEntry = { id: number; name: string; slug: string; icon: string | null };
+type HeroEntry = { id: number; name: string; slug: string; icon: string | null; img?: string | null };
 
 const BY_ID = new Map<number, HeroEntry>();
 for (const hero of Object.values((raw as { heroes: Record<string, HeroEntry> }).heroes)) {
@@ -24,6 +24,11 @@ export function heroSlug(id: number): string | null {
 
 export function heroIcon(id: number): string | null {
   return BY_ID.get(id)?.icon ?? null;
+}
+
+/** Full-bleed hero artwork (portrait "portrait" asset), used for the hero identity header. */
+export function heroArt(id: number): string | null {
+  return BY_ID.get(id)?.img ?? null;
 }
 
 const SLUG_BY_NAME = new Map<string, string>();

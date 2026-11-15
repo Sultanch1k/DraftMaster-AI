@@ -29,17 +29,17 @@ export default function BlogIndex() {
     <main className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
       <header className="mb-8">
         <p className="text-xs font-semibold uppercase tracking-widest text-radiant">DraftMaster AI</p>
-        <h1 className="mt-2 text-3xl font-black tracking-tight text-white sm:text-4xl">
+        <h1 className="mt-2 text-3xl font-black tracking-tight text-ink sm:text-4xl">
           Dota 2 Strategy Blog
         </h1>
-        <p className="mt-3 text-sm leading-relaxed text-slate-400">
+        <p className="mt-3 text-sm leading-relaxed text-ink-muted">
           Patch winners, counter picks and item answers — generated from real match data and
           refreshed every patch.
         </p>
       </header>
 
       {allPosts.length === 0 ? (
-        <p className="text-sm text-slate-400">No articles published yet. Check back soon.</p>
+        <p className="text-sm text-ink-muted">No articles published yet. Check back soon.</p>
       ) : (
         <ul className="space-y-3">
           {allPosts.map((post) => (
@@ -48,14 +48,14 @@ export default function BlogIndex() {
                 href={`/blog/${post.slug}`}
                 className="block rounded-xl border border-base-700 bg-base-900/60 p-4 transition hover:border-radiant/60 hover:bg-base-900"
               >
-                <div className="flex items-center gap-2 text-[11px] text-slate-500">
+                <div className="flex items-center gap-2 text-[11px] text-ink-faint">
                   <span className="rounded bg-base-800 px-1.5 py-0.5 font-semibold uppercase tracking-wide">
                     {post.locale}
                   </span>
                   <span>{formatDate(post.created_at)}</span>
                 </div>
-                <h2 className="mt-2 text-base font-bold text-white">{post.title}</h2>
-                <p className="mt-1 line-clamp-2 text-sm text-slate-400">{post.excerpt}</p>
+                <h2 className="mt-2 text-base font-bold text-ink">{post.title}</h2>
+                <p className="mt-1 line-clamp-2 text-sm text-ink-muted">{post.excerpt}</p>
               </Link>
             </li>
           ))}
@@ -63,8 +63,8 @@ export default function BlogIndex() {
       )}
 
       <div className="mt-10 rounded-xl border border-radiant/40 bg-radiant/5 p-5 text-center">
-        <p className="text-sm font-semibold text-white">Drafting right now?</p>
-        <p className="mt-1 text-sm text-slate-400">
+        <p className="text-sm font-semibold text-ink">Drafting right now?</p>
+        <p className="mt-1 text-sm text-ink-muted">
           Get a full win plan for your enemy lineup in under five seconds.
         </p>
         <Link

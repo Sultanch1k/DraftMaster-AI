@@ -298,6 +298,34 @@ def test_higher_rank_shows_larger_draft_edges(dataset, hero_ids):
     assert abs(high.player_win_probability - 50) >= abs(low.player_win_probability - 50)
 
 
+def test_win_probability_payload_is_labelled_as_heuristic(dataset, hero_ids):
+    """The number is a heuristic draft-edge score, not a calibrated probability.
+
+    The weights are hand-tuned, so the payload must carry a disclaimer and the
+    prose must not present the figure as a measured win probability. This guards
+    the honesty contract against a future change that quietly drops the caveat.
+    """
+    result = win_probability(
+        dataset, hero_ids["Juggernaut"], [hero_ids["Lion"], hero_ids["Axe"]], "carry", 70
+    )
+    payload = result.to_dict()
+    assert payload["disclaimer"]
+    assert "not a measured" in payload["disclaimer"].lower()
+
+
+def test_one_sentence_plan_frames_the_score_as_a_draft_edge(dataset, hero_ids):
+    hero = dataset.by_loc["juggernaut"]
+    enemies = [hero_ids["Lion"], hero_ids["Axe"]]
+    threats = analyse_threats(dataset, enemies, hero["id"])
+    build = build_items(dataset, hero["id"], threats.problems)
+    targets = generate_target_priority(dataset, hero["id"], enemies)
+    wp = win_probability(dataset, hero["id"], enemies, "carry", 70)
+
+    sentence = one_sentence_plan(dataset, hero, threats, build, targets, wp)
+    assert "draft edge, heuristic" in sentence
+    assert "win probability" not in sentence.lower()
+
+
 def test_win_probability_exposes_factors(dataset, hero_ids):
     result = win_probability(dataset, hero_ids["Juggernaut"], [hero_ids["Lion"]], "carry", 60)
     names = {f["name"] for f in result.factors}

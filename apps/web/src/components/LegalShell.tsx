@@ -14,7 +14,7 @@ export async function LegalShell({ title, children }: { title: string; children:
     <div className="min-h-dvh">
       <header className="border-b border-base-800">
         <div className="mx-auto flex w-full max-w-3xl items-center justify-between px-4 py-4">
-          <Link href="/" className="text-sm font-black tracking-tight text-white">
+          <Link href="/" className="text-sm font-black tracking-tight text-ink">
             DRAFT<span className="text-radiant">MASTER</span>
           </Link>
           <Link href="/" className="btn-ghost text-xs">
@@ -23,12 +23,12 @@ export async function LegalShell({ title, children }: { title: string; children:
         </div>
       </header>
       <main className="mx-auto w-full max-w-3xl px-4 py-8">
-        <h1 className="text-2xl font-black text-white sm:text-3xl">{title}</h1>
-        <p className="mt-1 text-xs text-slate-500">{t('effective', { date: EFFECTIVE_DATE })}</p>
-        <div className="prose-invert mt-6 flex flex-col gap-4 text-sm leading-relaxed text-slate-300 [&_a]:text-radiant [&_a]:underline [&_h2]:mt-4 [&_h2]:text-base [&_h2]:font-bold [&_h2]:text-white">
+        <h1 className="text-2xl font-black text-ink sm:text-3xl">{title}</h1>
+        <p className="mt-1 text-xs text-ink-faint">{t('effective', { date: EFFECTIVE_DATE })}</p>
+        <div className="prose-invert mt-6 flex flex-col gap-4 text-sm leading-relaxed text-ink-soft [&_a]:text-radiant [&_a]:underline [&_h2]:mt-4 [&_h2]:text-base [&_h2]:font-bold [&_h2]:text-ink">
           {children}
         </div>
-        <nav className="mt-10 flex flex-wrap gap-4 border-t border-base-800 pt-4 text-xs text-slate-500">
+        <nav className="mt-10 flex flex-wrap gap-4 border-t border-base-800 pt-4 text-xs text-ink-faint">
           <Link href="/privacy" className="hover:text-radiant">
             {t('privacy')}
           </Link>

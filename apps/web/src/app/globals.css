@@ -4,55 +4,102 @@
 
 :root {
   --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: Georgia, 'Times New Roman', serif;
 }
 
 html,
 body {
-  background: #07090d;
-  color: #e6ebf2;
+  background: #090b10;
+  color: #f2f0ea;
   -webkit-font-smoothing: antialiased;
 }
 
 body {
   background-image:
-    radial-gradient(1000px 500px at 15% -10%, rgba(56, 224, 123, 0.09), transparent 60%),
-    radial-gradient(900px 500px at 90% 0%, rgba(255, 77, 77, 0.07), transparent 55%);
+    radial-gradient(1100px 560px at 12% -12%, rgba(200, 54, 47, 0.10), transparent 62%),
+    radial-gradient(900px 520px at 92% -6%, rgba(201, 162, 75, 0.06), transparent 58%),
+    linear-gradient(180deg, #0b0e14 0%, #090b10 40%);
   background-attachment: fixed;
 }
 
-@layer components {
-  .card {
-    @apply rounded-xl border border-base-700 bg-base-850/70 backdrop-blur;
+/* Editorial display face for hero names and the win-plan statement. */
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
-  .card-pad {
+}
+
+@layer components {
+  /* Elevated dossier surface with a hairline rule and a subtle top highlight. */
+  .card,
+  .panel {
+    @apply rounded-panel border border-base-700 bg-base-850 shadow-panel;
+  }
+  .card-pad,
+  .panel-pad {
     @apply p-4 sm:p-5;
   }
+  /* Sunken well for grouped tactical data inside a panel. */
+  .well {
+    @apply rounded-xl border border-base-700/80 bg-base-900/60;
+  }
   .chip {
-    @apply inline-flex items-center gap-1 rounded-full border border-base-600 bg-base-800/70 px-2.5 py-0.5 text-xs text-slate-300;
+    @apply inline-flex items-center gap-1 rounded-chip border border-base-600 bg-base-800/70 px-2.5 py-0.5 text-xs text-ink-muted;
   }
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition
-      focus:outline-none focus-visible:ring-2 focus-visible:ring-radiant/60 disabled:cursor-not-allowed disabled:opacity-50;
+      focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 disabled:cursor-not-allowed disabled:opacity-50;
   }
   .btn-primary {
-    @apply btn bg-radiant text-base-950 hover:bg-radiant/90;
+    @apply btn bg-accent text-white hover:bg-accent-bright;
   }
   .btn-danger {
     @apply btn bg-dire text-white hover:bg-dire/90;
   }
   .btn-ghost {
-    @apply btn border border-base-600 bg-base-800/60 text-slate-200 hover:bg-base-700;
+    @apply btn border border-base-600 bg-base-800/60 text-ink-soft hover:bg-base-700;
   }
   .section-title {
-    @apply flex items-center gap-2 text-base font-bold tracking-tight text-white sm:text-lg;
+    @apply flex items-center gap-2 font-heading text-base font-bold tracking-tight text-ink sm:text-lg;
   }
   .label {
-    @apply text-[11px] font-semibold uppercase tracking-wider text-slate-400;
+    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-faint;
+  }
+  /* Tactical section marker: a thin accent rule with an uppercase kicker. */
+  .kicker {
+    @apply flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-accent;
+  }
+  .kicker::before {
+    content: '';
+    @apply inline-block h-3 w-[3px] rounded-full bg-accent;
+  }
+  .rule {
+    @apply h-px w-full bg-gradient-to-r from-base-700 via-base-700/60 to-transparent;
   }
   .bar {
     @apply h-1.5 w-full overflow-hidden rounded-full bg-base-700;
   }
+  /* Frosted media scrim used over hero artwork so text stays legible. */
+  .scrim {
+    background: linear-gradient(180deg, rgba(9, 11, 16, 0.35) 0%, rgba(9, 11, 16, 0.72) 45%, #090b10 100%);
+  }
 }
+
 
 /* Slim scrollbars keep the dense analytical UI from feeling heavy. */
 * {

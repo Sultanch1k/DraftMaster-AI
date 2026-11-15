@@ -194,10 +194,11 @@
     "title": "One-Sentence Win Plan"
   },
   "winprob": {
-    "draft": "Draft Win Probability",
+    "draft": "Draft-edge score",
     "enemy": "Enemy",
     "confidence": "{level} confidence",
-    "note": "Contributions are percentage points from a 50% baseline, then compressed toward 50% by rank ({rank}) — higher ranks convert draft edges into wins more reliably.",
+    "note": "Contributions are points from a 50 baseline, then compressed toward 50 by rank ({rank}) — higher ranks convert draft edges into wins more reliably.",
+    "disclaimer": "Heuristic estimate from this patch's matchup and win-rate data — not a measured win probability.",
     "levels": {
       "low": "low",
       "medium": "medium",
@@ -267,7 +268,7 @@
   },
   "meta": {
     "title": "DraftMaster AI — Here is exactly how to win this specific game",
-    "description": "DraftMaster AI is the Dota 2 AI coach that turns the enemy draft into a complete win plan: best picks, dynamic item build, threat analysis, win conditions, kill priority and a WIN PROBABILITY ENGINE."
+    "description": "DraftMaster AI is the Dota 2 AI coach that turns the enemy draft into a complete win plan: best picks, dynamic item build, threat analysis, win conditions, kill priority and a draft-edge score engine."
   },
   "premium": {
     "title": "Plans",
@@ -341,7 +342,7 @@
     "needFive": "Select exactly five enemy heroes ({count}/5).",
     "vs": "vs {heroes}",
     "difficulty": "Matchup difficulty",
-    "winProb": "Draft win probability",
+    "winProb": "Draft-edge score",
     "mainThreats": "Main threats",
     "advantages": "Your advantages",
     "mistakes": "Biggest mistakes to avoid",
@@ -503,5 +504,83 @@
     "invalid": "This share link is invalid or has expired.",
     "loading": "Rebuilding the win plan…",
     "madeBy": "Generated with DraftMaster AI"
+  },
+  "winplan": {
+    "mode": {
+      "counter": "COUNTER-PICK · WIN PLAN",
+      "strategy": "MY HERO · WIN PLAN"
+    },
+    "roleLabel": "Role: {role}",
+    "patch": "Patch {patch}",
+    "verdict": "Draft verdict",
+    "verdictKind": {
+      "favorable": "Favorable",
+      "competitive": "Competitive",
+      "difficult": "Difficult",
+      "situational": "Highly situational"
+    },
+    "confidence": "Confidence: {level}",
+    "mainPlan": "The win plan",
+    "whyWorks": "Why this hero works",
+    "winCondition": "Win condition",
+    "wc": {
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "emergency": "Emergency"
+    },
+    "killPriority": "Kill priority",
+    "dangerHeroes": "Danger heroes",
+    "powerSpikes": "Power spikes",
+    "yourSpikes": "Your windows",
+    "enemySpikes": "Enemy windows",
+    "threats": "Threat analysis",
+    "enemyDraft": "Enemy draft",
+    "dontDo": "Don't do this",
+    "phases": {
+      "title": "Match plan",
+      "objectives": "Objectives",
+      "farm": "Farm focus",
+      "fight": "Fight focus",
+      "map": "Map movement"
+    },
+    "items": {
+      "title": "Item build",
+      "generated": "Generated from this draft",
+      "keyCounters": "Key counter items",
+      "starting": "Starting",
+      "lane": "Lane",
+      "early": "Early game",
+      "mid": "Mid game",
+      "late": "Late game",
+      "luxury": "Luxury",
+      "situational": "Situational",
+      "emergency": "Emergency",
+      "hintStarting": "leave the fountain",
+      "hintLane": "first minutes",
+      "hintEarly": "first item timing",
+      "hintMid": "mid-game core",
+      "hintLate": "late-game scaling",
+      "hintLuxury": "when rich",
+      "hintSituational": "adapt to the enemy",
+      "hintEmergency": "if you are behind",
+      "avoid": "Items to avoid"
+    },
+    "share": {
+      "title": "Share this win plan",
+      "subtitle": "Turn it into a poster or send the link",
+      "story": "Story",
+      "square": "Square",
+      "portrait": "Portrait",
+      "share": "Share poster",
+      "download": "Download",
+      "copyLink": "Copy link",
+      "copyCaption": "Copy caption",
+      "copied": "Copied",
+      "previewAlt": "Win plan poster preview",
+      "caption": "{hero} win plan — {verdict}. {plan}"
+    },
+    "draftEdgeScore": "Draft-edge score",
+    "draftEdgeScale": "50 = even draft",
+    "draftEdgeNote": "Heuristic estimate from this patch's matchup and win-rate data — not a measured win probability."
   }
 }

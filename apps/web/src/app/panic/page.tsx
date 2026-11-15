@@ -33,8 +33,8 @@ export default async function PanicPage() {
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-5 px-4 py-6">
         <section className="max-w-3xl">
           <span className="chip border-dire/50 text-dire">🚨 {t('badge')}</span>
-          <h1 className="mt-3 text-3xl font-black leading-tight text-white sm:text-4xl">{t('title')}</h1>
-          <p className="mt-2 text-sm text-slate-400 sm:text-base">{t('description')}</p>
+          <h1 className="mt-3 text-3xl font-black leading-tight text-ink sm:text-4xl">{t('title')}</h1>
+          <p className="mt-2 text-sm text-ink-muted sm:text-base">{t('description')}</p>
         </section>
         <PanicLanding />
       </main>

@@ -1,8 +1,11 @@
-"""WIN PROBABILITY ENGINE (proprietary).
+"""DRAFT EDGE ENGINE.
 
-Estimates the draft-phase win probability for a given (player hero, role, rank,
-enemy draft) tuple, and — critically — explains every factor that moved the
-number. The model is a calibrated logistic blend of:
+Scores the draft-phase advantage of a given (player hero, role, rank, enemy
+draft) tuple and — critically — explains every factor that moved the number.
+
+The output is a *draft-edge score* on a 0-100 scale where 50 is an even draft.
+It is NOT a measured probability of winning. The score is a hand-tuned linear
+blend of real, per-patch OpenDota signals:
 
     * shrunk head-to-head matchup advantage (the dominant signal),
     * team-level threat mismatch (does the enemy draft do something you cannot
@@ -11,9 +14,12 @@ number. The model is a calibrated logistic blend of:
     * execution/rank reliability adjustment (lower brackets convert draft
       advantages into wins less reliably).
 
-It is deliberately transparent: every term is exposed as a factor with a
-contribution in percentage points, so the number is auditable rather than a
-black box.
+The inputs are empirical, but the *weights* are a documented heuristic and the
+score has not been calibrated against observed match outcomes (no predicted-vs-
+observed reliability curve exists yet — see docs/ai-strategy.md). It must be
+presented to users as a heuristic draft assessment, never as a statistical
+probability of winning. Every term is exposed as a factor with a contribution
+in points, so the number is auditable rather than a black box.
 """
 from __future__ import annotations
 
@@ -55,6 +61,13 @@ class WinProbability:
     factors: list[dict]
     rank_label: str
     verdict: str
+    # The 0-100 figure is a heuristic draft-edge score, not a measured chance of
+    # winning. Carried in the payload so every consumer can label it honestly.
+    disclaimer: str = (
+        "Heuristic draft-edge score from this patch's matchup and win-rate data "
+        "(50 = even draft). Not a measured or statistically calibrated win "
+        "probability."
+    )
 
     def to_dict(self) -> dict:
         return asdict(self)

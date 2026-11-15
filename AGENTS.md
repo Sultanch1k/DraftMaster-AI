@@ -213,6 +213,40 @@ cd apps/web && npx tsc --noEmit && npm run build
   webhook revokes by buyer email (`Store.revoke_entitlements_by_email`), not by the
   newest token — a single-session revoke left the buyer premium on other devices.
 
+- **The 0-100 draft figure is a heuristic draft-edge score, never a "win
+  probability".** `services/engine/draftmaster_engine/winprob.py` blends *real*
+  per-patch OpenDota signals (shrunk head-to-head matchup, team threat mismatch,
+  role/comfort, rank reliability) but the weights are hand-tuned and the score
+  has never been calibrated against observed outcomes. It is surfaced as
+  "Draft-edge score" on a 0-100 scale where 50 = even, and every payload carries
+  a `disclaimer` (localized in `i18n.py`) that the UI renders. Prose says
+  "draft edge, heuristic". Do not relabel it a probability: `test_engine.py`
+  asserts the disclaimer is present and that the one-sentence plan never says
+  "win probability", and `test_api.py` asserts the disclaimer is localized.
+  Calibrating the weights is a separate, larger change.
+
+- **Social posters must be rendered on the server, not on a client canvas.**
+  Valve's hero CDN only sends `Access-Control-Allow-Origin` for dota2.com, so a
+  canvas that draws hero art is tainted and `toBlob()` throws. Posters are built
+  with `next/og` (Satori) in `src/app/og/share/[token]`, which can embed the real
+  art and item icons. Related traps: the poster routes must stay *out* of
+  `/api/*` (the FastAPI rewrite in `next.config.mjs` shadows that namespace and
+  turns them into 502/404), the vendored fonts live under `src/assets/fonts` (not
+  `public/`) and must stay listed in `outputFileTracingIncludes` or the
+  standalone/Docker build 500s, and `DRAFTMASTER_SECRET_KEY` must be set or
+  `POST /api/share` mints an unsigned token that `verify_share` rejects.
+
+- **A server-side poster must never call a quota-charging endpoint.** The poster
+  renderer runs on the web host's server IP with no user identity, so every
+  render across every user shares one anonymous free bucket. An earlier
+  `/og/poster` route called `/api/panic` directly and 402'd after three drafts a
+  day, product-wide. Posters now render *only* through a signed share token
+  (`GET /api/share/{token}`), which is quota-free by design: the token could only
+  be minted by an authenticated, quota-paying request. The client mints the token
+  once (`useShareLink` in `ShareBar.tsx`) and reuses it for both the share button
+  and the poster. When no token exists (no signing key, or the free quota is
+  spent) the poster section hides rather than showing a broken image.
+
 ## Definition of done
 
 1. Tests pass (`pytest`), types check (`tsc --noEmit`), and the production build

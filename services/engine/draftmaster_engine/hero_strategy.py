@@ -992,7 +992,7 @@ class HeroStrategyEngine:
             clause += ", buying healing reduction before the first teamfight"
         return (
             f"Play {hero['localized_name']} to the plan: {clause} — this matchup is {tone} "
-            f"({winprob.player_win_probability:.0f}% draft win probability)."
+            f"({winprob.player_win_probability:.0f}% draft edge, heuristic)."
         )
 
     # -- confidence ------------------------------------------------------
@@ -1012,7 +1012,7 @@ class HeroStrategyEngine:
         if not hero.get("abilities"):
             notes.append("This hero has no compiled ability data, so ability-level advice is limited.")
         if winprob.confidence == "low":
-            notes.append("The draft maths are close to even, so treat the win probability as a coin flip rather than a prediction.")
+            notes.append("The draft maths are close to even, so treat the draft score as a coin flip rather than a prediction.")
         if any(not e.get("abilities") for e in enemies):
             notes.append("At least one enemy has no compiled ability data; its dossier falls back to capability counters.")
         notes.append("Hero and item names are shown in English, matching community convention.")

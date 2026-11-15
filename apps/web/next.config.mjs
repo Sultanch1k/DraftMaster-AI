@@ -23,6 +23,12 @@ const nextConfig = {
       { protocol: 'https', hostname: 'cdn.steamstatic.com' },
     ],
   },
+  // The OG / social poster routes read vendored font files at request time.
+  // They live under src/ (not public/) so they are not publicly served, and are
+  // traced here so the standalone/Docker build includes them.
+  outputFileTracingIncludes: {
+    '/**': ['./src/assets/fonts/**'],
+  },
 };
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
