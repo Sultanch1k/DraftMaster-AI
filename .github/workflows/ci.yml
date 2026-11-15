@@ -26,6 +26,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-dev.txt
           pip install -e services/engine
+          pip install -e services/growth
       - name: Validate committed artifacts
         run: |
           python - <<'PY'
@@ -39,6 +40,11 @@ jobs:
           PY
       - name: Tests
         run: python -m pytest services/engine/tests -q
+      - name: Growth-engine tests
+        run: python -m pytest services/growth/tests -q
+      - name: Growth dry run (smoke)
+        run: |
+          python -m draftmaster_growth --state /tmp/growth-smoke.json --out /tmp/growth-smoke run --no-outreach
 
   web:
     name: Web build

@@ -35,6 +35,7 @@ FUNNEL = [
     "checkout_opened",
     "license_activated",
     "share_clicked",
+    "share_opened",
     "email_captured",
 ]
 

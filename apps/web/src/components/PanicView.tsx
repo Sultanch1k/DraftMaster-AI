@@ -161,9 +161,14 @@ export function PanicView({ result, onFullReport }: { result: PanicResult; onFul
 
       <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
         <span>
-          {t('generatedIn', { ms: result.generated_in_ms })} ·{' '}
-          {result.usage?.plan === 'premium' ? t('premiumPlan') : t('freePlan')}
-          {result.usage?.remaining != null && ` · ${t('analysesLeft', { count: result.usage.remaining })}`}
+          {t('generatedIn', { ms: result.generated_in_ms })}
+          {result.usage && (
+            <>
+              {' · '}
+              {result.usage.plan === 'premium' ? t('premiumPlan') : t('freePlan')}
+              {result.usage.remaining != null && ` · ${t('analysesLeft', { count: result.usage.remaining })}`}
+            </>
+          )}
         </span>
         {onFullReport && (
           <button type="button" onClick={onFullReport} className="btn-ghost !py-1.5 text-xs">

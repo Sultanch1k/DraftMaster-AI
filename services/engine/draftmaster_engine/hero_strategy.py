@@ -734,8 +734,12 @@ class HeroStrategyEngine:
         threat_to_you = max(0.0, ds.counter_logit(eid, hero_id)) * 100.0
 
         dangerous: list[str] = []
-        if caps.get("disable_count", 0) >= 1:
-            dangerous.append(f"Brings {caps.get('disable_count')} disable(s) — you will be held in place while their team follows up.")
+        disables = int(caps.get("disable_count", 0))
+        if disables >= 1:
+            noun = "disable" if disables == 1 else "disables"
+            dangerous.append(
+                f"Brings {disables} {noun} — you will be held in place while their team follows up."
+            )
         if caps.get("stun", 0) >= 1:
             dangerous.append("Has a stun, which sets up their damage and interrupts your channel or escape.")
         if caps.get("silence", 0) >= 1:

@@ -16,9 +16,11 @@ narrate numbers the engine produced; they must never invent them.
 | --- | --- |
 | `services/engine/draftmaster_engine/` | Pure-Python strategy engine. No web framework imports, ever. |
 | `services/api/draftmaster_api/` | FastAPI surface: routers, schemas, config, infra adapters. |
+| `services/growth/draftmaster_growth/` | Autonomous growth agent: content, outreach, publishing, self-improvement. |
 | `apps/web/src/` | Next.js 16 App Router frontend (next-intl, cookie-based locale). |
 | `tools/pipeline/` | Builds the data artifacts from OpenDota + Valve's CDN. |
 | `data/artifacts/` | Committed build outputs — the engine's only data dependency. |
+| `data/growth/` | Growth-agent state (tracked) + generated output (gitignored). |
 | `docs/` | Product, architecture, roadmap and risk documentation. |
 
 ## Commands
@@ -32,6 +34,11 @@ cd apps/web && API_PROXY_TARGET=http://127.0.0.1:12001 npm run dev -- --port 120
 
 # Tests (always run before claiming a change works)
 .venv/bin/python -m pytest services/engine/tests -q
+.venv/bin/python -m pytest services/growth/tests -q
+
+# Growth agent (dry run by default; --live required to publish)
+.venv/bin/python -m draftmaster_growth plan
+.venv/bin/python -m draftmaster_growth run
 
 # Typecheck + production build
 cd apps/web && npx tsc --noEmit && npm run build
@@ -148,6 +155,49 @@ cd apps/web && npx tsc --noEmit && npm run build
 - **`pick_reports` ships a full 11-section report for every Top-5 pick** so clicking a
   recommended hero is instant and never spends quota. Keep the key set in sync with
   `best_picks` (keys are `str(hero_id)`).
+- **The growth agent is deterministic and dry by default.** `draftmaster_growth` never
+  calls `random`; the bandit explores on a rotation keyed to observation count, and the
+  topic ring advances by a counter — so `plan` twice and diff to check a change. A channel
+  is live only when it is enabled *and* credentialed *and* `DRAFTMASTER_GROWTH_ALLOW_PUBLISH`
+  is set; otherwise every adapter records a dry run. It reuses `draftmaster_engine`'s
+  `Dataset`, so a growth post can never contain a number the product would not produce.
+  Dedupe keys off `ContentItem.signature` (topic + data + locale), **not** `topic` — using
+  the key alone made English and Russian collide and re-published the same subject. Tests
+  live in `services/growth/tests/`; `data/growth/out/` is gitignored while the state file is
+  tracked so the scheduled workflow can persist it. See `docs/growth-agent.md`.
+
+- **The match plan must stay draft-specific.** `plan._phase_content()` takes `threats`
+  and `delta`; it used to accept and ignore both, so every draft produced an identical
+  5-phase timeline — the exact "static guide" behaviour the product claims to replace.
+  When you touch it, keep the threat-driven notes wired and keep
+  `test_match_plan_adapts_to_enemy_draft` passing: it asserts two different enemy drafts
+  yield different plans for the same hero, and it fails if the timeline goes static again.
+
+- **Production store is NOT durable yet.** `/health` on `draftmaster-ai.onrender.com`
+  reports `sqlite+pysqlite`. The Render service was created by hand, so `infra/render.yaml`
+  (which provisions a paid Postgres) never applied — a Blueprint only manages services it
+  created. Setting `DRAFTMASTER_DATABASE_URL` on the existing service fixes it; see
+  `docs/go-live-runbook.md` §1. `scripts/preflight.py` fails on `[store is durable]` until
+  then, which is the intended go/no-go gate. Do not enable billing before it passes:
+  a paying customer whose entitlement is wiped on the next deploy is worse than no sale.
+
+- **The free quota charges per distinct analysis, keyed by user + IP.** Same draft twice is
+  free; three *distinct* drafts then a 402. To exercise the paywall locally, send three
+  different `enemy_hero_ids` — repeating one draft returns 200 forever and looks like the
+  limit is broken.
+
+- **Branch topology — and the production split-brain it causes.** `main` is the
+  branch that production deploys from: Vercel aliases `www.draftmaster.wiki` to a
+  `main` build (per `docs/deployment-runbook.md` §1). `import-implementation` is
+  the default branch where work lands, and Vercel builds it as a **preview only** —
+  merging to `main` is what changes the live site. The API on Render has drifted
+  from this: it serves `import-implementation` directly (proven — production
+  returns a `plan.py` string introduced on `import-implementation` that has never
+  existed on `main`). So the two hosts can disagree: a fix can be live in the API
+  while the web app that calls it is a release behind. Before claiming anything is
+  "in production", check *both* hosts, and remember a 404 on `www.draftmaster.wiki`
+  usually means "unreleased", not "broken". Release with the documented command in
+  `docs/deployment-runbook.md` §2 (merge `import-implementation` → `main`).
 
 ## Definition of done
 

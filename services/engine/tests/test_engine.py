@@ -8,8 +8,6 @@ from __future__ import annotations
 
 import math
 
-import pytest
-
 from draftmaster_engine.dataset import Dataset
 from draftmaster_engine.items import build_items
 from draftmaster_engine.plan import (
@@ -322,6 +320,34 @@ def test_match_plan_has_five_phases(dataset, hero_ids):
             assert phase[key]
 
 
+def test_match_plan_adapts_to_enemy_draft(dataset, hero_ids):
+    """The timeline must be draft-specific, not a static guide.
+
+    Two drafts with different threat profiles must produce different plans for
+    the same hero; otherwise the flagship "plan for this exact game" claim is
+    false and the report is just a renamed static guide.
+    """
+    hero = dataset.by_id[hero_ids["Juggernaut"]]
+
+    # Heavy targeted-disable + teamfight draft.
+    lockdown = [hero_ids["Lion"], hero_ids["Shadow Shaman"], hero_ids["Axe"]]
+    # Invisibility + evasion draft.
+    evasive = [hero_ids["Riki"], hero_ids["Phantom Assassin"], hero_ids["Bounty Hunter"]]
+
+    plan_a = generate_match_plan(dataset, hero, analyse_threats(dataset, lockdown))
+    plan_b = generate_match_plan(dataset, hero, analyse_threats(dataset, evasive))
+
+    text_a = " ".join(
+        f"{p['fight_focus']} {' '.join(p['danger_zones'])} {p['farm_focus']} {p['roshan_priority']} {p['objectives']}"
+        for p in plan_a
+    )
+    text_b = " ".join(
+        f"{p['fight_focus']} {' '.join(p['danger_zones'])} {p['farm_focus']} {p['roshan_priority']} {p['objectives']}"
+        for p in plan_b
+    )
+    assert text_a != text_b, "match plan is identical for two very different enemy drafts"
+
+
 def test_win_conditions_have_three_tiers(dataset, hero_ids):
     enemies = [hero_ids["Lion"], hero_ids["Axe"], hero_ids["Shadow Shaman"]]
     hero = dataset.by_id[hero_ids["Juggernaut"]]
@@ -344,3 +370,38 @@ def test_one_sentence_plan_is_a_single_sentence(dataset, hero_ids):
     assert sentence.endswith(".")
     assert sentence.count(".") == 1
     assert "%" in sentence
+
+
+def test_slow_abilities_do_not_count_as_disables(dataset, hero_ids):
+    """A movement slow is soft CC, not a lock-down.
+
+    Sniper has three abilities that mention "slow" and one mini-stun, but he is
+    not a three-disable hero. Counting slows as disables inflated his
+    disable_count and produced threat prose like "brings 5 disables" plus a
+    wrongly recommended BKB/Aeon package.
+    """
+    sniper = dataset.by_id[hero_ids["Sniper"]]["capabilities"]
+    assert sniper["disable_count"] <= 1, sniper
+    # The crowd-control weight still reflects the slows, so nothing is lost.
+    assert sniper["cc"] >= 1.0
+
+    for name in ("Shadow Shaman", "Lion", "Necrophos"):
+        caps = dataset.by_id[hero_ids[name]]["capabilities"]
+        assert caps["disable_count"] >= 1, name
+        assert caps["disable_count"] <= 2, (name, caps)
+
+
+def test_enemy_power_spike_ignores_thin_samples(dataset, hero_ids):
+    """A peak must come from a game-length bin with a real sample size.
+
+    The raw duration curve has bins backed by a single game; an unweighted
+    maximum reported nonsense like "peak ~75m" for Lion.
+    """
+    from draftmaster_engine.plan import generate_power_spikes
+
+    enemies = [hero_ids["Lion"], hero_ids["Sniper"], hero_ids["Axe"]]
+    spikes = generate_power_spikes(dataset, hero_ids["Juggernaut"], enemies)
+    assert len(spikes["enemies"]) == len(enemies)
+    for row in spikes["enemies"]:
+        assert row["peak_minutes"] is not None
+        assert 0 < row["peak_minutes"] <= 60
