@@ -186,18 +186,32 @@ cd apps/web && npx tsc --noEmit && npm run build
   different `enemy_hero_ids` — repeating one draft returns 200 forever and looks like the
   limit is broken.
 
-- **Branch topology — and the production split-brain it causes.** `main` is the
-  branch that production deploys from: Vercel aliases `www.draftmaster.wiki` to a
-  `main` build (per `docs/deployment-runbook.md` §1). `import-implementation` is
-  the default branch where work lands, and Vercel builds it as a **preview only** —
-  merging to `main` is what changes the live site. The API on Render has drifted
-  from this: it serves `import-implementation` directly (proven — production
-  returns a `plan.py` string introduced on `import-implementation` that has never
-  existed on `main`). So the two hosts can disagree: a fix can be live in the API
-  while the web app that calls it is a release behind. Before claiming anything is
-  "in production", check *both* hosts, and remember a 404 on `www.draftmaster.wiki`
-  usually means "unreleased", not "broken". Release with the documented command in
-  `docs/deployment-runbook.md` §2 (merge `import-implementation` → `main`).
+- **Branch topology — production serves `main`, the growth bot writes to
+  `import-implementation`.** `main` is what production deploys from: Vercel aliases
+  `www.draftmaster.wiki` to a `main` build and Render's blueprint pins the API to
+  `main` (per `docs/deployment-runbook.md` §1; verified 2026-11-07 — production
+  serves the `main`-only SEO title fix and 404s on `import-implementation`-only
+  routes). `import-implementation` is the repo default branch where work lands and
+  where the **growth bot commits daily** (`.github/workflows/growth.yml`, ~09:00
+  UTC). That commit does **not** reach users on its own — fast-forward it to `main`
+  to publish (runbook §1). `infra/render.yaml` used to track `import-implementation`,
+  which meant the API redeployed (and, on ephemeral storage, reset) every day; it
+  now tracks `main`. Before claiming anything is "in production", check *both*
+  hosts, and remember a 404 on `www.draftmaster.wiki` usually means "unreleased",
+  not "broken".
+
+- **The growth agent's content is served at `/blog`, via a committed dataset.**
+  The agent writes Markdown to `data/growth/out/` (git-ignored, outside
+  `apps/web`), so nothing it produced was ever served. `tools/pipeline/build_blog.py`
+  mirrors `build_seo_pages.py`: it renders that output into
+  `apps/web/src/data/blog-posts.json`, which `/blog` and `/blog/[slug]` read. The
+  daily cycle rebuilds and commits it; CI validates the committed dataset. Social
+  channels stay dry until their secrets are set.
+
+- **A refund must revoke *every* session a buyer holds.** Each
+  `/api/billing/activate` mints a new token, so a buyer can hold several. The
+  webhook revokes by buyer email (`Store.revoke_entitlements_by_email`), not by the
+  newest token — a single-session revoke left the buyer premium on other devices.
 
 ## Definition of done
 
