@@ -24,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
       'counter pick',
       'Dota 2 coach',
       'item build',
-      'win probability',
+      'draft edge score',
       'last pick',
       'Dota 2 AI',
     ],
