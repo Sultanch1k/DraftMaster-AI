@@ -9,8 +9,7 @@ import { installAnalytics, track } from '@/lib/analytics';
 import type { Hero, PanicResult } from '@/lib/types';
 import { HeroGrid } from './HeroGrid';
 import { DraftControls } from './DraftControls';
-import { PanicView } from './PanicView';
-import { ShareBar } from './ShareBar';
+import { PanicWinPlan } from './winplan/PanicWinPlan';
 
 /**
  * Public "I'M LAST PICK" tool — the acquisition surface for the flagship flow.
@@ -21,7 +20,6 @@ import { ShareBar } from './ShareBar';
  */
 export function PanicLanding() {
   const t = useTranslations('panicLanding');
-  const tShare = useTranslations('share');
   const [heroes, setHeroes] = useState<Hero[]>([]);
   const [selected, setSelected] = useState<number[]>([]);
   const [role, setRole] = useState('carry');
@@ -102,12 +100,7 @@ export function PanicLanding() {
           </div>
         )}
         {!loading && result && (
-          <>
-            <PanicView result={result} />
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs text-slate-500">{tShare('subhint')}</span>
-            </div>
-          </>
+          <PanicWinPlan result={result} enemyIds={selected} role={role} rank={rank} />
         )}
         {!loading && !result && !error && <p className="card card-pad text-sm text-slate-400">{t('empty')}</p>}
       </section>

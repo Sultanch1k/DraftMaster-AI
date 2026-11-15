@@ -6,6 +6,7 @@ import { fromPanic } from '@/lib/winplan';
 import { HeroPortrait } from '../HeroPortrait';
 import { ShareBar } from '../ShareBar';
 import { WinPlanView } from './WinPlanView';
+import { PosterExport } from './PosterExport';
 
 /**
  * "I'M LAST PICK" result, rendered through the shared Win Plan system.
@@ -29,8 +30,13 @@ export function PanicWinPlan({
   onQuota?: () => void;
 }) {
   const t = useTranslations('panic');
-  const tShare = useTranslations('share');
+  const tShare = useTranslations('winplan.share');
+  const tVerdict = useTranslations('winplan.verdictKind');
   const plan = fromPanic(result);
+  const query = new URLSearchParams();
+  if (enemyIds.length) query.set('e', enemyIds.join(','));
+  if (role) query.set('role', role);
+  if (rank) query.set('rk', String(rank));
 
   return (
     <WinPlanView
@@ -38,11 +44,20 @@ export function PanicWinPlan({
       header={
         <div className="flex flex-wrap items-center gap-2">
           <ShareBar enemyIds={enemyIds} role={role} rank={rank} onQuota={onQuota} />
-          <span className="text-xs text-ink-faint">{tShare('subhint')}</span>
         </div>
       }
       footer={
         <>
+          <PosterExport
+            posterBase={`/og/poster?${query.toString()}`}
+            filename={`draftmaster-${plan.heroId}-${plan.heroName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+            caption={tShare('caption', {
+              hero: plan.heroName,
+              verdict: tVerdict(plan.verdict.kind),
+              plan: plan.mainWinPlan,
+            })}
+          />
+
           {result.backups.length > 0 && (
             <section className="rounded-panel border border-base-700 bg-base-850 p-4 sm:p-5">
               <p className="label mb-2">{t('backups')}</p>

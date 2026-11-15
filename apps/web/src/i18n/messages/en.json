@@ -567,7 +567,17 @@
     },
     "share": {
       "title": "Share this win plan",
-      "subtitle": "Turn it into a poster or send the link"
+      "subtitle": "Turn it into a poster or send the link",
+      "story": "Story",
+      "square": "Square",
+      "portrait": "Portrait",
+      "share": "Share poster",
+      "download": "Download",
+      "copyLink": "Copy link",
+      "copyCaption": "Copy caption",
+      "copied": "Copied",
+      "previewAlt": "Win plan poster preview",
+      "caption": "{hero} win plan — {verdict}. {plan}"
     }
   }
 }

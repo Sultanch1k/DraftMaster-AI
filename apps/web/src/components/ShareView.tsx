@@ -7,7 +7,9 @@ import { useTranslations } from 'next-intl';
 import { api, ApiError } from '@/lib/api';
 import { installAnalytics, track } from '@/lib/analytics';
 import type { PanicResult } from '@/lib/types';
-import { PanicView } from './PanicView';
+import { fromPanic } from '@/lib/winplan';
+import { WinPlanView } from './winplan/WinPlanView';
+import { PosterExport } from './winplan/PosterExport';
 
 /**
  * Public view of a shared win plan.
@@ -54,17 +56,27 @@ export function ShareView({ token }: { token: string }) {
     );
   }
 
+  const plan = fromPanic(result);
   return (
     <div className="flex flex-col gap-3">
-      <div className="card card-pad border-radiant/40">
-        <p className="text-sm font-semibold text-radiant">{t('viewTitle')}</p>
-        <p className="mt-1 text-xs text-slate-400">{t('viewSub')}</p>
+      <div className="card card-pad border-accent/40">
+        <p className="text-sm font-semibold text-accent-bright">{t('viewTitle')}</p>
+        <p className="mt-1 text-xs text-ink-muted">{t('viewSub')}</p>
         <Link href="/" className="btn-primary mt-3 self-start">
           {t('ctaOwn')} <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
-      <PanicView result={result} />
-      <p className="text-center text-xs text-slate-500">{t('madeBy')}</p>
+      <WinPlanView
+        plan={plan}
+        footer={
+          <PosterExport
+            posterBase={`/og/share/${encodeURIComponent(token)}`}
+            filename={`draftmaster-${plan.heroId}-${plan.heroName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+            caption={`${plan.heroName} — ${plan.mainWinPlan}`}
+          />
+        }
+      />
+      <p className="text-center text-xs text-ink-faint">{t('madeBy')}</p>
     </div>
   );
 }
