@@ -194,10 +194,11 @@
     "title": "One-Sentence Win Plan"
   },
   "winprob": {
-    "draft": "Draft Win Probability",
+    "draft": "Draft-edge score",
     "enemy": "Enemy",
     "confidence": "{level} confidence",
-    "note": "Contributions are percentage points from a 50% baseline, then compressed toward 50% by rank ({rank}) — higher ranks convert draft edges into wins more reliably.",
+    "note": "Contributions are points from a 50 baseline, then compressed toward 50 by rank ({rank}) — higher ranks convert draft edges into wins more reliably.",
+    "disclaimer": "Heuristic estimate from this patch's matchup and win-rate data — not a measured win probability.",
     "levels": {
       "low": "low",
       "medium": "medium",
@@ -267,7 +268,7 @@
   },
   "meta": {
     "title": "DraftMaster AI — Here is exactly how to win this specific game",
-    "description": "DraftMaster AI is the Dota 2 AI coach that turns the enemy draft into a complete win plan: best picks, dynamic item build, threat analysis, win conditions, kill priority and a WIN PROBABILITY ENGINE."
+    "description": "DraftMaster AI is the Dota 2 AI coach that turns the enemy draft into a complete win plan: best picks, dynamic item build, threat analysis, win conditions, kill priority and a draft-edge score engine."
   },
   "premium": {
     "title": "Plans",
@@ -341,7 +342,7 @@
     "needFive": "Select exactly five enemy heroes ({count}/5).",
     "vs": "vs {heroes}",
     "difficulty": "Matchup difficulty",
-    "winProb": "Draft win probability",
+    "winProb": "Draft-edge score",
     "mainThreats": "Main threats",
     "advantages": "Your advantages",
     "mistakes": "Biggest mistakes to avoid",
@@ -518,7 +519,6 @@
       "difficult": "Difficult",
       "situational": "Highly situational"
     },
-    "winProbEstimate": "Draft win probability (model estimate)",
     "confidence": "Confidence: {level}",
     "mainPlan": "The win plan",
     "whyWorks": "Why this hero works",
@@ -578,6 +578,9 @@
       "copied": "Copied",
       "previewAlt": "Win plan poster preview",
       "caption": "{hero} win plan — {verdict}. {plan}"
-    }
+    },
+    "draftEdgeScore": "Draft-edge score",
+    "draftEdgeScale": "50 = even draft",
+    "draftEdgeNote": "Heuristic estimate from this patch's matchup and win-rate data — not a measured win probability."
   }
 }

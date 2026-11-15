@@ -278,6 +278,8 @@ def test_reference_and_winprob_endpoints_are_locale_aware(client):
     wp_ru = client.post("/api/win-probability", json=body, headers={"x-locale": "ru"}).json()
     assert wp_en["verdict"] != wp_ru["verdict"]
     assert wp_ru["factors"][0]["name"] == "Матчапы героев"
+    # The honesty disclaimer is localized too.
+    assert wp_en["disclaimer"] != wp_ru["disclaimer"]
     # Numbers are identical across locales.
     assert wp_en["player_win_probability"] == wp_ru["player_win_probability"]
 
@@ -322,6 +324,7 @@ def test_win_probability_endpoint(client):
     body = r.json()
     assert 0 < body["player_win_probability"] < 100
     assert body["factors"]
+    assert "not a measured" in body["disclaimer"].lower()
 
 
 def test_threat_analysis_endpoint(client):

@@ -213,6 +213,18 @@ cd apps/web && npx tsc --noEmit && npm run build
   webhook revokes by buyer email (`Store.revoke_entitlements_by_email`), not by the
   newest token — a single-session revoke left the buyer premium on other devices.
 
+- **The 0-100 draft figure is a heuristic draft-edge score, never a "win
+  probability".** `services/engine/draftmaster_engine/winprob.py` blends *real*
+  per-patch OpenDota signals (shrunk head-to-head matchup, team threat mismatch,
+  role/comfort, rank reliability) but the weights are hand-tuned and the score
+  has never been calibrated against observed outcomes. It is surfaced as
+  "Draft-edge score" on a 0-100 scale where 50 = even, and every payload carries
+  a `disclaimer` (localized in `i18n.py`) that the UI renders. Prose says
+  "draft edge, heuristic". Do not relabel it a probability: `test_engine.py`
+  asserts the disclaimer is present and that the one-sentence plan never says
+  "win probability", and `test_api.py` asserts the disclaimer is localized.
+  Calibrating the weights is a separate, larger change.
+
 - **Social posters must be rendered on the server, not on a client canvas.**
   Valve's hero CDN only sends `Access-Control-Allow-Origin` for dota2.com, so a
   canvas that draws hero art is tainted and `toBlob()` throws. Posters are built

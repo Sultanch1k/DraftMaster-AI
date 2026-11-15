@@ -12,8 +12,8 @@ export const size = { width: 1200, height: 630 };
  * Open Graph card for a shared win plan.
  *
  * This is the hook that makes a share worth clicking: a stranger scrolling
- * Reddit or Discord sees the enemy draft, the recommended pick and the win
- * probability rendered as a real card, not a bare link. It is generated on
+ * Reddit or Discord sees the enemy draft, the recommended pick and the
+ * heuristic draft-edge score rendered as a real card, not a bare link. It is generated on
  * demand from the same signed payload the share page uses, so it can never
  * advertise a different plan than the one it links to.
  */
@@ -140,7 +140,7 @@ export default async function Image({ params }: { params: Promise<{ token: strin
           {typeof win === 'number' && (
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
               <div style={{ display: 'flex', fontSize: 24, color: OG.muted, letterSpacing: 1 }}>
-                DRAFT WIN PROBABILITY
+                DRAFT-EDGE SCORE
               </div>
               <div
                 style={{
@@ -152,7 +152,7 @@ export default async function Image({ params }: { params: Promise<{ token: strin
                   fontFamily: 'Playfair Display',
                 }}
               >
-                {win}%
+                {win}/100
               </div>
             </div>
           )}

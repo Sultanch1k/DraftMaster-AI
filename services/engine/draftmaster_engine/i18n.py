@@ -526,11 +526,11 @@ def _patterns() -> list[tuple[re.Pattern[str], str]]:
 
     # one-sentence plan -------------------------------------------------------
     add(
-        r"^If you get (.+?) on time, kill (.+?) first(.*?), this match is (.+?) \((\d+)% draft win probability\)\.$",
+        r"^If you get (.+?) on time, kill (.+?) first(.*?), this match is (.+?) \((\d+)% draft edge, heuristic\)\.$",
         lambda m: (
             f"Если вы вовремя получите {m.group(1)} и убьёте {m.group(2)} первым"
             f"{_clause_ru(m.group(3))}, этот матч {RU_TERMS.get(m.group(4), m.group(4))} "
-            f"({m.group(5)}% вероятность победы по драфту)."
+            f"({m.group(5)}% преимущество по драфту, эвристика)."
         ),
     )
 
@@ -691,11 +691,11 @@ def _patterns() -> list[tuple[re.Pattern[str], str]]:
         r"Разменивайтесь с \1 с края боя: сближайтесь на их кулдаунах, выходите, когда они готовы.",
     )
     add(
-        r"^Play (.+?) to the plan: finish (.+?) on time, kill (.+?) first(.*?) — this matchup is (.+?) \((\d+)% draft win probability\)\.$",
+        r"^Play (.+?) to the plan: finish (.+?) on time, kill (.+?) first(.*?) — this matchup is (.+?) \((\d+)% draft edge, heuristic\)\.$",
         lambda m: (
             f"Играйте на {m.group(1)} по плану: завершите {m.group(2)} вовремя, убейте {m.group(3)} первым"
             f"{_hs_plan_clause_ru(m.group(4))} — этот матчап {RU_TERMS.get(m.group(5), m.group(5))} "
-            f"({m.group(6)}% вероятность победы по драфту)."
+            f"({m.group(6)}% преимущество по драфту, эвристика)."
         ),
     )
     add(
@@ -890,8 +890,10 @@ HS_EXACT: dict[str, str] = {
         "Применяйте снижение лечения до боя, а не во время — анти-хил после первого лечения уже опоздал.",
     "This hero has no compiled ability data, so ability-level advice is limited.":
         "У этого героя нет собранных данных о способностях, поэтому советы по способностям ограничены.",
-    "The draft maths are close to even, so treat the win probability as a coin flip rather than a prediction.":
-        "Математика драфта почти равна, поэтому относитесь к вероятности победы как к монетке, а не как к предсказанию.",
+    "The draft maths are close to even, so treat the draft score as a coin flip rather than a prediction.":
+        "Математика драфта почти равна, поэтому относитесь к оценке драфта как к монетке, а не как к предсказанию.",
+    "Heuristic draft-edge score from this patch's matchup and win-rate data (50 = even draft). Not a measured or statistically calibrated win probability.":
+        "Эвристическая оценка преимущества драфта по данным матчапов и винрейтов этого патча (50 — равный драфт). Это не измеренная и не статистически калиброванная вероятность победы.",
     "At least one enemy has no compiled ability data; its dossier falls back to capability counters.":
         "У какого-то врага нет собранных данных о способностях; его досье опирается на счётчики возможностей.",
     "Hero and item names are shown in English, matching community convention.":

@@ -14,9 +14,10 @@ const KIND_STYLE: Record<DraftVerdictKind, { text: string; bar: string; border: 
 /**
  * Draft verdict.
  *
- * The categorical assessment is always shown. The numeric win probability is
- * shown only when the engine models it, and is explicitly labelled an estimate —
- * a heuristic score is never dressed up as a measured statistic.
+ * The categorical assessment is always shown. The numeric figure is a
+ * *heuristic draft-edge score* — real per-patch inputs, hand-tuned weights, not
+ * calibrated against outcomes — so it is labelled as such and never dressed up
+ * as a measured probability of winning.
  */
 export function WinPlanVerdict({ plan }: { plan: WinPlanView }) {
   const t = useTranslations('winplan');
@@ -32,16 +33,21 @@ export function WinPlanVerdict({ plan }: { plan: WinPlanView }) {
       {hasProb && (
         <div className="mt-4">
           <div className="flex items-end justify-between">
-            <span className="text-xs text-ink-faint">{t('winProbEstimate')}</span>
+            <span className="text-xs text-ink-faint">{t('draftEdgeScore')}</span>
             <span className={cn('tabular text-lg font-bold', style.text)}>
-              {v.winProbability!.toFixed(1)}%
+              {v.winProbability!.toFixed(1)}
+              <span className="text-xs font-medium text-ink-faint">/100</span>
             </span>
           </div>
           <div className="mt-1.5 flex h-2 w-full overflow-hidden rounded-full bg-base-700">
             <div className={cn('h-full', style.bar)} style={{ width: `${Math.max(0, Math.min(100, v.winProbability!))}%` }} />
             <div className="h-full flex-1 bg-base-600" />
           </div>
-          {v.confidence && <p className="mt-1.5 text-[11px] text-ink-faint">{t('confidence', { level: v.confidence })}</p>}
+          <div className="mt-1.5 flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
+            <span className="text-[11px] text-ink-faint">{t('draftEdgeScale')}</span>
+            {v.confidence && <span className="text-[11px] text-ink-faint">{t('confidence', { level: v.confidence })}</span>}
+          </div>
+          <p className="mt-2 text-[11px] leading-relaxed text-ink-faint">{v.disclaimer ?? t('draftEdgeNote')}</p>
         </div>
       )}
 

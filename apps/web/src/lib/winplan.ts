@@ -52,6 +52,8 @@ export type WinPlanView = {
     /** Present only because the engine models it explicitly; labelled as an estimate. */
     winProbability?: number;
     confidence?: string;
+    /** Honest framing of what `winProbability` is (heuristic, not measured). */
+    disclaimer?: string;
     /** Localized engine prose (e.g. the matchup assessment). */
     assessment: string;
   };
@@ -112,6 +114,7 @@ export function fromPanic(result: PanicResult): WinPlanView {
       kind: verdictFor(probability),
       winProbability: probability,
       confidence: result.win_probability?.confidence,
+      disclaimer: result.win_probability?.disclaimer,
       assessment: result.win_probability?.verdict ?? result.one_sentence_win_plan,
     },
     mainWinPlan: result.one_sentence_win_plan,
@@ -150,6 +153,7 @@ export function fromReport(report: Report): WinPlanView {
       kind: verdictFor(probability),
       winProbability: probability,
       confidence: report.win_probability?.confidence,
+      disclaimer: report.win_probability?.disclaimer,
       assessment: report.draft_summary.verdict || report.win_probability?.verdict || '',
     },
     mainWinPlan: report.one_sentence_win_plan,
@@ -203,6 +207,7 @@ export function fromHeroStrategy(strategy: HeroStrategy): WinPlanView {
       kind: verdictFor(probability),
       winProbability: probability,
       confidence: strategy.matchup_overview?.confidence ?? strategy.win_probability?.confidence,
+      disclaimer: strategy.win_probability?.disclaimer,
       assessment: strategy.matchup_overview?.assessment ?? '',
     },
     mainWinPlan: strategy.one_sentence_game_plan,

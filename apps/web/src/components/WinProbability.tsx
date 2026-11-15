@@ -19,12 +19,12 @@ export function WinProbabilityBar({ wp, compact = false }: { wp: WinProbability;
           <p className="label">{t('draft')}</p>
           <p className={cn('text-3xl font-black tabular-nums leading-none', edge ? 'text-radiant' : 'text-dire')}>
             {you.toFixed(1)}
-            <span className="text-lg">%</span>
+            <span className="text-lg">/100</span>
           </p>
         </div>
         <div className="text-right">
           <p className="label">{t('enemy')}</p>
-          <p className="text-xl font-bold tabular-nums leading-none text-ink-soft">{them.toFixed(1)}%</p>
+          <p className="text-xl font-bold tabular-nums leading-none text-ink-soft">{them.toFixed(1)}</p>
         </div>
       </div>
 
@@ -40,6 +40,8 @@ export function WinProbabilityBar({ wp, compact = false }: { wp: WinProbability;
         <span className={cn('font-semibold', edge ? 'text-radiant' : 'text-dire')}>{wp.verdict}</span>
         <span className="chip">{t('confidence', { level: tLevels(confidence) })}</span>
       </div>
+
+      <p className="text-[11px] leading-relaxed text-ink-faint">{wp.disclaimer ?? t('disclaimer')}</p>
     </div>
   );
 }

@@ -25,7 +25,7 @@ const LABELS: Record<Locale, Record<string, string>> = {
     lastPick: "I'M LAST PICK",
     myHero: 'MY HERO PLAN',
     verdict: 'DRAFT VERDICT',
-    estimate: 'model estimate',
+    estimate: 'draft-edge score · heuristic',
     winCondition: 'WIN CONDITION',
     primary: 'PRIMARY',
     secondary: 'SECONDARY',
@@ -43,7 +43,7 @@ const LABELS: Record<Locale, Record<string, string>> = {
     lastPick: 'Я ПОСЛЕДНИЙ ПИК',
     myHero: 'ПЛАН ДЛЯ МОЕГО ГЕРОЯ',
     verdict: 'ОЦЕНКА ДРАФТА',
-    estimate: 'оценка модели',
+    estimate: 'оценка драфта · эвристика',
     winCondition: 'УСЛОВИЕ ПОБЕДЫ',
     primary: 'ОСНОВНОЕ',
     secondary: 'ДОПОЛНИТЕЛЬНОЕ',
@@ -217,7 +217,7 @@ function HeroBand({ data, height, big }: { data: PosterData; height: number; big
           {typeof data.winProbability === 'number' && (
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
               <div style={{ display: 'flex', fontSize: 40, fontWeight: 900, color: OG.ink, fontFamily: 'Playfair Display' }}>
-                {data.winProbability.toFixed(0)}%
+                {data.winProbability.toFixed(0)}/100
               </div>
               <div style={{ display: 'flex', fontSize: 18, color: OG.faint }}>{data.winProbabilityLabel}</div>
             </div>

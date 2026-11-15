@@ -14,7 +14,7 @@ export type DraftPayload = {
   e: number[];
   /** The recommended hero id. */
   h?: number;
-  /** Draft win probability, as a whole percent. */
+  /** Heuristic draft-edge score, 0-100 (50 = even draft). */
   w?: number;
   /** Role the plan was generated for. */
   r?: string;

@@ -479,4 +479,4 @@ def one_sentence_plan(
         clause += ", avoid enemy initiations until BKB is up"
     if avoid:
         clause += f", and never build {avoid}"
-    return f"If you {clause}, this match is {tone} ({winprob.player_win_probability:.0f}% draft win probability)."
+    return f"If you {clause}, this match is {tone} ({winprob.player_win_probability:.0f}% draft edge, heuristic)."

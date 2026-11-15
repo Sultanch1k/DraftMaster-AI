@@ -71,6 +71,8 @@ export type WinProbability = {
   factors: { name: string; detail: string; contribution_pp: number }[];
   rank_label: string;
   verdict: string;
+  /** Honest framing: this 0-100 figure is a heuristic draft-edge score. */
+  disclaimer?: string;
 };
 
 export type ThreatAnalysis = {
