@@ -11,12 +11,11 @@ import { cn } from '@/lib/format';
 import { Header, type TabKey } from '@/components/Header';
 import { HeroGrid } from '@/components/HeroGrid';
 import { DraftControls } from '@/components/DraftControls';
-import { PanicView } from '@/components/PanicView';
+import { PanicWinPlan } from '@/components/winplan/PanicWinPlan';
 import { ReportView } from '@/components/ReportView';
 import { HeroPortrait } from '@/components/HeroPortrait';
 import { ReportSkeleton } from '@/components/ReportSkeleton';
 import { PremiumModal } from '@/components/PremiumModal';
-import { ShareBar } from '@/components/ShareBar';
 import { HeroStrategyView } from '@/components/HeroStrategyView';
 import { ModeChooser } from '@/components/ModeChooser';
 import { ScreenshotPanel } from '@/components/panels/ScreenshotPanel';
@@ -308,18 +307,14 @@ export default function Home() {
               )}
               {loading && <ReportSkeleton label={t('loading.reading', { count: selected.length })} />}
               {!loading && tab === 'lastpick' && panic && (
-                <>
-                  <PanicView result={panic} onFullReport={() => run('report')} />
-                  <div className="flex flex-wrap items-center gap-2">
-                    <ShareBar
-                      enemyIds={selected}
-                      role={role}
-                      rank={rank}
-                      onQuota={() => setShowPlans(true)}
-                    />
-                    <span className="text-xs text-slate-500">{t('share.subhint')}</span>
-                  </div>
-                </>
+                <PanicWinPlan
+                  result={panic}
+                  enemyIds={selected}
+                  role={role}
+                  rank={rank}
+                  onFullReport={() => run('report')}
+                  onQuota={() => setShowPlans(true)}
+                />
               )}
               {!loading && tab === 'draft' && report && <ReportView report={report} />}
               {!loading && !panic && !report && (

@@ -503,5 +503,71 @@
     "invalid": "This share link is invalid or has expired.",
     "loading": "Rebuilding the win plan…",
     "madeBy": "Generated with DraftMaster AI"
+  },
+  "winplan": {
+    "mode": {
+      "counter": "COUNTER-PICK · WIN PLAN",
+      "strategy": "MY HERO · WIN PLAN"
+    },
+    "roleLabel": "Role: {role}",
+    "patch": "Patch {patch}",
+    "verdict": "Draft verdict",
+    "verdictKind": {
+      "favorable": "Favorable",
+      "competitive": "Competitive",
+      "difficult": "Difficult",
+      "situational": "Highly situational"
+    },
+    "winProbEstimate": "Draft win probability (model estimate)",
+    "confidence": "Confidence: {level}",
+    "mainPlan": "The win plan",
+    "whyWorks": "Why this hero works",
+    "winCondition": "Win condition",
+    "wc": {
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "emergency": "Emergency"
+    },
+    "killPriority": "Kill priority",
+    "dangerHeroes": "Danger heroes",
+    "powerSpikes": "Power spikes",
+    "yourSpikes": "Your windows",
+    "enemySpikes": "Enemy windows",
+    "threats": "Threat analysis",
+    "enemyDraft": "Enemy draft",
+    "dontDo": "Don't do this",
+    "phases": {
+      "title": "Match plan",
+      "objectives": "Objectives",
+      "farm": "Farm focus",
+      "fight": "Fight focus",
+      "map": "Map movement"
+    },
+    "items": {
+      "title": "Item build",
+      "generated": "Generated from this draft",
+      "keyCounters": "Key counter items",
+      "starting": "Starting",
+      "lane": "Lane",
+      "early": "Early game",
+      "mid": "Mid game",
+      "late": "Late game",
+      "luxury": "Luxury",
+      "situational": "Situational",
+      "emergency": "Emergency",
+      "hintStarting": "leave the fountain",
+      "hintLane": "first minutes",
+      "hintEarly": "first item timing",
+      "hintMid": "mid-game core",
+      "hintLate": "late-game scaling",
+      "hintLuxury": "when rich",
+      "hintSituational": "adapt to the enemy",
+      "hintEmergency": "if you are behind",
+      "avoid": "Items to avoid"
+    },
+    "share": {
+      "title": "Share this win plan",
+      "subtitle": "Turn it into a poster or send the link"
+    }
   }
 }

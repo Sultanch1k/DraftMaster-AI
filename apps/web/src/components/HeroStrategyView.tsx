@@ -19,13 +19,16 @@ import { useTranslations } from 'next-intl';
 import { api, ApiError, isNetworkError } from '@/lib/api';
 import { track } from '@/lib/analytics';
 import type { Hero, HeroStrategy, ItemPick, Usage } from '@/lib/types';
-import { cn, scoreColor } from '@/lib/format';
+import { cn } from '@/lib/format';
+import { fromHeroStrategy } from '@/lib/winplan';
 import { Card } from './Card';
 import { HeroPicker } from './HeroPicker';
 import { HeroPortrait } from './HeroPortrait';
-import { ItemBuildCard, OneSentencePlan, PowerSpikeCard, TargetPriorityCard, WinConditionsCard } from './ReportCards';
 import { WinProbabilityBar, WinProbFactors } from './WinProbability';
 import { ReportSkeleton } from './ReportSkeleton';
+import { WinPlanHeroIdentity, WinPlanStatement } from './winplan/HeroIdentity';
+import { WinPlanVerdict, WinPlanWhy, WinPlanKillPriority, WinPlanWinCondition, WinPlanMistakes } from './winplan/Panels';
+import { WinPlanItemBuild, WinPlanPowerSpikes, WinPlanDangerHeroes } from './winplan/Tactical';
 
 type Props = {
   heroes: Hero[];
@@ -238,68 +241,45 @@ function StrategyReport({ strategy }: { strategy: HeroStrategy }) {
   const ov = strategy.matchup_overview;
   const lane = strategy.lane_strategy;
   const tf = strategy.teamfight_strategy;
+  const plan = fromHeroStrategy(strategy);
 
   return (
     <div className="flex flex-col gap-4">
-      {/* Header: hero, difficulty, win probability */}
-      <Card>
-        <div className="grid gap-5 xl:grid-cols-[1fr_1.1fr]">
-          <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-3">
-              <HeroPortrait icon={strategy.hero.icon} name={strategy.hero.localized_name} size={64} priority />
-              <div className="min-w-0">
-                <p className="label">{t('title')}</p>
-                <h2 className="text-2xl font-black leading-tight text-white">{strategy.hero.localized_name}</h2>
-                <p className="text-xs text-slate-400">
-                  {t('vs', { heroes: strategy.enemy_draft.map((h) => h.localized_name).join(', ') })}
-                </p>
-              </div>
-            </div>
+      <WinPlanHeroIdentity plan={plan} />
 
-            <div className="flex flex-wrap items-center gap-2">
-              <span className={cn('chip', ov.difficulty <= 2 ? 'border-radiant/50 text-radiant' : ov.difficulty === 3 ? 'border-gold/50 text-gold' : 'border-dire/50 text-dire')}>
-                {t('difficulty')}: {t(diffKey(ov.difficulty))}
-              </span>
-              <span className="chip">{strategy.rank}</span>
-              <span className="chip">{strategy.patch ? `patch ${strategy.patch}` : ''}</span>
-            </div>
-
-            <div className="rounded-lg border border-base-700 bg-base-900/50 p-3">
-              <p className="label mb-1">{t('assessment')}</p>
-              <p className="text-sm leading-relaxed text-slate-200">{ov.assessment}</p>
-            </div>
-
-            <div className="grid gap-3 sm:grid-cols-2">
-              <Bullets title={t('advantages')} items={ov.advantages} tone="radiant" />
-              <Bullets title={t('mistakes')} items={ov.biggest_mistakes} tone="dire" />
-            </div>
-
-            {(ov.favourable_matchups.length > 0 || ov.unfavourable_matchups.length > 0) && (
-              <div className="flex flex-wrap gap-3 text-xs">
-                {ov.favourable_matchups.length > 0 && (
-                  <span className="text-slate-400">
-                    <span className="font-semibold text-radiant">{t('favourable')}: </span>
-                    {ov.favourable_matchups.join(', ')}
-                  </span>
-                )}
-                {ov.unfavourable_matchups.length > 0 && (
-                  <span className="text-slate-400">
-                    <span className="font-semibold text-dire">{t('unfavourable')}: </span>
-                    {ov.unfavourable_matchups.join(', ')}
-                  </span>
-                )}
-              </div>
-            )}
-          </div>
-
-          <div className="flex flex-col gap-4">
-            <WinProbabilityBar wp={strategy.win_probability} />
+      <div className="grid gap-4 xl:grid-cols-2">
+        <WinPlanVerdict plan={plan} />
+        <Card>
+          <WinProbabilityBar wp={strategy.win_probability} />
+          <div className="mt-3">
             <WinProbFactors wp={strategy.win_probability} />
           </div>
-        </div>
-      </Card>
+        </Card>
+      </div>
 
-      <OneSentencePlan sentence={strategy.one_sentence_game_plan} label={t('s10')} />
+      <WinPlanStatement sentence={strategy.one_sentence_game_plan} />
+
+      <div className="grid gap-4 xl:grid-cols-2">
+        <WinPlanWhy reasons={ov.advantages} />
+        <WinPlanDangerHeroes heroes={plan.dangerHeroes} />
+      </div>
+
+      {(ov.favourable_matchups.length > 0 || ov.unfavourable_matchups.length > 0) && (
+        <div className="flex flex-wrap gap-3 px-1 text-xs">
+          {ov.favourable_matchups.length > 0 && (
+            <span className="text-ink-muted">
+              <span className="font-semibold text-radiant">{t('favourable')}: </span>
+              {ov.favourable_matchups.join(', ')}
+            </span>
+          )}
+          {ov.unfavourable_matchups.length > 0 && (
+            <span className="text-ink-muted">
+              <span className="font-semibold text-dire">{t('unfavourable')}: </span>
+              {ov.unfavourable_matchups.join(', ')}
+            </span>
+          )}
+        </div>
+      )}
 
       {/* 2 · Lane strategy */}
       <Card title={`2 · ${t('s2')}`} icon={<Clock className="h-4 w-4 text-gold" />}>
@@ -372,10 +352,7 @@ function StrategyReport({ strategy }: { strategy: HeroStrategy }) {
       </Card>
 
       {/* 4 · Item build */}
-      <div>
-        <SectionHeading n={4} title={t('s4')} />
-        <ItemBuildCard build={strategy.item_build} />
-      </div>
+      <WinPlanItemBuild build={strategy.item_build} />
 
       {/* 5 · Enemy dossiers */}
       <div>
@@ -408,22 +385,16 @@ function StrategyReport({ strategy }: { strategy: HeroStrategy }) {
         )}
       </Card>
 
-      {/* 7 · Target priority + 8 · Power spikes */}
+      {/* 7 · Kill priority + 8 · Power spikes */}
       <div className="grid gap-4 xl:grid-cols-2">
-        <div>
-          <SectionHeading n={7} title={t('s7')} />
-          <TargetPriorityCard targets={strategy.target_priority} />
-        </div>
-        <div>
-          <SectionHeading n={8} title={t('s8')} />
-          <PowerSpikeCard spikes={strategy.power_spikes} />
-        </div>
+        <WinPlanKillPriority targets={plan.killPriority} />
+        <WinPlanPowerSpikes spikes={strategy.power_spikes} />
       </div>
 
-      {/* 9 · Win conditions */}
-      <div>
-        <SectionHeading n={9} title={t('s9')} />
-        <WinConditionsCard conditions={strategy.win_conditions} />
+      {/* 9 · Win conditions + mistakes */}
+      <div className="grid gap-4 xl:grid-cols-2">
+        <WinPlanWinCondition conditions={strategy.win_conditions} />
+        <WinPlanMistakes mistakes={ov.biggest_mistakes} />
       </div>
 
       {/* Confidence disclosure */}

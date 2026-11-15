@@ -503,5 +503,71 @@
     "invalid": "Ссылка недействительна или истекла.",
     "loading": "Собираю план победы…",
     "madeBy": "Сгенерировано DraftMaster AI"
+  },
+  "winplan": {
+    "mode": {
+      "counter": "КОНТР-ПИК · ПЛАН НА ИГРУ",
+      "strategy": "МОЙ ГЕРОЙ · ПЛАН НА ИГРУ"
+    },
+    "roleLabel": "Роль: {role}",
+    "patch": "Патч {patch}",
+    "verdict": "Оценка драфта",
+    "verdictKind": {
+      "favorable": "В вашу пользу",
+      "competitive": "Равный",
+      "difficult": "Тяжело",
+      "situational": "Очень ситуативно"
+    },
+    "winProbEstimate": "Вероятность победы по драфту (оценка модели)",
+    "confidence": "Уверенность: {level}",
+    "mainPlan": "План на игру",
+    "whyWorks": "Почему этот герой работает",
+    "winCondition": "Условие победы",
+    "wc": {
+      "primary": "Основное",
+      "secondary": "Дополнительное",
+      "emergency": "Запасное"
+    },
+    "killPriority": "Приоритет убийств",
+    "dangerHeroes": "Опасные герои",
+    "powerSpikes": "Пики силы",
+    "yourSpikes": "Ваши окна",
+    "enemySpikes": "Окна врага",
+    "threats": "Анализ угроз",
+    "enemyDraft": "Драфт врага",
+    "dontDo": "Не делайте так",
+    "phases": {
+      "title": "План на матч",
+      "objectives": "Цели",
+      "farm": "Фокус фарма",
+      "fight": "Фокус боя",
+      "map": "Движение по карте"
+    },
+    "items": {
+      "title": "Сборка предметов",
+      "generated": "Сгенерировано под этот драфт",
+      "keyCounters": "Ключевые контр-предметы",
+      "starting": "Старт",
+      "lane": "Лайн",
+      "early": "Ранняя игра",
+      "mid": "Мид-гейм",
+      "late": "Лейт-гейм",
+      "luxury": "Люкс",
+      "situational": "Ситуативно",
+      "emergency": "Экстренно",
+      "hintStarting": "выход с фонтана",
+      "hintLane": "первые минуты",
+      "hintEarly": "тайминг первого предмета",
+      "hintMid": "кор на мид-гейм",
+      "hintLate": "лейт-скейлинг",
+      "hintLuxury": "когда есть золото",
+      "hintSituational": "адаптация к врагу",
+      "hintEmergency": "если вы позади",
+      "avoid": "Предметы, которых стоит избегать"
+    },
+    "share": {
+      "title": "Поделиться планом",
+      "subtitle": "Сделайте постер или отправьте ссылку"
+    }
   }
 }
