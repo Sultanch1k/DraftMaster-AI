@@ -247,6 +247,28 @@ cd apps/web && npx tsc --noEmit && npm run build
   and the poster. When no token exists (no signing key, or the free quota is
   spent) the poster section hides rather than showing a broken image.
 
+- **`DRAFTMASTER_SECRET_KEY` now self-provisions.** It used to be a hard
+  prerequisite for sharing: unset, `POST /api/share` minted an unsigned token
+  that `verify_share` rejected, so the share loop was silently dead in
+  production (observed 2026-11-07 — the live API returned `"token":""`). The app
+  lifespan now calls `Store.get_or_create_secret()` when
+  `DRAFTMASTER_PROVISION_SECRET_KEY=true` (`infra/render.yaml` sets it), which
+  mints a key and **persists** it in the store so links survive a restart. An
+  explicitly configured `DRAFTMASTER_SECRET_KEY` always wins; set
+  `DRAFTMASTER_PROVISION_SECRET_KEY=false` to opt out and keep the old
+  fail-closed behaviour. Persistence matters: an in-memory key would invalidate
+  every previously shared link on the next deploy, and the store's durability is
+  already the go/no-go gate (see the Postgres note above).
+
+- **Sharing covers both modes.** `ShareRequest.hero_id` switches a share from a
+  counter-pick plan to a My Hero Strategy plan; the mode is baked into the signed
+  token (`m: "strategy"`) and `GET /api/share/{token}` rebuilds the matching
+  plan, so the poster and OG card render either one. `ShareWithFriends.tsx` is
+  the single share surface in both `PanicWinPlan` and `HeroStrategyView`; the
+  old `ShareBar` was removed. Keep the two response shapes distinguishable — the
+  strategy envelope is `{"strategy": {...}}`, everything else is the panic
+  result — because `ShareView` and the poster pick their renderer from it.
+
 ## Definition of done
 
 1. Tests pass (`pytest`), types check (`tsc --noEmit`), and the production build

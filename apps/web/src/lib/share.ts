@@ -20,6 +20,8 @@ export type DraftPayload = {
   r?: string;
   /** Rank tier. */
   rk?: number;
+  /** Mode: 'strategy' = My Hero plan; absent = counter-pick. */
+  m?: string;
 };
 
 function fromBase64Url(token: string): string {
@@ -47,6 +49,7 @@ export function decodeDraft(token: string): DraftPayload | null {
       w: parsed.w ? Number(parsed.w) : undefined,
       r: parsed.r,
       rk: parsed.rk ? Number(parsed.rk) : undefined,
+      m: parsed.m,
     };
   } catch {
     return null;

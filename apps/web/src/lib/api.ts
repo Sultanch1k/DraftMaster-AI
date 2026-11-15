@@ -181,15 +181,21 @@ export const api = {
 
   billingConfig: () => request<BillingConfig>('/api/billing/config'),
 
-  /** Mint a signed, public share link for a draft (spends quota like a panic run). */
-  createShare: (enemy_hero_ids: number[], role?: string, rank_tier?: number) =>
+  /**
+   * Mint a signed, public share link for a draft (spends quota like a panic run).
+   *
+   * Pass `hero_id` to share a "My Hero Strategy" plan (that hero vs the enemies)
+   * instead of a counter-pick. The mode is baked into the signed token.
+   */
+  createShare: (enemy_hero_ids: number[], role?: string, rank_tier?: number, hero_id?: number) =>
     request<{ token: string; path: string; win_probability: number | null }>('/api/share', {
       method: 'POST',
-      body: JSON.stringify({ enemy_hero_ids, role, rank_tier }),
+      body: JSON.stringify({ enemy_hero_ids, role, rank_tier, hero_id }),
     }),
 
   /** Render the plan behind a signed share token. No quota is charged. */
-  renderShare: (token: string) => request<PanicResult>(`/api/share/${token}`),
+  renderShare: (token: string) =>
+    request<PanicResult | { strategy: import('./types').HeroStrategy }>(`/api/share/${token}`),
 
   billingSession: () => request<BillingSession>('/api/billing/session'),
 

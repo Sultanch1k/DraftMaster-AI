@@ -1,7 +1,6 @@
 import { ImageResponse } from 'next/og';
 import { loadOgFonts } from '@/lib/og-fonts';
 import { buildPosterData, POSTER_FORMATS, type PosterFormat } from '@/lib/poster';
-import { fromPanic } from '@/lib/winplan';
 import { fetchSharedPlan } from '@/lib/plan-server';
 
 export const runtime = 'nodejs';
@@ -24,12 +23,12 @@ export async function GET(request: Request, { params }: { params: Promise<{ toke
     return new Response('Invalid format', { status: 400 });
   }
 
-  const result = await fetchSharedPlan(token, locale);
-  if (!result) {
+  const plan = await fetchSharedPlan(token, locale);
+  if (!plan) {
     return new Response('Plan unavailable', { status: 404 });
   }
 
-  const data = buildPosterData(fromPanic(result), locale);
+  const data = buildPosterData(plan, locale);
   const spec = POSTER_FORMATS[format];
   const fonts = await loadOgFonts();
 

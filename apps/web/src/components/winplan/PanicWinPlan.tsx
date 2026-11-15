@@ -4,9 +4,8 @@ import { useTranslations } from 'next-intl';
 import type { PanicResult } from '@/lib/types';
 import { fromPanic } from '@/lib/winplan';
 import { HeroPortrait } from '../HeroPortrait';
-import { ShareBar, useShareLink } from '../ShareBar';
+import { ShareWithFriends, useShareLink } from '../ShareWithFriends';
 import { WinPlanView } from './WinPlanView';
-import { PosterExport } from './PosterExport';
 
 /**
  * "I'M LAST PICK" result, rendered through the shared Win Plan system.
@@ -30,37 +29,28 @@ export function PanicWinPlan({
   onQuota?: () => void;
 }) {
   const t = useTranslations('panic');
-  const tShare = useTranslations('winplan.share');
-  const tVerdict = useTranslations('winplan.verdictKind');
   const plan = fromPanic(result);
-  // One signed token serves both the share button and the poster renderer, so
+  // One signed token serves both the share action and the poster renderer, so
   // the poster never re-charges quota (it would otherwise hit the API from the
   // server IP and share one anonymous free bucket with every other poster).
   const sharePath = useShareLink(enemyIds, role, rank);
-  const posterBase = sharePath ? sharePath.replace(/^\/share\//, '/og/share/') : null;
 
   return (
     <WinPlanView
       plan={plan}
       header={
-        <div className="flex flex-wrap items-center gap-2">
-          <ShareBar enemyIds={enemyIds} role={role} rank={rank} onQuota={onQuota} token={sharePath} />
-        </div>
+        <ShareWithFriends
+          enemyIds={enemyIds}
+          role={role}
+          rank={rank}
+          heroName={plan.heroName}
+          winPlan={plan.mainWinPlan}
+          token={sharePath}
+          onQuota={onQuota}
+        />
       }
       footer={
         <>
-          {posterBase && (
-            <PosterExport
-              posterBase={posterBase}
-              filename={`draftmaster-${plan.heroId}-${plan.heroName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-              caption={tShare('caption', {
-                hero: plan.heroName,
-                verdict: tVerdict(plan.verdict.kind),
-                plan: plan.mainWinPlan,
-              })}
-            />
-          )}
-
           {result.backups.length > 0 && (
             <section className="rounded-panel border border-base-700 bg-base-850 p-4 sm:p-5">
               <p className="label mb-2">{t('backups')}</p>

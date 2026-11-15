@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { AlertCircle, Loader2, Swords } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { api, ApiError, getSessionToken, isNetworkError } from '@/lib/api';
@@ -13,15 +13,16 @@ import { HeroGrid } from '@/components/HeroGrid';
 import { DraftControls } from '@/components/DraftControls';
 import { PanicWinPlan } from '@/components/winplan/PanicWinPlan';
 import { ReportView } from '@/components/ReportView';
-import { HeroPortrait } from '@/components/HeroPortrait';
 import { ReportSkeleton } from '@/components/ReportSkeleton';
 import { PremiumModal } from '@/components/PremiumModal';
 import { HeroStrategyView } from '@/components/HeroStrategyView';
-import { ModeChooser } from '@/components/ModeChooser';
 import { ScreenshotPanel } from '@/components/panels/ScreenshotPanel';
 import { CoachPanel } from '@/components/panels/CoachPanel';
 import { MetaPanel } from '@/components/panels/MetaPanel';
 import { UsageBar } from '@/components/panels/UsageBar';
+import { HomeHero } from '@/components/home/HomeHero';
+import { ActionBar } from '@/components/home/ActionBar';
+import { HowItWorks } from '@/components/home/HowItWorks';
 
 type RunError = { message: string; quota: boolean };
 
@@ -36,7 +37,6 @@ export default function Home() {
   const [tab, setTab] = useState<TabKey>('lastpick');
   const [premium, setPremium] = useState(false);
   const [showPlans, setShowPlans] = useState(false);
-  const [showModes, setShowModes] = useState(false);
 
   // Deep link from the public pages: /?upgrade=1 opens the plan panel, so the
   // checkout link on /panic lands straight on the purchase decision.
@@ -180,80 +180,20 @@ export default function Home() {
       <Header tab={tab} onTab={setTab} patch={meta?.patch} premium={premium} onPremium={() => setShowPlans(true)} />
 
       <main className="mx-auto flex w-full max-w-[1600px] flex-col gap-4 px-3 py-4 sm:px-6 sm:py-6">
-        {/* Hero: value prop + instant action */}
-        <section className="card card-pad">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-            <div className="max-w-xl">
-              <h1 className="text-2xl font-black leading-tight text-ink sm:text-3xl xl:text-4xl">
-                {t('hero.headline1')}
-                <span className="block text-radiant">{t('hero.headline2')}</span>
-              </h1>
-              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink-muted xl:text-base">
-                {t('hero.sub1')}{' '}
-                <span className="text-ink-soft">{t('hero.sub2', { count: heroes.length || 127 })}</span>{' '}
-                {t('hero.sub3')}
-              </p>
-              <div className="mt-3 flex flex-wrap items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => run('panic')}
-                  disabled={loading !== null || selected.length === 0}
-                  className="btn-danger"
-                >
-                  {loading === 'panic' ? <Loader2 className="h-4 w-4 animate-spin" /> : <span>🚨</span>}
-                  {t('hero.panic')}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => run('report')}
-                  disabled={loading !== null || selected.length === 0}
-                  className="btn-primary"
-                >
-                  {loading === 'report' ? <Loader2 className="h-4 w-4 animate-spin" /> : <Swords className="h-4 w-4" />}
-                  {t('hero.oneClick')}
-                </button>
-                <button type="button" onClick={() => setTab('mystrategy')} className="btn-ghost">
-                  🛡️ {t('tabs.mystrategy')}
-                </button>
-                {selected.length > 0 && (
-                  <button type="button" onClick={clear} className="btn-ghost">
-                    {t('hero.clear')}
-                  </button>
-                )}
-                {elapsed !== null && (
-                  <span className="chip border-radiant/40 text-radiant">{t('hero.answeredIn', { ms: elapsed })}</span>
-                )}
-              </div>
-              <p className="mt-2 text-xs text-ink-faint">
-                {t('hero.notPickedYet')}{' '}
-                <button
-                  type="button"
-                  onClick={() => setShowModes(true)}
-                  className="font-semibold text-radiant underline underline-offset-2"
-                >
-                  {t('hero.compareModes')}
-                </button>
-              </p>
-            </div>
+        {/* Cinematic opening: value prop + the two first-class modes */}
+        <HomeHero
+          mode={tab === 'mystrategy' ? 'strategy' : 'counter'}
+          onCounter={() => setTab('lastpick')}
+          onStrategy={() => setTab('mystrategy')}
+          patch={meta?.patch}
+          heroCount={heroes.length}
+        />
 
-            <div className="flex w-full max-w-xs flex-col gap-2 rounded-xl border border-base-700 bg-base-900/60 p-3">
-              <p className="label">{t('hero.enemyDraft')}</p>
-              <div className="flex gap-2">
-                {Array.from({ length: 5 }).map((_, i) => {
-                  const h = selectedHeroes[i];
-                  return h ? (
-                    <HeroPortrait key={`hero-${h.id}`} icon={h.icon} name={h.localized_name} size={40} />
-                  ) : (
-                    <span
-                      key={`slot-${i}`}
-                      className="flex h-10 w-10 items-center justify-center rounded-md border border-dashed border-base-600 text-xs text-ink-faint"
-                    >
-                      {i + 1}
-                    </span>
-                  );
-                })}
-              </div>
-              <DraftControls role={role} onRole={setRole} rank={rank} onRank={setRank} compact />
+        {/* Personalisation + plan status, always visible once a draft exists */}
+        <section className="card card-pad">
+          <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
+            <DraftControls role={role} onRole={setRole} rank={rank} onRank={setRank} />
+            <div className="w-full lg:max-w-xs">
               <UsageBar premium={premium} usage={usage} />
             </div>
           </div>
@@ -262,10 +202,20 @@ export default function Home() {
         {/* Draft input + result */}
         {(tab === 'lastpick' || tab === 'draft') && (
           <div className="grid gap-4 lg:grid-cols-[360px_1fr] xl:grid-cols-[420px_1fr]">
-            <section className="card card-pad">
-              <h2 className="section-title mb-3">{t('draft.input')}</h2>
-              <HeroGrid heroes={heroes} selected={selected} onToggle={toggleHero} max={5} />
-            </section>
+            <div className="flex flex-col gap-4">
+              <section className="card card-pad">
+                <h2 className="section-title mb-3">{t('draft.input')}</h2>
+                <HeroGrid heroes={heroes} selected={selected} onToggle={toggleHero} max={5} />
+              </section>
+              <ActionBar
+                heroes={selectedHeroes}
+                loading={loading}
+                elapsed={elapsed}
+                onPanic={() => run('panic')}
+                onReport={() => run('report')}
+                onClear={clear}
+              />
+            </div>
 
             <section className="flex flex-col gap-3">
               {error && (
@@ -324,6 +274,9 @@ export default function Home() {
           </div>
         )}
 
+        {/* Editorial framing, shown while the user has not produced a plan yet */}
+        {!panic && !report && tab !== 'mystrategy' && <HowItWorks />}
+
         {tab === 'mystrategy' && (
           <HeroStrategyView
             heroes={heroes}
@@ -338,16 +291,6 @@ export default function Home() {
         {tab === 'coach' && <CoachPanel premium={premium} onPremium={() => setShowPlans(true)} />}
         {tab === 'meta' && <MetaPanel meta={meta} />}
       </main>
-
-      <ModeChooser
-        open={showModes}
-        onClose={() => setShowModes(false)}
-        onPick={(mode) => {
-          setShowModes(false);
-          setTab(mode);
-          track('mode_selected', { mode });
-        }}
-      />
 
       <PremiumModal
         open={showPlans}

@@ -52,6 +52,10 @@ class ShareRequest(BaseModel):
     enemy_hero_ids: list[int] = Field(..., min_length=1, max_length=5)
     role: str | None = None
     rank_tier: int | None = Field(default=None, ge=0, le=85)
+    # When set, the share is for "My Hero Strategy" (this hero vs five enemies)
+    # rather than a counter-pick. The mode is baked into the signed token so the
+    # public render endpoint rebuilds the same kind of plan.
+    hero_id: int | None = None
 
 
 class ShareOut(BaseModel):

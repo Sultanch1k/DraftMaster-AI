@@ -152,6 +152,7 @@ def test_no_signing_key_disables_public_shares(client, monkeypatch):
 
     config.get_settings.cache_clear()
     monkeypatch.setenv("DRAFTMASTER_SECRET_KEY", "")
+    monkeypatch.setenv("DRAFTMASTER_PROVISION_SECRET_KEY", "false")
     from draftmaster_api.main import create_app
     from fastapi.testclient import TestClient
 
@@ -163,3 +164,88 @@ def test_no_signing_key_disables_public_shares(client, monkeypatch):
         assert r.json()["token"] == ""
         assert r.json()["path"] == ""
     config.get_settings.cache_clear()
+
+
+def test_provisioned_signing_key_enables_shares_without_configuration(monkeypatch, tmp_path):
+    """With provisioning on and no configured key, the social loop must still work.
+
+    This is the production default: an operator who never sets
+    DRAFTMASTER_SECRET_KEY should still get working share links, because the
+    alternative is a product that looks wired but silently has no sharing.
+    """
+    import draftmaster_api.config as config
+
+    monkeypatch.setenv("DRAFTMASTER_DATABASE_URL", f"sqlite:///{tmp_path/'provision.db'}")
+    monkeypatch.setenv("DRAFTMASTER_REDIS_URL", "")
+    monkeypatch.setenv("DRAFTMASTER_ARTIFACT_PATH", str(ROOT / "data" / "artifacts" / "draftmaster-data.json"))
+    monkeypatch.setenv("DRAFTMASTER_SECRET_KEY", "")
+    monkeypatch.setenv("DRAFTMASTER_PROVISION_SECRET_KEY", "true")
+    config.get_settings.cache_clear()
+
+    from draftmaster_api.main import create_app
+    from fastapi.testclient import TestClient
+
+    app = create_app()
+    with TestClient(app) as c:
+        ids = {h["localized_name"]: h["id"] for h in c.get("/api/heroes").json()}
+        created = c.post(
+            "/api/share", json={"enemy_hero_ids": [ids["Lion"], ids["Axe"]]}, headers={"x-user-id": "x"}
+        ).json()
+        assert created["token"], "a provisioned key must produce a real token"
+        # The freshly minted token must render — the whole point of provisioning.
+        assert c.get(f"/api/share/{created['token']}").status_code == 200
+    config.get_settings.cache_clear()
+
+
+def test_provisioned_key_is_stable_across_app_instances(monkeypatch, tmp_path):
+    """A restarted process must keep verifying links minted before the restart."""
+    import draftmaster_api.config as config
+
+    monkeypatch.setenv("DRAFTMASTER_DATABASE_URL", f"sqlite:///{tmp_path/'stable.db'}")
+    monkeypatch.setenv("DRAFTMASTER_REDIS_URL", "")
+    monkeypatch.setenv("DRAFTMASTER_ARTIFACT_PATH", str(ROOT / "data" / "artifacts" / "draftmaster-data.json"))
+    monkeypatch.setenv("DRAFTMASTER_SECRET_KEY", "")
+    monkeypatch.setenv("DRAFTMASTER_PROVISION_SECRET_KEY", "true")
+    config.get_settings.cache_clear()
+
+    from draftmaster_api.main import create_app
+    from fastapi.testclient import TestClient
+
+    with TestClient(create_app()) as c:
+        ids = {h["localized_name"]: h["id"] for h in c.get("/api/heroes").json()}
+        token = c.post(
+            "/api/share", json={"enemy_hero_ids": [ids["Lion"]]}, headers={"x-user-id": "x"}
+        ).json()["token"]
+
+    # A second app instance reads the persisted key and verifies the old token.
+    with TestClient(create_app()) as c2:
+        assert c2.get(f"/api/share/{token}").status_code == 200
+    config.get_settings.cache_clear()
+
+
+def test_my_hero_share_round_trips(client):
+    """A My Hero share must render the strategy plan, not a counter-pick."""
+    ids = _ids(client)
+    created = client.post(
+        "/api/share",
+        json={"enemy_hero_ids": [ids["Lion"], ids["Axe"], ids["Lina"], ids["Sniper"], ids["Pudge"]], "hero_id": ids["Juggernaut"], "role": "carry"},
+        headers={"x-user-id": "strategy-sharer"},
+    )
+    assert created.status_code == 200, created.text
+    body = created.json()
+    assert body["token"]
+    rendered = client.get(f"/api/share/{body['token']}")
+    assert rendered.status_code == 200, rendered.text
+    payload = rendered.json()
+    assert "strategy" in payload
+    assert payload["strategy"]["hero"]["id"] == ids["Juggernaut"]
+
+
+def test_my_hero_share_rejects_hero_in_enemy_draft(client):
+    ids = _ids(client)
+    r = client.post(
+        "/api/share",
+        json={"enemy_hero_ids": [ids["Juggernaut"], ids["Axe"], ids["Lina"], ids["Sniper"], ids["Pudge"]], "hero_id": ids["Juggernaut"]},
+        headers={"x-user-id": "strategy-sharer"},
+    )
+    assert r.status_code == 422

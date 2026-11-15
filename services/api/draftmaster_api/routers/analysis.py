@@ -248,6 +248,41 @@ def create_share(payload: ShareRequest, request: Request) -> dict:
     today is free, because the quota signature matches (see `_enforce_quota`).
     """
     _validate_ids(request, payload.enemy_hero_ids)
+    if payload.hero_id is not None:
+        # My Hero Strategy share: the hero must be valid and cannot be an enemy.
+        _validate_ids(request, [payload.hero_id])
+        if payload.hero_id in payload.enemy_hero_ids:
+            raise HTTPException(
+                status_code=422,
+                detail="The hero you are playing cannot also be one of the five enemy heroes.",
+            )
+
+    if payload.hero_id is not None:
+        # Charge the same quota signature the strategy run used, so sharing a
+        # plan the user already generated today is free.
+        _enforce_quota(
+            request,
+            _quota_signature("hero_strategy", payload.hero_id, payload.enemy_hero_ids, payload.role, payload.rank_tier),
+        )
+        strategy = request.app.state.hero_strategy.build(
+            hero_id=payload.hero_id,
+            enemy_ids=payload.enemy_hero_ids,
+            role=payload.role,
+            rank_tier=payload.rank_tier,
+        )
+        body: dict = {"e": payload.enemy_hero_ids, "h": payload.hero_id, "m": "strategy"}
+        win = strategy.win_probability.get("player_win_probability")
+        if win is not None:
+            body["w"] = round(float(win))
+        if payload.role:
+            body["r"] = payload.role
+        if payload.rank_tier:
+            body["rk"] = payload.rank_tier
+        token = sign_share(request.app.state.settings, body)
+        if not token:
+            return {"token": "", "path": "", "win_probability": win}
+        return {"token": token, "path": f"/share/{token}", "win_probability": win}
+
     _enforce_quota(
         request, _quota_signature("panic", payload.enemy_hero_ids, payload.role, payload.rank_tier)
     )
@@ -293,6 +328,19 @@ def render_share(token: str, request: Request) -> dict:
         raise HTTPException(status_code=404, detail="This share link is invalid or has expired.")
     _validate_ids(request, payload["e"])
     locale = resolve_locale(request)
+
+    if payload.get("m") == "strategy":
+        # My Hero Strategy share: rebuild the matchup plan for the shared hero.
+        # Kept in a `strategy` envelope so the client and poster renderer can
+        # tell a My Hero share from a counter-pick share.
+        strategy = request.app.state.hero_strategy.build(
+            hero_id=payload["h"],
+            enemy_ids=payload["e"],
+            role=payload.get("r"),
+            rank_tier=payload.get("rk"),
+        )
+        return localize_hero_strategy({"strategy": strategy.to_dict()}, locale)
+
     result = request.app.state.engine.panic(
         enemy_ids=payload["e"],
         role=payload.get("r"),

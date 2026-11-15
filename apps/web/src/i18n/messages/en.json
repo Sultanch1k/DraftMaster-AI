@@ -582,5 +582,43 @@
     "draftEdgeScore": "Draft-edge score",
     "draftEdgeScale": "50 = even draft",
     "draftEdgeNote": "Heuristic estimate from this patch's matchup and win-rate data — not a measured win probability."
+  },
+  "home": {
+    "kicker": "Dota 2 draft intelligence",
+    "headline1": "Play your favorite hero.",
+    "headline2": "Know exactly how to beat the enemy draft.",
+    "sub": "DraftMaster AI turns any matchup into one actionable plan: the hero to pick, or the exact plan for the hero you already chose — build, items to avoid, lane plan, kill priority, power spikes and win conditions — computed from real OpenDota match data, not a static guide.",
+    "patch": "Patch {patch}",
+    "heroes": "{count, plural, one {# hero} other {# heroes}}",
+    "data": "OpenDota match data",
+    "counterTitle": "Find my best counter pick",
+    "counterBody": "I have not picked yet. Show me the best heroes against this draft, and why.",
+    "counterCta": "Pick against this draft",
+    "strategyTitle": "I already picked my hero",
+    "strategyBody": "I know who I am playing. Tell me exactly how to beat this lineup with them.",
+    "strategyCta": "Plan for my hero",
+    "steps": {
+      "step1Title": "Select the enemy draft",
+      "step1Body": "Tap up to five enemy heroes. The whole input takes seconds.",
+      "step2Title": "Get the win plan",
+      "step2Body": "Best pick, dynamic item build, items to avoid, kill priority and win conditions.",
+      "step3Title": "Know your timings",
+      "step3Body": "Power spikes, lane plan and the exact moment to fight or farm.",
+      "step4Title": "Win the game",
+      "step4Body": "A one-sentence plan you can follow from the first wave to the throne."
+    }
+  },
+  "sharebox": {
+    "kicker": "Share the win",
+    "title": "Send this plan to a friend",
+    "body": "Anyone who opens the link sees this exact plan — free. The best way to win more games is to bring your stack.",
+    "copyLink": "Copy link",
+    "copied": "Link copied",
+    "share": "Share",
+    "poster": "Poster",
+    "noNative": "Sharing is not available here — the link is copied instead.",
+    "linkUnavailable": "Could not create a link right now. Try again in a moment.",
+    "posterPending": "Preparing the poster…",
+    "caption": "{hero} win plan — {plan}"
   }
 }
