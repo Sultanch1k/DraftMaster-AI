@@ -19,13 +19,16 @@ import { useTranslations } from 'next-intl';
 import { api, ApiError, isNetworkError } from '@/lib/api';
 import { track } from '@/lib/analytics';
 import type { Hero, HeroStrategy, ItemPick, Usage } from '@/lib/types';
-import { cn, scoreColor } from '@/lib/format';
+import { cn } from '@/lib/format';
+import { fromHeroStrategy } from '@/lib/winplan';
 import { Card } from './Card';
 import { HeroPicker } from './HeroPicker';
 import { HeroPortrait } from './HeroPortrait';
-import { ItemBuildCard, OneSentencePlan, PowerSpikeCard, TargetPriorityCard, WinConditionsCard } from './ReportCards';
 import { WinProbabilityBar, WinProbFactors } from './WinProbability';
 import { ReportSkeleton } from './ReportSkeleton';
+import { WinPlanHeroIdentity, WinPlanStatement } from './winplan/HeroIdentity';
+import { WinPlanVerdict, WinPlanWhy, WinPlanKillPriority, WinPlanWinCondition, WinPlanMistakes } from './winplan/Panels';
+import { WinPlanItemBuild, WinPlanPowerSpikes, WinPlanDangerHeroes } from './winplan/Tactical';
 
 type Props = {
   heroes: Hero[];
@@ -122,8 +125,8 @@ export function HeroStrategyView({ heroes, role, rank, premium, onUsage, onUpgra
       {/* --- input ------------------------------------------------------- */}
       <Card>
         <div className="flex flex-col gap-1">
-          <h2 className="text-lg font-black text-white sm:text-xl">{t('title')}</h2>
-          <p className="text-sm text-slate-400">{t('subtitle')}</p>
+          <h2 className="text-lg font-black text-ink sm:text-xl">{t('title')}</h2>
+          <p className="text-sm text-ink-muted">{t('subtitle')}</p>
         </div>
 
         <div className="mt-4 flex flex-col gap-4">
@@ -134,13 +137,13 @@ export function HeroStrategyView({ heroes, role, rank, premium, onUsage, onUpgra
                 <div className="flex items-center gap-2 rounded-lg border border-radiant/50 bg-radiant/10 px-3 py-2">
                   <HeroPortrait icon={pickedHero.icon} name={pickedHero.localized_name} size={40} priority />
                   <div>
-                    <p className="text-sm font-bold text-white">{pickedHero.localized_name}</p>
-                    <p className="text-[11px] text-slate-400">{pickedHero.roles.join(' · ')}</p>
+                    <p className="text-sm font-bold text-ink">{pickedHero.localized_name}</p>
+                    <p className="text-[11px] text-ink-muted">{pickedHero.roles.join(' · ')}</p>
                   </div>
                   <button
                     type="button"
                     onClick={() => selectHero(pickedHero.id)}
-                    className="ml-1 rounded p-1 text-slate-400 hover:text-white"
+                    className="ml-1 rounded p-1 text-ink-muted hover:text-ink"
                     aria-label={t('changeHero')}
                     title={t('changeHero')}
                   >
@@ -148,7 +151,7 @@ export function HeroStrategyView({ heroes, role, rank, premium, onUsage, onUpgra
                   </button>
                 </div>
               ) : (
-                <span className="text-xs text-slate-500">{t('pickYourHeroHint')}</span>
+                <span className="text-xs text-ink-faint">{t('pickYourHeroHint')}</span>
               )}
             </div>
             <HeroPicker
@@ -174,21 +177,21 @@ export function HeroStrategyView({ heroes, role, rank, premium, onUsage, onUpgra
                     className="group relative"
                   >
                     <HeroPortrait icon={h.icon} name={h.localized_name} size={44} />
-                    <span className="absolute -right-1 -top-1 hidden h-4 w-4 items-center justify-center rounded-full bg-dire text-[9px] font-bold text-white group-hover:flex">
+                    <span className="absolute -right-1 -top-1 hidden h-4 w-4 items-center justify-center rounded-full bg-dire text-[9px] font-bold text-ink group-hover:flex">
                       ✕
                     </span>
                   </button>
                 ) : (
                   <span
                     key={`s-${i}`}
-                    className="flex h-11 w-11 items-center justify-center rounded-md border border-dashed border-base-600 text-xs text-slate-600"
+                    className="flex h-11 w-11 items-center justify-center rounded-md border border-dashed border-base-600 text-xs text-ink-faint"
                   >
                     {i + 1}
                   </span>
                 );
               })}
             </div>
-            <p className={cn('mb-3 text-[11px]', enemies.length === 5 ? 'text-radiant' : 'text-slate-500')}>
+            <p className={cn('mb-3 text-[11px]', enemies.length === 5 ? 'text-radiant' : 'text-ink-faint')}>
               {t('enemyHint', { count: enemies.length })}
             </p>
             <HeroPicker heroes={heroes} selected={enemies} onToggle={toggleEnemy} disabledIds={myHero ? [myHero] : []} />
@@ -238,68 +241,45 @@ function StrategyReport({ strategy }: { strategy: HeroStrategy }) {
   const ov = strategy.matchup_overview;
   const lane = strategy.lane_strategy;
   const tf = strategy.teamfight_strategy;
+  const plan = fromHeroStrategy(strategy);
 
   return (
     <div className="flex flex-col gap-4">
-      {/* Header: hero, difficulty, win probability */}
-      <Card>
-        <div className="grid gap-5 xl:grid-cols-[1fr_1.1fr]">
-          <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-3">
-              <HeroPortrait icon={strategy.hero.icon} name={strategy.hero.localized_name} size={64} priority />
-              <div className="min-w-0">
-                <p className="label">{t('title')}</p>
-                <h2 className="text-2xl font-black leading-tight text-white">{strategy.hero.localized_name}</h2>
-                <p className="text-xs text-slate-400">
-                  {t('vs', { heroes: strategy.enemy_draft.map((h) => h.localized_name).join(', ') })}
-                </p>
-              </div>
-            </div>
+      <WinPlanHeroIdentity plan={plan} />
 
-            <div className="flex flex-wrap items-center gap-2">
-              <span className={cn('chip', ov.difficulty <= 2 ? 'border-radiant/50 text-radiant' : ov.difficulty === 3 ? 'border-gold/50 text-gold' : 'border-dire/50 text-dire')}>
-                {t('difficulty')}: {t(diffKey(ov.difficulty))}
-              </span>
-              <span className="chip">{strategy.rank}</span>
-              <span className="chip">{strategy.patch ? `patch ${strategy.patch}` : ''}</span>
-            </div>
-
-            <div className="rounded-lg border border-base-700 bg-base-900/50 p-3">
-              <p className="label mb-1">{t('assessment')}</p>
-              <p className="text-sm leading-relaxed text-slate-200">{ov.assessment}</p>
-            </div>
-
-            <div className="grid gap-3 sm:grid-cols-2">
-              <Bullets title={t('advantages')} items={ov.advantages} tone="radiant" />
-              <Bullets title={t('mistakes')} items={ov.biggest_mistakes} tone="dire" />
-            </div>
-
-            {(ov.favourable_matchups.length > 0 || ov.unfavourable_matchups.length > 0) && (
-              <div className="flex flex-wrap gap-3 text-xs">
-                {ov.favourable_matchups.length > 0 && (
-                  <span className="text-slate-400">
-                    <span className="font-semibold text-radiant">{t('favourable')}: </span>
-                    {ov.favourable_matchups.join(', ')}
-                  </span>
-                )}
-                {ov.unfavourable_matchups.length > 0 && (
-                  <span className="text-slate-400">
-                    <span className="font-semibold text-dire">{t('unfavourable')}: </span>
-                    {ov.unfavourable_matchups.join(', ')}
-                  </span>
-                )}
-              </div>
-            )}
-          </div>
-
-          <div className="flex flex-col gap-4">
-            <WinProbabilityBar wp={strategy.win_probability} />
+      <div className="grid gap-4 xl:grid-cols-2">
+        <WinPlanVerdict plan={plan} />
+        <Card>
+          <WinProbabilityBar wp={strategy.win_probability} />
+          <div className="mt-3">
             <WinProbFactors wp={strategy.win_probability} />
           </div>
-        </div>
-      </Card>
+        </Card>
+      </div>
 
-      <OneSentencePlan sentence={strategy.one_sentence_game_plan} label={t('s10')} />
+      <WinPlanStatement sentence={strategy.one_sentence_game_plan} />
+
+      <div className="grid gap-4 xl:grid-cols-2">
+        <WinPlanWhy reasons={ov.advantages} />
+        <WinPlanDangerHeroes heroes={plan.dangerHeroes} />
+      </div>
+
+      {(ov.favourable_matchups.length > 0 || ov.unfavourable_matchups.length > 0) && (
+        <div className="flex flex-wrap gap-3 px-1 text-xs">
+          {ov.favourable_matchups.length > 0 && (
+            <span className="text-ink-muted">
+              <span className="font-semibold text-radiant">{t('favourable')}: </span>
+              {ov.favourable_matchups.join(', ')}
+            </span>
+          )}
+          {ov.unfavourable_matchups.length > 0 && (
+            <span className="text-ink-muted">
+              <span className="font-semibold text-dire">{t('unfavourable')}: </span>
+              {ov.unfavourable_matchups.join(', ')}
+            </span>
+          )}
+        </div>
+      )}
 
       {/* 2 · Lane strategy */}
       <Card title={`2 · ${t('s2')}`} icon={<Clock className="h-4 w-4 text-gold" />}>
@@ -318,7 +298,7 @@ function StrategyReport({ strategy }: { strategy: HeroStrategy }) {
                     <li key={o.hero_id} className="rounded-lg border border-base-700 bg-base-850/60 p-2.5">
                       <div className="mb-1 flex items-center gap-2">
                         <HeroPortrait icon={null} name={o.name} size={24} />
-                        <span className="text-sm font-semibold text-white">{o.name}</span>
+                        <span className="text-sm font-semibold text-ink">{o.name}</span>
                         <span
                           className={cn(
                             'ml-auto chip',
@@ -328,7 +308,7 @@ function StrategyReport({ strategy }: { strategy: HeroStrategy }) {
                           {t('laneRisk')}: {t(riskKey(o.risk))}
                         </span>
                       </div>
-                      <p className="text-[11px] leading-relaxed text-slate-300">{o.advice}</p>
+                      <p className="text-[11px] leading-relaxed text-ink-soft">{o.advice}</p>
                     </li>
                   ))}
                 </ul>
@@ -352,9 +332,9 @@ function StrategyReport({ strategy }: { strategy: HeroStrategy }) {
             <p className="label mb-1.5">{t('keyAbilities')}</p>
             <ul className="flex flex-col gap-1.5">
               {strategy.skill_build.key_abilities.map((a) => (
-                <li key={a.name} className="rounded-md border border-magic/30 bg-magic/5 px-2.5 py-1.5 text-[11px] text-slate-200">
+                <li key={a.name} className="rounded-md border border-magic/30 bg-magic/5 px-2.5 py-1.5 text-[11px] text-ink-soft">
                   <span className="font-semibold text-magic">{a.name}</span>
-                  {a.dmg_type && a.dmg_type !== 'None' && <span className="ml-1.5 text-slate-500">({a.dmg_type})</span>} — {a.reason}
+                  {a.dmg_type && a.dmg_type !== 'None' && <span className="ml-1.5 text-ink-faint">({a.dmg_type})</span>} — {a.reason}
                 </li>
               ))}
             </ul>
@@ -363,7 +343,7 @@ function StrategyReport({ strategy }: { strategy: HeroStrategy }) {
         {strategy.skill_build.notes.length > 0 && (
           <ul className="mt-3 flex flex-col gap-1.5">
             {strategy.skill_build.notes.map((n, i) => (
-              <li key={i} className="rounded-md border border-base-700 bg-base-900/50 px-2.5 py-1.5 text-[11px] text-slate-300">
+              <li key={i} className="rounded-md border border-base-700 bg-base-900/50 px-2.5 py-1.5 text-[11px] text-ink-soft">
                 {n}
               </li>
             ))}
@@ -372,10 +352,7 @@ function StrategyReport({ strategy }: { strategy: HeroStrategy }) {
       </Card>
 
       {/* 4 · Item build */}
-      <div>
-        <SectionHeading n={4} title={t('s4')} />
-        <ItemBuildCard build={strategy.item_build} />
-      </div>
+      <WinPlanItemBuild build={strategy.item_build} />
 
       {/* 5 · Enemy dossiers */}
       <div>
@@ -400,7 +377,7 @@ function StrategyReport({ strategy }: { strategy: HeroStrategy }) {
         {tf.notes.length > 0 && (
           <ul className="mt-3 flex flex-col gap-1.5">
             {tf.notes.map((n, i) => (
-              <li key={i} className="rounded-md border border-base-700 bg-base-900/50 px-2.5 py-1.5 text-[11px] text-slate-300">
+              <li key={i} className="rounded-md border border-base-700 bg-base-900/50 px-2.5 py-1.5 text-[11px] text-ink-soft">
                 {n}
               </li>
             ))}
@@ -408,26 +385,20 @@ function StrategyReport({ strategy }: { strategy: HeroStrategy }) {
         )}
       </Card>
 
-      {/* 7 · Target priority + 8 · Power spikes */}
+      {/* 7 · Kill priority + 8 · Power spikes */}
       <div className="grid gap-4 xl:grid-cols-2">
-        <div>
-          <SectionHeading n={7} title={t('s7')} />
-          <TargetPriorityCard targets={strategy.target_priority} />
-        </div>
-        <div>
-          <SectionHeading n={8} title={t('s8')} />
-          <PowerSpikeCard spikes={strategy.power_spikes} />
-        </div>
+        <WinPlanKillPriority targets={plan.killPriority} />
+        <WinPlanPowerSpikes spikes={strategy.power_spikes} />
       </div>
 
-      {/* 9 · Win conditions */}
-      <div>
-        <SectionHeading n={9} title={t('s9')} />
-        <WinConditionsCard conditions={strategy.win_conditions} />
+      {/* 9 · Win conditions + mistakes */}
+      <div className="grid gap-4 xl:grid-cols-2">
+        <WinPlanWinCondition conditions={strategy.win_conditions} />
+        <WinPlanMistakes mistakes={ov.biggest_mistakes} />
       </div>
 
       {/* Confidence disclosure */}
-      <Card title={t('confidence')} icon={<ShieldAlert className="h-4 w-4 text-slate-400" />}>
+      <Card title={t('confidence')} icon={<ShieldAlert className="h-4 w-4 text-ink-muted" />}>
         <div className="grid gap-3 sm:grid-cols-2">
           <Bullets title={t('measured')} items={strategy.data_confidence.measured} tone="radiant" />
           <Bullets title={t('inferred')} items={strategy.data_confidence.inferred} tone="gold" />
@@ -435,13 +406,13 @@ function StrategyReport({ strategy }: { strategy: HeroStrategy }) {
         {strategy.data_confidence.notes.length > 0 && (
           <ul className="mt-3 flex flex-col gap-1.5">
             {strategy.data_confidence.notes.map((n, i) => (
-              <li key={i} className="text-[11px] text-slate-400">• {n}</li>
+              <li key={i} className="text-[11px] text-ink-muted">• {n}</li>
             ))}
           </ul>
         )}
       </Card>
 
-      <p className="pb-2 text-center text-[11px] text-slate-600">
+      <p className="pb-2 text-center text-[11px] text-ink-faint">
         {t('generatedIn', { ms: strategy.generated_in_ms, patch: strategy.patch ?? '—' })}
       </p>
     </div>
@@ -472,12 +443,12 @@ function DossierCard({ dossier: d }: { dossier: import('@/lib/types').EnemyDossi
               <ul className="flex flex-col gap-1.5">
                 {d.abilities_to_watch.map((a) => (
                   <li key={a.name} className="rounded-md border border-base-700 bg-base-900/50 px-2.5 py-1.5">
-                    <p className="text-[11px] font-semibold text-slate-200">
+                    <p className="text-[11px] font-semibold text-ink-soft">
                       {a.name}
                       {a.is_ultimate && <span className="ml-1.5 chip border-gold/50 text-gold">ULT</span>}
                       {a.bkbpierce && <span className="ml-1.5 chip border-dire/50 text-dire">pierces BKB</span>}
                     </p>
-                    <p className="mt-0.5 text-[10px] leading-snug text-slate-400">{a.desc}</p>
+                    <p className="mt-0.5 text-[10px] leading-snug text-ink-muted">{a.desc}</p>
                   </li>
                 ))}
               </ul>
@@ -516,12 +487,12 @@ function ItemTip({ item }: { item: ItemPick }) {
         }
       }}
       onBlur={() => setOpen(false)}
-      className="group relative cursor-pointer rounded-md border border-gold/40 bg-gold/5 px-2 py-1 text-[11px] font-medium text-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-radiant/60"
+      className="group relative cursor-pointer rounded-md border border-gold/40 bg-gold/5 px-2 py-1 text-[11px] font-medium text-ink-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-radiant/60"
     >
       {item.name}
       <span
         className={cn(
-          'pointer-events-none absolute left-0 top-full z-20 mt-1 w-60 rounded-lg border border-base-600 bg-base-900 p-2 text-[11px] text-slate-300 shadow-xl group-hover:block',
+          'pointer-events-none absolute left-0 top-full z-20 mt-1 w-60 rounded-lg border border-base-600 bg-base-900 p-2 text-[11px] text-ink-soft shadow-xl group-hover:block',
           open ? 'block' : 'hidden',
         )}
       >
@@ -545,8 +516,8 @@ function SkillStrip({ strategy }: { strategy: HeroStrategy }) {
               'flex h-8 w-8 flex-col items-center justify-center rounded-md border text-[10px] font-bold leading-none',
               l.kind === 'ultimate' && 'border-gold/60 bg-gold/15 text-gold',
               l.kind === 'talent' && 'border-magic/60 bg-magic/15 text-magic',
-              l.kind === 'stats' && 'border-base-600 bg-base-800 text-slate-400',
-              l.kind === 'basic' && 'border-base-600 bg-base-850 text-slate-200',
+              l.kind === 'stats' && 'border-base-600 bg-base-800 text-ink-muted',
+              l.kind === 'basic' && 'border-base-600 bg-base-850 text-ink-soft',
             )}
           >
             <span className="text-[8px] opacity-60">{l.level}</span>
@@ -560,10 +531,10 @@ function SkillStrip({ strategy }: { strategy: HeroStrategy }) {
           </span>
         ))}
       </div>
-      <p className="mt-3 flex flex-wrap gap-x-1.5 text-xs text-slate-400">
+      <p className="mt-3 flex flex-wrap gap-x-1.5 text-xs text-ink-muted">
         <span className="font-semibold text-radiant">{sb.primary}</span>
         <span>{t('maxedFirstSuffix')}</span>
-        <span className="font-semibold text-slate-300">{sb.secondary}</span>
+        <span className="font-semibold text-ink-soft">{sb.secondary}</span>
         <span>{t('secondSuffix')}</span>
         {sb.ultimate && (
           <>
@@ -578,8 +549,8 @@ function SkillStrip({ strategy }: { strategy: HeroStrategy }) {
 
 function SectionHeading({ n, title }: { n: number; title: string }) {
   return (
-    <h2 className="mb-2 flex items-center gap-2 px-1 text-sm font-bold uppercase tracking-wider text-slate-400">
-      <span className="flex h-5 w-5 items-center justify-center rounded bg-base-700 text-[11px] text-slate-300">{n}</span>
+    <h2 className="mb-2 flex items-center gap-2 px-1 text-sm font-bold uppercase tracking-wider text-ink-muted">
+      <span className="flex h-5 w-5 items-center justify-center rounded bg-base-700 text-[11px] text-ink-soft">{n}</span>
       {title}
     </h2>
   );
@@ -592,7 +563,7 @@ function Bullets({ title, items, tone = 'neutral' }: { title: string; items: str
       <p className={cn('label mb-1.5', tone === 'radiant' && 'text-radiant', tone === 'dire' && 'text-dire', tone === 'gold' && 'text-gold')}>{title}</p>
       <ul className="flex flex-col gap-1.5">
         {items.map((it, i) => (
-          <li key={i} className="flex gap-2 text-xs leading-relaxed text-slate-300">
+          <li key={i} className="flex gap-2 text-xs leading-relaxed text-ink-soft">
             <span className={cn('mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full', tone === 'dire' ? 'bg-dire' : tone === 'gold' ? 'bg-gold' : 'bg-radiant')} />
             {it}
           </li>
@@ -606,7 +577,7 @@ function Field({ label, value, tone }: { label: string; value: string; tone?: 'd
   return (
     <div className="rounded-lg border border-base-700 bg-base-900/40 p-2.5">
       <p className={cn('label mb-1', tone === 'danger' && 'text-dire')}>{label}</p>
-      <p className="text-xs leading-relaxed text-slate-300">{value}</p>
+      <p className="text-xs leading-relaxed text-ink-soft">{value}</p>
     </div>
   );
 }

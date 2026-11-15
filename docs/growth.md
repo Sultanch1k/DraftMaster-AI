@@ -128,3 +128,22 @@ funnel hides the leak and burns the budget that should fund accuracy work.
 
 Make the first analysis free, instant and screenshot-worthy, publish the methodology so
 it survives scrutiny, and let the players who win games do the marketing.
+
+## 9. The autonomous growth agent
+
+The recurring parts of this plan — patch reports, matchup content, creator
+outreach, SEO upkeep — are executed by a self-improving agent in
+`services/growth/`. It shares the strategy dataset with the product, so it can
+only publish numbers the product would also produce, and it runs dry by default.
+
+It closes the loop a human-run plan cannot:
+
+* **decides** what to say from the dataset (meta movers, per-hero matchups and
+  guides, the Panic demo), never repeating a subject;
+* **writes** it bilingually, in a style chosen by a deterministic bandit;
+* **publishes** to the blog and any credentialed social channel;
+* **measures** the product's own funnel and attributes it back to the styles it
+  used, so the next cycle leans into whatever worked.
+
+That turns the growth plan from a to-do list into a background process. See
+[`growth-agent.md`](growth-agent.md) for how to run and extend it.

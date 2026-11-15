@@ -163,6 +163,43 @@ def test_webhook_revokes_entitlement_on_refund(billing_client, monkeypatch):
     assert session["plan"] == "free"
 
 
+def test_webhook_revokes_all_sessions_on_refund(billing_client, monkeypatch):
+    """A refund must revoke *every* session the buyer holds, not just the newest.
+
+    Each activation mints a new token, so a single-session revoke left the buyer
+    premium on their other devices after a refund.
+    """
+    import hashlib
+    import hmac
+    import json
+
+    import draftmaster_api.billing as billing
+
+    monkeypatch.setenv("DRAFTMASTER_LEMONSQUEEZY_WEBHOOK_SECRET", "whsec")
+    billing_client.app.state.settings.lemonsqueezy_webhook_secret = "whsec"
+    monkeypatch.setattr(billing.httpx, "AsyncClient", lambda *a, **k: _FakeAsyncClient(200, ACTIVE_LICENSE))
+
+    t1 = billing_client.post("/api/billing/activate", json={"license_key": "KEY-A"}).json()["token"]
+    t2 = billing_client.post("/api/billing/activate", json={"license_key": "KEY-A"}).json()["token"]
+    assert t1 and t2 and t1 != t2
+
+    payload = json.dumps(
+        {
+            "meta": {"event_name": "order_refunded"},
+            "data": {"attributes": {"user_email": "payer@example.com"}},
+        }
+    ).encode()
+    sig = hmac.new(b"whsec", payload, hashlib.sha256).hexdigest()
+    hook = billing_client.post(
+        "/api/billing/webhook", content=payload, headers={"x-signature": sig, "content-type": "application/json"}
+    )
+    assert hook.status_code == 200
+
+    for token in (t1, t2):
+        session = billing_client.get("/api/billing/session", headers={"authorization": f"Bearer {token}"}).json()
+        assert session["plan"] == "free"
+
+
 def test_managed_postgres_url_uses_installed_driver():
     """Render/Heroku inject `postgresql://`; we ship psycopg 3, not psycopg2."""
     sys.path.insert(0, str(ROOT / "services" / "api"))

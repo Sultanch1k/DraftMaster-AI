@@ -14,7 +14,7 @@ const GRADE_STYLE: Record<string, string> = {
   B: 'text-gold border-gold/40 bg-gold/5',
   C: 'text-gold border-gold/50 bg-gold/10',
   D: 'text-dire border-dire/50 bg-dire/10',
-  'N/A': 'text-slate-500 border-base-600',
+  'N/A': 'text-ink-faint border-base-600',
 };
 
 export function CoachPanel({ premium, onPremium }: { premium: boolean; onPremium: () => void }) {
@@ -46,17 +46,17 @@ export function CoachPanel({ premium, onPremium }: { premium: boolean; onPremium
   return (
     <div className="flex flex-col gap-4">
       <Card title={t('title')} icon={<GraduationCap className="h-4 w-4 text-radiant" />} action={<span className="chip">{t('chip')}</span>}>
-        <p className="mb-3 text-sm text-slate-400">{t('description')}</p>
+        <p className="mb-3 text-sm text-ink-muted">{t('description')}</p>
         <div className="flex flex-col gap-2 sm:flex-row">
           <div className="relative flex-1">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-faint" />
             <input
               value={matchId}
               onChange={(e) => setMatchId(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && run()}
               placeholder={t('placeholder')}
               inputMode="numeric"
-              className="w-full rounded-lg border border-base-600 bg-base-900/80 py-2.5 pl-9 pr-3 text-sm text-slate-100 outline-none placeholder:text-slate-500 focus:border-radiant/60 focus:ring-1 focus:ring-radiant/40"
+              className="w-full rounded-lg border border-base-600 bg-base-900/80 py-2.5 pl-9 pr-3 text-sm text-ink outline-none placeholder:text-ink-faint focus:border-radiant/60 focus:ring-1 focus:ring-radiant/40"
             />
           </div>
           <button type="button" onClick={run} disabled={loading} className="btn-primary">
@@ -65,7 +65,7 @@ export function CoachPanel({ premium, onPremium }: { premium: boolean; onPremium
           </button>
         </div>
         {!premium && (
-          <p className="mt-2 text-[11px] text-slate-500">
+          <p className="mt-2 text-[11px] text-ink-faint">
             {t('freeNote')}{' '}
             <button type="button" onClick={onPremium} className="font-semibold text-gold underline">
               {t('switchPremium')}
@@ -82,15 +82,15 @@ export function CoachPanel({ premium, onPremium }: { premium: boolean; onPremium
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 <p className="label">{t('matchLabel', { id: report.match_id })}</p>
-                <p className="text-lg font-bold text-white">
+                <p className="text-lg font-bold text-ink">
                   {report.radiant_win ? t('radiant') : t('dire')} · {t('min', { min: report.duration_min })}
                 </p>
-                <p className="mt-1 text-sm text-slate-300">{report.verdict}</p>
+                <p className="mt-1 text-sm text-ink-soft">{report.verdict}</p>
               </div>
               <div className="flex flex-wrap gap-2">
                 {Object.entries(report.grades).map(([k, v]) => (
                   <span key={k} className={cn('flex flex-col items-center rounded-lg border px-3 py-1.5', GRADE_STYLE[v] ?? GRADE_STYLE['N/A'])}>
-                    <span className="text-[10px] uppercase tracking-wider text-slate-400">{k}</span>
+                    <span className="text-[10px] uppercase tracking-wider text-ink-muted">{k}</span>
                     <span className="text-lg font-black leading-none">{v}</span>
                   </span>
                 ))}
@@ -124,14 +124,14 @@ function CoachList({ title, items, tone }: { title: string; items: string[]; ton
   return (
     <Card title={title}>
       {items.length === 0 ? (
-        <p className="text-sm text-slate-500">{t('nothingNotable')}</p>
+        <p className="text-sm text-ink-faint">{t('nothingNotable')}</p>
       ) : (
         <ul className="flex flex-col gap-2">
           {items.map((t, i) => (
             <li
               key={i}
               className={cn(
-                'rounded-md border bg-base-900/40 px-2.5 py-1.5 text-xs leading-relaxed text-slate-200',
+                'rounded-md border bg-base-900/40 px-2.5 py-1.5 text-xs leading-relaxed text-ink-soft',
                 COACH_TONES[tone],
               )}
             >

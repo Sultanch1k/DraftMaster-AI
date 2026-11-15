@@ -11,7 +11,7 @@ export function MetaPanel({ meta }: { meta: Meta | null }) {
   if (!meta) {
     return (
       <Card>
-        <p className="text-sm text-slate-400">{t('loading')}</p>
+        <p className="text-sm text-ink-muted">{t('loading')}</p>
       </Card>
     );
   }
@@ -19,7 +19,7 @@ export function MetaPanel({ meta }: { meta: Meta | null }) {
   return (
     <div className="flex flex-col gap-4">
       <Card title={t('title')} icon={<Flame className="h-4 w-4 text-gold" />} action={<span className="chip">{t('patch', { patch: meta.patch ?? '—' })}</span>}>
-        <p className="text-sm text-slate-400">{t('description', { source: meta.source })}</p>
+        <p className="text-sm text-ink-muted">{t('description', { source: meta.source })}</p>
       </Card>
 
       <div className="grid gap-4 lg:grid-cols-3">
@@ -48,8 +48,8 @@ function MetaList({
       <ol className="flex flex-col gap-1.5">
         {rows.map((r, i) => (
           <li key={r.name} className="flex items-center gap-2 rounded-md border border-base-700 bg-base-850/60 px-2.5 py-1.5">
-            <span className="w-5 shrink-0 text-[11px] tabular-nums text-slate-500">{i + 1}</span>
-            <span className="flex-1 truncate text-sm text-slate-200">{r.name}</span>
+            <span className="w-5 shrink-0 text-[11px] tabular-nums text-ink-faint">{i + 1}</span>
+            <span className="flex-1 truncate text-sm text-ink-soft">{r.name}</span>
             <span className={`shrink-0 text-xs font-bold tabular-nums ${valueCls}`}>{r.value}</span>
           </li>
         ))}

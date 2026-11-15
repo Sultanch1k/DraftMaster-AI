@@ -16,9 +16,22 @@ The API is reached only through the web app: `next.config.mjs` rewrites
 `/api/:path*` to `API_PROXY_TARGET`. `/health` is **not** under `/api`, so it is
 not proxied — hit the Render host directly to inspect it.
 
-> `import-implementation` is the repo's default branch and Vercel builds it, but
-> that build is **not** promoted to the production alias. Merging to `main` is
-> what changes the live site.
+> `import-implementation` is the repo's default branch and the growth bot
+> commits to it daily. It is **not** what production serves: `main` is. Merging
+> to `main` is what changes the live site. (Verified: `www.draftmaster.wiki`
+> serves the `main`-only SEO title fix, and returns 404 for routes that exist
+> only on `import-implementation`.)
+
+> **The growth bot commits to `import-implementation`, but production serves
+> `main`.** Its daily commit therefore never reaches users by itself. After a
+> growth cycle, fast-forward the content onto `main` (or open a PR) so the blog
+> and state changes go live:
+
+```bash
+git checkout main && git pull
+git merge --ff-only origin/import-implementation
+git push origin main
+```
 
 ## 2. Release
 
@@ -34,6 +47,11 @@ gh api repos/Sultanch1k/DraftMaster-AI/merges \
 
 Vercel redeploys the web app and Render redeploys the API from the same merge.
 Both are automatic; there is nothing to click.
+
+> **Never let the API track `import-implementation`.** The growth bot pushes to
+> that branch every day; a service that auto-deploys it would redeploy (and, on
+> ephemeral storage, reset) production daily. `infra/render.yaml` pins the API to
+> `main` for this reason.
 
 ## 3. Required environment variables
 
@@ -123,6 +141,10 @@ print(len(r['pick_reports']), 'reports;', 'one_sentence' in r)"
 # 5. The web app is live and SEO pages render (no literal {hero})
 curl -s https://www.draftmaster.wiki/robots.txt
 curl -s https://www.draftmaster.wiki/counter/anti-mage | grep -c 'does best'
+
+# 6. The growth agent's content is served (not just committed)
+curl -s https://www.draftmaster.wiki/blog | grep -c 'Strategy Blog'
+curl -s https://www.draftmaster.wiki/sitemap.xml | grep -c '/blog/'
 ```
 
 ## 6. Rollback

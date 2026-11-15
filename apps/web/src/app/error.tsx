@@ -22,8 +22,8 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
       <span className="flex h-12 w-12 items-center justify-center rounded-full bg-dire/15 text-dire">
         <AlertCircle className="h-6 w-6" />
       </span>
-      <h1 className="text-xl font-bold text-white">DraftMaster AI</h1>
-      <p className="text-sm text-slate-400">{t('generic')}</p>
+      <h1 className="text-xl font-bold text-ink">DraftMaster AI</h1>
+      <p className="text-sm text-ink-muted">{t('generic')}</p>
       <button type="button" onClick={reset} className="btn-primary">
         {t('retry')}
       </button>

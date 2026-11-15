@@ -57,8 +57,8 @@ export function BestHeroCard({
       <HeroPortrait icon={pick.icon} name={pick.localized_name} size={rank === 1 ? 64 : 48} priority={rank === 1} />
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
-          <span className={cn('text-xs font-black', rank === 1 ? 'text-radiant' : 'text-slate-400')}>#{rank}</span>
-          <h3 className="truncate text-base font-bold text-white">{pick.localized_name}</h3>
+          <span className={cn('text-xs font-black', rank === 1 ? 'text-radiant' : 'text-ink-muted')}>#{rank}</span>
+          <h3 className="truncate text-base font-bold text-ink">{pick.localized_name}</h3>
           {loading ? (
             <Loader2 className="ml-auto h-4 w-4 animate-spin text-radiant" />
           ) : (
@@ -67,8 +67,8 @@ export function BestHeroCard({
             </span>
           )}
         </div>
-        <p className="mb-2 text-[11px] text-slate-400">{pick.roles.join(' · ')}</p>
-        {pick.reasons[0] && <p className="text-xs leading-relaxed text-slate-300">{pick.reasons[0]}</p>}
+        <p className="mb-2 text-[11px] text-ink-muted">{pick.roles.join(' · ')}</p>
+        {pick.reasons[0] && <p className="text-xs leading-relaxed text-ink-soft">{pick.reasons[0]}</p>}
         <div className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-3">
           <StatRow label={t('counter')} value={pick.scores.counter} />
           <StatRow label={t('lane')} value={pick.scores.lane} />
@@ -124,14 +124,14 @@ function ItemChip({ item, tone = 'default' }: { item: ItemPick; tone?: 'default'
       ) : (
         <span className="h-6 w-6 rounded bg-base-700" />
       )}
-      <span className="min-w-0 flex-1 truncate text-xs font-medium text-slate-200">{item.name}</span>
+      <span className="min-w-0 flex-1 truncate text-xs font-medium text-ink-soft">{item.name}</span>
       {typeof item.cost === 'number' && item.cost > 0 && (
         <span className="shrink-0 text-[10px] tabular-nums text-gold">{item.cost}</span>
       )}
       {/* Reasoning is reachable by hover (desktop) and by tap/click (mobile + keyboard). */}
       <span
         className={cn(
-          'pointer-events-none absolute left-0 top-full z-20 mt-1 w-64 rounded-lg border border-base-600 bg-base-900 p-2 text-[11px] leading-relaxed text-slate-300 shadow-xl group-hover:block',
+          'pointer-events-none absolute left-0 top-full z-20 mt-1 w-64 rounded-lg border border-base-600 bg-base-900 p-2 text-[11px] leading-relaxed text-ink-soft shadow-xl group-hover:block',
           open ? 'block' : 'hidden',
         )}
       >
@@ -165,7 +165,7 @@ export function ItemBuildCard({ build }: { build: ItemBuild }) {
         {PHASE_KEYS.filter((p) => (build[p.key] as ItemPick[]).length > 0).map((p) => (
           <div key={p.key}>
             <p className="label mb-1.5">
-              {t(p.label)} <span className="font-normal normal-case text-slate-500">· {t(p.hint)}</span>
+              {t(p.label)} <span className="font-normal normal-case text-ink-faint">· {t(p.hint)}</span>
             </p>
             <div className="flex flex-col gap-1.5">
               {(build[p.key] as ItemPick[]).map((i) => (
@@ -223,8 +223,8 @@ export function TargetPriorityCard({ targets }: { targets: TargetRow[] }) {
             </span>
             <HeroPortrait icon={null} name={row.name} size={32} />
             <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-semibold text-white">{row.name}</p>
-              <p className="truncate text-[11px] text-slate-400">{row.reason}</p>
+              <p className="truncate text-sm font-semibold text-ink">{row.name}</p>
+              <p className="truncate text-[11px] text-ink-muted">{row.reason}</p>
             </div>
             <span className="shrink-0 text-sm font-bold tabular-nums text-dire">{row.priority_score.toFixed(0)}</span>
           </li>
@@ -245,9 +245,9 @@ export function PowerSpikeCard({ spikes }: { spikes: { player: PowerSpike[]; ene
             {spikes.player.map((s, i) => (
               <li key={i} className="rounded-lg border border-radiant/30 bg-radiant/5 p-2">
                 <p className="text-xs font-bold text-radiant">
-                  {s.when} <span className="font-normal text-slate-400">· {s.type}</span>
+                  {s.when} <span className="font-normal text-ink-muted">· {s.type}</span>
                 </p>
-                <p className="text-[11px] text-slate-300">{s.detail}</p>
+                <p className="text-[11px] text-ink-soft">{s.detail}</p>
               </li>
             ))}
           </ul>
@@ -257,10 +257,10 @@ export function PowerSpikeCard({ spikes }: { spikes: { player: PowerSpike[]; ene
           <ul className="flex flex-col gap-2">
             {spikes.enemies.map((s, i) => (
               <li key={i} className="rounded-lg border border-base-700 bg-base-850/60 p-2">
-                <p className="text-xs font-bold text-slate-200">
-                  {s.name} <span className="font-normal text-slate-500">· {t('peak', { minutes: s.peak_minutes ?? 0 })}</span>
+                <p className="text-xs font-bold text-ink-soft">
+                  {s.name} <span className="font-normal text-ink-faint">· {t('peak', { minutes: s.peak_minutes ?? 0 })}</span>
                 </p>
-                <p className="text-[11px] text-slate-400">{s.danger}</p>
+                <p className="text-[11px] text-ink-muted">{s.danger}</p>
               </li>
             ))}
           </ul>
@@ -293,7 +293,7 @@ export function WinConditionsCard({ conditions }: { conditions: { primary: strin
             <p className={cn('label mb-1', r.tone === 'radiant' && 'text-radiant', r.tone === 'gold' && 'text-gold', r.tone === 'dire' && 'text-dire')}>
               {r.label}
             </p>
-            <p className="text-sm leading-relaxed text-slate-200">{r.value}</p>
+            <p className="text-sm leading-relaxed text-ink-soft">{r.value}</p>
           </div>
         ))}
       </div>
@@ -308,7 +308,7 @@ export function OneSentencePlan({ sentence, label }: { sentence: string; label?:
       <p className="label mb-1.5 flex items-center gap-1.5 text-radiant">
         <AlertTriangle className="h-3.5 w-3.5" /> {label ?? t('title')}
       </p>
-      <p className="text-base font-semibold leading-relaxed text-white">{sentence}</p>
+      <p className="text-base font-semibold leading-relaxed text-ink">{sentence}</p>
     </div>
   );
 }

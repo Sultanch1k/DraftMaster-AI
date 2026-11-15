@@ -15,19 +15,19 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
 
   return (
     <html lang="en" className="dark">
-      <body className="flex min-h-dvh items-center justify-center bg-[#07090d] px-6 text-center text-slate-200">
+      <body className="flex min-h-dvh items-center justify-center bg-base-950 px-6 text-center text-ink-soft">
         <div className="flex max-w-lg flex-col items-center gap-4">
-          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-red-500/15 text-red-400">
+          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-dire/15 text-dire">
             <AlertCircle className="h-6 w-6" />
           </span>
-          <h1 className="text-xl font-bold text-white">DraftMaster AI</h1>
-          <p className="text-sm text-slate-400">
+          <h1 className="text-xl font-bold text-ink">DraftMaster AI</h1>
+          <p className="text-sm text-ink-muted">
             Something went wrong. Please try again. · Что-то пошло не так. Попробуйте ещё раз.
           </p>
           <button
             type="button"
             onClick={reset}
-            className="rounded-lg bg-emerald-500 px-4 py-2.5 text-sm font-semibold text-slate-950"
+            className="rounded-lg bg-radiant px-4 py-2.5 text-sm font-semibold text-ink"
           >
             Retry · Повторить
           </button>

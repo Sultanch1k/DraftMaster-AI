@@ -47,7 +47,7 @@ export function HeroPortrait({ icon, name, size = 44, className, priority }: Pro
           className="h-full w-full object-cover"
         />
       ) : (
-        <span className="text-[10px] font-bold text-slate-400">{initials}</span>
+        <span className="text-[10px] font-bold text-ink-muted">{initials}</span>
       )}
     </span>
   );

@@ -16,9 +16,11 @@ narrate numbers the engine produced; they must never invent them.
 | --- | --- |
 | `services/engine/draftmaster_engine/` | Pure-Python strategy engine. No web framework imports, ever. |
 | `services/api/draftmaster_api/` | FastAPI surface: routers, schemas, config, infra adapters. |
+| `services/growth/draftmaster_growth/` | Autonomous growth agent: content, outreach, publishing, self-improvement. |
 | `apps/web/src/` | Next.js 16 App Router frontend (next-intl, cookie-based locale). |
 | `tools/pipeline/` | Builds the data artifacts from OpenDota + Valve's CDN. |
 | `data/artifacts/` | Committed build outputs — the engine's only data dependency. |
+| `data/growth/` | Growth-agent state (tracked) + generated output (gitignored). |
 | `docs/` | Product, architecture, roadmap and risk documentation. |
 
 ## Commands
@@ -32,6 +34,11 @@ cd apps/web && API_PROXY_TARGET=http://127.0.0.1:12001 npm run dev -- --port 120
 
 # Tests (always run before claiming a change works)
 .venv/bin/python -m pytest services/engine/tests -q
+.venv/bin/python -m pytest services/growth/tests -q
+
+# Growth agent (dry run by default; --live required to publish)
+.venv/bin/python -m draftmaster_growth plan
+.venv/bin/python -m draftmaster_growth run
 
 # Typecheck + production build
 cd apps/web && npx tsc --noEmit && npm run build
@@ -148,6 +155,97 @@ cd apps/web && npx tsc --noEmit && npm run build
 - **`pick_reports` ships a full 11-section report for every Top-5 pick** so clicking a
   recommended hero is instant and never spends quota. Keep the key set in sync with
   `best_picks` (keys are `str(hero_id)`).
+- **The growth agent is deterministic and dry by default.** `draftmaster_growth` never
+  calls `random`; the bandit explores on a rotation keyed to observation count, and the
+  topic ring advances by a counter — so `plan` twice and diff to check a change. A channel
+  is live only when it is enabled *and* credentialed *and* `DRAFTMASTER_GROWTH_ALLOW_PUBLISH`
+  is set; otherwise every adapter records a dry run. It reuses `draftmaster_engine`'s
+  `Dataset`, so a growth post can never contain a number the product would not produce.
+  Dedupe keys off `ContentItem.signature` (topic + data + locale), **not** `topic` — using
+  the key alone made English and Russian collide and re-published the same subject. Tests
+  live in `services/growth/tests/`; `data/growth/out/` is gitignored while the state file is
+  tracked so the scheduled workflow can persist it. See `docs/growth-agent.md`.
+
+- **The match plan must stay draft-specific.** `plan._phase_content()` takes `threats`
+  and `delta`; it used to accept and ignore both, so every draft produced an identical
+  5-phase timeline — the exact "static guide" behaviour the product claims to replace.
+  When you touch it, keep the threat-driven notes wired and keep
+  `test_match_plan_adapts_to_enemy_draft` passing: it asserts two different enemy drafts
+  yield different plans for the same hero, and it fails if the timeline goes static again.
+
+- **Production store is NOT durable yet.** `/health` on `draftmaster-ai.onrender.com`
+  reports `sqlite+pysqlite`. The Render service was created by hand, so `infra/render.yaml`
+  (which provisions a paid Postgres) never applied — a Blueprint only manages services it
+  created. Setting `DRAFTMASTER_DATABASE_URL` on the existing service fixes it; see
+  `docs/go-live-runbook.md` §1. `scripts/preflight.py` fails on `[store is durable]` until
+  then, which is the intended go/no-go gate. Do not enable billing before it passes:
+  a paying customer whose entitlement is wiped on the next deploy is worse than no sale.
+
+- **The free quota charges per distinct analysis, keyed by user + IP.** Same draft twice is
+  free; three *distinct* drafts then a 402. To exercise the paywall locally, send three
+  different `enemy_hero_ids` — repeating one draft returns 200 forever and looks like the
+  limit is broken.
+
+- **Branch topology — production serves `main`, the growth bot writes to
+  `import-implementation`.** `main` is what production deploys from: Vercel aliases
+  `www.draftmaster.wiki` to a `main` build and Render's blueprint pins the API to
+  `main` (per `docs/deployment-runbook.md` §1; verified 2026-11-07 — production
+  serves the `main`-only SEO title fix and 404s on `import-implementation`-only
+  routes). `import-implementation` is the repo default branch where work lands and
+  where the **growth bot commits daily** (`.github/workflows/growth.yml`, ~09:00
+  UTC). That commit does **not** reach users on its own — fast-forward it to `main`
+  to publish (runbook §1). `infra/render.yaml` used to track `import-implementation`,
+  which meant the API redeployed (and, on ephemeral storage, reset) every day; it
+  now tracks `main`. Before claiming anything is "in production", check *both*
+  hosts, and remember a 404 on `www.draftmaster.wiki` usually means "unreleased",
+  not "broken".
+
+- **The growth agent's content is served at `/blog`, via a committed dataset.**
+  The agent writes Markdown to `data/growth/out/` (git-ignored, outside
+  `apps/web`), so nothing it produced was ever served. `tools/pipeline/build_blog.py`
+  mirrors `build_seo_pages.py`: it renders that output into
+  `apps/web/src/data/blog-posts.json`, which `/blog` and `/blog/[slug]` read. The
+  daily cycle rebuilds and commits it; CI validates the committed dataset. Social
+  channels stay dry until their secrets are set.
+
+- **A refund must revoke *every* session a buyer holds.** Each
+  `/api/billing/activate` mints a new token, so a buyer can hold several. The
+  webhook revokes by buyer email (`Store.revoke_entitlements_by_email`), not by the
+  newest token — a single-session revoke left the buyer premium on other devices.
+
+- **The 0-100 draft figure is a heuristic draft-edge score, never a "win
+  probability".** `services/engine/draftmaster_engine/winprob.py` blends *real*
+  per-patch OpenDota signals (shrunk head-to-head matchup, team threat mismatch,
+  role/comfort, rank reliability) but the weights are hand-tuned and the score
+  has never been calibrated against observed outcomes. It is surfaced as
+  "Draft-edge score" on a 0-100 scale where 50 = even, and every payload carries
+  a `disclaimer` (localized in `i18n.py`) that the UI renders. Prose says
+  "draft edge, heuristic". Do not relabel it a probability: `test_engine.py`
+  asserts the disclaimer is present and that the one-sentence plan never says
+  "win probability", and `test_api.py` asserts the disclaimer is localized.
+  Calibrating the weights is a separate, larger change.
+
+- **Social posters must be rendered on the server, not on a client canvas.**
+  Valve's hero CDN only sends `Access-Control-Allow-Origin` for dota2.com, so a
+  canvas that draws hero art is tainted and `toBlob()` throws. Posters are built
+  with `next/og` (Satori) in `src/app/og/share/[token]`, which can embed the real
+  art and item icons. Related traps: the poster routes must stay *out* of
+  `/api/*` (the FastAPI rewrite in `next.config.mjs` shadows that namespace and
+  turns them into 502/404), the vendored fonts live under `src/assets/fonts` (not
+  `public/`) and must stay listed in `outputFileTracingIncludes` or the
+  standalone/Docker build 500s, and `DRAFTMASTER_SECRET_KEY` must be set or
+  `POST /api/share` mints an unsigned token that `verify_share` rejects.
+
+- **A server-side poster must never call a quota-charging endpoint.** The poster
+  renderer runs on the web host's server IP with no user identity, so every
+  render across every user shares one anonymous free bucket. An earlier
+  `/og/poster` route called `/api/panic` directly and 402'd after three drafts a
+  day, product-wide. Posters now render *only* through a signed share token
+  (`GET /api/share/{token}`), which is quota-free by design: the token could only
+  be minted by an authenticated, quota-paying request. The client mints the token
+  once (`useShareLink` in `ShareBar.tsx`) and reuses it for both the share button
+  and the poster. When no token exists (no signing key, or the free quota is
+  spent) the poster section hides rather than showing a broken image.
 
 ## Definition of done
 

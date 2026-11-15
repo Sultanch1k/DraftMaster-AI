@@ -14,9 +14,9 @@ export function UsageBar({ premium, usage }: { premium: boolean; usage?: Usage }
   return (
     <div className="flex flex-col gap-1">
       <div className="flex items-center justify-between text-[11px]">
-        <span className="text-slate-400">{premium ? t('premiumUnlimited') : t('free')}</span>
+        <span className="text-ink-muted">{premium ? t('premiumUnlimited') : t('free')}</span>
         {!premium && (
-          <span className={cn('tabular-nums', remaining === 0 ? 'text-dire' : 'text-slate-400')}>
+          <span className={cn('tabular-nums', remaining === 0 ? 'text-dire' : 'text-ink-muted')}>
             {t('left', { remaining, limit })}
           </span>
         )}

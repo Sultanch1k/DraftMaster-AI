@@ -19,6 +19,11 @@ data/draftmaster.db
 data/raw/
 *.log
 
+# Growth agent: generated content is an artifact, not source. The state file
+# IS tracked so the scheduled workflow can persist it between runs.
+data/growth/out/
+data/growth/prospects.json
+
 # Env
 .env
 .env.local
@@ -31,3 +36,4 @@ data/raw/
 
 # TypeScript incremental build cache
 *.tsbuildinfo
+.audit/

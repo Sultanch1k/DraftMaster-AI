@@ -2,8 +2,9 @@ name: CI
 
 on:
   push:
-    # import-implementation is the repo default and the Vercel production
-    # branch, so it must be gated too — main is only where releases land.
+    # main is the production branch (Vercel + Render). import-implementation is
+    # the default/integration branch and also receives the growth bot's daily
+    # state commits, so both are gated.
     branches: [main, import-implementation]
   pull_request:
 
@@ -26,6 +27,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-dev.txt
           pip install -e services/engine
+          pip install -e services/growth
       - name: Validate committed artifacts
         run: |
           python - <<'PY'
@@ -37,8 +39,25 @@ jobs:
           assert len(hashes["heroes"]) >= 120, len(hashes["heroes"])
           print(f"artifacts ok: {len(data['heroes'])} heroes, patch {data['patch']['name']}")
           PY
+      - name: Validate committed blog dataset
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          blog = json.loads(pathlib.Path("apps/web/src/data/blog-posts.json").read_text())
+          assert isinstance(blog.get("posts"), list), "posts must be a list"
+          slugs = [p["slug"] for p in blog["posts"]]
+          assert len(slugs) == len(set(slugs)), "duplicate blog slugs"
+          for p in blog["posts"]:
+              assert p["title"] and p["body"], f"incomplete post: {p.get('slug')}"
+          print(f"blog dataset ok: {len(slugs)} posts")
+          PY
       - name: Tests
         run: python -m pytest services/engine/tests -q
+      - name: Growth-engine tests
+        run: python -m pytest services/growth/tests -q
+      - name: Growth dry run (smoke)
+        run: |
+          python -m draftmaster_growth --state /tmp/growth-smoke.json --out /tmp/growth-smoke run --no-outreach
 
   web:
     name: Web build

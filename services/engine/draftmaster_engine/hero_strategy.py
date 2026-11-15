@@ -734,8 +734,12 @@ class HeroStrategyEngine:
         threat_to_you = max(0.0, ds.counter_logit(eid, hero_id)) * 100.0
 
         dangerous: list[str] = []
-        if caps.get("disable_count", 0) >= 1:
-            dangerous.append(f"Brings {caps.get('disable_count')} disable(s) — you will be held in place while their team follows up.")
+        disables = int(caps.get("disable_count", 0))
+        if disables >= 1:
+            noun = "disable" if disables == 1 else "disables"
+            dangerous.append(
+                f"Brings {disables} {noun} — you will be held in place while their team follows up."
+            )
         if caps.get("stun", 0) >= 1:
             dangerous.append("Has a stun, which sets up their damage and interrupts your channel or escape.")
         if caps.get("silence", 0) >= 1:
@@ -988,7 +992,7 @@ class HeroStrategyEngine:
             clause += ", buying healing reduction before the first teamfight"
         return (
             f"Play {hero['localized_name']} to the plan: {clause} — this matchup is {tone} "
-            f"({winprob.player_win_probability:.0f}% draft win probability)."
+            f"({winprob.player_win_probability:.0f}% draft edge, heuristic)."
         )
 
     # -- confidence ------------------------------------------------------
@@ -1008,7 +1012,7 @@ class HeroStrategyEngine:
         if not hero.get("abilities"):
             notes.append("This hero has no compiled ability data, so ability-level advice is limited.")
         if winprob.confidence == "low":
-            notes.append("The draft maths are close to even, so treat the win probability as a coin flip rather than a prediction.")
+            notes.append("The draft maths are close to even, so treat the draft score as a coin flip rather than a prediction.")
         if any(not e.get("abilities") for e in enemies):
             notes.append("At least one enemy has no compiled ability data; its dossier falls back to capability counters.")
         notes.append("Hero and item names are shown in English, matching community convention.")

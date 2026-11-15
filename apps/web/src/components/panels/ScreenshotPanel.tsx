@@ -38,7 +38,7 @@ export function ScreenshotPanel({ onUsage }: { onUsage?: (usage: Usage) => void 
   return (
     <div className="flex flex-col gap-4">
       <Card title={t('title')} icon={<ScanLine className="h-4 w-4 text-radiant" />} action={<span className="chip">{t('chip')}</span>}>
-        <p className="mb-3 text-sm text-slate-400">{t('description')}</p>
+        <p className="mb-3 text-sm text-ink-muted">{t('description')}</p>
 
         <div
           onDragOver={(e) => {
@@ -57,8 +57,8 @@ export function ScreenshotPanel({ onUsage }: { onUsage?: (usage: Usage) => void 
             dragging ? 'border-radiant bg-radiant/5' : 'border-base-600 bg-base-900/40',
           )}
         >
-          <ImageUp className="h-8 w-8 text-slate-500" />
-          <p className="text-sm text-slate-300">{t('drop')}</p>
+          <ImageUp className="h-8 w-8 text-ink-faint" />
+          <p className="text-sm text-ink-soft">{t('drop')}</p>
           <button type="button" onClick={() => inputRef.current?.click()} className="btn-ghost" disabled={loading}>
             {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}
             {t('choose')}
@@ -73,7 +73,7 @@ export function ScreenshotPanel({ onUsage }: { onUsage?: (usage: Usage) => void 
               if (f) upload(f);
             }}
           />
-          <p className="text-[11px] text-slate-500">{t('maxSize')}</p>
+          <p className="text-[11px] text-ink-faint">{t('maxSize')}</p>
         </div>
 
         {error && <p className="mt-3 rounded-lg border border-dire/50 bg-dire/10 p-2.5 text-sm text-dire">{error}</p>}
@@ -86,21 +86,21 @@ export function ScreenshotPanel({ onUsage }: { onUsage?: (usage: Usage) => void 
             )}
             <div className="flex flex-col gap-3">
               {loading && (
-                <p className="flex items-center gap-2 text-sm text-slate-300">
+                <p className="flex items-center gap-2 text-sm text-ink-soft">
                   <Loader2 className="h-4 w-4 animate-spin text-radiant" /> {t('detecting')}
                 </p>
               )}
               {result && (
                 <>
-                  <p className="text-sm text-slate-300">{result.note}</p>
+                  <p className="text-sm text-ink-soft">{result.note}</p>
                   {result.detection.detected.length > 0 && (
                     <div className="flex flex-wrap gap-2">
                       {result.detection.detected.map((d) => (
                         <div key={`${d.hero_id}-${d.x}-${d.y}`} className="flex items-center gap-2 rounded-lg border border-base-700 bg-base-850/70 px-2 py-1.5">
                           <HeroPortrait icon={null} name={d.localized_name} size={32} />
                           <div className="leading-tight">
-                            <p className="text-xs font-semibold text-white">{d.localized_name}</p>
-                            <p className="text-[10px] text-slate-400">
+                            <p className="text-xs font-semibold text-ink">{d.localized_name}</p>
+                            <p className="text-[10px] text-ink-muted">
                               {t('match', { pct: Math.round(d.confidence * 100) })}
                             </p>
                           </div>

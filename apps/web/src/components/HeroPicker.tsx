@@ -45,21 +45,21 @@ export const HeroPicker = memo(function HeroPicker({ heroes, selected, onToggle,
   return (
     <div className="flex flex-col gap-3">
       <div className="relative">
-        <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
+        <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-faint" />
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={t('searchPlaceholder')}
           autoComplete="off"
           spellCheck={false}
-          className="w-full rounded-lg border border-base-600 bg-base-900/80 py-2.5 pl-9 pr-9 text-sm text-slate-100 outline-none placeholder:text-slate-500 focus:border-radiant/60 focus:ring-1 focus:ring-radiant/40"
+          className="w-full rounded-lg border border-base-600 bg-base-900/80 py-2.5 pl-9 pr-9 text-sm text-ink outline-none placeholder:text-ink-faint focus:border-radiant/60 focus:ring-1 focus:ring-radiant/40"
         />
         {query && (
           <button
             type="button"
             onClick={() => setQuery('')}
             aria-label={t('clearSearch')}
-            className="absolute right-2 top-1/2 -translate-y-1/2 rounded p-1 text-slate-500 hover:text-slate-200"
+            className="absolute right-2 top-1/2 -translate-y-1/2 rounded p-1 text-ink-faint hover:text-ink-soft"
           >
             <X className="h-4 w-4" />
           </button>
@@ -108,7 +108,7 @@ export const HeroPicker = memo(function HeroPicker({ heroes, selected, onToggle,
               )}
             >
               <HeroPortrait icon={h.icon} name={h.localized_name} size={44} />
-              <span className="w-full truncate text-center text-[10px] leading-tight text-slate-400 group-hover:text-slate-200">
+              <span className="w-full truncate text-center text-[10px] leading-tight text-ink-muted group-hover:text-ink-soft">
                 {h.localized_name}
               </span>
               {isSelected && (
@@ -120,7 +120,7 @@ export const HeroPicker = memo(function HeroPicker({ heroes, selected, onToggle,
           );
         })}
         {filtered.length === 0 && (
-          <p className="col-span-full py-8 text-center text-sm text-slate-500">{t('noMatch', { query })}</p>
+          <p className="col-span-full py-8 text-center text-sm text-ink-faint">{t('noMatch', { query })}</p>
         )}
       </div>
     </div>

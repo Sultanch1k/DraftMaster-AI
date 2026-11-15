@@ -356,6 +356,32 @@ class Store:
                 return row
         return None
 
+    def revoke_entitlements_by_email(self, email: str) -> int:
+        """Revoke every entitlement for a buyer. Returns the number revoked.
+
+        A buyer can hold several sessions (each activation mints a new token), so
+        revoking only the newest one on a refund leaves the others premium and the
+        refund worthless. Keying revocation off the buyer's email closes that.
+        """
+        if not email:
+            return 0
+        if self.engine:  # pragma: no cover - requires DB
+            from sqlalchemy import text
+
+            with self.engine.begin() as conn:
+                res = conn.execute(
+                    text("UPDATE entitlements SET status = 'revoked' WHERE email = :e AND status <> 'revoked'"),
+                    {"e": email},
+                )
+                return int(res.rowcount or 0)
+        revoked = 0
+        with self._lock:
+            for row in self._entitlements.values():
+                if row.get("email") == email and row.get("status") != "revoked":
+                    row["status"] = "revoked"
+                    revoked += 1
+        return revoked
+
     def set_entitlement_status(self, session_token: str, status: str) -> bool:
         row = self.get_entitlement(session_token)
         if not row:

@@ -42,7 +42,7 @@ export function LocaleSwitcher({ className }: { className?: string }) {
             aria-pressed={selected}
             className={cn(
               'rounded px-1.5 py-0.5 text-[11px] font-bold transition',
-              selected ? 'bg-base-600 text-white' : 'text-slate-400 hover:text-slate-200',
+              selected ? 'bg-base-600 text-ink' : 'text-ink-muted hover:text-ink-soft',
             )}
           >
             {LOCALE_LABELS[locale]}
