@@ -61,7 +61,8 @@ Backend (Render → draftmaster-api → Environment):
 | --- | --- |
 | `DRAFTMASTER_ENVIRONMENT` | must be `production` |
 | `DRAFTMASTER_DATABASE_URL` | managed Postgres; **see §4 — never leave this unset** |
-| `DRAFTMASTER_SECRET_KEY` | signs premium session tokens; changing it logs everyone out |
+| `DRAFTMASTER_SECRET_KEY` | signs premium session tokens and share links; changing it logs everyone out and invalidates existing share links. Optional since the key self-provisions (below) |
+| `DRAFTMASTER_PROVISION_SECRET_KEY` | `true` mints and **persists** a signing key when `DRAFTMASTER_SECRET_KEY` is unset, so sharing works without a dashboard step. Set `false` to keep the old fail-closed behaviour |
 | `DRAFTMASTER_CORS_ORIGINS` | `https://www.draftmaster.wiki` |
 | `DRAFTMASTER_OPENDOTA_API_KEY` | match coach + meta intelligence |
 | `DRAFTMASTER_LEMONSQUEEZY_API_KEY` | license validation |
@@ -82,6 +83,15 @@ hides purchase affordances rather than showing a dead button.
 
 `infra/render.yaml` is the Blueprint that provisions the API service and a paid
 Postgres. Apply it with Render → New → Blueprint. It sets `autoDeploy: true`.
+
+> **The live API is a hand-created service, so this Blueprint does not manage
+> it.** It therefore never received `DRAFTMASTER_PROVISION_SECRET_KEY`, and
+> `autoDeploy: true` has not pulled the newest `main` — observed 2026-11-07,
+> `POST /api/share` still returns `"token":""` while the web tier is current.
+> Either recreate the service from the Blueprint, or set
+> `DRAFTMASTER_PROVISION_SECRET_KEY=true` (or a literal `DRAFTMASTER_SECRET_KEY`)
+> on the existing service and trigger a manual redeploy. Until then, sharing and
+> every newer endpoint are dark in production.
 
 ## 4. The data-durability rule (read this before touching the DB)
 
@@ -142,7 +152,15 @@ print(len(r['pick_reports']), 'reports;', 'one_sentence' in r)"
 curl -s https://www.draftmaster.wiki/robots.txt
 curl -s https://www.draftmaster.wiki/counter/anti-mage | grep -c 'does best'
 
-# 6. The growth agent's content is served (not just committed)
+# 6. Sharing works: the token must be non-empty, and the share page must render.
+#    An empty token means DRAFTMASTER_SECRET_KEY is unset AND provisioning is off.
+TOKEN=$(curl -s -X POST https://draftmaster-ai.onrender.com/api/share \
+  -H 'Content-Type: application/json' -d '{"enemy_hero_ids":[2,26]}' \
+  | python3 -c "import sys,json; print(json.load(sys.stdin)['token'])")
+[ -n "$TOKEN" ] && echo "share ok" || echo "SHARE LOOP DEAD — see §3"
+curl -s -o /dev/null -w '%{http_code}\n' "https://www.draftmaster.wiki/share/$TOKEN"   # expect 200
+
+# 7. The growth agent's content is served (not just committed)
 curl -s https://www.draftmaster.wiki/blog | grep -c 'Strategy Blog'
 curl -s https://www.draftmaster.wiki/sitemap.xml | grep -c '/blog/'
 ```
