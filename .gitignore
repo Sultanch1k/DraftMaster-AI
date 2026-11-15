@@ -31,3 +31,4 @@ data/raw/
 
 # TypeScript incremental build cache
 *.tsbuildinfo
+.audit/
