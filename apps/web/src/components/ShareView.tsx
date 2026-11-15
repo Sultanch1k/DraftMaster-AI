@@ -6,9 +6,9 @@ import { ArrowRight, Loader2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { api, ApiError } from '@/lib/api';
 import { installAnalytics, track } from '@/lib/analytics';
-import type { PanicResult } from '@/lib/types';
-import { fromPanic } from '@/lib/winplan';
-import { WinPlanView } from './winplan/WinPlanView';
+import type { HeroStrategy, PanicResult } from '@/lib/types';
+import { fromPanic, fromHeroStrategy, type WinPlanView } from '@/lib/winplan';
+import { WinPlanView as WinPlanDossier } from './winplan/WinPlanView';
 import { PosterExport } from './winplan/PosterExport';
 
 /**
@@ -17,10 +17,11 @@ import { PosterExport } from './winplan/PosterExport';
  * The token is signed by the server, so this renders a real plan for anyone who
  * opens the link — including someone who has never used the product. The only
  * call to action is "get your own plan", which is the whole point of the loop.
+ * Both share modes (counter-pick and My Hero) normalize to the same dossier.
  */
 export function ShareView({ token }: { token: string }) {
   const t = useTranslations('share');
-  const [result, setResult] = useState<PanicResult | null>(null);
+  const [plan, setPlan] = useState<WinPlanView | null>(null);
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
@@ -28,7 +29,10 @@ export function ShareView({ token }: { token: string }) {
     track('share_opened', {});
     api
       .renderShare(token)
-      .then(setResult)
+      .then((body) => {
+        if (body && 'strategy' in body) setPlan(fromHeroStrategy((body as { strategy: HeroStrategy }).strategy));
+        else setPlan(fromPanic(body as PanicResult));
+      })
       .catch((e) => {
         // A 404 means the token is forged or expired; anything else is transient.
         if (e instanceof ApiError && e.status === 404) setFailed(true);
@@ -47,7 +51,7 @@ export function ShareView({ token }: { token: string }) {
     );
   }
 
-  if (!result) {
+  if (!plan) {
     return (
       <div className="flex items-center justify-center gap-3 py-24 text-sm text-ink-muted">
         <Loader2 className="h-5 w-5 animate-spin text-radiant" />
@@ -56,7 +60,6 @@ export function ShareView({ token }: { token: string }) {
     );
   }
 
-  const plan = fromPanic(result);
   return (
     <div className="flex flex-col gap-3">
       <div className="card card-pad border-accent/40">
@@ -66,7 +69,7 @@ export function ShareView({ token }: { token: string }) {
           {t('ctaOwn')} <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
-      <WinPlanView
+      <WinPlanDossier
         plan={plan}
         footer={
           <PosterExport

@@ -44,6 +44,10 @@ class Settings(BaseSettings):
     # `python -c "import secrets;print(secrets.token_urlsafe(48))"`. When empty
     # the app runs free-only and no premium session can be minted.
     secret_key: str = ""
+    # When no secret_key is supplied, mint one and persist it in the store so
+    # share links and premium sessions work without dashboard access. Off by
+    # default; enabled in production by render.yaml.
+    provision_secret_key: bool = False
 
     # CORS
     cors_origins: str = "*"

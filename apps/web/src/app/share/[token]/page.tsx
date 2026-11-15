@@ -16,11 +16,16 @@ export async function generateMetadata({ params }: { params: Promise<{ token: st
   const t = await getTranslations('share');
   const enemies = (draft?.e ?? []).map((id) => heroName(id)).filter(Boolean) as string[];
   const pick = draft?.h ? heroName(draft.h) : null;
+  const isStrategy = draft?.m === 'strategy';
   const title = pick
-    ? `${pick} vs ${enemies.join(', ')} — DraftMaster AI win plan`
+    ? isStrategy
+      ? `${pick} vs ${enemies.join(', ')} — how to win · DraftMaster AI`
+      : `${pick} vs ${enemies.join(', ')} — DraftMaster AI win plan`
     : t('viewTitle');
   const description = pick
-    ? `The exact build, kill order and win conditions to beat ${enemies.join(', ')} with ${pick}.`
+    ? isStrategy
+      ? `The lane plan, item build, kill order and win conditions to beat ${enemies.join(', ')} with ${pick}.`
+      : `The exact build, kill order and win conditions to beat ${enemies.join(', ')} with ${pick}.`
     : t('viewSub');
   return {
     title,

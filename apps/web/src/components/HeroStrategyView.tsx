@@ -26,6 +26,7 @@ import { HeroPicker } from './HeroPicker';
 import { HeroPortrait } from './HeroPortrait';
 import { WinProbabilityBar, WinProbFactors } from './WinProbability';
 import { ReportSkeleton } from './ReportSkeleton';
+import { ShareWithFriends, useShareLink } from './ShareWithFriends';
 import { WinPlanHeroIdentity, WinPlanStatement } from './winplan/HeroIdentity';
 import { WinPlanVerdict, WinPlanWhy, WinPlanKillPriority, WinPlanWinCondition, WinPlanMistakes } from './winplan/Panels';
 import { WinPlanItemBuild, WinPlanPowerSpikes, WinPlanDangerHeroes } from './winplan/Tactical';
@@ -242,10 +243,22 @@ function StrategyReport({ strategy }: { strategy: HeroStrategy }) {
   const lane = strategy.lane_strategy;
   const tf = strategy.teamfight_strategy;
   const plan = fromHeroStrategy(strategy);
+  // One signed token serves both the share action and the poster renderer, so
+  // sharing a plan the user just generated is free (same quota signature).
+  const sharePath = useShareLink(strategy.enemy_draft.map((h) => h.id), strategy.role ?? undefined, undefined, strategy.hero.id);
 
   return (
     <div className="flex flex-col gap-4">
       <WinPlanHeroIdentity plan={plan} />
+
+      <ShareWithFriends
+        enemyIds={strategy.enemy_draft.map((h) => h.id)}
+        role={strategy.role ?? undefined}
+        heroId={strategy.hero.id}
+        heroName={strategy.hero.localized_name}
+        winPlan={strategy.one_sentence_game_plan}
+        token={sharePath}
+      />
 
       <div className="grid gap-4 xl:grid-cols-2">
         <WinPlanVerdict plan={plan} />

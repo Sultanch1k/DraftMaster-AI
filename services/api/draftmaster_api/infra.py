@@ -107,6 +107,7 @@ class Store:
         self._entitlements: dict[str, dict] = {}
         self._events: list[dict] = []
         self._subscribers: dict[str, dict] = {}
+        self._secrets: dict[str, str] = {}
         self._lock = threading.Lock()
         self.backend = "memory"
         url = normalize_database_url(
@@ -183,6 +184,17 @@ class Store:
                             user_id TEXT,
                             source TEXT,
                             consent BOOLEAN DEFAULT FALSE,
+                            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                        )
+                        """
+                    )
+                )
+                conn.execute(
+                    text(
+                        """
+                        CREATE TABLE IF NOT EXISTS app_secrets (
+                            name TEXT PRIMARY KEY,
+                            value TEXT NOT NULL,
                             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                         )
                         """
@@ -441,6 +453,48 @@ class Store:
                 ).scalar()
                 return int(res or 0)
         return sum(1 for r in self._entitlements.values() if r.get("status") == "active")
+
+    # -- app secrets -----------------------------------------------------
+    def get_or_create_secret(self, name: str) -> str:
+        """Return a stable random secret, creating it once and persisting it.
+
+        Used to provision the share/entitlement signing key when the operator has
+        not supplied ``DRAFTMASTER_SECRET_KEY``. Without this, a deployment with
+        no signing key silently disables public share links and premium sessions
+        — the whole social loop — even though the product looks fully wired. The
+        key must survive restarts (or every previously minted link dies), so it
+        lives in the same store as entitlements.
+        """
+        import secrets as _secrets
+
+        if self.engine:  # pragma: no cover - requires DB
+            from sqlalchemy import text
+
+            with self.engine.connect() as conn:
+                row = conn.execute(
+                    text("SELECT value FROM app_secrets WHERE name = :n"), {"n": name}
+                ).scalar()
+            if row:
+                return str(row)
+            value = _secrets.token_urlsafe(48)
+            with self.engine.begin() as conn:
+                conn.execute(
+                    text(
+                        """
+                        INSERT INTO app_secrets (name, value) VALUES (:n, :v)
+                        ON CONFLICT (name) DO NOTHING
+                        """
+                    ),
+                    {"n": name, "v": value},
+                )
+                row = conn.execute(
+                    text("SELECT value FROM app_secrets WHERE name = :n"), {"n": name}
+                ).scalar()
+            return str(row or value)
+        with self._lock:
+            if name not in self._secrets:
+                self._secrets[name] = _secrets.token_urlsafe(48)
+            return self._secrets[name]
 
     # -- subscribers -----------------------------------------------------
     def add_subscriber(self, email: str, user_id: str = "", source: str = "", consent: bool = False) -> dict:

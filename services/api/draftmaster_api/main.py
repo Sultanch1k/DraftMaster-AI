@@ -39,6 +39,15 @@ async def lifespan(app: FastAPI):
     app.state.cache = Cache(settings)
     app.state.store = Store(settings)
     app.state.coach = MatchCoach(dataset)
+
+    # A deployment with no signing key silently disables every public share link
+    # and premium session while looking fully wired. In production, provision a
+    # stable key automatically (persisted in the store) so the social loop works
+    # out of the box; an operator-supplied DRAFTMASTER_SECRET_KEY always wins.
+    if not settings.secret_key and settings.provision_secret_key:
+        settings.secret_key = app.state.store.get_or_create_secret("signing_key")
+        log.info("provisioned signing key (source=store)")
+
     try:
         app.state.screenshot = ScreenshotAnalyzer(settings.hero_hashes_path)
         app.state.screenshot._load()

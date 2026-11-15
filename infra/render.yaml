@@ -46,6 +46,11 @@ services:
           property: connectionString
       - key: DRAFTMASTER_CORS_ORIGINS
         value: https://www.draftmaster.wiki
+      # Provision a persisted signing key automatically when none is supplied,
+      # so public share links and premium sessions work without a manual
+      # dashboard step. An explicit DRAFTMASTER_SECRET_KEY below still wins.
+      - key: DRAFTMASTER_PROVISION_SECRET_KEY
+        value: "true"
       # Set these in the dashboard (sync: false keeps them out of git):
       - key: DRAFTMASTER_SECRET_KEY
         sync: false
