@@ -1,7 +1,7 @@
 {
  "counters": {
-  "offset:en": 21,
-  "offset:ru": 21
+  "offset:en": 24,
+  "offset:ru": 24
  },
  "created_at": "2026-11-09T19:39:10.603710+00:00",
  "history": [
@@ -61,6 +61,15 @@
   },
   {
    "at": "2026-11-15T16:10:50.269693+00:00",
+   "event": "cycle",
+   "summary": {
+    "created": 3,
+    "dry": 9,
+    "live": 3
+   }
+  },
+  {
+   "at": "2026-11-16T19:26:20.923405+00:00",
    "event": "cycle",
    "summary": {
     "created": 3,
@@ -2840,6 +2849,930 @@
    "item_id": "446817b0ccd2aabd",
    "measured_at": "2026-11-15T16:10:50.270158+00:00",
    "topic": "matchup.13",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-16T19:26:20.923592+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-16T19:26:20.923599+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-16T19:26:20.923602+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-16T19:26:20.923604+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-16T19:26:20.923607+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-16T19:26:20.923609+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-16T19:26:20.923611+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-16T19:26:20.923613+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-16T19:26:20.923615+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-16T19:26:20.923617+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-16T19:26:20.923619+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-16T19:26:20.923623+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-16T19:26:20.923625+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-16T19:26:20.923627+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-16T19:26:20.923629+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-16T19:26:20.923631+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-16T19:26:20.923633+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-16T19:26:20.923635+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-16T19:26:20.923637+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-16T19:26:20.923639+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-16T19:26:20.923641+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-16T19:26:20.923643+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-16T19:26:20.923645+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-16T19:26:20.923647+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-16T19:26:20.923648+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-16T19:26:20.923650+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-16T19:26:20.923652+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-16T19:26:20.923654+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-16T19:26:20.923656+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-16T19:26:20.923658+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-16T19:26:20.923660+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-16T19:26:20.923662+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-16T19:26:20.923664+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-16T19:26:20.923666+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-16T19:26:20.923668+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-16T19:26:20.923670+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "482b07a9e8e6b5c1",
+   "measured_at": "2026-11-16T19:26:20.923672+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "482b07a9e8e6b5c1",
+   "measured_at": "2026-11-16T19:26:20.923674+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "482b07a9e8e6b5c1",
+   "measured_at": "2026-11-16T19:26:20.923676+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "482b07a9e8e6b5c1",
+   "measured_at": "2026-11-16T19:26:20.923677+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "cdd8c116f44d6ceb",
+   "measured_at": "2026-11-16T19:26:20.923679+00:00",
+   "topic": "matchup.8",
+   "variant": "question"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "cdd8c116f44d6ceb",
+   "measured_at": "2026-11-16T19:26:20.923681+00:00",
+   "topic": "matchup.8",
+   "variant": "question"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "cdd8c116f44d6ceb",
+   "measured_at": "2026-11-16T19:26:20.923683+00:00",
+   "topic": "matchup.8",
+   "variant": "question"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "cdd8c116f44d6ceb",
+   "measured_at": "2026-11-16T19:26:20.923690+00:00",
+   "topic": "matchup.8",
+   "variant": "question"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2ba73590731b239f",
+   "measured_at": "2026-11-16T19:26:20.923692+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2ba73590731b239f",
+   "measured_at": "2026-11-16T19:26:20.923694+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2ba73590731b239f",
+   "measured_at": "2026-11-16T19:26:20.923696+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2ba73590731b239f",
+   "measured_at": "2026-11-16T19:26:20.923699+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "6e904be9baf04a5c",
+   "measured_at": "2026-11-16T19:26:20.923701+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "6e904be9baf04a5c",
+   "measured_at": "2026-11-16T19:26:20.923703+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "6e904be9baf04a5c",
+   "measured_at": "2026-11-16T19:26:20.923707+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "6e904be9baf04a5c",
+   "measured_at": "2026-11-16T19:26:20.923709+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "08c1f4255bd933ee",
+   "measured_at": "2026-11-16T19:26:20.923711+00:00",
+   "topic": "matchup.11",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "08c1f4255bd933ee",
+   "measured_at": "2026-11-16T19:26:20.923713+00:00",
+   "topic": "matchup.11",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "08c1f4255bd933ee",
+   "measured_at": "2026-11-16T19:26:20.923715+00:00",
+   "topic": "matchup.11",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "08c1f4255bd933ee",
+   "measured_at": "2026-11-16T19:26:20.923717+00:00",
+   "topic": "matchup.11",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "b169df5c947f2d35",
+   "measured_at": "2026-11-16T19:26:20.923719+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "b169df5c947f2d35",
+   "measured_at": "2026-11-16T19:26:20.923721+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "b169df5c947f2d35",
+   "measured_at": "2026-11-16T19:26:20.923723+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "b169df5c947f2d35",
+   "measured_at": "2026-11-16T19:26:20.923725+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "3ed0694f4466adca",
+   "measured_at": "2026-11-16T19:26:20.923726+00:00",
+   "topic": "matchup.13",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "3ed0694f4466adca",
+   "measured_at": "2026-11-16T19:26:20.923728+00:00",
+   "topic": "matchup.13",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "3ed0694f4466adca",
+   "measured_at": "2026-11-16T19:26:20.923730+00:00",
+   "topic": "matchup.13",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "3ed0694f4466adca",
+   "measured_at": "2026-11-16T19:26:20.923732+00:00",
+   "topic": "matchup.13",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "174149e33d60fb99",
+   "measured_at": "2026-11-16T19:26:20.923734+00:00",
+   "topic": "matchup.14",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "174149e33d60fb99",
+   "measured_at": "2026-11-16T19:26:20.923736+00:00",
+   "topic": "matchup.14",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "174149e33d60fb99",
+   "measured_at": "2026-11-16T19:26:20.923738+00:00",
+   "topic": "matchup.14",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "174149e33d60fb99",
+   "measured_at": "2026-11-16T19:26:20.923740+00:00",
+   "topic": "matchup.14",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "446817b0ccd2aabd",
+   "measured_at": "2026-11-16T19:26:20.923742+00:00",
+   "topic": "matchup.13",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "446817b0ccd2aabd",
+   "measured_at": "2026-11-16T19:26:20.923744+00:00",
+   "topic": "matchup.13",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "446817b0ccd2aabd",
+   "measured_at": "2026-11-16T19:26:20.923746+00:00",
+   "topic": "matchup.13",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "446817b0ccd2aabd",
+   "measured_at": "2026-11-16T19:26:20.923747+00:00",
+   "topic": "matchup.13",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5ba156a6321af29c",
+   "measured_at": "2026-11-16T19:26:20.923749+00:00",
+   "topic": "matchup.16",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5ba156a6321af29c",
+   "measured_at": "2026-11-16T19:26:20.923751+00:00",
+   "topic": "matchup.16",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5ba156a6321af29c",
+   "measured_at": "2026-11-16T19:26:20.923753+00:00",
+   "topic": "matchup.16",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5ba156a6321af29c",
+   "measured_at": "2026-11-16T19:26:20.923757+00:00",
+   "topic": "matchup.16",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "355adf7700263f24",
+   "measured_at": "2026-11-16T19:26:20.923758+00:00",
+   "topic": "matchup.17",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "355adf7700263f24",
+   "measured_at": "2026-11-16T19:26:20.923761+00:00",
+   "topic": "matchup.17",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "355adf7700263f24",
+   "measured_at": "2026-11-16T19:26:20.923763+00:00",
+   "topic": "matchup.17",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "355adf7700263f24",
+   "measured_at": "2026-11-16T19:26:20.923765+00:00",
+   "topic": "matchup.17",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "14cf2422d2c6abc1",
+   "measured_at": "2026-11-16T19:26:20.923766+00:00",
+   "topic": "matchup.16",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "14cf2422d2c6abc1",
+   "measured_at": "2026-11-16T19:26:20.923770+00:00",
+   "topic": "matchup.16",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "14cf2422d2c6abc1",
+   "measured_at": "2026-11-16T19:26:20.923772+00:00",
+   "topic": "matchup.16",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "14cf2422d2c6abc1",
+   "measured_at": "2026-11-16T19:26:20.923774+00:00",
+   "topic": "matchup.16",
    "variant": "story"
   }
  ],
@@ -6349,6 +7282,486 @@
    "live": false,
    "ok": true,
    "payload_preview": "Sand King против Largo: разбор матчапа\n\nLargo — худший матчап для Sand King (19/100).\n\nСчёт контр-пика 19 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Sand King в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждит"
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/d63d52988a767abf.md",
+   "item": {
+    "body": "The counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Tiny into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-16T19:26:20.926500+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "d63d52988a767abf",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/tiny"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      19,
+      83
+     ],
+     "hero_names": [
+      "Tiny",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.19|matchup|en|enemy=83|hero=19",
+    "title": "Tiny vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.19",
+    "variant": "story"
+   },
+   "item_id": "d63d52988a767abf",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Tiny vs Treant Protector: the matchup breakdown\n\nThe counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Tiny into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it"
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Tiny into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-16T19:26:20.926500+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "d63d52988a767abf",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/tiny"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      19,
+      83
+     ],
+     "hero_names": [
+      "Tiny",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.19|matchup|en|enemy=83|hero=19",
+    "title": "Tiny vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.19",
+    "variant": "story"
+   },
+   "item_id": "d63d52988a767abf",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Tiny vs Treant Protector: the matchup breakdown\n\nThe counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Tiny into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it"
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Tiny into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-16T19:26:20.926500+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "d63d52988a767abf",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/tiny"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      19,
+      83
+     ],
+     "hero_names": [
+      "Tiny",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.19|matchup|en|enemy=83|hero=19",
+    "title": "Tiny vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.19",
+    "variant": "story"
+   },
+   "item_id": "d63d52988a767abf",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Tiny vs Treant Protector: the matchup breakdown\n\nThe counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Tiny into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it"
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Tiny into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-16T19:26:20.926500+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "d63d52988a767abf",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/tiny"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      19,
+      83
+     ],
+     "hero_names": [
+      "Tiny",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.19|matchup|en|enemy=83|hero=19",
+    "title": "Tiny vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.19",
+    "variant": "story"
+   },
+   "item_id": "d63d52988a767abf",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Tiny vs Treant Protector: the matchup breakdown\n\nThe counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Tiny into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it"
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/07965f8166852f35.md",
+   "item": {
+    "body": "The counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Vengeful Spirit into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-16T19:26:20.926529+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "07965f8166852f35",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/vengeful-spirit"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      20,
+      83
+     ],
+     "hero_names": [
+      "Vengeful Spirit",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.20|matchup|en|enemy=83|hero=20",
+    "title": "Vengeful Spirit vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.20",
+    "variant": "story"
+   },
+   "item_id": "07965f8166852f35",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Vengeful Spirit vs Treant Protector: the matchup breakdown\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Vengeful Spirit into this, and if you are already in it, play for your own timings instead of trading "
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Vengeful Spirit into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-16T19:26:20.926529+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "07965f8166852f35",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/vengeful-spirit"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      20,
+      83
+     ],
+     "hero_names": [
+      "Vengeful Spirit",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.20|matchup|en|enemy=83|hero=20",
+    "title": "Vengeful Spirit vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.20",
+    "variant": "story"
+   },
+   "item_id": "07965f8166852f35",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Vengeful Spirit vs Treant Protector: the matchup breakdown\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Vengeful Spirit into this, and if you are already in it, play for your own timings instead of trading "
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Vengeful Spirit into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-16T19:26:20.926529+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "07965f8166852f35",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/vengeful-spirit"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      20,
+      83
+     ],
+     "hero_names": [
+      "Vengeful Spirit",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.20|matchup|en|enemy=83|hero=20",
+    "title": "Vengeful Spirit vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.20",
+    "variant": "story"
+   },
+   "item_id": "07965f8166852f35",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Vengeful Spirit vs Treant Protector: the matchup breakdown\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Vengeful Spirit into this, and if you are already in it, play for your own timings instead of trading "
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Vengeful Spirit into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-16T19:26:20.926529+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "07965f8166852f35",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/vengeful-spirit"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      20,
+      83
+     ],
+     "hero_names": [
+      "Vengeful Spirit",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.20|matchup|en|enemy=83|hero=20",
+    "title": "Vengeful Spirit vs Treant Protector: the matchup breakdown",
+    "topic": "matchup.20",
+    "variant": "story"
+   },
+   "item_id": "07965f8166852f35",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Vengeful Spirit vs Treant Protector: the matchup breakdown\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Vengeful Spirit into this, and if you are already in it, play for your own timings instead of trading "
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/ru/fd7dcf4c2a2d1e4e.md",
+   "item": {
+    "body": "Treant Protector — худший матчап для Tiny (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Tiny в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-16T19:26:20.928724+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "fd7dcf4c2a2d1e4e",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/tiny"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      19,
+      83
+     ],
+     "hero_names": [
+      "Tiny",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.19|matchup|ru|enemy=83|hero=19",
+    "title": "Tiny против Treant Protector: разбор матчапа",
+    "topic": "matchup.19",
+    "variant": "story"
+   },
+   "item_id": "fd7dcf4c2a2d1e4e",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Tiny против Treant Protector: разбор матчапа\n\nTreant Protector — худший матчап для Tiny (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Tiny в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма"
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Treant Protector — худший матчап для Tiny (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Tiny в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-16T19:26:20.928724+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "fd7dcf4c2a2d1e4e",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/tiny"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      19,
+      83
+     ],
+     "hero_names": [
+      "Tiny",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.19|matchup|ru|enemy=83|hero=19",
+    "title": "Tiny против Treant Protector: разбор матчапа",
+    "topic": "matchup.19",
+    "variant": "story"
+   },
+   "item_id": "fd7dcf4c2a2d1e4e",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Tiny против Treant Protector: разбор матчапа\n\nTreant Protector — худший матчап для Tiny (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Tiny в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма"
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Treant Protector — худший матчап для Tiny (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Tiny в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-16T19:26:20.928724+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "fd7dcf4c2a2d1e4e",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/tiny"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      19,
+      83
+     ],
+     "hero_names": [
+      "Tiny",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.19|matchup|ru|enemy=83|hero=19",
+    "title": "Tiny против Treant Protector: разбор матчапа",
+    "topic": "matchup.19",
+    "variant": "story"
+   },
+   "item_id": "fd7dcf4c2a2d1e4e",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Tiny против Treant Protector: разбор матчапа\n\nTreant Protector — худший матчап для Tiny (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Tiny в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма"
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Treant Protector — худший матчап для Tiny (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Tiny в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-16T19:26:20.928724+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "fd7dcf4c2a2d1e4e",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/tiny"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      19,
+      83
+     ],
+     "hero_names": [
+      "Tiny",
+      "Treant Protector"
+     ]
+    },
+    "signature": "matchup.19|matchup|ru|enemy=83|hero=19",
+    "title": "Tiny против Treant Protector: разбор матчапа",
+    "topic": "matchup.19",
+    "variant": "story"
+   },
+   "item_id": "fd7dcf4c2a2d1e4e",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Tiny против Treant Protector: разбор матчапа\n\nTreant Protector — худший матчап для Tiny (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Tiny в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма"
   }
  ],
  "runs": [
@@ -10173,6 +11586,540 @@
      "script_id": "matchup-ru-4ce1d7da"
     }
    ]
+  },
+  {
+   "allow_publish": false,
+   "day": "2026-11-16",
+   "items_created": 3,
+   "metrics_ingested": 84,
+   "optimizer_note": "Best variant is 'data-led' (mean score 0.0, CTR 0.0%, n=84). Weight future output toward it.",
+   "outreach": {
+    "candidates": 5,
+    "messages": 5,
+    "paths": [
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_mid-lane-lab.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_carry-clinic.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_offlane-academy.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/community_ru-dota.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/analyst_stat-line.md"
+    ]
+   },
+   "publish_results": [
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/d63d52988a767abf.md",
+     "item": {
+      "body": "The counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Tiny into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-16T19:26:20.926500+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "d63d52988a767abf",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/tiny"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        19,
+        83
+       ],
+       "hero_names": [
+        "Tiny",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.19|matchup|en|enemy=83|hero=19",
+      "title": "Tiny vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.19",
+      "variant": "story"
+     },
+     "item_id": "d63d52988a767abf",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Tiny vs Treant Protector: the matchup breakdown\n\nThe counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Tiny into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it"
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Tiny into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-16T19:26:20.926500+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "d63d52988a767abf",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/tiny"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        19,
+        83
+       ],
+       "hero_names": [
+        "Tiny",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.19|matchup|en|enemy=83|hero=19",
+      "title": "Tiny vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.19",
+      "variant": "story"
+     },
+     "item_id": "d63d52988a767abf",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Tiny vs Treant Protector: the matchup breakdown\n\nThe counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Tiny into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it"
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Tiny into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-16T19:26:20.926500+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "d63d52988a767abf",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/tiny"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        19,
+        83
+       ],
+       "hero_names": [
+        "Tiny",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.19|matchup|en|enemy=83|hero=19",
+      "title": "Tiny vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.19",
+      "variant": "story"
+     },
+     "item_id": "d63d52988a767abf",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Tiny vs Treant Protector: the matchup breakdown\n\nThe counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Tiny into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it"
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Tiny into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-16T19:26:20.926500+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "d63d52988a767abf",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/tiny"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        19,
+        83
+       ],
+       "hero_names": [
+        "Tiny",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.19|matchup|en|enemy=83|hero=19",
+      "title": "Tiny vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.19",
+      "variant": "story"
+     },
+     "item_id": "d63d52988a767abf",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Tiny vs Treant Protector: the matchup breakdown\n\nThe counter score is 16 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Tiny into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it"
+    },
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/07965f8166852f35.md",
+     "item": {
+      "body": "The counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Vengeful Spirit into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-16T19:26:20.926529+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "07965f8166852f35",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/vengeful-spirit"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        20,
+        83
+       ],
+       "hero_names": [
+        "Vengeful Spirit",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.20|matchup|en|enemy=83|hero=20",
+      "title": "Vengeful Spirit vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.20",
+      "variant": "story"
+     },
+     "item_id": "07965f8166852f35",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Vengeful Spirit vs Treant Protector: the matchup breakdown\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Vengeful Spirit into this, and if you are already in it, play for your own timings instead of trading "
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Vengeful Spirit into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-16T19:26:20.926529+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "07965f8166852f35",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/vengeful-spirit"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        20,
+        83
+       ],
+       "hero_names": [
+        "Vengeful Spirit",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.20|matchup|en|enemy=83|hero=20",
+      "title": "Vengeful Spirit vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.20",
+      "variant": "story"
+     },
+     "item_id": "07965f8166852f35",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Vengeful Spirit vs Treant Protector: the matchup breakdown\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Vengeful Spirit into this, and if you are already in it, play for your own timings instead of trading "
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Vengeful Spirit into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-16T19:26:20.926529+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "07965f8166852f35",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/vengeful-spirit"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        20,
+        83
+       ],
+       "hero_names": [
+        "Vengeful Spirit",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.20|matchup|en|enemy=83|hero=20",
+      "title": "Vengeful Spirit vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.20",
+      "variant": "story"
+     },
+     "item_id": "07965f8166852f35",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Vengeful Spirit vs Treant Protector: the matchup breakdown\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Vengeful Spirit into this, and if you are already in it, play for your own timings instead of trading "
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Vengeful Spirit into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-16T19:26:20.926529+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "07965f8166852f35",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/vengeful-spirit"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        20,
+        83
+       ],
+       "hero_names": [
+        "Vengeful Spirit",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.20|matchup|en|enemy=83|hero=20",
+      "title": "Vengeful Spirit vs Treant Protector: the matchup breakdown",
+      "topic": "matchup.20",
+      "variant": "story"
+     },
+     "item_id": "07965f8166852f35",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Vengeful Spirit vs Treant Protector: the matchup breakdown\n\nThe counter score is 18 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Vengeful Spirit into this, and if you are already in it, play for your own timings instead of trading "
+    },
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/ru/fd7dcf4c2a2d1e4e.md",
+     "item": {
+      "body": "Treant Protector — худший матчап для Tiny (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Tiny в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-16T19:26:20.928724+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "fd7dcf4c2a2d1e4e",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/tiny"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        19,
+        83
+       ],
+       "hero_names": [
+        "Tiny",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.19|matchup|ru|enemy=83|hero=19",
+      "title": "Tiny против Treant Protector: разбор матчапа",
+      "topic": "matchup.19",
+      "variant": "story"
+     },
+     "item_id": "fd7dcf4c2a2d1e4e",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Tiny против Treant Protector: разбор матчапа\n\nTreant Protector — худший матчап для Tiny (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Tiny в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма"
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Treant Protector — худший матчап для Tiny (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Tiny в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-16T19:26:20.928724+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "fd7dcf4c2a2d1e4e",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/tiny"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        19,
+        83
+       ],
+       "hero_names": [
+        "Tiny",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.19|matchup|ru|enemy=83|hero=19",
+      "title": "Tiny против Treant Protector: разбор матчапа",
+      "topic": "matchup.19",
+      "variant": "story"
+     },
+     "item_id": "fd7dcf4c2a2d1e4e",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Tiny против Treant Protector: разбор матчапа\n\nTreant Protector — худший матчап для Tiny (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Tiny в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма"
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Treant Protector — худший матчап для Tiny (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Tiny в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-16T19:26:20.928724+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "fd7dcf4c2a2d1e4e",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/tiny"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        19,
+        83
+       ],
+       "hero_names": [
+        "Tiny",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.19|matchup|ru|enemy=83|hero=19",
+      "title": "Tiny против Treant Protector: разбор матчапа",
+      "topic": "matchup.19",
+      "variant": "story"
+     },
+     "item_id": "fd7dcf4c2a2d1e4e",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Tiny против Treant Protector: разбор матчапа\n\nTreant Protector — худший матчап для Tiny (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Tiny в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма"
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Treant Protector — худший матчап для Tiny (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Tiny в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-16T19:26:20.928724+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "fd7dcf4c2a2d1e4e",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/tiny"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        19,
+        83
+       ],
+       "hero_names": [
+        "Tiny",
+        "Treant Protector"
+       ]
+      },
+      "signature": "matchup.19|matchup|ru|enemy=83|hero=19",
+      "title": "Tiny против Treant Protector: разбор матчапа",
+      "topic": "matchup.19",
+      "variant": "story"
+     },
+     "item_id": "fd7dcf4c2a2d1e4e",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Tiny против Treant Protector: разбор матчапа\n\nTreant Protector — худший матчап для Tiny (16/100).\n\nСчёт контр-пика 16 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Tiny в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма"
+    }
+   ],
+   "published_dry": 9,
+   "published_live": 3,
+   "started_at": "2026-11-16T19:26:20.923405+00:00",
+   "variant_chosen": "story",
+   "videos": [
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/en",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-en-34eabd9d"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/en",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-en-8134afdb"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/ru",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-ru-a8ac941c"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/ru",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-ru-dff8d3a8"
+    }
+   ]
   }
  ],
  "schema_version": 1,
@@ -10181,35 +12128,35 @@
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
-   "n": 72,
+   "n": 84,
    "score": 0.0
   },
   "hook-first": {
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
-   "n": 60,
+   "n": 72,
    "score": 0.0
   },
   "listicle": {
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
-   "n": 48,
+   "n": 60,
    "score": 0.0
   },
   "question": {
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
-   "n": 36,
+   "n": 48,
    "score": 0.0
   },
   "story": {
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
-   "n": 36,
+   "n": 72,
    "score": 0.0
   }
  }
