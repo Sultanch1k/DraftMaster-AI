@@ -1,7 +1,7 @@
 {
  "counters": {
-  "offset:en": 33,
-  "offset:ru": 33
+  "offset:en": 36,
+  "offset:ru": 36
  },
  "created_at": "2026-11-09T19:39:10.603710+00:00",
  "history": [
@@ -97,6 +97,15 @@
   },
   {
    "at": "2026-11-19T18:05:54.130681+00:00",
+   "event": "cycle",
+   "summary": {
+    "created": 3,
+    "dry": 9,
+    "live": 3
+   }
+  },
+  {
+   "at": "2026-11-20T17:39:47.498430+00:00",
    "event": "cycle",
    "summary": {
     "created": 3,
@@ -7365,6 +7374,1458 @@
    "measured_at": "2026-11-19T18:05:54.131206+00:00",
    "topic": "matchup.26",
    "variant": "question"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-20T17:39:47.498740+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-20T17:39:47.498761+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-20T17:39:47.498771+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "4e77a8bcfcb8d37d",
+   "measured_at": "2026-11-20T17:39:47.498777+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-20T17:39:47.498783+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-20T17:39:47.498791+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-20T17:39:47.498797+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "9afacf609302d312",
+   "measured_at": "2026-11-20T17:39:47.498804+00:00",
+   "topic": "meta.losers",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-20T17:39:47.498810+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-20T17:39:47.498815+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-20T17:39:47.498823+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "814f819bd0de6c8c",
+   "measured_at": "2026-11-20T17:39:47.498828+00:00",
+   "topic": "meta.winners",
+   "variant": "data-led"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-20T17:39:47.498832+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-20T17:39:47.498837+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-20T17:39:47.498841+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "30839936d62a05f4",
+   "measured_at": "2026-11-20T17:39:47.498846+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-20T17:39:47.498850+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-20T17:39:47.498854+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-20T17:39:47.498859+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0a48dca7b44d4c83",
+   "measured_at": "2026-11-20T17:39:47.498863+00:00",
+   "topic": "matchup.2",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-20T17:39:47.498867+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-20T17:39:47.498872+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-20T17:39:47.498876+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5cee28022e9f0eba",
+   "measured_at": "2026-11-20T17:39:47.498880+00:00",
+   "topic": "matchup.1",
+   "variant": "hook-first"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-20T17:39:47.498884+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-20T17:39:47.498889+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-20T17:39:47.498897+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2faf1d382a6714ed",
+   "measured_at": "2026-11-20T17:39:47.498903+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-20T17:39:47.498907+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-20T17:39:47.498911+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-20T17:39:47.498915+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "7ff06c4a033d3de8",
+   "measured_at": "2026-11-20T17:39:47.498919+00:00",
+   "topic": "matchup.5",
+   "variant": "listicle"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-20T17:39:47.498924+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-20T17:39:47.498928+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-20T17:39:47.498932+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "45a0da9fc9d971b3",
+   "measured_at": "2026-11-20T17:39:47.498937+00:00",
+   "topic": "matchup.4",
+   "variant": "listicle"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "482b07a9e8e6b5c1",
+   "measured_at": "2026-11-20T17:39:47.498941+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "482b07a9e8e6b5c1",
+   "measured_at": "2026-11-20T17:39:47.498946+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "482b07a9e8e6b5c1",
+   "measured_at": "2026-11-20T17:39:47.498953+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "482b07a9e8e6b5c1",
+   "measured_at": "2026-11-20T17:39:47.498958+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "cdd8c116f44d6ceb",
+   "measured_at": "2026-11-20T17:39:47.498964+00:00",
+   "topic": "matchup.8",
+   "variant": "question"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "cdd8c116f44d6ceb",
+   "measured_at": "2026-11-20T17:39:47.498971+00:00",
+   "topic": "matchup.8",
+   "variant": "question"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "cdd8c116f44d6ceb",
+   "measured_at": "2026-11-20T17:39:47.498976+00:00",
+   "topic": "matchup.8",
+   "variant": "question"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "cdd8c116f44d6ceb",
+   "measured_at": "2026-11-20T17:39:47.498988+00:00",
+   "topic": "matchup.8",
+   "variant": "question"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2ba73590731b239f",
+   "measured_at": "2026-11-20T17:39:47.498994+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2ba73590731b239f",
+   "measured_at": "2026-11-20T17:39:47.499001+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2ba73590731b239f",
+   "measured_at": "2026-11-20T17:39:47.499006+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "2ba73590731b239f",
+   "measured_at": "2026-11-20T17:39:47.499011+00:00",
+   "topic": "matchup.7",
+   "variant": "question"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "6e904be9baf04a5c",
+   "measured_at": "2026-11-20T17:39:47.499021+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "6e904be9baf04a5c",
+   "measured_at": "2026-11-20T17:39:47.499026+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "6e904be9baf04a5c",
+   "measured_at": "2026-11-20T17:39:47.499030+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "6e904be9baf04a5c",
+   "measured_at": "2026-11-20T17:39:47.499035+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "08c1f4255bd933ee",
+   "measured_at": "2026-11-20T17:39:47.499045+00:00",
+   "topic": "matchup.11",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "08c1f4255bd933ee",
+   "measured_at": "2026-11-20T17:39:47.499051+00:00",
+   "topic": "matchup.11",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "08c1f4255bd933ee",
+   "measured_at": "2026-11-20T17:39:47.499058+00:00",
+   "topic": "matchup.11",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "08c1f4255bd933ee",
+   "measured_at": "2026-11-20T17:39:47.499063+00:00",
+   "topic": "matchup.11",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "b169df5c947f2d35",
+   "measured_at": "2026-11-20T17:39:47.499068+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "b169df5c947f2d35",
+   "measured_at": "2026-11-20T17:39:47.499076+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "b169df5c947f2d35",
+   "measured_at": "2026-11-20T17:39:47.499081+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "b169df5c947f2d35",
+   "measured_at": "2026-11-20T17:39:47.499092+00:00",
+   "topic": "matchup.10",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "3ed0694f4466adca",
+   "measured_at": "2026-11-20T17:39:47.499100+00:00",
+   "topic": "matchup.13",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "3ed0694f4466adca",
+   "measured_at": "2026-11-20T17:39:47.499105+00:00",
+   "topic": "matchup.13",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "3ed0694f4466adca",
+   "measured_at": "2026-11-20T17:39:47.499111+00:00",
+   "topic": "matchup.13",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "3ed0694f4466adca",
+   "measured_at": "2026-11-20T17:39:47.499118+00:00",
+   "topic": "matchup.13",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "174149e33d60fb99",
+   "measured_at": "2026-11-20T17:39:47.499123+00:00",
+   "topic": "matchup.14",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "174149e33d60fb99",
+   "measured_at": "2026-11-20T17:39:47.499131+00:00",
+   "topic": "matchup.14",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "174149e33d60fb99",
+   "measured_at": "2026-11-20T17:39:47.499136+00:00",
+   "topic": "matchup.14",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "174149e33d60fb99",
+   "measured_at": "2026-11-20T17:39:47.499143+00:00",
+   "topic": "matchup.14",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "446817b0ccd2aabd",
+   "measured_at": "2026-11-20T17:39:47.499148+00:00",
+   "topic": "matchup.13",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "446817b0ccd2aabd",
+   "measured_at": "2026-11-20T17:39:47.499153+00:00",
+   "topic": "matchup.13",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "446817b0ccd2aabd",
+   "measured_at": "2026-11-20T17:39:47.499158+00:00",
+   "topic": "matchup.13",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "446817b0ccd2aabd",
+   "measured_at": "2026-11-20T17:39:47.499166+00:00",
+   "topic": "matchup.13",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5ba156a6321af29c",
+   "measured_at": "2026-11-20T17:39:47.499171+00:00",
+   "topic": "matchup.16",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5ba156a6321af29c",
+   "measured_at": "2026-11-20T17:39:47.499175+00:00",
+   "topic": "matchup.16",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5ba156a6321af29c",
+   "measured_at": "2026-11-20T17:39:47.499180+00:00",
+   "topic": "matchup.16",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5ba156a6321af29c",
+   "measured_at": "2026-11-20T17:39:47.499184+00:00",
+   "topic": "matchup.16",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "355adf7700263f24",
+   "measured_at": "2026-11-20T17:39:47.499188+00:00",
+   "topic": "matchup.17",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "355adf7700263f24",
+   "measured_at": "2026-11-20T17:39:47.499193+00:00",
+   "topic": "matchup.17",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "355adf7700263f24",
+   "measured_at": "2026-11-20T17:39:47.499199+00:00",
+   "topic": "matchup.17",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "355adf7700263f24",
+   "measured_at": "2026-11-20T17:39:47.499206+00:00",
+   "topic": "matchup.17",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "14cf2422d2c6abc1",
+   "measured_at": "2026-11-20T17:39:47.499211+00:00",
+   "topic": "matchup.16",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "14cf2422d2c6abc1",
+   "measured_at": "2026-11-20T17:39:47.499215+00:00",
+   "topic": "matchup.16",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "14cf2422d2c6abc1",
+   "measured_at": "2026-11-20T17:39:47.499219+00:00",
+   "topic": "matchup.16",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "14cf2422d2c6abc1",
+   "measured_at": "2026-11-20T17:39:47.499224+00:00",
+   "topic": "matchup.16",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "d63d52988a767abf",
+   "measured_at": "2026-11-20T17:39:47.499228+00:00",
+   "topic": "matchup.19",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "d63d52988a767abf",
+   "measured_at": "2026-11-20T17:39:47.499236+00:00",
+   "topic": "matchup.19",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "d63d52988a767abf",
+   "measured_at": "2026-11-20T17:39:47.499240+00:00",
+   "topic": "matchup.19",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "d63d52988a767abf",
+   "measured_at": "2026-11-20T17:39:47.499244+00:00",
+   "topic": "matchup.19",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "07965f8166852f35",
+   "measured_at": "2026-11-20T17:39:47.499249+00:00",
+   "topic": "matchup.20",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "07965f8166852f35",
+   "measured_at": "2026-11-20T17:39:47.499253+00:00",
+   "topic": "matchup.20",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "07965f8166852f35",
+   "measured_at": "2026-11-20T17:39:47.499258+00:00",
+   "topic": "matchup.20",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "07965f8166852f35",
+   "measured_at": "2026-11-20T17:39:47.499263+00:00",
+   "topic": "matchup.20",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "fd7dcf4c2a2d1e4e",
+   "measured_at": "2026-11-20T17:39:47.499270+00:00",
+   "topic": "matchup.19",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "fd7dcf4c2a2d1e4e",
+   "measured_at": "2026-11-20T17:39:47.499276+00:00",
+   "topic": "matchup.19",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "fd7dcf4c2a2d1e4e",
+   "measured_at": "2026-11-20T17:39:47.499283+00:00",
+   "topic": "matchup.19",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "fd7dcf4c2a2d1e4e",
+   "measured_at": "2026-11-20T17:39:47.499289+00:00",
+   "topic": "matchup.19",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0b8eaa24e68df28f",
+   "measured_at": "2026-11-20T17:39:47.499294+00:00",
+   "topic": "matchup.22",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0b8eaa24e68df28f",
+   "measured_at": "2026-11-20T17:39:47.499301+00:00",
+   "topic": "matchup.22",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0b8eaa24e68df28f",
+   "measured_at": "2026-11-20T17:39:47.499306+00:00",
+   "topic": "matchup.22",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "0b8eaa24e68df28f",
+   "measured_at": "2026-11-20T17:39:47.499311+00:00",
+   "topic": "matchup.22",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "8b1b7467d4bdee2f",
+   "measured_at": "2026-11-20T17:39:47.499319+00:00",
+   "topic": "matchup.23",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "8b1b7467d4bdee2f",
+   "measured_at": "2026-11-20T17:39:47.499324+00:00",
+   "topic": "matchup.23",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "8b1b7467d4bdee2f",
+   "measured_at": "2026-11-20T17:39:47.499328+00:00",
+   "topic": "matchup.23",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "8b1b7467d4bdee2f",
+   "measured_at": "2026-11-20T17:39:47.499333+00:00",
+   "topic": "matchup.23",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "29a5b488ba8a089b",
+   "measured_at": "2026-11-20T17:39:47.499340+00:00",
+   "topic": "matchup.22",
+   "variant": "story"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "29a5b488ba8a089b",
+   "measured_at": "2026-11-20T17:39:47.499345+00:00",
+   "topic": "matchup.22",
+   "variant": "story"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "29a5b488ba8a089b",
+   "measured_at": "2026-11-20T17:39:47.499349+00:00",
+   "topic": "matchup.22",
+   "variant": "story"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "29a5b488ba8a089b",
+   "measured_at": "2026-11-20T17:39:47.499354+00:00",
+   "topic": "matchup.22",
+   "variant": "story"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "8e6c3e46a2dcafed",
+   "measured_at": "2026-11-20T17:39:47.499358+00:00",
+   "topic": "matchup.26",
+   "variant": "question"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "8e6c3e46a2dcafed",
+   "measured_at": "2026-11-20T17:39:47.499362+00:00",
+   "topic": "matchup.26",
+   "variant": "question"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "8e6c3e46a2dcafed",
+   "measured_at": "2026-11-20T17:39:47.499366+00:00",
+   "topic": "matchup.26",
+   "variant": "question"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "8e6c3e46a2dcafed",
+   "measured_at": "2026-11-20T17:39:47.499371+00:00",
+   "topic": "matchup.26",
+   "variant": "question"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "f9db99fd3a59653c",
+   "measured_at": "2026-11-20T17:39:47.499375+00:00",
+   "topic": "matchup.27",
+   "variant": "question"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "f9db99fd3a59653c",
+   "measured_at": "2026-11-20T17:39:47.499379+00:00",
+   "topic": "matchup.27",
+   "variant": "question"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "f9db99fd3a59653c",
+   "measured_at": "2026-11-20T17:39:47.499383+00:00",
+   "topic": "matchup.27",
+   "variant": "question"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "f9db99fd3a59653c",
+   "measured_at": "2026-11-20T17:39:47.499387+00:00",
+   "topic": "matchup.27",
+   "variant": "question"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "841f68233b423ba3",
+   "measured_at": "2026-11-20T17:39:47.499392+00:00",
+   "topic": "matchup.26",
+   "variant": "question"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "841f68233b423ba3",
+   "measured_at": "2026-11-20T17:39:47.499396+00:00",
+   "topic": "matchup.26",
+   "variant": "question"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "841f68233b423ba3",
+   "measured_at": "2026-11-20T17:39:47.499400+00:00",
+   "topic": "matchup.26",
+   "variant": "question"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "841f68233b423ba3",
+   "measured_at": "2026-11-20T17:39:47.499404+00:00",
+   "topic": "matchup.26",
+   "variant": "question"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "ad14707b7d7262d1",
+   "measured_at": "2026-11-20T17:39:47.499428+00:00",
+   "topic": "matchup.29",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "ad14707b7d7262d1",
+   "measured_at": "2026-11-20T17:39:47.499437+00:00",
+   "topic": "matchup.29",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "ad14707b7d7262d1",
+   "measured_at": "2026-11-20T17:39:47.499442+00:00",
+   "topic": "matchup.29",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "ad14707b7d7262d1",
+   "measured_at": "2026-11-20T17:39:47.499446+00:00",
+   "topic": "matchup.29",
+   "variant": "listicle"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5deabfa2178164c1",
+   "measured_at": "2026-11-20T17:39:47.499450+00:00",
+   "topic": "matchup.30",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5deabfa2178164c1",
+   "measured_at": "2026-11-20T17:39:47.499455+00:00",
+   "topic": "matchup.30",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5deabfa2178164c1",
+   "measured_at": "2026-11-20T17:39:47.499461+00:00",
+   "topic": "matchup.30",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "5deabfa2178164c1",
+   "measured_at": "2026-11-20T17:39:47.499468+00:00",
+   "topic": "matchup.30",
+   "variant": "listicle"
+  },
+  {
+   "channel": "blog",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "95f8a5d4d1fd6813",
+   "measured_at": "2026-11-20T17:39:47.499476+00:00",
+   "topic": "matchup.29",
+   "variant": "listicle"
+  },
+  {
+   "channel": "discord",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "95f8a5d4d1fd6813",
+   "measured_at": "2026-11-20T17:39:47.499484+00:00",
+   "topic": "matchup.29",
+   "variant": "listicle"
+  },
+  {
+   "channel": "telegram",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "95f8a5d4d1fd6813",
+   "measured_at": "2026-11-20T17:39:47.499490+00:00",
+   "topic": "matchup.29",
+   "variant": "listicle"
+  },
+  {
+   "channel": "twitter",
+   "clicks": 0,
+   "conversions": 0,
+   "extra": {},
+   "impressions": 0,
+   "item_id": "95f8a5d4d1fd6813",
+   "measured_at": "2026-11-20T17:39:47.499495+00:00",
+   "topic": "matchup.29",
+   "variant": "listicle"
   }
  ],
  "prospects": {
@@ -12793,6 +14254,486 @@
    "live": false,
    "ok": true,
    "payload_preview": "Tidehunter против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Tidehunter (10/100).\n\nСчёт контр-пика 10 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Tidehunter в этот матчап, если у вас есть выбор. Если уже взяли — играйте от"
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/08b503a97a9d6221.md",
+   "item": {
+    "body": "The counter score is 15 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Riki into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-20T17:39:47.506256+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "08b503a97a9d6221",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/riki"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      32,
+      80
+     ],
+     "hero_names": [
+      "Riki",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.32|matchup|en|enemy=80|hero=32",
+    "title": "Riki vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.32",
+    "variant": "story"
+   },
+   "item_id": "08b503a97a9d6221",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Riki vs Lone Druid: the matchup breakdown\n\nThe counter score is 15 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Riki into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then"
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 15 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Riki into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-20T17:39:47.506256+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "08b503a97a9d6221",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/riki"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      32,
+      80
+     ],
+     "hero_names": [
+      "Riki",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.32|matchup|en|enemy=80|hero=32",
+    "title": "Riki vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.32",
+    "variant": "story"
+   },
+   "item_id": "08b503a97a9d6221",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Riki vs Lone Druid: the matchup breakdown\n\nThe counter score is 15 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Riki into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then"
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 15 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Riki into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-20T17:39:47.506256+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "08b503a97a9d6221",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/riki"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      32,
+      80
+     ],
+     "hero_names": [
+      "Riki",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.32|matchup|en|enemy=80|hero=32",
+    "title": "Riki vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.32",
+    "variant": "story"
+   },
+   "item_id": "08b503a97a9d6221",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Riki vs Lone Druid: the matchup breakdown\n\nThe counter score is 15 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Riki into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then"
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 15 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Riki into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-20T17:39:47.506256+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "08b503a97a9d6221",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/riki"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      32,
+      80
+     ],
+     "hero_names": [
+      "Riki",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.32|matchup|en|enemy=80|hero=32",
+    "title": "Riki vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.32",
+    "variant": "story"
+   },
+   "item_id": "08b503a97a9d6221",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Riki vs Lone Druid: the matchup breakdown\n\nThe counter score is 15 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Riki into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then"
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/1059f3bc6f02635d.md",
+   "item": {
+    "body": "The counter score is 41 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Enigma into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-20T17:39:47.506315+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "1059f3bc6f02635d",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/enigma"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      33,
+      80
+     ],
+     "hero_names": [
+      "Enigma",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.33|matchup|en|enemy=80|hero=33",
+    "title": "Enigma vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.33",
+    "variant": "story"
+   },
+   "item_id": "1059f3bc6f02635d",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Enigma vs Lone Druid: the matchup breakdown\n\nThe counter score is 41 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Enigma into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, "
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 41 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Enigma into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-20T17:39:47.506315+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "1059f3bc6f02635d",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/enigma"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      33,
+      80
+     ],
+     "hero_names": [
+      "Enigma",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.33|matchup|en|enemy=80|hero=33",
+    "title": "Enigma vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.33",
+    "variant": "story"
+   },
+   "item_id": "1059f3bc6f02635d",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Enigma vs Lone Druid: the matchup breakdown\n\nThe counter score is 41 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Enigma into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, "
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 41 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Enigma into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-20T17:39:47.506315+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "1059f3bc6f02635d",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/enigma"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      33,
+      80
+     ],
+     "hero_names": [
+      "Enigma",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.33|matchup|en|enemy=80|hero=33",
+    "title": "Enigma vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.33",
+    "variant": "story"
+   },
+   "item_id": "1059f3bc6f02635d",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Enigma vs Lone Druid: the matchup breakdown\n\nThe counter score is 41 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Enigma into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, "
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "The counter score is 41 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Enigma into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-20T17:39:47.506315+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "1059f3bc6f02635d",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/enigma"
+    },
+    "locale": "en",
+    "media": {
+     "hero_ids": [
+      33,
+      80
+     ],
+     "hero_names": [
+      "Enigma",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.33|matchup|en|enemy=80|hero=33",
+    "title": "Enigma vs Lone Druid: the matchup breakdown",
+    "topic": "matchup.33",
+    "variant": "story"
+   },
+   "item_id": "1059f3bc6f02635d",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Enigma vs Lone Druid: the matchup breakdown\n\nThe counter score is 41 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Enigma into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, "
+  },
+  {
+   "channel": "blog",
+   "detail": "wrote markdown file",
+   "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/ru/e98f50161bf8053e.md",
+   "item": {
+    "body": "Lone Druid — худший матчап для Riki (15/100).\n\nСчёт контр-пика 15 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Riki в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-20T17:39:47.511521+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "e98f50161bf8053e",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/riki"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      32,
+      80
+     ],
+     "hero_names": [
+      "Riki",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.32|matchup|ru|enemy=80|hero=32",
+    "title": "Riki против Lone Druid: разбор матчапа",
+    "topic": "matchup.32",
+    "variant": "story"
+   },
+   "item_id": "e98f50161bf8053e",
+   "live": true,
+   "ok": true,
+   "payload_preview": "Riki против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Riki (15/100).\n\nСчёт контр-пика 15 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Riki в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите сво"
+  },
+  {
+   "channel": "discord",
+   "detail": "discord disabled or uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Lone Druid — худший матчап для Riki (15/100).\n\nСчёт контр-пика 15 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Riki в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-20T17:39:47.511521+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "e98f50161bf8053e",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/riki"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      32,
+      80
+     ],
+     "hero_names": [
+      "Riki",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.32|matchup|ru|enemy=80|hero=32",
+    "title": "Riki против Lone Druid: разбор матчапа",
+    "topic": "matchup.32",
+    "variant": "story"
+   },
+   "item_id": "e98f50161bf8053e",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Riki против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Riki (15/100).\n\nСчёт контр-пика 15 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Riki в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите сво"
+  },
+  {
+   "channel": "telegram",
+   "detail": "telegram disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Lone Druid — худший матчап для Riki (15/100).\n\nСчёт контр-пика 15 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Riki в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-20T17:39:47.511521+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "e98f50161bf8053e",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/riki"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      32,
+      80
+     ],
+     "hero_names": [
+      "Riki",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.32|matchup|ru|enemy=80|hero=32",
+    "title": "Riki против Lone Druid: разбор матчапа",
+    "topic": "matchup.32",
+    "variant": "story"
+   },
+   "item_id": "e98f50161bf8053e",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Riki против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Riki (15/100).\n\nСчёт контр-пика 15 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Riki в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите сво"
+  },
+  {
+   "channel": "twitter",
+   "detail": "twitter disabled/uncredentialed (dry run)",
+   "external_id": "",
+   "item": {
+    "body": "Lone Druid — худший матчап для Riki (15/100).\n\nСчёт контр-пика 15 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Riki в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+    "channel": "blog",
+    "created_at": "2026-11-20T17:39:47.511521+00:00",
+    "hashtags": [
+     "#Dota2",
+     "#Dota",
+     "#DraftMasterAI"
+    ],
+    "item_id": "e98f50161bf8053e",
+    "kind": "post",
+    "links": {
+     "home": "https://www.draftmaster.wiki",
+     "site": "https://www.draftmaster.wiki/counter/riki"
+    },
+    "locale": "ru",
+    "media": {
+     "hero_ids": [
+      32,
+      80
+     ],
+     "hero_names": [
+      "Riki",
+      "Lone Druid"
+     ]
+    },
+    "signature": "matchup.32|matchup|ru|enemy=80|hero=32",
+    "title": "Riki против Lone Druid: разбор матчапа",
+    "topic": "matchup.32",
+    "variant": "story"
+   },
+   "item_id": "e98f50161bf8053e",
+   "live": false,
+   "ok": true,
+   "payload_preview": "Riki против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Riki (15/100).\n\nСчёт контр-пика 15 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Riki в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите сво"
   }
  ],
  "runs": [
@@ -18753,6 +20694,540 @@
      "script_id": "matchup-ru-d4327e9a"
     }
    ]
+  },
+  {
+   "allow_publish": false,
+   "day": "2026-11-20",
+   "items_created": 3,
+   "metrics_ingested": 132,
+   "optimizer_note": "Best variant is 'data-led' (mean score 0.0, CTR 0.0%, n=132). Weight future output toward it.",
+   "outreach": {
+    "candidates": 5,
+    "messages": 5,
+    "paths": [
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_mid-lane-lab.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_carry-clinic.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/creator_offlane-academy.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/community_ru-dota.md",
+     "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/outreach/analyst_stat-line.md"
+    ]
+   },
+   "publish_results": [
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/08b503a97a9d6221.md",
+     "item": {
+      "body": "The counter score is 15 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Riki into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-20T17:39:47.506256+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "08b503a97a9d6221",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/riki"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        32,
+        80
+       ],
+       "hero_names": [
+        "Riki",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.32|matchup|en|enemy=80|hero=32",
+      "title": "Riki vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.32",
+      "variant": "story"
+     },
+     "item_id": "08b503a97a9d6221",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Riki vs Lone Druid: the matchup breakdown\n\nThe counter score is 15 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Riki into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then"
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 15 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Riki into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-20T17:39:47.506256+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "08b503a97a9d6221",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/riki"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        32,
+        80
+       ],
+       "hero_names": [
+        "Riki",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.32|matchup|en|enemy=80|hero=32",
+      "title": "Riki vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.32",
+      "variant": "story"
+     },
+     "item_id": "08b503a97a9d6221",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Riki vs Lone Druid: the matchup breakdown\n\nThe counter score is 15 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Riki into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then"
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 15 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Riki into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-20T17:39:47.506256+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "08b503a97a9d6221",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/riki"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        32,
+        80
+       ],
+       "hero_names": [
+        "Riki",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.32|matchup|en|enemy=80|hero=32",
+      "title": "Riki vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.32",
+      "variant": "story"
+     },
+     "item_id": "08b503a97a9d6221",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Riki vs Lone Druid: the matchup breakdown\n\nThe counter score is 15 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Riki into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then"
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 15 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Riki into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-20T17:39:47.506256+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "08b503a97a9d6221",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/riki"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        32,
+        80
+       ],
+       "hero_names": [
+        "Riki",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.32|matchup|en|enemy=80|hero=32",
+      "title": "Riki vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.32",
+      "variant": "story"
+     },
+     "item_id": "08b503a97a9d6221",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Riki vs Lone Druid: the matchup breakdown\n\nThe counter score is 15 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Riki into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then"
+    },
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/en/1059f3bc6f02635d.md",
+     "item": {
+      "body": "The counter score is 41 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Enigma into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-20T17:39:47.506315+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "1059f3bc6f02635d",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/enigma"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        33,
+        80
+       ],
+       "hero_names": [
+        "Enigma",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.33|matchup|en|enemy=80|hero=33",
+      "title": "Enigma vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.33",
+      "variant": "story"
+     },
+     "item_id": "1059f3bc6f02635d",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Enigma vs Lone Druid: the matchup breakdown\n\nThe counter score is 41 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Enigma into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, "
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 41 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Enigma into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-20T17:39:47.506315+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "1059f3bc6f02635d",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/enigma"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        33,
+        80
+       ],
+       "hero_names": [
+        "Enigma",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.33|matchup|en|enemy=80|hero=33",
+      "title": "Enigma vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.33",
+      "variant": "story"
+     },
+     "item_id": "1059f3bc6f02635d",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Enigma vs Lone Druid: the matchup breakdown\n\nThe counter score is 41 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Enigma into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, "
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 41 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Enigma into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-20T17:39:47.506315+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "1059f3bc6f02635d",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/enigma"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        33,
+        80
+       ],
+       "hero_names": [
+        "Enigma",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.33|matchup|en|enemy=80|hero=33",
+      "title": "Enigma vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.33",
+      "variant": "story"
+     },
+     "item_id": "1059f3bc6f02635d",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Enigma vs Lone Druid: the matchup breakdown\n\nThe counter score is 41 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Enigma into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, "
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "The counter score is 41 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Enigma into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, then tell me I'm wrong. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-20T17:39:47.506315+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "1059f3bc6f02635d",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/enigma"
+      },
+      "locale": "en",
+      "media": {
+       "hero_ids": [
+        33,
+        80
+       ],
+       "hero_names": [
+        "Enigma",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.33|matchup|en|enemy=80|hero=33",
+      "title": "Enigma vs Lone Druid: the matchup breakdown",
+      "topic": "matchup.33",
+      "variant": "story"
+     },
+     "item_id": "1059f3bc6f02635d",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Enigma vs Lone Druid: the matchup breakdown\n\nThe counter score is 41 out of 100 — that is measured across real matches, not a vibe.\n\nWhat to do: do not blind-pick Enigma into this, and if you are already in it, play for your own timings instead of trading straight up.\n\nDraft it, "
+    },
+    {
+     "channel": "blog",
+     "detail": "wrote markdown file",
+     "external_id": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/blog/ru/e98f50161bf8053e.md",
+     "item": {
+      "body": "Lone Druid — худший матчап для Riki (15/100).\n\nСчёт контр-пика 15 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Riki в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-20T17:39:47.511521+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "e98f50161bf8053e",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/riki"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        32,
+        80
+       ],
+       "hero_names": [
+        "Riki",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.32|matchup|ru|enemy=80|hero=32",
+      "title": "Riki против Lone Druid: разбор матчапа",
+      "topic": "matchup.32",
+      "variant": "story"
+     },
+     "item_id": "e98f50161bf8053e",
+     "live": true,
+     "ok": true,
+     "payload_preview": "Riki против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Riki (15/100).\n\nСчёт контр-пика 15 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Riki в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите сво"
+    },
+    {
+     "channel": "discord",
+     "detail": "discord disabled or uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Lone Druid — худший матчап для Riki (15/100).\n\nСчёт контр-пика 15 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Riki в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-20T17:39:47.511521+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "e98f50161bf8053e",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/riki"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        32,
+        80
+       ],
+       "hero_names": [
+        "Riki",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.32|matchup|ru|enemy=80|hero=32",
+      "title": "Riki против Lone Druid: разбор матчапа",
+      "topic": "matchup.32",
+      "variant": "story"
+     },
+     "item_id": "e98f50161bf8053e",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Riki против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Riki (15/100).\n\nСчёт контр-пика 15 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Riki в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите сво"
+    },
+    {
+     "channel": "telegram",
+     "detail": "telegram disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Lone Druid — худший матчап для Riki (15/100).\n\nСчёт контр-пика 15 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Riki в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-20T17:39:47.511521+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "e98f50161bf8053e",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/riki"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        32,
+        80
+       ],
+       "hero_names": [
+        "Riki",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.32|matchup|ru|enemy=80|hero=32",
+      "title": "Riki против Lone Druid: разбор матчапа",
+      "topic": "matchup.32",
+      "variant": "story"
+     },
+     "item_id": "e98f50161bf8053e",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Riki против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Riki (15/100).\n\nСчёт контр-пика 15 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Riki в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите сво"
+    },
+    {
+     "channel": "twitter",
+     "detail": "twitter disabled/uncredentialed (dry run)",
+     "external_id": "",
+     "item": {
+      "body": "Lone Druid — худший матчап для Riki (15/100).\n\nСчёт контр-пика 15 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Riki в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите свои тайминги, а не разменивайтесь в лоб.\n\nСоберите драфт и попробуйте меня опровергнуть. → https://www.draftmaster.wiki",
+      "channel": "blog",
+      "created_at": "2026-11-20T17:39:47.511521+00:00",
+      "hashtags": [
+       "#Dota2",
+       "#Dota",
+       "#DraftMasterAI"
+      ],
+      "item_id": "e98f50161bf8053e",
+      "kind": "post",
+      "links": {
+       "home": "https://www.draftmaster.wiki",
+       "site": "https://www.draftmaster.wiki/counter/riki"
+      },
+      "locale": "ru",
+      "media": {
+       "hero_ids": [
+        32,
+        80
+       ],
+       "hero_names": [
+        "Riki",
+        "Lone Druid"
+       ]
+      },
+      "signature": "matchup.32|matchup|ru|enemy=80|hero=32",
+      "title": "Riki против Lone Druid: разбор матчапа",
+      "topic": "matchup.32",
+      "variant": "story"
+     },
+     "item_id": "e98f50161bf8053e",
+     "live": false,
+     "ok": true,
+     "payload_preview": "Riki против Lone Druid: разбор матчапа\n\nLone Druid — худший матчап для Riki (15/100).\n\nСчёт контр-пика 15 из 100 — это реальная разница по данным матчей, а не ощущение.\n\nЧто делать: не берите Riki в этот матчап, если у вас есть выбор. Если уже взяли — играйте от фарма и ждите сво"
+    }
+   ],
+   "published_dry": 9,
+   "published_live": 3,
+   "started_at": "2026-11-20T17:39:47.498430+00:00",
+   "variant_chosen": "story",
+   "videos": [
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/en",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-en-2d0b20f2"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/en",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-en-1b0c9315"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/ru",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-ru-a4ca614d"
+    },
+    {
+     "dir": "/home/runner/work/DraftMaster-AI/DraftMaster-AI/data/growth/out/video/ru",
+     "duration_seconds": 11.5,
+     "ffmpeg": false,
+     "mp4": "",
+     "script_id": "matchup-ru-5a1789e7"
+    }
+   ]
   }
  ],
  "schema_version": 1,
@@ -18761,35 +21236,35 @@
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
-   "n": 120,
+   "n": 132,
    "score": 0.0
   },
   "hook-first": {
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
-   "n": 108,
+   "n": 120,
    "score": 0.0
   },
   "listicle": {
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
-   "n": 96,
+   "n": 120,
    "score": 0.0
   },
   "question": {
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
-   "n": 96,
+   "n": 120,
    "score": 0.0
   },
   "story": {
    "clicks": 0,
    "conversions": 0,
    "impressions": 0,
-   "n": 240,
+   "n": 300,
    "score": 0.0
   }
  }
